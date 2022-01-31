@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 
-import Image from "next/image";
-
 const DealsOfTheDay: NextPage = () => {
   return (
     <div className="row deals-wrapper appear-animate mb-8">
@@ -27,7 +25,7 @@ const DealsOfTheDay: NextPage = () => {
                           <div className="swiper-wrapper row cols-1 gutter-no">
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/1-1-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
                                   alt="Product Image"
@@ -38,7 +36,7 @@ const DealsOfTheDay: NextPage = () => {
                             </div>
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/1-2-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/1-2-800x900.jpg"
                                   alt="Product Image"
@@ -49,7 +47,7 @@ const DealsOfTheDay: NextPage = () => {
                             </div>
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/1-3-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/1-3-800x900.jpg"
                                   alt="Product Image"
@@ -60,7 +58,7 @@ const DealsOfTheDay: NextPage = () => {
                             </div>
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/1-4-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/1-4-800x900.jpg"
                                   alt="Product Image"
@@ -96,7 +94,7 @@ const DealsOfTheDay: NextPage = () => {
                         >
                           <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/1-1-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -104,7 +102,7 @@ const DealsOfTheDay: NextPage = () => {
                               />
                             </div>
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/1-2-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -112,7 +110,7 @@ const DealsOfTheDay: NextPage = () => {
                               />
                             </div>
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/1-3-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -120,7 +118,7 @@ const DealsOfTheDay: NextPage = () => {
                               />
                             </div>
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/1-4-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -266,7 +264,7 @@ const DealsOfTheDay: NextPage = () => {
                           <div className="swiper-wrapper row cols-1 gutter-no">
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/2-1-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/2-1-800x900.jpg"
                                   alt="Product Image"
@@ -277,7 +275,7 @@ const DealsOfTheDay: NextPage = () => {
                             </div>
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/2-2-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/2-2-800x900.jpg"
                                   alt="Product Image"
@@ -288,7 +286,7 @@ const DealsOfTheDay: NextPage = () => {
                             </div>
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/2-3-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/2-3-800x900.jpg"
                                   alt="Product Image"
@@ -299,7 +297,7 @@ const DealsOfTheDay: NextPage = () => {
                             </div>
                             <div className="swiper-slide">
                               <figure className="product-image">
-                                <Image
+                                <img
                                   src="/images/demos/demo1/products/2-4-600x675.jpg"
                                   data-zoom-image="/images/demos/demo1/products/2-4-800x900.jpg"
                                   alt="Product Image"
@@ -330,7 +328,7 @@ const DealsOfTheDay: NextPage = () => {
                         >
                           <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/2-1-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -338,7 +336,7 @@ const DealsOfTheDay: NextPage = () => {
                               />
                             </div>
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/2-2-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -346,7 +344,7 @@ const DealsOfTheDay: NextPage = () => {
                               />
                             </div>
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/2-3-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -354,7 +352,7 @@ const DealsOfTheDay: NextPage = () => {
                               />
                             </div>
                             <div className="product-thumb swiper-slide">
-                              <Image
+                              <img
                                 src="/images/demos/demo1/products/2-4-600x675.jpg"
                                 alt="Product thumb"
                                 width="60"
@@ -529,7 +527,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget bb-no">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-1.jpg"
                             alt="Product"
                             width="105"
@@ -558,7 +556,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget bb-no">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-2.jpg"
                             alt="Product"
                             width="105"
@@ -590,7 +588,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-3.jpg"
                             alt="Product"
                             width="105"
@@ -622,7 +620,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget bb-no">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-4.jpg"
                             alt="Product"
                             width="105"
@@ -651,7 +649,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget bb-no">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-5.jpg"
                             alt="Product"
                             width="105"
@@ -683,7 +681,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-6.jpg"
                             alt="Product"
                             width="105"
@@ -714,7 +712,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget bb-no">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-7.jpg"
                             alt="Product"
                             width="105"
@@ -743,7 +741,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget bb-no">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-8.jpg"
                             alt="Product"
                             width="105"
@@ -773,7 +771,7 @@ const DealsOfTheDay: NextPage = () => {
                     <div className="product product-widget">
                       <figure className="product-media">
                         <a href="product-default.html">
-                          <Image
+                          <img
                             src="/images/demos/demo1/products/2-9.jpg"
                             alt="Product"
                             width="105"

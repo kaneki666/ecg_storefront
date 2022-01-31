@@ -87,7 +87,7 @@ class MyDocument extends Document {
           <script src="/vendor/skrollr/skrollr.min.js"></script>
           <script src="/vendor/swiper/swiper-bundle.min.js"></script>
         </Head>
-        <body className="home">
+        <body>
           <Main />
           <NextScript />
         </body>
