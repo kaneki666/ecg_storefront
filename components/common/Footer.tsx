@@ -1,6 +1,6 @@
 import React from "react";
 
-const FooterLanding = () => {
+const Footer = () => {
   return (
     <footer
       className="footer appear-animate"
@@ -275,4 +275,4 @@ const FooterLanding = () => {
   );
 };
 
-export default FooterLanding;
+export default Footer;
