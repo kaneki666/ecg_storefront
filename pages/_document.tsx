@@ -75,10 +75,19 @@ class MyDocument extends Document {
           />
           {/* <!-- Link Swiper's CSS --> */}
           <link rel="stylesheet" href="/vendor/swiper/swiper-bundle.min.css" />
-          {/* <!-- Default CSS --> */}
-          {/* <link rel="stylesheet" type="text/css" href="/css/demo1.min.css" /> */}
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/vendor/photoswipe/photoswipe.min.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/vendor/photoswipe/default-skin/default-skin.min.css"
+          />
 
           <script src="/vendor/jquery/jquery.min.js"></script>
+          <script src="assets/vendor/sticky/sticky.js"></script>
           <script src="/vendor/jquery.plugin/jquery.plugin.min.js"></script>
           <script src="/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
           <script src="/vendor/zoom/jquery.zoom.js"></script>
@@ -86,6 +95,8 @@ class MyDocument extends Document {
           <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
           <script src="/vendor/skrollr/skrollr.min.js"></script>
           <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+          <script src="/vendor/photoswipe/photoswipe.js"></script>
+          <script src="/vendor/photoswipe/photoswipe-ui-default.js"></script>
         </Head>
         <body>
           <Main />

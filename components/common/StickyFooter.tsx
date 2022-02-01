@@ -1,6 +1,6 @@
 import React from "react";
 
-const StickyFooterLanding = () => {
+const StickyFooter = () => {
   return (
     <div className="sticky-footer sticky-content fix-bottom">
       <a href="demo1.html" className="sticky-link active">
@@ -124,4 +124,4 @@ const StickyFooterLanding = () => {
   );
 };
 
-export default StickyFooterLanding;
+export default StickyFooter;
