@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import BoxIcons from "../components/landing/BoxIcons";
 import CategoryBanner from "../components/landing/CategoryBanner";
 import DealsOfTheDay from "../components/landing/DealsOfTheDay";
@@ -18,32 +19,37 @@ import WelcomeNavBar from "../components/landing/WelcomeNavBar";
 
 const Home: NextPage = () => {
   return (
-    <body className="home">
-      <div className="page-wrapper">
-        <header className="header">
-          <WelcomeNavBar />
-          <NavbarMiddle />
-          <HeaderBottom />
-        </header>
-        <main className="main">
-          <Sliderlanidng />
-          <div className="container">
-            <BoxIcons />
-            <CategoryBanner />
-            <DealsOfTheDay />
-            <TopCategoriesOfMonth />
-            <ProductsContainer />
-          </div>
-          <PopUpLanding />
-        </main>
-        <FooterLanding />
-      </div>
-      <StickyFooterLanding />
-      <ScrollToTop />
-      <MobileMenu />
-      {/* <NewsLetterPopup /> */}
-      <ProductQuickView />
-    </body>
+    <div>
+      <Head>
+        <link rel="stylesheet" type="text/css" href="/css/demo1.min.css" />
+      </Head>
+      <body className="home">
+        <div className="page-wrapper">
+          <header className="header">
+            <WelcomeNavBar />
+            <NavbarMiddle />
+            <HeaderBottom />
+          </header>
+          <main className="main">
+            <Sliderlanidng />
+            <div className="container">
+              <BoxIcons />
+              <CategoryBanner />
+              <DealsOfTheDay />
+              <TopCategoriesOfMonth />
+              <ProductsContainer />
+            </div>
+            <PopUpLanding />
+          </main>
+          <FooterLanding />
+        </div>
+        <StickyFooterLanding />
+        <ScrollToTop />
+        <MobileMenu />
+        {/* <NewsLetterPopup /> */}
+        <ProductQuickView />
+      </body>
+    </div>
   );
 };
 
