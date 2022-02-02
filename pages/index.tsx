@@ -4,7 +4,7 @@ import BoxIcons from "../components/landing/BoxIcons";
 import CategoryBanner from "../components/landing/CategoryBanner";
 import DealsOfTheDay from "../components/landing/DealsOfTheDay";
 import FooterLanding from "../components/common/Footer";
-import HeaderBottom from "../components/landing/HeaderBottom";
+
 import MobileMenu from "../components/common/MobileMenu";
 import NavbarMiddle from "../components/common/NavbarMiddle";
 import NewsLetterPopup from "../components/landing/NewsLetterPopup";
@@ -16,6 +16,7 @@ import Sliderlanidng from "../components/landing/Sliderlanidng";
 import StickyFooterLanding from "../components/common/StickyFooter";
 import TopCategoriesOfMonth from "../components/landing/TopCategoriesOfMonth";
 import WelcomeNavBar from "../components/common/WelcomeNavBar";
+import HeaderBottom from "../components/common/HeaderBottom";
 
 const Home: NextPage = () => {
   return (

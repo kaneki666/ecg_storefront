@@ -4,7 +4,6 @@ import React from "react";
 import SingleStore from "../../components/storelist/SingleStore";
 import SearchFilter from "../../components/storelist/SearchFilter";
 
-import HeaderBottom from "../../components/landing/HeaderBottom";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import NavbarMiddle from "../../components/common/NavbarMiddle";
 import StickyFooter from "../../components/common/StickyFooter";
@@ -13,6 +12,7 @@ import MobileMenu from "../../components/common/MobileMenu";
 import ProductQuickView from "../../components/landing/ProductQuickView";
 import Footer from "../../components/common/Footer";
 import BreadCrumb from "../../components/storelist/BreadCrumb";
+import HeaderBottom from "../../components/common/HeaderBottom";
 
 const store_props = [
   {

@@ -9,15 +9,17 @@ import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooterLanding from "../../components/common/StickyFooter";
 import BoughtTogether from "../../components/productdetail/BoughtTogether";
 import BreadCrumb from "../../components/productdetail/BreadCrumb";
-import HeaderBottom from "../../components/landing/HeaderBottom";
+
 import MoreProductsLike from "../../components/productdetail/MoreProductsLike";
 import PhotoSwiper from "../../components/productdetail/PhotoSwiper";
 import ProductDetailsTab from "../../components/productdetail/ProductDetailsTab";
 import ProductSingle from "../../components/productdetail/ProductSingle";
 import Sidebar from "../../components/productdetail/Sidebar";
 import VendorProducts from "../../components/productdetail/VendorProducts";
+import { NextPage } from "next";
+import HeaderBottom from "../../components/common/HeaderBottom";
 
-const index = () => {
+const index: NextPage = () => {
   return (
     <div>
       <Head>
