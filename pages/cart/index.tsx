@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import BreadCrumbCart from "../../components/cart/BreadCrumbCart";
 import SideBarCart from "../../components/cart/SideBarCart";
-import TableCart from "../../components/cart/tableCart";
+import TableCart from "../../components/cart/TableCart";
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import MobileMenu from "../../components/common/MobileMenu";
