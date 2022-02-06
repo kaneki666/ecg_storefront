@@ -8,7 +8,7 @@ import ProductQuickView from "../../components/landing/ProductQuickView";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooterLanding from "../../components/common/StickyFooter";
 import BoughtTogether from "../../components/productdetail/BoughtTogether";
-import BreadCrumb from "../../components/productdetail/BreadCrumb";
+import BreadCrumb from "../../components/common/BreadCrumb";
 
 import MoreProductsLike from "../../components/productdetail/MoreProductsLike";
 import PhotoSwiper from "../../components/productdetail/PhotoSwiper";
@@ -19,7 +19,7 @@ import VendorProducts from "../../components/productdetail/VendorProducts";
 import { NextPage } from "next";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import PageHeader from "../../components/login/PageHeader";
-import BreadcrumbLogin from "../../components/login/BreadcrumbLogin";
+
 import PageContent from "../../components/login/PageContent";
 
 const index: NextPage = () => {
@@ -36,9 +36,9 @@ const index: NextPage = () => {
             <HeaderBottom />
           </header>
           <main className="main login-page">
-            <PageHeader/>
-            <BreadcrumbLogin/>
-            <PageContent/>
+            <PageHeader />
+            <BreadCrumb title="Login" hrefTitle="Home" toPage="/" />
+            <PageContent />
           </main>
           <FooterLanding />
           <StickyFooterLanding />
