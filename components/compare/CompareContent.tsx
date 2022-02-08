@@ -118,6 +118,3 @@ const CompareContent = (props: any) => {
 
 export default CompareContent;
  
-
-
-
