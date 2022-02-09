@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import HeaderBottomMiddle from "./HeaderBottomMiddle";
+import HeaderBottomRight from "./HeaderBottomRight";
 
 const HeaderBottom = () => {
   return (
@@ -644,40 +646,9 @@ const HeaderBottom = () => {
                 </ul>
               </div>
             </div>
-            <nav className="main-nav">
-              <ul className="menu active-underline">
-                <li className="active">
-                  <a href="demo1.html">Home</a>
-                </li>
-
-                <li>
-                  <a href="vendor-dokan-store.html">Store</a>
-                  <ul>
-                    <li>
-                      <a href="vendor-dokan-store-list.html">Store Listing</a>
-                    </li>
-                    <li>
-                      <a href="vendor-wcfm-store-product-grid.html">
-                        Vendor Store
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li>
-                  <a href="about-us.html">Become A Vendor</a>
-                </li>
-              </ul>
-            </nav>
+            <HeaderBottomMiddle/>
           </div>
-          <div className="header-right">
-            <a href="#" className="d-xl-show">
-              <i className="w-icon-map-marker mr-1"></i>Track Order
-            </a>
-            <a href="#">
-              <i className="w-icon-sale"></i>Daily Deals
-            </a>
-          </div>
+          <HeaderBottomRight/>
         </div>
       </div>
     </div>
