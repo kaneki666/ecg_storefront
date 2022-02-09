@@ -39,7 +39,7 @@ const StickyFooter = () => {
               <figure className="product-media">
                 <a href="product-default.html">
                   <img
-                    src="assets/images/cart/product-1.jpg"
+                    src="/images/cart/product-1.jpg"
                     alt="product"
                     height="84"
                     width="94"
@@ -68,7 +68,7 @@ const StickyFooter = () => {
               <figure className="product-media">
                 <a href="product-default.html">
                   <img
-                    src="assets/images/cart/product-2.jpg"
+                    src="/images/cart/product-2.jpg"
                     alt="product"
                     width="84"
                     height="94"

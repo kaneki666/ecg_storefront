@@ -7,7 +7,6 @@ import FooterLanding from "../components/common/Footer";
 
 import MobileMenu from "../components/common/MobileMenu";
 import NavbarMiddle from "../components/common/NavbarMiddle";
-import NewsLetterPopup from "../components/landing/NewsLetterPopup";
 import PopUpLanding from "../components/landing/PopUpLanding";
 import ProductQuickView from "../components/landing/ProductQuickView";
 import ProductsContainer from "../components/landing/ProductsContainer";

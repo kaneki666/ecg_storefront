@@ -87,7 +87,7 @@ class MyDocument extends Document {
           />
 
           <script src="/vendor/jquery/jquery.min.js"></script>
-          <script src="assets/vendor/sticky/sticky.js"></script>
+          <script src="/vendor/sticky/sticky.js"></script>
           <script src="/vendor/jquery.plugin/jquery.plugin.min.js"></script>
           <script src="/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
           <script src="/vendor/zoom/jquery.zoom.js"></script>

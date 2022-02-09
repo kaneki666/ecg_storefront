@@ -8,20 +8,17 @@ const WelcomeNavBar = () => {
           <p className="welcome-msg">WELCOME TO Miaki STORE</p>
         </div>
         <div className="header-right">
-          <a href="contact-us.html" className="d-lg-show">
+          <a href="/contactus" className="d-lg-show">
             Contact Us
           </a>
-          <a href="my-account.html" className="d-lg-show">
+          <a href="/profile" className="d-lg-show">
             My Account
           </a>
-          <a href="assets/ajax/login.html" className="d-lg-show login sign-in">
+          <a href="/login" className="d-lg-show">
             <i className="w-icon-account"></i>Sign In
           </a>
           <span className="delimiter d-lg-show">/</span>
-          <a
-            href="assets/ajax/login.html"
-            className="ml-0 d-lg-show login register"
-          >
+          <a href="/login" className="d-lg-show">
             Register
           </a>
         </div>
