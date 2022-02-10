@@ -2,8 +2,14 @@ import React from "react";
 import Image from "next/image";
 import HeaderBottomMiddle from "./HeaderBottomMiddle";
 import HeaderBottomRight from "./HeaderBottomRight";
+import {
+  CategoriesProps,
+  SubCategoryProps,
+} from "../../utils/types/landingpage";
 
-const HeaderBottom = () => {
+const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
+  console.log(data);
+
   return (
     <div className="header-bottom sticky-content fix-top sticky-header has-dropdown">
       <div className="container">
@@ -29,116 +35,38 @@ const HeaderBottom = () => {
 
               <div className="dropdown-box">
                 <ul className="menu vertical-menu category-menu">
-                  <li>
-                    <a href="shop-fullwidth-banner.html">
-                      <i className="w-icon-tshirt2"></i>Fashion
-                    </a>
-                    <ul className="megamenu">
+                  {data.length > 0 &&
+                    data.map((item: CategoriesProps) => (
                       <li>
-                        <h4 className="menu-title">Women</h4>
-                        <hr className="divider" />
-                        <ul>
+                        <a
+                          key={item.id.toString()}
+                          href="shop-fullwidth-banner.html"
+                        >
+                          <i className="w-icon-tshirt2"></i>
+                          {item.name}
+                        </a>
+                        <ul className="megamenu">
                           <li>
-                            <a href="shop-fullwidth-banner.html">
-                              New Arrivals
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">
-                              Best Sellers
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Trending</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Clothing</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Shoes</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Bags</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Accessories</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">
-                              Jewlery & Watches
-                            </a>
+                            {/* <h4 className="menu-title">Men</h4> 
+                            <hr className="divider" />*/}
+                            {item.sub_category.length > 0 &&
+                              item.sub_category.map(
+                                (subItem: SubCategoryProps) => (
+                                  <ul key={`${subItem.id}`}>
+                                    <li>
+                                      <a href="shop-fullwidth-banner.html">
+                                        {subItem.name}
+                                      </a>
+                                    </li>
+                                  </ul>
+                                )
+                              )}
                           </li>
                         </ul>
                       </li>
-                      <li>
-                        <h4 className="menu-title">Men</h4>
-                        <hr className="divider" />
-                        <ul>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">
-                              New Arrivals
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">
-                              Best Sellers
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Trending</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Clothing</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Shoes</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Bags</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">Accessories</a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">
-                              Jewlery & Watches
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div className="banner-fixed menu-banner menu-banner2">
-                          <figure>
-                            <Image
-                              src="/images/menu/banner-2.jpg"
-                              alt="Menu Banner"
-                              width="235"
-                              height="347"
-                            />
-                          </figure>
-                          <div className="banner-content">
-                            <div className="banner-price-info mb-1 ls-normal">
-                              Get up to
-                              <strong className="text-primary text-uppercase">
-                                20%Off
-                              </strong>
-                            </div>
-                            <h3 className="banner-title ls-normal">
-                              Hot Sales
-                            </h3>
-                            <a
-                              href="shop-banner-sidebar.html"
-                              className="btn btn-dark btn-sm btn-link btn-slide-right btn-icon-right"
-                            >
-                              Shop Now
-                              <i className="w-icon-long-arrow-right"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
+                    ))}
+
+                  {/* <li>
                     <a href="shop-fullwidth-banner.html">
                       <i className="w-icon-home"></i>Home & Garden
                     </a>
@@ -642,13 +570,13 @@ const HeaderBottom = () => {
                     >
                       View All Categories<i className="w-icon-angle-right"></i>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
-            <HeaderBottomMiddle/>
+            <HeaderBottomMiddle />
           </div>
-          <HeaderBottomRight/>
+          <HeaderBottomRight />
         </div>
       </div>
     </div>

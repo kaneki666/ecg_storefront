@@ -1,4 +1,4 @@
-import { userLoginProps } from "../../utils/reduxTypes";
+import { userLoginProps } from "../../utils/types/reduxTypes";
 import { LOGIN_ACTION, LOGOUT_ACTION, SAVE_USERINFO_ACTION } from "./type";
 
 export const loginAction = (value: boolean) => {

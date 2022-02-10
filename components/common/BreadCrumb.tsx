@@ -1,5 +1,5 @@
 import React from "react";
-import { BreadCrumbProps } from "../../utils/types";
+import { BreadCrumbProps } from "../../utils/types/types";
 
 const BreadCrumb = ({ title, hrefTitle, toPage }: BreadCrumbProps) => {
   return (

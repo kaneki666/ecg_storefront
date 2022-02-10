@@ -5,8 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { API_BASE_URL } from "../../pages/api/hello";
 import { loginAction, saveUserinfoAction } from "../../store/user/actions";
-import { userLoginProps } from "../../utils/reduxTypes";
-import { LoginProps } from "../../utils/types";
+import { userLoginProps } from "../../utils/types/reduxTypes";
+import { LoginProps } from "../../utils/types/types";
 
 const FormLogin = () => {
   const dispatch = useDispatch();

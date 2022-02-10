@@ -1,4 +1,8 @@
-import type { NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import Head from "next/head";
 import BoxIcons from "../components/landing/BoxIcons";
 import CategoryBanner from "../components/landing/CategoryBanner";
@@ -16,8 +20,12 @@ import StickyFooterLanding from "../components/common/StickyFooter";
 import TopCategoriesOfMonth from "../components/landing/TopCategoriesOfMonth";
 import WelcomeNavBar from "../components/common/WelcomeNavBar";
 import HeaderBottom from "../components/common/HeaderBottom";
+import { API_BASE_URL } from "./api/hello";
+import { CategoriesProps } from "../utils/types/landingpage";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({
+  categoriesData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Head>
@@ -28,7 +36,7 @@ const Home: NextPage = () => {
           <header className="header">
             <WelcomeNavBar />
             <NavbarMiddle />
-            <HeaderBottom />
+            <HeaderBottom data={categoriesData} />
           </header>
           <main className="main">
             <Sliderlanidng />
@@ -46,7 +54,6 @@ const Home: NextPage = () => {
         <StickyFooterLanding />
         <ScrollToTop />
         <MobileMenu />
-        {/* <NewsLetterPopup /> */}
         <ProductQuickView />
       </body>
     </div>
@@ -54,3 +61,18 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const categoriesData: CategoriesProps[] = await res.json();
+
+  if (res.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { categoriesData }, // will be passed to the page component as props
+  };
+};

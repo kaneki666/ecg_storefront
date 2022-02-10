@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { AuthRootStateType } from "../../utils/reduxTypes";
+import { AuthRootStateType } from "../../utils/types/reduxTypes";
 import { LOGIN_ACTION, LOGOUT_ACTION, SAVE_USERINFO_ACTION } from "./type";
 
 const initialState: AuthRootStateType = {
