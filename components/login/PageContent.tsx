@@ -1,18 +1,7 @@
-import React, { FormEvent, useState } from "react";
-
+import React from "react";
+import FormLogin from "./FormLogin";
+import { ToastContainer } from "react-toastify";
 const PageContent = () => {
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
-  const handlePress = (event: FormEvent<HTMLInputElement>) => {
-    const value = event.currentTarget.value;
-    setUserData({
-      ...userData,
-      [event.currentTarget.name]: value,
-    });
-  };
-
   return (
     <div>
       <div className="page-content">
@@ -33,44 +22,7 @@ const PageContent = () => {
               </ul>
 
               <div className="tab-content">
-                <div className="tab-pane active" id="sign-in">
-                  <div className="form-group">
-                    <label>Username or email address *</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      name="email"
-                      id="email"
-                      required
-                      onChange={handlePress}
-                    />
-                  </div>
-                  <div className="form-group mb-0">
-                    <label>Password *</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="password"
-                      id="password"
-                      required
-                      onChange={handlePress}
-                    />
-                  </div>
-                  <div className="form-checkbox d-flex align-items-center justify-content-between">
-                    <input
-                      type="checkbox"
-                      className="custom-checkbox"
-                      id="remember1"
-                      name="remember1"
-                      required
-                    />
-                    <label>Remember me</label>
-                    <a href="#">Last your password?</a>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Sign In
-                  </a>
-                </div>
+                <FormLogin />
 
                 <div className="tab-pane" id="sign-up">
                   <div className="form-group">

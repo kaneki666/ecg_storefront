@@ -1,6 +1,6 @@
 import { AnyAction } from "redux";
 import { AuthRootStateType } from "../../utils/reduxTypes";
-import { LOGIN_ACTION, LOGOUT_ACTION } from "./type";
+import { LOGIN_ACTION, LOGOUT_ACTION, SAVE_USERINFO_ACTION } from "./type";
 
 const initialState: AuthRootStateType = {
   isLoggedIn: false,
@@ -15,6 +15,8 @@ export const AuthReducer = (
   switch (action.type) {
     case LOGIN_ACTION:
       return { ...state, isLoggedIn: action.payload };
+    case SAVE_USERINFO_ACTION:
+      return { ...state, userInfo: action.payload };
     case LOGOUT_ACTION:
       return { ...state, isLoggedIn: action.payload };
     default:

@@ -5,3 +5,8 @@ export interface BreadCrumbProps {
   hrefTitle: string;
   toPage: string;
 }
+
+export interface LoginProps {
+  email: string;
+  password: string;
+}
