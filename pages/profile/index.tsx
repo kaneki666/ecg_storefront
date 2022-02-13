@@ -1,4 +1,8 @@
-import { NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import Head from "next/head";
 import React from "react";
 import BreadCrumb from "../../components/common/BreadCrumb";
@@ -12,8 +16,12 @@ import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import ProductQuickView from "../../components/landing/ProductQuickView";
 import ProfileContent from "../../components/profile/ProfileContent";
+import { CategoriesProps } from "../../utils/types/landingpage";
+import { API_BASE_URL } from "../api/hello";
 
-const index: NextPage = () => {
+const index: NextPage = ({
+  categoriesData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Head>
@@ -24,7 +32,7 @@ const index: NextPage = () => {
           <header className="header">
             <WelcomeNavBar />
             <NavbarMiddle />
-            <HeaderBottom />
+            <HeaderBottom data={categoriesData} />
           </header>
           <main className="main">
             <PageHeaderTitle title="My Profile" />
@@ -47,3 +55,18 @@ const index: NextPage = () => {
 };
 
 export default index;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const categoriesData: CategoriesProps[] = await res.json();
+
+  if (res.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { categoriesData }, // will be passed to the page component as props
+  };
+};

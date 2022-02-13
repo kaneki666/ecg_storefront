@@ -7,7 +7,7 @@ const HeaderBottomMiddle = () => {
         <nav className="main-nav">
             <ul className="menu active-underline">
             <li className="active">
-                <a href="demo1.html">Home</a>
+                <a href="/">Home</a>
             </li>
 
             <li>

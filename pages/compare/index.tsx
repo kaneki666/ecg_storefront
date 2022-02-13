@@ -1,4 +1,8 @@
-import { NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import Head from "next/head";
 import React from "react";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
@@ -16,6 +20,8 @@ import PageFooter from "../../components/wishlist/PageFooter";
 import CompareHeader from "../../components/compare/CompareHeader";
 import BreadcrumbCompare from "../../components/compare/BreadcrumbCompare";
 import CompareContent from "../../components/compare/CompareContent";
+import { CategoriesProps } from "../../utils/types/landingpage";
+import { API_BASE_URL } from "../api/hello";
 
 const compare_props = [
   {
@@ -63,7 +69,9 @@ const compare_props = [
   },
 ];
 
-const index: NextPage = () => {
+const index: NextPage = ({
+  categoriesData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Head>
@@ -74,7 +82,7 @@ const index: NextPage = () => {
           <header className="header header-border">
             <WelcomeNavBar />
             <NavbarMiddle />
-            <HeaderBottom />
+            <HeaderBottom data={categoriesData} />
           </header>
           <main className="main wishlist-page">
             <CompareHeader />
@@ -94,3 +102,19 @@ const index: NextPage = () => {
 };
 
 export default index;
+
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const categoriesData: CategoriesProps[] = await res.json();
+
+  if (res.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { categoriesData }, // will be passed to the page component as props
+  };
+};

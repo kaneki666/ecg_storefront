@@ -1,8 +1,12 @@
-import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import SingleStore from "../../components/storelist/SingleStore";
 import SearchFilter from "../../components/storelist/SearchFilter";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import NavbarMiddle from "../../components/common/NavbarMiddle";
@@ -13,6 +17,8 @@ import ProductQuickView from "../../components/landing/ProductQuickView";
 import Footer from "../../components/common/Footer";
 import BreadCrumb from "../../components/storelist/BreadCrumb";
 import HeaderBottom from "../../components/common/HeaderBottom";
+import { CategoriesProps } from "../../utils/types/landingpage";
+import { API_BASE_URL } from "../api/hello";
 
 const store_props = [
   {
@@ -41,7 +47,9 @@ const store_props = [
   },
 ];
 
-const StoreList: NextPage = () => {
+const StoreList: NextPage = ({
+  categoriesData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Head>
@@ -52,7 +60,7 @@ const StoreList: NextPage = () => {
           <header className="header header-border">
             <WelcomeNavBar />
             <NavbarMiddle />
-            <HeaderBottom />
+            <HeaderBottom data={categoriesData} />
           </header>
           <main className="main">
             <BreadCrumb />
@@ -88,3 +96,19 @@ const StoreList: NextPage = () => {
 };
 
 export default StoreList;
+
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const categoriesData: CategoriesProps[] = await res.json();
+
+  if (res.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { categoriesData }, // will be passed to the page component as props
+  };
+};

@@ -88,7 +88,7 @@ const NavbarCart = () => {
 
     <div className="cart-action">
       <a
-        href="cart.html"
+        href="cart"
         className="btn btn-dark btn-outline btn-rounded"
       >
         View Cart

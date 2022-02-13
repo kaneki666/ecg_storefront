@@ -85,6 +85,7 @@ const FormSignup = () => {
             type="text"
             className="form-control"
             id="first-name"
+            required
             {...register("first_name", { required: true })}
             />
         </div>
@@ -94,6 +95,7 @@ const FormSignup = () => {
             type="text"
             className="form-control"
             id="last-name"
+            required
             {...register("last_name", { required: true })}
             />
         </div>
