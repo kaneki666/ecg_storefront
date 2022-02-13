@@ -36,21 +36,27 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
               <div className="dropdown-box">
                 <ul className="menu vertical-menu category-menu">
                   {data.length > 0 &&
-                    data.map((item: CategoriesProps) => (
-                      <li>
-                        <a
-                          key={item.id.toString()}
-                          href="shop-fullwidth-banner.html"
-                        >
-                          <i className="w-icon-tshirt2"></i>
-                          {item.name}
-                        </a>
-                        <ul className="megamenu">
-                          <li>
-                            {/* <h4 className="menu-title">Men</h4> 
+                    data.map((item: CategoriesProps) =>
+                      item.sub_category.length > 0 ? (
+                        <li>
+                          <a
+                            key={item.id.toString()}
+                            href="shop-fullwidth-banner.html"
+                          >
+                            <i
+                              className={
+                                item.name === "ELECTRONICS"
+                                  ? "w-icon-electronics"
+                                  : "w-icon-tshirt2"
+                              }
+                            ></i>
+                            {item.name}
+                          </a>
+                          <ul className="megamenu">
+                            <li>
+                              {/* <h4 className="menu-title">Men</h4> 
                             <hr className="divider" />*/}
-                            {item.sub_category.length > 0 &&
-                              item.sub_category.map(
+                              {item.sub_category.map(
                                 (subItem: SubCategoryProps) => (
                                   <ul key={`${subItem.id}`}>
                                     <li>
@@ -61,10 +67,26 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                                   </ul>
                                 )
                               )}
-                          </li>
-                        </ul>
-                      </li>
-                    ))}
+                            </li>
+                          </ul>
+                        </li>
+                      ) : (
+                        <li>
+                          <a href="shop-fullwidth-banner.html">
+                            <i
+                              className={
+                                item.name === "TOYS & GAMES"
+                                  ? "w-icon-gamepad"
+                                  : item.name === "HEALTH & BEAUTY"
+                                  ? "w-icon-heartbeat"
+                                  : "w-icon-furniture"
+                              }
+                            ></i>{" "}
+                            {item.name}
+                          </a>
+                        </li>
+                      )
+                    )}
 
                   {/* <li>
                     <a href="shop-fullwidth-banner.html">

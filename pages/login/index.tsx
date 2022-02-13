@@ -16,13 +16,21 @@ import ProductDetailsTab from "../../components/productdetail/ProductDetailsTab"
 import ProductSingle from "../../components/productdetail/ProductSingle";
 import Sidebar from "../../components/productdetail/Sidebar";
 import VendorProducts from "../../components/productdetail/VendorProducts";
-import { NextPage } from "next";
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import PageHeader from "../../components/login/PageHeader";
 
 import PageContent from "../../components/login/PageContent";
+import { API_BASE_URL } from "../api/hello";
+import { CategoriesProps } from "../../utils/types/landingpage";
 
-const index: NextPage = () => {
+const index: NextPage = ({
+  categoriesData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Head>
@@ -33,7 +41,7 @@ const index: NextPage = () => {
           <header className="header header-border">
             <WelcomeNavBar />
             <NavbarMiddle />
-            <HeaderBottom />
+            <HeaderBottom data={categoriesData} />
           </header>
           <main className="main login-page">
             <PageHeader />
@@ -52,3 +60,18 @@ const index: NextPage = () => {
 };
 
 export default index;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const categoriesData: CategoriesProps[] = await res.json();
+
+  if (res.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { categoriesData },
+  };
+};
