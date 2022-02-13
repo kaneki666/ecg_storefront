@@ -1,7 +1,5 @@
 import Head from "next/head";
 import React from "react";
-import NavbarMiddle from "../../components/landing/NavbarMiddle";
-import WelcomeNavBar from "../../components/landing/WelcomeNavBar";
 import MainContent from "../../components/vendor/MainContent";
 import Sidebar from "../../components/vendor/Sidebar";
 import StoreBanner from "../../components/vendor/StoreBanner";
@@ -10,6 +8,8 @@ import StickyFooter from "../../components/common/StickyFooter";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import MobileMenu from "../../components/common/MobileMenu";
 import ProductQuickView from "../../components/landing/ProductQuickView";
+import WelcomeNavBar from "../../components/common/WelcomeNavBar";
+import NavbarMiddle from "../../components/common/NavbarMiddle";
 
 const index = () => {
   return (
@@ -28,8 +28,8 @@ const index = () => {
                   <nav className="breadcrumb-nav">
                     <div className="container">
                         <ul className="breadcrumb bb-no">
-                            <li><a href="demo1.html">Home</a></li>
-                            <li><a href="#">Vendor</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="vendor">Vendor</a></li>
                             <li><a href="#">WCFM</a></li>
                             <li>Store</li>
                         </ul>

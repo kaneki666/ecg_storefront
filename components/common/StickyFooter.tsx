@@ -3,20 +3,20 @@ import React from "react";
 const StickyFooter = () => {
   return (
     <div className="sticky-footer sticky-content fix-bottom">
-      <a href="demo1.html" className="sticky-link active">
+      <a href="/" className="sticky-link active">
         <i className="w-icon-home"></i>
         <p>Home</p>
       </a>
-      <a href="shop-banner-sidebar.html" className="sticky-link">
+      <a href="storelist" className="sticky-link">
         <i className="w-icon-category"></i>
         <p>Shop</p>
       </a>
-      <a href="my-account.html" className="sticky-link">
+      <a href="profile" className="sticky-link">
         <i className="w-icon-account"></i>
         <p>Account</p>
       </a>
       <div className="cart-dropdown dir-up">
-        <a href="cart.html" className="sticky-link">
+        <a href="cart" className="sticky-link">
           <i className="w-icon-cart"></i>
           <p>Cart</p>
         </a>
@@ -88,7 +88,7 @@ const StickyFooter = () => {
 
           <div className="cart-action">
             <a
-              href="cart.html"
+              href="cart"
               className="btn btn-dark btn-outline btn-rounded"
             >
               View Cart

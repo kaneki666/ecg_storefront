@@ -52,12 +52,12 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-4 col-sm-6">
               <div className="widget widget-about">
-                <a href="demo1.html" className="logo-footer">
+                <a href="/" className="logo-footer">
                   <img
                     src="/images/logo_footer.png"
                     alt="logo-footer"
-                    width="144"
-                    height="45"
+                    width={144}
+                    height={45}
                   />
                 </a>
                 <div className="widget-body">
@@ -102,7 +102,7 @@ const Footer = () => {
                 <h3 className="widget-title">Company</h3>
                 <ul className="widget-body">
                   <li>
-                    <a href="about-us.html">About Us</a>
+                    <a href="contactus">About Us</a>
                   </li>
                   <li>
                     <a href="#">Team Member</a>
@@ -111,7 +111,7 @@ const Footer = () => {
                     <a href="#">Career</a>
                   </li>
                   <li>
-                    <a href="contact-us.html">Contact Us</a>
+                    <a href="contactus">Contact Us</a>
                   </li>
                   <li>
                     <a href="#">Affilate</a>
@@ -130,16 +130,16 @@ const Footer = () => {
                     <a href="#">Track My Order</a>
                   </li>
                   <li>
-                    <a href="cart.html">View Cart</a>
+                    <a href="cart">View Cart</a>
                   </li>
                   <li>
-                    <a href="login.html">Sign In</a>
+                    <a href="login">Sign In</a>
                   </li>
                   <li>
                     <a href="#">Help</a>
                   </li>
                   <li>
-                    <a href="wishlist.html">My Wishlist</a>
+                    <a href="wishlist">My Wishlist</a>
                   </li>
                   <li>
                     <a href="#">Privacy Policy</a>

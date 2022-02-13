@@ -11,13 +11,13 @@ const HeaderBottomMiddle = () => {
             </li>
 
             <li>
-                <a href="vendor-dokan-store.html">Store</a>
+                <a>Store</a>
                 <ul>
                 <li>
-                    <a href="vendor-dokan-store-list.html">Store Listing</a>
+                    <a href="storelist">Store Listing</a>
                 </li>
                 <li>
-                    <a href="vendor-wcfm-store-product-grid.html">
+                    <a href="vendor">
                     Vendor Store
                     </a>
                 </li>
@@ -25,7 +25,7 @@ const HeaderBottomMiddle = () => {
             </li>
 
             <li>
-                <a href="about-us.html">Become A Vendor</a>
+                <a href="login">Become A Vendor</a>
             </li>
             </ul>
         </nav>
