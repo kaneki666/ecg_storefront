@@ -18,3 +18,8 @@ export interface AuthRootStateType {
 export interface RootAppStateProps {
   AuthReducer: AuthRootStateType;
 }
+
+export interface userSignupProps {
+  status: boolean;
+  data: UserDataProps;
+}

@@ -35,7 +35,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
 
               <div className="dropdown-box">
                 <ul className="menu vertical-menu category-menu">
-                  {data.length > 0 &&
+                  {data && data.length > 0 &&
                     data.map((item: CategoriesProps) => (
                       <li>
                         <a
