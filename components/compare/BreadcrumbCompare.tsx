@@ -5,7 +5,7 @@ const BreadcrumbCompare = () => {
      <nav className="breadcrumb-nav mb-2">
         <div className="container">
             <ul className="breadcrumb">
-                <li><a href="demo1.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li>Compare</li>
             </ul>
         </div>

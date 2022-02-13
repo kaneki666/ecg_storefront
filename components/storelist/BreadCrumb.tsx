@@ -6,10 +6,10 @@ const BreadCrumb = () => {
       <div className="container">
         <ul className="breadcrumb mb-8">
           <li>
-            <a href="demo1.html">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">Vendor</a>
+            <a href="vendor">Vendor</a>
           </li>
           <li>
             <a href="#">WC Vendors</a>

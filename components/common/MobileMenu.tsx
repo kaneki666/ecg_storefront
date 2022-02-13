@@ -42,21 +42,21 @@ const MobileMenu = () => {
           <div className="tab-pane active" id="main-menu">
             <ul className="mobile-menu">
               <li>
-                <a href="demo1.html">Home</a>
+                <a href="/">Home</a>
               </li>
 
               <li>
-                <a href="vendor-dokan-store.html">Store</a>
+                <a>Store</a>
                 <ul>
                   <li>
-                    <a href="vendor-dokan-store-list.html">Store Listing</a>
+                    <a href="storelist">Store Listing</a>
                     {/* <ul>
                                       <li><a href="vendor-dokan-store-list.html">Store listing 1</a></li>
                                      
                                   </ul>  */}
                   </li>
                   <li>
-                    <a href="vendor-wcfm-store-product-grid.html">
+                    <a href="vendor">
                       Vendor Store
                     </a>
                   </li>
@@ -64,7 +64,7 @@ const MobileMenu = () => {
               </li>
 
               <li>
-                <a href="about-us.html">Become A Vendor</a>
+                <a href="login">Become A Vendor</a>
               </li>
             </ul>
           </div>

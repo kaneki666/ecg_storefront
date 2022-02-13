@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React from "react";
-
 import MainContent from "../../components/vendor/MainContent";
 import Sidebar from "../../components/vendor/Sidebar";
 import StoreBanner from "../../components/vendor/StoreBanner";
@@ -30,10 +29,10 @@ const index = () => {
               <div className="container">
                 <ul className="breadcrumb bb-no">
                   <li>
-                    <a href="demo1.html">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
-                    <a href="#">Vendor</a>
+                    <a href="vendor">Vendor</a>
                   </li>
                   <li>
                     <a href="#">WCFM</a>

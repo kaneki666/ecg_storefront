@@ -13,7 +13,7 @@ const NavbarMiddle = () => {
             className="mobile-menu-toggle  w-icon-hamburger"
             aria-label="menu-toggle"
           ></a>
-          <a href="demo1.html" className="logo ml-lg-0">
+          <a href="/" className="logo ml-lg-0">
             <Image src="/images/logo.png" alt="logo" width="144" height="45" />
           </a>
           <form
@@ -52,12 +52,12 @@ const NavbarMiddle = () => {
           <NavbarLiveChat/>
           <a
             className="wishlist label-down link d-xs-show"
-            href="wishlist.html"
+            href="wishlist"
           >
             <i className="w-icon-heart"></i>
             <span className="wishlist-label d-lg-show">Wishlist</span>
           </a>
-          <a className="compare label-down link d-xs-show" href="compare.html">
+          <a className="compare label-down link d-xs-show" href="compare">
             <i className="w-icon-compare"></i>
             <span className="compare-label d-lg-show">Compare</span>
           </a>

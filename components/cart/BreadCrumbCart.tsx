@@ -6,7 +6,7 @@ const BreadCrumbCart = () => {
       <div className="container">
         <ul className="breadcrumb shop-breadcrumb bb-no">
           <li className="active">
-            <a href="cart.html">Shopping Cart</a>
+            <a href="cart">Shopping Cart</a>
           </li>
           <li>
             <a href="checkout.html">Checkout</a>

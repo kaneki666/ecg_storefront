@@ -5,7 +5,7 @@ const BreadCrumb = () => {
     <nav className="breadcrumb-nav container">
       <ul className="breadcrumb bb-no">
         <li>
-          <a href="demo1.html">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>Products</li>
       </ul>
