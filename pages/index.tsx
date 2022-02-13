@@ -73,6 +73,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   return {
-    props: { categoriesData }, // will be passed to the page component as props
+    props: { categoriesData },
   };
 };
