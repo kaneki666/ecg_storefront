@@ -6,6 +6,7 @@ import {
 } from "../../utils/types/landingpage";
 import ProductCategorize from "./ProductCategorize";
 import ProductItem from "./ProductItem";
+import RecentViewProduct from "./RecentViewProduct";
 
 const ProductsContainer = ({
   productList,
@@ -153,7 +154,7 @@ const ProductsContainer = ({
       </div>
       {/* <!-- End of Category Cosmetic Lifestyle --> */}
 
-      <ProductCategorize />
+      <ProductCategorize productList={productList}/>
 
       <h2 className="title title-underline mb-4 ls-normal appear-animate">
         Your Recent Views
@@ -180,158 +181,12 @@ const ProductsContainer = ({
   }"
       >
         <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-1.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">Women's Fashion Handbag</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-2.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">Electric Frying Pan</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-3.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">Black Winter Skating</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-4.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">HD Television</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-5.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">Home Sofa</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-6.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">USB Receipt</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-7.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">Electric Rice-Cooker</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
-          <div className="swiper-slide product-wrap mb-0">
-            <div className="product text-center product-absolute">
-              <figure className="product-media">
-                <a href="https://www.portotheme.com/html/wolmart/product-defaproduct-default.html">
-                  <img
-                    src="/images/demos/demo1/products/7-8.jpg"
-                    alt="Category image"
-                    width="130"
-                    height="146"
-                    style={{ backgroundColor: "#fff" }}
-                  />
-                </a>
-              </figure>
-              <h4 className="product-name">
-                <a href="product-default.html">Table Lamp</a>
-              </h4>
-            </div>
-          </div>
-          {/* <!-- End of Product Wrap --> */}
+        {productList &&
+              shuffleArray(productList.results).map(
+                (productItem: SingleProductProps) => (
+                  <RecentViewProduct productItem={productItem} />
+                )
+              )}
         </div>
         <div className="swiper-pagination"></div>
       </div>

@@ -44,7 +44,7 @@ const Home: NextPage = ({
             <div className="container">
               <BoxIcons />
               <CategoryBanner />
-              <DealsOfTheDay />
+              <DealsOfTheDay productList={productList}/>
               <TopCategoriesOfMonth />
               <ProductsContainer productList={productList} />
             </div>
