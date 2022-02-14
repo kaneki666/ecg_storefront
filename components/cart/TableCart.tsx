@@ -29,7 +29,7 @@ const TableCart = () => {
       <tbody>
         {cart &&
           cart.map((cartItem: CartItemProps) => (
-            <TableCartItem cartItem={cartItem} />
+            <TableCartItem key={cartItem.id.toString()} cartItem={cartItem} />
           ))}
       </tbody>
     </table>

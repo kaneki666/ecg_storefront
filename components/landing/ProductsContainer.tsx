@@ -50,7 +50,10 @@ const ProductsContainer = ({
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {productList &&
               productList.results.map((productItem: SingleProductProps) => (
-                <ProductItem productItem={productItem} />
+                <ProductItem
+                  key={productItem.id.toString()}
+                  productItem={productItem}
+                />
               ))}
           </div>
         </div>
@@ -60,7 +63,10 @@ const ProductsContainer = ({
             {productList &&
               shuffleArray(productList.results).map(
                 (productItem: SingleProductProps) => (
-                  <ProductItem productItem={productItem} />
+                  <ProductItem
+                    key={productItem.id.toString()}
+                    productItem={productItem}
+                  />
                 )
               )}
           </div>
@@ -71,7 +77,10 @@ const ProductsContainer = ({
             {productList &&
               shuffleArray(productList.results).map(
                 (productItem: SingleProductProps) => (
-                  <ProductItem productItem={productItem} />
+                  <ProductItem
+                    key={productItem.id.toString()}
+                    productItem={productItem}
+                  />
                 )
               )}
           </div>
@@ -82,7 +91,10 @@ const ProductsContainer = ({
             {productList &&
               shuffleArray(productList.results).map(
                 (productItem: SingleProductProps) => (
-                  <ProductItem productItem={productItem} />
+                  <ProductItem
+                    key={productItem.id.toString()}
+                    productItem={productItem}
+                  />
                 )
               )}
           </div>
