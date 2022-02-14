@@ -16,6 +16,6 @@ export function shuffleArray(array: SingleProductProps[]) {
       array[currentIndex],
     ];
   }
-  console.log(array[0]);
+
   return array;
 }

@@ -13,7 +13,7 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import StickyFooter from "../../components/common/StickyFooter";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import MobileMenu from "../../components/common/MobileMenu";
-import ProductQuickView from "../../components/landing/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import Footer from "../../components/common/Footer";
 import BreadCrumb from "../../components/storelist/BreadCrumb";
 import HeaderBottom from "../../components/common/HeaderBottom";
@@ -96,7 +96,6 @@ const StoreList: NextPage = ({
 };
 
 export default StoreList;
-
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);

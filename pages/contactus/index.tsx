@@ -13,7 +13,7 @@ import PageHeaderTitle from "../../components/common/PageHeaderTitle";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-import ProductQuickView from "../../components/landing/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import BreadCrumb from "../../components/common/BreadCrumb";
 import ContactUsContent from "../../components/contactus/ContactUsContent";
 import { CategoriesProps } from "../../utils/types/landingpage";

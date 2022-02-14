@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { API_BASE_URL } from "../../pages/api/hello";
 import { loginAction, saveUserinfoAction } from "../../store/user/actions";
-import { userLoginProps } from "../../utils/types/reduxTypes";
+import { UserLoginProps } from "../../utils/types/reduxTypes";
 import { LoginProps } from "../../utils/types/types";
 
 const FormLogin = () => {
@@ -27,7 +27,7 @@ const FormLogin = () => {
     });
 
     if (request.status === 200) {
-      const response: userLoginProps = await request.json();
+      const response: UserLoginProps = await request.json();
       dispatch(loginAction(true));
       dispatch(saveUserinfoAction(response));
       toast("Login Successful!", {

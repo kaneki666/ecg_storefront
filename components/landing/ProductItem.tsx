@@ -1,17 +1,41 @@
 import Image from "next/image";
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  addToCartAction,
+  addToQuickViewAction,
+} from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
+import { CartItemProps } from "../../utils/types/reduxTypes";
 
 const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToQuickView = () =>
+    dispatch(addToQuickViewAction(productItem));
+
+  const handleAddToCart = () => {
+    const cartItem: CartItemProps = {
+      id: productItem.id,
+      thumbnail: productItem.thumbnail,
+      title: productItem.title,
+      price: productItem.price,
+      quantity: 1,
+      totalPrice: productItem.price,
+    };
+    dispatch(addToCartAction(cartItem));
+  };
+
   return (
     <div className="product-wrap">
       <div className="product text-center">
         <figure className="product-media">
-          <a href="#">
+          <a href={`productdetail?slug=${productItem.slug}`}>
             <img src={productItem.thumbnail} width="300" height="338" />
           </a>
           <div className="product-action-vertical">
             <a
+              onClick={handleAddToCart}
               href="#"
               className="btn-product-icon btn-cart w-icon-cart"
               title="Add to cart"
@@ -22,6 +46,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
               title="Add to wishlist"
             ></a>
             <a
+              onClick={handleAddToQuickView}
               href="#"
               className="btn-product-icon btn-quickview w-icon-search"
               title="Quickview"

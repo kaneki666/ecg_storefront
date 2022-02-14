@@ -1,6 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductQuickView = () => {
+  const product = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer.product
+  );
+
   return (
     <div className="product product-single product-popup">
       <div className="row gutter-lg">
@@ -11,7 +17,7 @@ const ProductQuickView = () => {
                 <div className="swiper-slide">
                   <figure className="product-image">
                     <img
-                      src="/images/products/popup/1-440x494.jpg"
+                      src={product?.thumbnail}
                       data-zoom-image="/images/products/popup/1-800x900.jpg"
                       alt="Water Boil Black Utensil"
                       width="800"
@@ -106,7 +112,7 @@ const ProductQuickView = () => {
         </div>
         <div className="col-md-6 overflow-hidden p-relative">
           <div className="product-details scrollable pl-0">
-            <h2 className="product-title">Electronics Black Wrist Watch</h2>
+            <h2 className="product-title">{product?.title}</h2>
             <div className="product-bm-wrapper">
               <figure className="brand">
                 <img
@@ -120,7 +126,7 @@ const ProductQuickView = () => {
                 <div className="product-categories">
                   Category:
                   <span className="product-category">
-                    <a href="#">Electronics</a>
+                    <a href="#">{product?.product_category}</a>
                   </span>
                 </div>
                 <div className="product-sku">
@@ -131,11 +137,16 @@ const ProductQuickView = () => {
 
             <hr className="product-divider" />
 
-            <div className="product-price">$40.00</div>
+            <div className="product-price">${product?.price}</div>
 
             <div className="ratings-container">
               <div className="ratings-full">
-                <span className="ratings" style={{ width: "80%" }}></span>
+                {product && (
+                  <span
+                    className="ratings"
+                    style={{ width: `${parseInt(product?.rating) * 20}%` }}
+                  ></span>
+                )}
                 <span className="tooltiptext tooltip-top"></span>
               </div>
               <a href="#" className="rating-reviews">

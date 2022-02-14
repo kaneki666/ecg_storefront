@@ -14,7 +14,7 @@ import PageHeaderTitle from "../../components/common/PageHeaderTitle";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-import ProductQuickView from "../../components/landing/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import ProfileContent from "../../components/profile/ProfileContent";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { API_BASE_URL } from "../api/hello";

@@ -12,7 +12,7 @@ import Footer from "../../components/common/Footer";
 import StickyFooter from "../../components/common/StickyFooter";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import MobileMenu from "../../components/common/MobileMenu";
-import ProductQuickView from "../../components/landing/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import NavbarMiddle from "../../components/common/NavbarMiddle";
 import { CategoriesProps } from "../../utils/types/landingpage";

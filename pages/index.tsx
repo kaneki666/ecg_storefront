@@ -12,7 +12,7 @@ import FooterLanding from "../components/common/Footer";
 import MobileMenu from "../components/common/MobileMenu";
 import NavbarMiddle from "../components/common/NavbarMiddle";
 import PopUpLanding from "../components/landing/PopUpLanding";
-import ProductQuickView from "../components/landing/ProductQuickView";
+import ProductQuickView from "../components/common/ProductQuickView";
 import ProductsContainer from "../components/landing/ProductsContainer";
 import ScrollToTop from "../components/common/ScrollToTop";
 import Sliderlanidng from "../components/landing/Sliderlanidng";

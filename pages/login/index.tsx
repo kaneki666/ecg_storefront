@@ -4,7 +4,7 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import FooterLanding from "../../components/common/Footer";
 import MobileMenu from "../../components/common/MobileMenu";
-import ProductQuickView from "../../components/landing/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooterLanding from "../../components/common/StickyFooter";
 import BoughtTogether from "../../components/productdetail/BoughtTogether";

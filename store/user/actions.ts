@@ -1,5 +1,10 @@
-import { userLoginProps, userSignupProps } from "../../utils/types/reduxTypes";
-import { LOGIN_ACTION, LOGOUT_ACTION, SAVE_USERINFO_ACTION, SIGNUP_ACTION } from "./type";
+import { UserLoginProps, userSignupProps } from "../../utils/types/reduxTypes";
+import {
+  LOGIN_ACTION,
+  LOGOUT_ACTION,
+  SAVE_USERINFO_ACTION,
+  SIGNUP_ACTION,
+} from "./type";
 
 export const loginAction = (value: boolean) => {
   return (dispatch: (arg0: { type: string; payload: boolean }) => void) => {
@@ -10,9 +15,9 @@ export const loginAction = (value: boolean) => {
   };
 };
 
-export const saveUserinfoAction = (userinfo: userLoginProps) => {
+export const saveUserinfoAction = (userinfo: UserLoginProps) => {
   return (
-    dispatch: (arg0: { type: string; payload: userLoginProps }) => void
+    dispatch: (arg0: { type: string; payload: UserLoginProps }) => void
   ) => {
     dispatch({
       type: SAVE_USERINFO_ACTION,

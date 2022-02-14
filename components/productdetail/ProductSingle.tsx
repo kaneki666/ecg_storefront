@@ -1,6 +1,7 @@
 import React from "react";
+import { SingleProductProps } from "../../utils/types/landingpage";
 
-const ProductSingle = () => {
+const ProductSingle = ({ product }: { product: SingleProductProps }) => {
   return (
     <div className="product product-single row">
       <div className="col-md-6 mb-6">
@@ -18,7 +19,7 @@ const ProductSingle = () => {
               <div className="swiper-slide">
                 <figure className="product-image">
                   <img
-                    src="/images/products/default/1-800x900.jpg"
+                    src={product.thumbnail}
                     data-zoom-image="/images/products/default/1-800x900.jpg"
                     alt="Electronics Black Wrist Watch"
                     width="800"
@@ -29,7 +30,7 @@ const ProductSingle = () => {
               <div className="swiper-slide">
                 <figure className="product-image">
                   <img
-                    src="/images/products/default/2-800x900.jpg"
+                    src={product.thumbnail}
                     data-zoom-image="/images/products/default/2-800x900.jpg"
                     alt="Electronics Black Wrist Watch"
                     width="488"
@@ -40,7 +41,7 @@ const ProductSingle = () => {
               <div className="swiper-slide">
                 <figure className="product-image">
                   <img
-                    src="/images/products/default/3-800x900.jpg"
+                    src={product.thumbnail}
                     data-zoom-image="/images/products/default/3-800x900.jpg"
                     alt="Electronics Black Wrist Watch"
                     width="800"
@@ -51,7 +52,7 @@ const ProductSingle = () => {
               <div className="swiper-slide">
                 <figure className="product-image">
                   <img
-                    src="/images/products/default/4-800x900.jpg"
+                    src={product.thumbnail}
                     data-zoom-image="/images/products/default/4-800x900.jpg"
                     alt="Electronics Black Wrist Watch"
                     width="800"
@@ -62,7 +63,7 @@ const ProductSingle = () => {
               <div className="swiper-slide">
                 <figure className="product-image">
                   <img
-                    src="/images/products/default/5-800x900.jpg"
+                    src={product.thumbnail}
                     data-zoom-image="/images/products/default/5-800x900.jpg"
                     alt="Electronics Black Wrist Watch"
                     width="800"
@@ -73,7 +74,7 @@ const ProductSingle = () => {
               <div className="swiper-slide">
                 <figure className="product-image">
                   <img
-                    src="/images/products/default/6-800x900.jpg"
+                    src={product.thumbnail}
                     data-zoom-image="/images/products/default/6-800x900.jpg"
                     alt="Electronics Black Wrist Watch"
                     width="800"
@@ -100,7 +101,7 @@ const ProductSingle = () => {
             <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
               <div className="product-thumb swiper-slide">
                 <img
-                  src="/images/products/default/1-800x900.jpg"
+                  src={product.thumbnail}
                   alt="Product Thumb"
                   width="800"
                   height="900"
@@ -108,7 +109,7 @@ const ProductSingle = () => {
               </div>
               <div className="product-thumb swiper-slide">
                 <img
-                  src="/images/products/default/2-800x900.jpg"
+                  src={product.thumbnail}
                   alt="Product Thumb"
                   width="800"
                   height="900"
@@ -116,7 +117,7 @@ const ProductSingle = () => {
               </div>
               <div className="product-thumb swiper-slide">
                 <img
-                  src="/images/products/default/3-800x900.jpg"
+                  src={product.thumbnail}
                   alt="Product Thumb"
                   width="800"
                   height="900"
@@ -124,7 +125,7 @@ const ProductSingle = () => {
               </div>
               <div className="product-thumb swiper-slide">
                 <img
-                  src="/images/products/default/4-800x900.jpg"
+                  src={product.thumbnail}
                   alt="Product Thumb"
                   width="800"
                   height="900"
@@ -132,7 +133,7 @@ const ProductSingle = () => {
               </div>
               <div className="product-thumb swiper-slide">
                 <img
-                  src="/images/products/default/5-800x900.jpg"
+                  src={product.thumbnail}
                   alt="Product Thumb"
                   width="800"
                   height="900"
@@ -140,7 +141,7 @@ const ProductSingle = () => {
               </div>
               <div className="product-thumb swiper-slide">
                 <img
-                  src="/images/products/default/6-800x900.jpg"
+                  src={product.thumbnail}
                   alt="Product Thumb"
                   width="800"
                   height="900"
@@ -157,7 +158,7 @@ const ProductSingle = () => {
           className="product-details"
           data-sticky-options="{'minWidth': 767}"
         >
-          <h1 className="product-title">Electronics Black Wrist Watch</h1>
+          <h1 className="product-title">{product.title}</h1>
           <div className="product-bm-wrapper">
             <figure className="brand">
               <img
@@ -183,12 +184,15 @@ const ProductSingle = () => {
           <hr className="product-divider" />
 
           <div className="product-price">
-            <ins className="new-price">$40.00</ins>
+            <ins className="new-price">${product.price}</ins>
           </div>
 
           <div className="ratings-container">
             <div className="ratings-full">
-              <span className="ratings" style={{ width: "80%" }}></span>
+              <span
+                className="ratings"
+                style={{ width: `${parseInt(product.rating) * 20}%` }}
+              ></span>
               <span className="tooltiptext tooltip-top"></span>
             </div>
             <a href="#product-tab-reviews" className="rating-reviews scroll-to">
@@ -198,7 +202,7 @@ const ProductSingle = () => {
 
           <div className="product-short-desc">
             <ul className="list-type-check list-style-none">
-              <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+              <li>{product.short_description}</li>
               <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
               <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
             </ul>

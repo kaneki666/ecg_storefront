@@ -4,7 +4,7 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import FooterLanding from "../../components/common/Footer";
 import MobileMenu from "../../components/common/MobileMenu";
-import ProductQuickView from "../../components/landing/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooterLanding from "../../components/common/StickyFooter";
 import BoughtTogether from "../../components/productdetail/BoughtTogether";
@@ -23,10 +23,10 @@ import {
 } from "next";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import { API_BASE_URL } from "../api/hello";
-import { CategoriesProps } from "../../utils/types/landingpage";
 
 const index: NextPage = ({
   categoriesData,
+  product,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
@@ -46,7 +46,8 @@ const index: NextPage = ({
               <div className="container">
                 <div className="row gutter-lg">
                   <div className="main-content">
-                    <ProductSingle />
+                    <PhotoSwiper />
+                    <ProductSingle product={product} />
                     <BoughtTogether />
                     <ProductDetailsTab />
                     <VendorProducts />
@@ -71,16 +72,15 @@ const index: NextPage = ({
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
-  const categoriesData: CategoriesProps[] = await res.json();
+  const slug = context.query.slug;
 
-  if (res.status !== 200) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { categoriesData },
-  };
+  const [cateGoriesRes, productRes] = await Promise.all([
+    fetch(`${API_BASE_URL}/product-all-category-list/`),
+    fetch(`${API_BASE_URL}/product-details/${slug}/`),
+  ]);
+  const [categoriesData, product] = await Promise.all([
+    cateGoriesRes.json(),
+    productRes.json(),
+  ]);
+  return { props: { categoriesData, product } };
 };
