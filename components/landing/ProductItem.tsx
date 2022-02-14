@@ -8,11 +8,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductprops }) => {
       <div className="product text-center">
         <figure className="product-media">
           <a href="#">
-            <img
-              src="/images/demos/demo1/products/3-2.jpg"
-              width="300"
-              height="338"
-            />
+            <img src={productItem.thumbnail} width="300" height="338" />
           </a>
           <div className="product-action-vertical">
             <a
