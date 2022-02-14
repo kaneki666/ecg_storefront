@@ -39,7 +39,7 @@ const NavbarCart = () => {
         <div className="products">
           {cart &&
             cart.map((cartItem: CartItemProps) => (
-              <NavCartItem cartItem={cartItem} />
+              <NavCartItem key={cartItem.id.toString()} cartItem={cartItem} />
             ))}
         </div>
 
