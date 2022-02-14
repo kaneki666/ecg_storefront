@@ -8,8 +8,6 @@ import {
 } from "../../utils/types/landingpage";
 
 const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
-  console.log(data);
-
   return (
     <div className="header-bottom sticky-content fix-top sticky-header has-dropdown">
       <div className="container">

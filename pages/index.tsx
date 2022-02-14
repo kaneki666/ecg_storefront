@@ -25,6 +25,7 @@ import { CategoriesProps } from "../utils/types/landingpage";
 
 const Home: NextPage = ({
   categoriesData,
+  productList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
@@ -45,7 +46,7 @@ const Home: NextPage = ({
               <CategoryBanner />
               <DealsOfTheDay />
               <TopCategoriesOfMonth />
-              <ProductsContainer />
+              <ProductsContainer productList={productList} />
             </div>
             <PopUpLanding />
           </main>
@@ -63,16 +64,13 @@ const Home: NextPage = ({
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
-  const categoriesData: CategoriesProps[] = await res.json();
-
-  if (res.status !== 200) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { categoriesData },
-  };
+  const [cateGoriesRes, productListRes] = await Promise.all([
+    fetch(`${API_BASE_URL}/product-all-category-list/`),
+    fetch(`${API_BASE_URL}/product-list/`),
+  ]);
+  const [categoriesData, productList] = await Promise.all([
+    cateGoriesRes.json(),
+    productListRes.json(),
+  ]);
+  return { props: { categoriesData, productList } };
 };
