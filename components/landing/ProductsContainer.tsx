@@ -1,7 +1,8 @@
 import React from "react";
+import { shuffleArray } from "../../utils/helperFucntion/helper";
 import {
   ProductListProps,
-  SingleProductprops,
+  SingleProductProps,
 } from "../../utils/types/landingpage";
 import ProductCategorize from "./ProductCategorize";
 import ProductItem from "./ProductItem";
@@ -48,7 +49,7 @@ const ProductsContainer = ({
         <div className="tab-pane active pt-4" id="tab1-1">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {productList &&
-              productList.results.map((productItem: SingleProductprops) => (
+              productList.results.map((productItem: SingleProductProps) => (
                 <ProductItem productItem={productItem} />
               ))}
           </div>
@@ -57,27 +58,33 @@ const ProductsContainer = ({
         <div className="tab-pane pt-4" id="tab1-2">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {productList &&
-              productList.results.map((productItem: SingleProductprops) => (
-                <ProductItem productItem={productItem} />
-              ))}
+              shuffleArray(productList.results).map(
+                (productItem: SingleProductProps) => (
+                  <ProductItem productItem={productItem} />
+                )
+              )}
           </div>
         </div>
         {/* <!-- End of Tab Pane2 --> */}
         <div className="tab-pane pt-4" id="tab1-3">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {productList &&
-              productList.results.map((productItem: SingleProductprops) => (
-                <ProductItem productItem={productItem} />
-              ))}
+              shuffleArray(productList.results).map(
+                (productItem: SingleProductProps) => (
+                  <ProductItem productItem={productItem} />
+                )
+              )}
           </div>
         </div>
         {/* <!-- End of Tab Pane3 --> */}
         <div className="tab-pane pt-4" id="tab1-4">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {productList &&
-              productList.results.map((productItem: SingleProductprops) => (
-                <ProductItem productItem={productItem} />
-              ))}
+              shuffleArray(productList.results).map(
+                (productItem: SingleProductProps) => (
+                  <ProductItem productItem={productItem} />
+                )
+              )}
           </div>
         </div>
         {/* <!-- End of Tab Pane4 --> */}

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import { SingleProductprops } from "../../utils/types/landingpage";
+import { SingleProductProps } from "../../utils/types/landingpage";
 
-const ProductItem = ({ productItem }: { productItem: SingleProductprops }) => {
+const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   return (
     <div className="product-wrap">
       <div className="product text-center">

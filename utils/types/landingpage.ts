@@ -15,7 +15,7 @@ export interface ChildCategoryProps {
   name: string;
 }
 
-export interface SingleProductprops {
+export interface SingleProductProps {
   id: number;
   title: string;
   slug: string;
@@ -36,5 +36,5 @@ export interface ProductListProps {
   count: number;
   next: null;
   previous: null;
-  results: SingleProductprops[];
+  results: SingleProductProps[];
 }
