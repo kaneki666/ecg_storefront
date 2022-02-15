@@ -37,10 +37,18 @@ const NavbarCart = () => {
         </div>
 
         <div className="products">
-          {cart &&
-            cart.map((cartItem: CartItemProps) => (
-              <NavCartItem key={cartItem.id.toString()} cartItem={cartItem} />
-            ))}
+          {cart && cart.length > 2
+            ? cart
+                .slice(0, 2)
+                .map((cartItem: CartItemProps) => (
+                  <NavCartItem
+                    key={cartItem.id.toString()}
+                    cartItem={cartItem}
+                  />
+                ))
+            : cart.map((cartItem: CartItemProps) => (
+                <NavCartItem key={cartItem.id.toString()} cartItem={cartItem} />
+              ))}
         </div>
 
         <div className="cart-total">

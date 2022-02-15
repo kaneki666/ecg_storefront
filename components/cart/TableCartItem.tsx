@@ -9,7 +9,8 @@ import { CartItemProps } from "../../utils/types/reduxTypes";
 
 const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
   const dispatch = useDispatch();
-  const handleAddToCart = () => dispatch(addToCartAction(cartItem));
+  const handleAddToCart = () =>
+    dispatch(addToCartAction({ ...cartItem, quantity: 1 }));
   const handleRemoveFromCart = () => dispatch(removeFromCartAction(cartItem));
   const handleDeleteItemFromCart = () =>
     dispatch(deleteItemFromCartAction(cartItem.id));

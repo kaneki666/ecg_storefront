@@ -1,11 +1,18 @@
 import Image from "next/image";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCartAction, addToQuickViewAction } from "../../store/products/actions";
+import {
+  addToCartAction,
+  addToQuickViewAction,
+} from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps } from "../../utils/types/reduxTypes";
 
-const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps }) => {
+const ProductCategoryItem = ({
+  productItem,
+}: {
+  productItem: SingleProductProps;
+}) => {
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () =>
@@ -72,8 +79,9 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
           </div>
           <div className="product-price">
             <ins className="new-price">${productItem.price}</ins>
-            { productItem.old_price && <del className="old-price">${productItem.old_price}</del> }
-            
+            {productItem.old_price && (
+              <del className="old-price">${productItem.old_price}</del>
+            )}
           </div>
         </div>
       </div>

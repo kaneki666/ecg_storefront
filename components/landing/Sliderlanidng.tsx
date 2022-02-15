@@ -217,7 +217,7 @@ const Sliderlanidng = () => {
                       }"
                 >
                   <a
-                    href="storelist"
+                    href="#"
                     className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
                     SHOP NOW<i className="w-icon-long-arrow-right"></i>

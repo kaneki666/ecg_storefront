@@ -166,7 +166,7 @@ const ProductsContainer = ({
       </div>
       {/* <!-- End of Category Cosmetic Lifestyle --> */}
 
-      <ProductCategorize productList={productList}/>
+      <ProductCategorize productList={productList} />
 
       <h2 className="title title-underline mb-4 ls-normal appear-animate">
         Your Recent Views
@@ -193,14 +193,15 @@ const ProductsContainer = ({
   }"
       >
         <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
-        {productList &&
-              shuffleArray(productList.results).map(
-                (productItem: SingleProductProps) => (
-                  <RecentViewProduct 
+          {productList &&
+            shuffleArray(productList.results).map(
+              (productItem: SingleProductProps) => (
+                <RecentViewProduct
                   key={productItem.id.toString()}
-                  productItem={productItem} />
-                )
-              )}
+                  productItem={productItem}
+                />
+              )
+            )}
         </div>
         <div className="swiper-pagination"></div>
       </div>

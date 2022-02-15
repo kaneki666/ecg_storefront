@@ -50,15 +50,9 @@ const MobileMenu = () => {
                 <ul>
                   <li>
                     <a href="storelist">Store Listing</a>
-                    {/* <ul>
-                                      <li><a href="vendor-dokan-store-list.html">Store listing 1</a></li>
-                                     
-                                  </ul>  */}
                   </li>
                   <li>
-                    <a href="vendor">
-                      Vendor Store
-                    </a>
+                    <a href="vendor">Vendor Store</a>
                   </li>
                 </ul>
               </li>

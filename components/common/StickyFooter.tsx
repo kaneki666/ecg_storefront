@@ -87,13 +87,10 @@ const StickyFooter = () => {
           </div>
 
           <div className="cart-action">
-            <a
-              href="cart"
-              className="btn btn-dark btn-outline btn-rounded"
-            >
+            <a href="#" className="btn btn-dark btn-outline btn-rounded">
               View Cart
             </a>
-            <a href="#" className="btn btn-primary  btn-rounded">
+            <a href="checkout" className="btn btn-primary  btn-rounded">
               Checkout
             </a>
           </div>

@@ -1,7 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteItemFromCartAction } from "../../store/products/actions";
 import { CartItemProps } from "../../utils/types/reduxTypes";
 
 const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
+  const dispatch = useDispatch();
+
+  const handleDeleteItemFromCart = () =>
+    dispatch(deleteItemFromCartAction(cartItem.id));
   return (
     <div className="product product-cart">
       <div className="product-detail">
@@ -20,7 +26,11 @@ const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
           <img src={cartItem.thumbnail} alt="product" height="84" width="94" />
         </a>
       </figure>
-      <button className="btn btn-link btn-close" aria-label="button">
+      <button
+        onClick={handleDeleteItemFromCart}
+        className="btn btn-link btn-close"
+        aria-label="button"
+      >
         <i className="fas fa-times"></i>
       </button>
     </div>

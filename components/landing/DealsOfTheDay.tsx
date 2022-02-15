@@ -1,21 +1,14 @@
 import HotDealsTheDay from "./HotDealsTheDay";
 import TopBestSeller from "./TopBestSeller";
-import {
-  ProductListProps,
-  SingleProductProps,
-} from "../../utils/types/landingpage";
-import { API_BASE_URL } from "../../pages/api/hello";
-import { NextPage } from "next";
+import { ProductListProps } from "../../utils/types/landingpage";
 
-const DealsOfTheDay = ({
-  productList,
-}: {
-productList: ProductListProps;
-}) => {
+const DealsOfTheDay = ({ productList }: { productList: ProductListProps }) => {
   return (
     <div className="row deals-wrapper appear-animate mb-8">
-      <HotDealsTheDay/>
-      <TopBestSeller productList={productList}/>
+      {productList.results[0] && (
+        <HotDealsTheDay product={productList.results[0]} />
+      )}
+      <TopBestSeller productList={productList} />
     </div>
   );
 };

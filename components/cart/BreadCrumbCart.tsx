@@ -9,10 +9,10 @@ const BreadCrumbCart = () => {
             <a href="cart">Shopping Cart</a>
           </li>
           <li>
-            <a href="#">Checkout</a>
+            <a href="checkout">Checkout</a>
           </li>
           <li>
-            <a href="#">Order Complete</a>
+            <a href="order">Order Complete</a>
           </li>
         </ul>
       </div>
