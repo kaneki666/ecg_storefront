@@ -33,7 +33,7 @@ const ProductCategoryItem = ({
     <div className="product-wrap">
       <div className="product text-center">
         <figure className="product-media">
-          <a href="#">
+          <a href={`productdetail?slug=${productItem.slug}`}>
             <img src={productItem.thumbnail} width="300" height="338" />
           </a>
           <div className="product-action-vertical">
@@ -63,7 +63,7 @@ const ProductCategoryItem = ({
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href="#">{productItem.title}</a>
+            <a href={`productdetail?slug=${productItem.slug}`}>{productItem.title}</a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">

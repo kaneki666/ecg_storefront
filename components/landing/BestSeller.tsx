@@ -6,13 +6,13 @@ const BestSeller = ({ productItem }: { productItem: SingleProductProps }) => {
   return (
     <div className="product product-widget bb-no">
       <figure className="product-media">
-        <a href="#">
+        <a href={`productdetail?slug=${productItem.slug}`}>
           <img src={productItem.thumbnail} width="105" height="118" />
         </a>
       </figure>
       <div className="product-details">
         <h4 className="product-name">
-          <a href="#">{productItem.title}</a>
+          <a href={`productdetail?slug=${productItem.slug}`}>{productItem.title}</a>
         </h4>
         <div className="ratings-container">
           <div className="ratings-full">

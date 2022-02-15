@@ -60,7 +60,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href="#">{productItem.title}</a>
+            <a href={`productdetail?slug=${productItem.slug}`}>{productItem.title}</a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
