@@ -27,6 +27,7 @@ export interface SingleProductProps {
   status: string;
   is_featured: boolean;
   product_category: number;
+  product_category_name: string;
   product_brand: number;
   thumbnail: string;
   product_media: any[];

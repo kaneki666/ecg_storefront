@@ -25,7 +25,7 @@ const StickyFooter = () => {
             <div className="product product-cart">
               <div className="product-detail">
                 <h3 className="product-name">
-                  <a href="product-default.html">
+                  <a href="#">
                     Beige knitted elas
                     <br />
                     tic runner shoes
@@ -37,7 +37,7 @@ const StickyFooter = () => {
                 </div>
               </div>
               <figure className="product-media">
-                <a href="product-default.html">
+                <a href="#">
                   <img
                     src="/images/cart/product-1.jpg"
                     alt="product"
@@ -54,7 +54,7 @@ const StickyFooter = () => {
             <div className="product product-cart">
               <div className="product-detail">
                 <h3 className="product-name">
-                  <a href="product-default.html">
+                  <a href="#">
                     Blue utility pina
                     <br />
                     fore denim dress
@@ -66,7 +66,7 @@ const StickyFooter = () => {
                 </div>
               </div>
               <figure className="product-media">
-                <a href="product-default.html">
+                <a href="#">
                   <img
                     src="/images/cart/product-2.jpg"
                     alt="product"
@@ -87,13 +87,10 @@ const StickyFooter = () => {
           </div>
 
           <div className="cart-action">
-            <a
-              href="cart"
-              className="btn btn-dark btn-outline btn-rounded"
-            >
+            <a href="cart" className="btn btn-dark btn-outline btn-rounded">
               View Cart
             </a>
-            <a href="checkout.html" className="btn btn-primary  btn-rounded">
+            <a href="checkout" className="btn btn-primary  btn-rounded">
               Checkout
             </a>
           </div>

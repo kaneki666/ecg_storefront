@@ -69,7 +69,7 @@ const Sliderlanidng = () => {
                 </p>
 
                 <a
-                  href="shop-list.html"
+                  href="#"
                   className="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
                   data-animation-options="{
                       'name': 'fadeInRightShorter',
@@ -217,7 +217,7 @@ const Sliderlanidng = () => {
                       }"
                 >
                   <a
-                    href="shop-list.html"
+                    href="#"
                     className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
                     SHOP NOW<i className="w-icon-long-arrow-right"></i>

@@ -29,13 +29,14 @@ export const ProductReducer = (
     case ADD_TO_CART:
       const cartItems = state.cart;
       const newItem: CartItemProps = action.payload;
+
       const findIndex = cartItems.findIndex(
         (item: CartItemProps) => item.id === newItem.id
       );
       if (findIndex === -1) {
         cartItems.push(newItem);
       } else {
-        cartItems[findIndex].quantity += 1;
+        cartItems[findIndex].quantity += newItem.quantity;
         cartItems[findIndex].totalPrice =
           cartItems[findIndex].quantity * newItem.price;
       }

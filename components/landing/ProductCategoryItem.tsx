@@ -1,11 +1,18 @@
 import Image from "next/image";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCartAction, addToQuickViewAction } from "../../store/products/actions";
+import {
+  addToCartAction,
+  addToQuickViewAction,
+} from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps } from "../../utils/types/reduxTypes";
 
-const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps }) => {
+const ProductCategoryItem = ({
+  productItem,
+}: {
+  productItem: SingleProductProps;
+}) => {
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () =>
@@ -56,7 +63,7 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href="product-default.html">{productItem.title}</a>
+            <a href="#">{productItem.title}</a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
@@ -66,14 +73,15 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
               ></span>
               <span className="tooltiptext tooltip-top"></span>
             </div>
-            <a href="product-default.html" className="rating-reviews">
+            <a href="#" className="rating-reviews">
               (3 reviews)
             </a>
           </div>
           <div className="product-price">
             <ins className="new-price">${productItem.price}</ins>
-            { productItem.old_price && <del className="old-price">${productItem.old_price}</del> }
-            
+            {productItem.old_price && (
+              <del className="old-price">${productItem.old_price}</del>
+            )}
           </div>
         </div>
       </div>

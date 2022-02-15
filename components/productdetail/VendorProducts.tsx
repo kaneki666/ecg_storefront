@@ -33,7 +33,7 @@ const VendorProducts = () => {
         <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/1-1.jpg"
                   alt="Product"
@@ -76,17 +76,17 @@ const VendorProducts = () => {
             </figure>
             <div className="product-details">
               <div className="product-cat">
-                <a href="shop-banner-sidebar.html">Accessories</a>
+                <a href="#">Accessories</a>
               </div>
               <h4 className="product-name">
-                <a href="product-default.html">Sticky Pencil</a>
+                <a href="#">Sticky Pencil</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (3 reviews)
                 </a>
               </div>
@@ -97,7 +97,7 @@ const VendorProducts = () => {
           </div>
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/2.jpg"
                   alt="Product"
@@ -134,17 +134,17 @@ const VendorProducts = () => {
             </figure>
             <div className="product-details">
               <div className="product-cat">
-                <a href="shop-banner-sidebar.html">Electronics</a>
+                <a href="#">Electronics</a>
               </div>
               <h4 className="product-name">
-                <a href="product-default.html">Mini Multi-Functional Cooker</a>
+                <a href="#">Mini Multi-Functional Cooker</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (5 reviews)
                 </a>
               </div>
@@ -158,7 +158,7 @@ const VendorProducts = () => {
           </div>
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/3.jpg"
                   alt="Product"
@@ -195,17 +195,17 @@ const VendorProducts = () => {
             </figure>
             <div className="product-details">
               <div className="product-cat">
-                <a href="shop-banner-sidebar.html">Sports</a>
+                <a href="#">Sports</a>
               </div>
               <h4 className="product-name">
-                <a href="product-default.html">Skate Pan</a>
+                <a href="#">Skate Pan</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (3 reviews)
                 </a>
               </div>
@@ -219,7 +219,7 @@ const VendorProducts = () => {
           </div>
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/4-1.jpg"
                   alt="Product"
@@ -262,17 +262,17 @@ const VendorProducts = () => {
             </figure>
             <div className="product-details">
               <div className="product-cat">
-                <a href="shop-banner-sidebar.html">Accessories</a>
+                <a href="#">Accessories</a>
               </div>
               <h4 className="product-name">
-                <a href="product-default.html">Clip Attachment</a>
+                <a href="#">Clip Attachment</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (5 reviews)
                 </a>
               </div>

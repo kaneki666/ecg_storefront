@@ -7,20 +7,17 @@ import {
 import ProductCategoryItem from "./ProductCategoryItem";
 import { shuffleArray } from "../../utils/helperFucntion/helper";
 
-const ProductCategorize  = ({
+const ProductCategorize = ({
   productList,
 }: {
   productList: ProductListProps;
 }) => {
   return (
     <div>
-        <div className="product-wrapper-1 appear-animate mb-5">
+      <div className="product-wrapper-1 appear-animate mb-5">
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Clothing & Apparel</h2>
-          <a
-            href="shop-boxed-banner.html"
-            className="font-size-normal font-weight-bold ls-25 mb-0"
-          >
+          <a href="#" className="font-size-normal font-weight-bold ls-25 mb-0">
             More Products<i className="w-icon-long-arrow-right"></i>
           </a>
         </div>
@@ -73,14 +70,19 @@ const ProductCategorize  = ({
             >
               {/* <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                 <div className="swiper-slide product-col"> */}
-                <div className="tab-pane active pt-4" >
-                  <div className="row cols-xl-4 cols-lg-3 cols-2">
-                    {productList &&
-                      productList.results.slice(0,8).map((productItem: SingleProductProps) => (
-                        <ProductCategoryItem productItem={productItem} />
+              <div className="tab-pane active pt-4">
+                <div className="row cols-xl-4 cols-lg-3 cols-2">
+                  {productList &&
+                    productList.results
+                      .slice(0, 8)
+                      .map((productItem: SingleProductProps) => (
+                        <ProductCategoryItem
+                          key={productItem.id.toString()}
+                          productItem={productItem}
+                        />
                       ))}
-                  </div>
                 </div>
+              </div>
               <div className="swiper-pagination"></div>
             </div>
           </div>
@@ -91,10 +93,7 @@ const ProductCategorize  = ({
       <div className="product-wrapper-1 appear-animate mb-8">
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Consumer Electric</h2>
-          <a
-            href="shop-boxed-banner.html"
-            className="font-size-normal font-weight-bold ls-25 mb-0"
-          >
+          <a href="#" className="font-size-normal font-weight-bold ls-25 mb-0">
             More Products<i className="w-icon-long-arrow-right"></i>
           </a>
         </div>
@@ -119,7 +118,7 @@ const ProductCategorize  = ({
                   </span>
                 </h3>
                 <a
-                  href="shop-banner-sidebar.html"
+                  href="#"
                   className="btn btn-white btn-outline btn-rounded btn-sm"
                 >
                   shop now
@@ -144,14 +143,17 @@ const ProductCategorize  = ({
                   }
               }"
             >
-            <div className="tab-pane active pt-4" >
+              <div className="tab-pane active pt-4">
                 <div className="row cols-xl-4 cols-lg-3 cols-2">
-                      {productList &&
-                  shuffleArray(productList.results).slice(0,8).map(
-                    (productItem: SingleProductProps) => (
-                      <ProductCategoryItem productItem={productItem} />
-                    )
-                  )}
+                  {productList &&
+                    shuffleArray(productList.results)
+                      .slice(0, 8)
+                      .map((productItem: SingleProductProps) => (
+                        <ProductCategoryItem
+                          key={productItem.id.toString()}
+                          productItem={productItem}
+                        />
+                      ))}
                 </div>
               </div>
               <div className="swiper-pagination"></div>
@@ -162,16 +164,13 @@ const ProductCategorize  = ({
       </div>
       {/* <!-- End of Product Wrapper 1 --> */}
 
-      <BannerFashion/>
+      <BannerFashion />
       {/* <!-- End of Banner Fashion --> */}
 
       <div className="product-wrapper-1 appear-animate mb-7">
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Home Garden & Kitchen</h2>
-          <a
-            href="shop-boxed-banner.html"
-            className="font-size-normal font-weight-bold ls-25 mb-0"
-          >
+          <a href="#" className="font-size-normal font-weight-bold ls-25 mb-0">
             More Products<i className="w-icon-long-arrow-right"></i>
           </a>
         </div>
@@ -221,14 +220,17 @@ const ProductCategorize  = ({
                   }
               }"
             >
-              <div className="tab-pane active pt-4" >
+              <div className="tab-pane active pt-4">
                 <div className="row cols-xl-4 cols-lg-3 cols-2">
-                      {productList &&
-                  shuffleArray(productList.results).slice(0,8).map(
-                    (productItem: SingleProductProps) => (
-                      <ProductCategoryItem productItem={productItem} />
-                    )
-                  )}
+                  {productList &&
+                    shuffleArray(productList.results)
+                      .slice(0, 8)
+                      .map((productItem: SingleProductProps) => (
+                        <ProductCategoryItem
+                          key={productItem.id.toString()}
+                          productItem={productItem}
+                        />
+                      ))}
                 </div>
               </div>
               <div className="swiper-pagination"></div>

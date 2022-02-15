@@ -126,7 +126,7 @@ const ProductsContainer = ({
                 Professional
               </h3>
               <a
-                href="shop-banner-sidebar.html"
+                href="#"
                 className="btn btn-white btn-link btn-underline btn-icon-right"
               >
                 Shop Now<i className="w-icon-long-arrow-right"></i>
@@ -155,7 +155,7 @@ const ProductsContainer = ({
                 Collection
               </h3>
               <a
-                href="shop-banner-sidebar.html"
+                href="#"
                 className="btn btn-dark btn-link btn-underline btn-icon-right"
               >
                 Shop Now<i className="w-icon-long-arrow-right"></i>
@@ -166,7 +166,7 @@ const ProductsContainer = ({
       </div>
       {/* <!-- End of Category Cosmetic Lifestyle --> */}
 
-      <ProductCategorize productList={productList}/>
+      <ProductCategorize productList={productList} />
 
       <h2 className="title title-underline mb-4 ls-normal appear-animate">
         Your Recent Views
@@ -193,12 +193,15 @@ const ProductsContainer = ({
   }"
       >
         <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
-        {productList &&
-              shuffleArray(productList.results).map(
-                (productItem: SingleProductProps) => (
-                  <RecentViewProduct productItem={productItem} />
-                )
-              )}
+          {productList &&
+            shuffleArray(productList.results).map(
+              (productItem: SingleProductProps) => (
+                <RecentViewProduct
+                  key={productItem.id.toString()}
+                  productItem={productItem}
+                />
+              )
+            )}
         </div>
         <div className="swiper-pagination"></div>
       </div>

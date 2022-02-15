@@ -33,7 +33,7 @@ const MoreProductsLike = () => {
         <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/5.jpg"
                   alt="Product"
@@ -70,14 +70,14 @@ const MoreProductsLike = () => {
             </figure>
             <div className="product-details">
               <h4 className="product-name">
-                <a href="product-default.html">Drone</a>
+                <a href="#">Drone</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (3 reviews)
                 </a>
               </div>
@@ -88,7 +88,7 @@ const MoreProductsLike = () => {
           </div>
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/6.jpg"
                   alt="Product"
@@ -125,14 +125,14 @@ const MoreProductsLike = () => {
             </figure>
             <div className="product-details">
               <h4 className="product-name">
-                <a href="product-default.html">Official Camera</a>
+                <a href="#">Official Camera</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (3 reviews)
                 </a>
               </div>
@@ -146,7 +146,7 @@ const MoreProductsLike = () => {
           </div>
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/7-1.jpg"
                   alt="Product"
@@ -189,14 +189,14 @@ const MoreProductsLike = () => {
             </figure>
             <div className="product-details">
               <h4 className="product-name">
-                <a href="product-default.html">Phone Charge Pad</a>
+                <a href="#">Phone Charge Pad</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (8 reviews)
                 </a>
               </div>
@@ -207,7 +207,7 @@ const MoreProductsLike = () => {
           </div>
           <div className="swiper-slide product">
             <figure className="product-media">
-              <a href="product-default.html">
+              <a href="#">
                 <img
                   src="/images/products/default/8.jpg"
                   alt="Product"
@@ -244,14 +244,14 @@ const MoreProductsLike = () => {
             </figure>
             <div className="product-details">
               <h4 className="product-name">
-                <a href="product-default.html">Fashionalble Pencil</a>
+                <a href="#">Fashionalble Pencil</a>
               </h4>
               <div className="ratings-container">
                 <div className="ratings-full">
                   <span className="ratings" style={{ width: "100%" }}></span>
                   <span className="tooltiptext tooltip-top"></span>
                 </div>
-                <a href="product-default.html" className="rating-reviews">
+                <a href="#" className="rating-reviews">
                   (9 reviews)
                 </a>
               </div>

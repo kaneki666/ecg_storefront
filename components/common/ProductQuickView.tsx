@@ -1,5 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCartAction } from "../../store/products/actions";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductQuickView = () => {
@@ -7,6 +8,23 @@ const ProductQuickView = () => {
     (state: RootAppStateProps) => state.ProductReducer.product
   );
 
+  const dispatch = useDispatch();
+  let [quantity, setQuantity] = useState(1);
+
+  const handleAddToCart = () => {
+    if (product) {
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        thumbnail: product.thumbnail,
+        quantity: quantity,
+        price: product.price,
+        totalPrice: product.price,
+      };
+      console.log(cartItem);
+      dispatch(addToCartAction(cartItem));
+    }
+  };
   return (
     <div className="product product-single product-popup">
       <div className="row gutter-lg">
@@ -28,7 +46,7 @@ const ProductQuickView = () => {
                 <div className="swiper-slide">
                   <figure className="product-image">
                     <img
-                      src="/images/products/popup/2-440x494.jpg"
+                      src={product?.thumbnail}
                       data-zoom-image="/images/products/popup/2-800x900.jpg"
                       alt="Water Boil Black Utensil"
                       width="800"
@@ -39,7 +57,7 @@ const ProductQuickView = () => {
                 <div className="swiper-slide">
                   <figure className="product-image">
                     <img
-                      src="/images/products/popup/3-440x494.jpg"
+                      src={product?.thumbnail}
                       data-zoom-image="/images/products/popup/3-800x900.jpg"
                       alt="Water Boil Black Utensil"
                       width="800"
@@ -50,7 +68,7 @@ const ProductQuickView = () => {
                 <div className="swiper-slide">
                   <figure className="product-image">
                     <img
-                      src="/images/products/popup/4-440x494.jpg"
+                      src={product?.thumbnail}
                       data-zoom-image="/images/products/popup/4-800x900.jpg"
                       alt="Water Boil Black Utensil"
                       width="800"
@@ -74,7 +92,7 @@ const ProductQuickView = () => {
               <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
                 <div className="product-thumb swiper-slide">
                   <img
-                    src="/images/products/popup/1-103x116.jpg"
+                    src={product?.thumbnail}
                     alt="Product Thumb"
                     width="103"
                     height="116"
@@ -82,23 +100,18 @@ const ProductQuickView = () => {
                 </div>
                 <div className="product-thumb swiper-slide">
                   <img
-                    src="/images/products/popup/2-103x116.jpg"
+                    src={product?.thumbnail}
                     alt="Product Thumb"
                     width="103"
                     height="116"
                   />
                 </div>
                 <div className="product-thumb swiper-slide">
-                  <img
-                    src="/images/products/popup/3-103x116.jpg"
-                    alt="Product Thumb"
-                    width="103"
-                    height="116"
-                  />
+                  <img src={product?.thumbnail} width="103" height="116" />
                 </div>
                 <div className="product-thumb swiper-slide">
                   <img
-                    src="/images/products/popup/4-103x116.jpg"
+                    src={product?.thumbnail}
                     alt="Product Thumb"
                     width="103"
                     height="116"
@@ -126,7 +139,7 @@ const ProductQuickView = () => {
                 <div className="product-categories">
                   Category:
                   <span className="product-category">
-                    <a href="#">{product?.product_category}</a>
+                    <a href="#"> {product?.product_category_name}</a>
                   </span>
                 </div>
                 <div className="product-sku">
@@ -156,7 +169,7 @@ const ProductQuickView = () => {
 
             <div className="product-short-desc">
               <ul className="list-type-check list-style-none">
-                <li>Ultrices eros in cursus turpis massa cursus mattis.</li>
+                <li> {product?.short_description}</li>
                 <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
                 <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
               </ul>
@@ -227,11 +240,21 @@ const ProductQuickView = () => {
                     type="number"
                     min="1"
                     max="10000000"
+                    value={quantity}
                   />
-                  <button className="quantity-plus w-icon-plus"></button>
-                  <button className="quantity-minus w-icon-minus"></button>
+                  <button
+                    onClick={() => setQuantity((quantity += 1))}
+                    className="quantity-plus w-icon-plus"
+                  ></button>
+                  <button
+                    onClick={() =>
+                      quantity > 1 ? setQuantity((quantity -= 1)) : ""
+                    }
+                    className="quantity-minus w-icon-minus"
+                  ></button>
                 </div>
               </div>
+
               <button className="btn btn-primary btn-cart">
                 <i className="w-icon-cart"></i>
                 <span>Add to Cart</span>
