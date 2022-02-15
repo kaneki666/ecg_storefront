@@ -42,14 +42,18 @@ const TopBestSeller = ({
                 <div className="swiper-slide product-widget-wrap">
                     {productList &&
                     productList.results.slice(0,3).map((productItem: SingleProductProps) => (
-                        <BestSeller productItem={productItem} />
+                        <BestSeller 
+                        key={productItem.id.toString()}
+                        productItem={productItem} />
                     ))}
                 </div>
                 <div className="swiper-slide product-widget-wrap">
                     {productList &&
               shuffleArray(productList.results).slice(0,3).map(
                 (productItem: SingleProductProps) => (
-                  <BestSeller productItem={productItem} />
+                  <BestSeller 
+                  key={productItem.id.toString()}
+                  productItem={productItem} />
                 )
               )}
                 </div>
@@ -57,7 +61,9 @@ const TopBestSeller = ({
                     {productList &&
               shuffleArray(productList.results).slice(0,3).map(
                 (productItem: SingleProductProps) => (
-                  <BestSeller productItem={productItem} />
+                  <BestSeller 
+                  key={productItem.id.toString()}
+                  productItem={productItem} />
                 )
               )}
                 </div>

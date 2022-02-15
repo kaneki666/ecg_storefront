@@ -77,7 +77,9 @@ const ProductCategorize  = ({
                   <div className="row cols-xl-4 cols-lg-3 cols-2">
                     {productList &&
                       productList.results.slice(0,8).map((productItem: SingleProductProps) => (
-                        <ProductCategoryItem productItem={productItem} />
+                        <ProductCategoryItem 
+                        key={productItem.id.toString()}
+                        productItem={productItem} />
                       ))}
                   </div>
                 </div>
@@ -149,7 +151,9 @@ const ProductCategorize  = ({
                       {productList &&
                   shuffleArray(productList.results).slice(0,8).map(
                     (productItem: SingleProductProps) => (
-                      <ProductCategoryItem productItem={productItem} />
+                      <ProductCategoryItem 
+                      key={productItem.id.toString()}
+                      productItem={productItem} />
                     )
                   )}
                 </div>
@@ -226,7 +230,9 @@ const ProductCategorize  = ({
                       {productList &&
                   shuffleArray(productList.results).slice(0,8).map(
                     (productItem: SingleProductProps) => (
-                      <ProductCategoryItem productItem={productItem} />
+                      <ProductCategoryItem 
+                      key={productItem.id.toString()}
+                      productItem={productItem} />
                     )
                   )}
                 </div>

@@ -7,7 +7,7 @@ import {
 import { API_BASE_URL } from "../../pages/api/hello";
 import { NextPage } from "next";
 
-const DealsOfTheDay: NextPage = ({
+const DealsOfTheDay = ({
   productList,
 }: {
 productList: ProductListProps;

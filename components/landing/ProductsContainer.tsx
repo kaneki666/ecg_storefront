@@ -196,7 +196,9 @@ const ProductsContainer = ({
         {productList &&
               shuffleArray(productList.results).map(
                 (productItem: SingleProductProps) => (
-                  <RecentViewProduct productItem={productItem} />
+                  <RecentViewProduct 
+                  key={productItem.id.toString()}
+                  productItem={productItem} />
                 )
               )}
         </div>
