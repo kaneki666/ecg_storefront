@@ -35,7 +35,7 @@ const index: NextPage = ({
           rel="preload stylesheet"
           type="text/css"
           href="/css/style.min.css"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
       </Head>
       <body>
