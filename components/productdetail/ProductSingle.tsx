@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
+import { CartItemProps } from "../../utils/types/reduxTypes";
 
 const ProductSingle = ({ product }: { product: SingleProductProps }) => {
+  const dispatch = useDispatch();
+  let [quantity, setQuantity] = useState(1);
+
+  const handleAddToCart = () => {
+    const cartItem: CartItemProps = {
+      id: product.id,
+      thumbnail: product.thumbnail,
+      title: product.title,
+      price: product.price,
+      quantity: quantity,
+      totalPrice: product.price,
+    };
+    dispatch(addToCartAction(cartItem));
+  };
+
   return (
     <div className="product product-single row">
       <div className="col-md-6 mb-6">
@@ -259,12 +277,25 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                     type="number"
                     min="1"
                     max="10000000"
+                    value={quantity}
+                    onChange={() => {}}
                   />
-                  <button className="quantity-plus w-icon-plus"></button>
-                  <button className="quantity-minus w-icon-minus"></button>
+                  <button
+                    onClick={() => setQuantity((quantity += 1))}
+                    className="quantity-plus w-icon-plus"
+                  ></button>
+                  <button
+                    onClick={() =>
+                      quantity > 1 ? setQuantity((quantity -= 1)) : ""
+                    }
+                    className="quantity-minus w-icon-minus"
+                  ></button>
                 </div>
               </div>
-              <button className="btn btn-primary btn-cart">
+              <button
+                onClick={handleAddToCart}
+                className="btn btn-primary btn-cart"
+              >
                 <i className="w-icon-cart"></i>
                 <span>Add to Cart</span>
               </button>

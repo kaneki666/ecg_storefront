@@ -241,6 +241,7 @@ const ProductQuickView = () => {
                     min="1"
                     max="10000000"
                     value={quantity}
+                    onChange={() => {}}
                   />
                   <button
                     onClick={() => setQuantity((quantity += 1))}
