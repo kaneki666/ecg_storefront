@@ -100,13 +100,13 @@ const Sidebar = () => {
                     <div className="widget-body">
                         <div className="product product-widget">
                             <figure className="product-media">
-                                <a href="product-default.html">
+                                <a href="#">
                                     <Image src="/images/shop/1.jpg" alt="Product"  width= {100} height={106} />
                                 </a>
                             </figure>
                             <div className="product-details">
                                 <h4 className="product-name">
-                                    <a href="product-default.html">3D Television</a>
+                                    <a href="#">3D Television</a>
                                 </h4>
                                 <div className="ratings-container">
                                     <div className="ratings-full">
@@ -119,13 +119,13 @@ const Sidebar = () => {
                         </div>
                         <div className="product product-widget">
                             <figure className="product-media">
-                                <a href="product-default.html">
+                                <a href="#">
                                     <Image src="/images/shop/2-1.jpg" alt="Product"  width= {100} height={106} />
                                 </a>
                             </figure>
                             <div className="product-details">
                                 <h4 className="product-name">
-                                    <a href="product-default.html">Alarm Clock With Lamp</a>
+                                    <a href="#">Alarm Clock With Lamp</a>
                                 </h4>
                                 <div className="ratings-container">
                                     <div className="ratings-full">
@@ -141,13 +141,13 @@ const Sidebar = () => {
                         </div>
                         <div className="product product-widget">
                             <figure className="product-media">
-                                <a href="product-default.html">
+                                <a href="#">
                                     <Image src="/images/shop/3.jpg" alt="Product"  width= {100} height={106} />
                                 </a>
                             </figure>
                             <div className="product-details">
                                 <h4 className="product-name">
-                                    <a href="product-default.html">Apple Laptop</a>
+                                    <a href="#">Apple Laptop</a>
                                 </h4>
                                 <div className="ratings-container">
                                     <div className="ratings-full">

@@ -18,7 +18,7 @@ const ProductCategorize  = ({
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Clothing & Apparel</h2>
           <a
-            href="shop-boxed-banner.html"
+            href="category"
             className="font-size-normal font-weight-bold ls-25 mb-0"
           >
             More Products<i className="w-icon-long-arrow-right"></i>
@@ -46,7 +46,7 @@ const ProductCategorize  = ({
                   </span>
                 </h3>
                 <a
-                  href="shop-banner-sidebar.html"
+                  href="category"
                   className="btn btn-dark btn-outline btn-rounded btn-sm"
                 >
                   shop Now
@@ -94,7 +94,7 @@ const ProductCategorize  = ({
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Consumer Electric</h2>
           <a
-            href="shop-boxed-banner.html"
+            href="category"
             className="font-size-normal font-weight-bold ls-25 mb-0"
           >
             More Products<i className="w-icon-long-arrow-right"></i>
@@ -121,7 +121,7 @@ const ProductCategorize  = ({
                   </span>
                 </h3>
                 <a
-                  href="shop-banner-sidebar.html"
+                  href="category"
                   className="btn btn-white btn-outline btn-rounded btn-sm"
                 >
                   shop now
@@ -173,7 +173,7 @@ const ProductCategorize  = ({
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Home Garden & Kitchen</h2>
           <a
-            href="shop-boxed-banner.html"
+            href="category"
             className="font-size-normal font-weight-bold ls-25 mb-0"
           >
             More Products<i className="w-icon-long-arrow-right"></i>
@@ -200,7 +200,7 @@ const ProductCategorize  = ({
                   </span>
                 </h3>
                 <a
-                  href="shop-banner-sidebar.html"
+                  href="category"
                   className="btn btn-dark btn-outline btn-rounded btn-sm"
                 >
                   shop now

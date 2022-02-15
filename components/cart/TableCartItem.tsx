@@ -17,7 +17,7 @@ const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
     <tr>
       <td className="product-thumbnail">
         <div className="p-relative">
-          <a href="product-default.html">
+          <a href="#">
             <figure>
               <img
                 src={cartItem.thumbnail}
@@ -33,7 +33,7 @@ const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         </div>
       </td>
       <td className="product-name">
-        <a href="product-default.html">{cartItem.title}</a>
+        <a href="#">{cartItem.title}</a>
       </td>
       <td className="product-price">
         <span className="amount">${cartItem.price}</span>

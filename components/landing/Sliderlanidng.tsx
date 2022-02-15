@@ -69,7 +69,7 @@ const Sliderlanidng = () => {
                 </p>
 
                 <a
-                  href="shop-list.html"
+                  href="storelist"
                   className="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
                   data-animation-options="{
                       'name': 'fadeInRightShorter',
@@ -139,7 +139,7 @@ const Sliderlanidng = () => {
                   Only until the end of this week.
                 </p>
                 <a
-                  href="shop-banner-sidebar.html"
+                  href="category"
                   className="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
                   data-animation-options="{
                           'name': 'fadeInUpShorter',
@@ -217,7 +217,7 @@ const Sliderlanidng = () => {
                       }"
                 >
                   <a
-                    href="shop-list.html"
+                    href="storelist"
                     className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
                     SHOP NOW<i className="w-icon-long-arrow-right"></i>

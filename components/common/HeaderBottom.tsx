@@ -39,7 +39,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <li>
                           <a
                             key={item.id.toString()}
-                            href="shop-fullwidth-banner.html"
+                            href="#"
                           >
                             <i
                               className={
@@ -58,7 +58,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                                 (subItem: SubCategoryProps) => (
                                   <ul key={`${subItem.id}`}>
                                     <li>
-                                      <a href="shop-fullwidth-banner.html">
+                                      <a href="#">
                                         {subItem.name}
                                       </a>
                                     </li>
@@ -70,7 +70,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         </li>
                       ) : (
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <a href="#">
                             <i
                               className={
                                 item.name === "TOYS & GAMES"
@@ -87,7 +87,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                     )}
 
                   {/* <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-home"></i>Home & Garden
                     </a>
                     <ul className="megamenu">
@@ -96,23 +96,23 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Beds, Frames & Bases
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Dressers</a>
+                            <a href="#">Dressers</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Nightstands</a>
+                            <a href="#">Nightstands</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Kid's Beds & Headboards
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Armoires</a>
+                            <a href="#">Armoires</a>
                           </li>
                         </ul>
 
@@ -120,23 +120,23 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Coffee Tables
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Chairs</a>
+                            <a href="#">Chairs</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Tables</a>
+                            <a href="#">Tables</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Futons & Sofa Beds
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Cabinets & Chests
                             </a>
                           </li>
@@ -147,23 +147,23 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Office Chairs
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Desks</a>
+                            <a href="#">Desks</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Bookcases</a>
+                            <a href="#">Bookcases</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               File Cabinets
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Breakroom Tables
                             </a>
                           </li>
@@ -173,30 +173,30 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Dining Sets</a>
+                            <a href="#">Dining Sets</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Kitchen Storage Cabinets
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Bashers Racks
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Dining Chairs
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Dining Room Tables
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Bar Stools</a>
+                            <a href="#">Bar Stools</a>
                           </li>
                         </ul>
                       </li>
@@ -236,7 +236,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-electronics"></i>Electronics
                     </a>
                     <ul className="megamenu">
@@ -245,23 +245,23 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Desktop Computers
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Monitors</a>
+                            <a href="#">Monitors</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Laptops</a>
+                            <a href="#">Laptops</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Hard Drives &amp; Storage
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Computer Accessories
                             </a>
                           </li>
@@ -271,18 +271,18 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">TVs</a>
+                            <a href="#">TVs</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Home Audio Speakers
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">Projectors</a>
+                            <a href="#">Projectors</a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Media Streaming Devices
                             </a>
                           </li>
@@ -293,27 +293,27 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Digital SLR Cameras
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Sports & Action Cameras
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Camera Lenses
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Photo Printer
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Digital Memory Cards
                             </a>
                           </li>
@@ -323,22 +323,22 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                         <hr className="divider" />
                         <ul>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Carrier Phones
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Unlocked Phones
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Phone & Cellphone Cases
                             </a>
                           </li>
                           <li>
-                            <a href="shop-fullwidth-banner.html">
+                            <a href="#">
                               Cellphone Chargers
                             </a>
                           </li>
@@ -376,7 +376,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-furniture"></i>Furniture
                     </a>
                     <ul className="megamenu type2">
@@ -386,25 +386,25 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           <hr className="divider" />
                           <ul>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Sofas & Couches
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">Armchairs</a>
+                              <a href="#">Armchairs</a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Bed Frames
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Beside Tables
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Dressing Tables
                               </a>
                             </li>
@@ -415,25 +415,25 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           <hr className="divider" />
                           <ul>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Light Bulbs
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">Lamps</a>
+                              <a href="#">Lamps</a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Celling Lights
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Wall Lights
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Bathroom Lighting
                               </a>
                             </li>
@@ -444,25 +444,25 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           <hr className="divider" />
                           <ul>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Decorative Accessories
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Candals & Holders
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Home Fragrance
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">Mirrors</a>
+                              <a href="#">Mirrors</a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">Clocks</a>
+                              <a href="#">Clocks</a>
                             </li>
                           </ul>
                         </div>
@@ -471,27 +471,27 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           <hr className="divider" />
                           <ul>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Garden Furniture
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Lawn Mowers
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Pressure Washers
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 All Garden Tools
                               </a>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
+                              <a href="#">
                                 Outdoor Dining
                               </a>
                             </li>
@@ -549,37 +549,37 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-heartbeat"></i>Healthy & Beauty
                     </a>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-gift"></i>Gift Ideas
                     </a>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-gamepad"></i>Toy & Games
                     </a>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-ice-cream"></i>Cooking
                     </a>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-ios"></i>Smart Phones
                     </a>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-camera"></i>Cameras & Photo
                     </a>
                   </li>
                   <li>
-                    <a href="shop-fullwidth-banner.html">
+                    <a href="#">
                       <i className="w-icon-ruby"></i>Accessories
                     </a>
                   </li>

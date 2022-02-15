@@ -16,7 +16,7 @@ const CompareContent = (props: any) => {
                     <a href="#" className="btn remove-product"><i className="w-icon-times-solid"></i></a>
                     <div className="product text-center">
                         <figure className="product-media">
-                            <a href="product-default.html">
+                            <a href="#">
                                 <img src={item.image} alt="Product" width={228}
                                     height={257} />
                             </a>
@@ -26,7 +26,7 @@ const CompareContent = (props: any) => {
                             </div>
                         </figure>
                         <div className="product-details">
-                            <h3 className="product-name"><a href="product-default.html">{item.title}</a></h3>
+                            <h3 className="product-name"><a href="#">{item.title}</a></h3>
                         </div>
                     </div>
                 </div>

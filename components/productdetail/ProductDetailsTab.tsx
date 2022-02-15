@@ -177,7 +177,7 @@ const ProductDetailsTab = () => {
                 </li>
               </ul>
               <a
-                href="vendor-dokan-store.html"
+                href="#"
                 className="btn btn-dark btn-link btn-underline btn-icon-right"
               >
                 Visit Store<i className="w-icon-long-arrow-right"></i>

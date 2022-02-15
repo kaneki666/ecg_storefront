@@ -97,7 +97,7 @@ const ProfileOrders = () => {
       </table>
 
       <a
-        href="shop-banner-sidebar.html"
+        href="category"
         className="btn btn-dark btn-rounded btn-icon-right"
       >
         Go Shop<i className="w-icon-long-arrow-right"></i>

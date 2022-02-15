@@ -27,7 +27,7 @@ const store_props = [
     title: "Vendor 2",
     rating: "5",
     address: "London, United Kingdom (UK)",
-    store_url: "vendor-dokan-store.html",
+    store_url: "#",
   },
   {
     banner_image: "/images/vendor/dokan/1.jpg",
@@ -35,7 +35,7 @@ const store_props = [
     title: "Vendor 1",
     rating: "5",
     address: "London",
-    store_url: "vendor-dokan-store.html",
+    store_url: "#",
   },
   {
     banner_image: "/images/vendor/dokan/3.jpg",
@@ -43,7 +43,7 @@ const store_props = [
     title: "Vendor 3",
     rating: "5",
     address: "United Kingdom (UK)",
-    store_url: "vendor-dokan-store.html",
+    store_url: "#",
   },
 ];
 

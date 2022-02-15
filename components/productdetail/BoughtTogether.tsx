@@ -85,7 +85,7 @@ const BoughtTogether = () => {
             $1,874.00
           </div>
           <div className="bought-count">For 3 items</div>
-          <a href="cart.html" className="btn btn-dark btn-rounded">
+          <a href="cart" className="btn btn-dark btn-rounded">
             Add All To Cart
           </a>
         </div>

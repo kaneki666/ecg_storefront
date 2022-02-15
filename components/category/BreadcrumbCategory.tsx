@@ -1,12 +1,12 @@
 import React from "react";
 
-const BreadcrumbWishlist = () => {
+const BreadcrumbCategory = () => {
   return (<div>
-     <nav className="breadcrumb-nav mb-10">
+    <nav className="breadcrumb-nav">
         <div className="container">
-            <ul className="breadcrumb">
+            <ul className="breadcrumb bb-no">
                 <li><a href="/">Home</a></li>
-                <li>Wishlist</li>
+                <li>Shop</li>
             </ul>
         </div>
     </nav>
@@ -14,4 +14,4 @@ const BreadcrumbWishlist = () => {
   );
 };
 
-export default BreadcrumbWishlist;
+export default BreadcrumbCategory;

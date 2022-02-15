@@ -7,7 +7,7 @@ const SingleStore = (props: any) => {
   return (<div>
       <div className="store store-list mt-4">
             <div className="store-header">
-                <a href="vendor-dokan-store.html">
+                <a href="#">
                     <figure className="store-banner">
                         <Image src={banner_image} alt="Vendor"  width= {400} height={188} layout="intrinsic" />
                     </figure>

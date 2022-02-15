@@ -5,7 +5,7 @@ const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
   return (
     <div className="product product-cart">
       <div className="product-detail">
-        <a href="product-default.html" className="product-name">
+        <a href="#" className="product-name">
           {cartItem.title}
           {/* <br />
           tic runner shoes */}
@@ -16,7 +16,7 @@ const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         </div>
       </div>
       <figure className="product-media">
-        <a href="product-default.html">
+        <a href="#">
           <img src={cartItem.thumbnail} alt="product" height="84" width="94" />
         </a>
       </figure>

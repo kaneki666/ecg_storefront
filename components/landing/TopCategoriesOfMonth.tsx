@@ -28,7 +28,7 @@ const TopCategoriesOfMonth = () => {
           >
             <div className="swiper-wrapper row cols-lg-6 cols-md-5 cols-sm-3 cols-2">
               <div className="swiper-slide category category-classNameic category-absolute overlay-zoom br-xs">
-                <a href="shop-banner-sidebar.html" className="category-media">
+                <a href="category" className="category-media">
                   <img
                     src="/images/demos/demo1/categories/2-1.jpg"
                     alt="Category"
@@ -39,7 +39,7 @@ const TopCategoriesOfMonth = () => {
                 <div className="category-content">
                   <h4 className="category-name">Fashion</h4>
                   <a
-                    href="shop-banner-sidebar.html"
+                    href="category"
                     className="btn btn-primary btn-link btn-underline"
                   >
                     Shop Now
@@ -47,7 +47,7 @@ const TopCategoriesOfMonth = () => {
                 </div>
               </div>
               <div className="swiper-slide category category-classNameic category-absolute overlay-zoom br-xs">
-                <a href="shop-banner-sidebar.html" className="category-media">
+                <a href="category" className="category-media">
                   <img
                     src="/images/demos/demo1/categories/2-2.jpg"
                     alt="Category"
@@ -58,7 +58,7 @@ const TopCategoriesOfMonth = () => {
                 <div className="category-content">
                   <h4 className="category-name">Furniture</h4>
                   <a
-                    href="shop-banner-sidebar.html"
+                    href="category"
                     className="btn btn-primary btn-link btn-underline"
                   >
                     Shop Now
@@ -66,7 +66,7 @@ const TopCategoriesOfMonth = () => {
                 </div>
               </div>
               <div className="swiper-slide category category-classNameic category-absolute overlay-zoom br-xs">
-                <a href="shop-banner-sidebar.html" className="category-media">
+                <a href="category" className="category-media">
                   <img
                     src="/images/demos/demo1/categories/2-3.jpg"
                     alt="Category"
@@ -77,7 +77,7 @@ const TopCategoriesOfMonth = () => {
                 <div className="category-content">
                   <h4 className="category-name">Shoes</h4>
                   <a
-                    href="shop-banner-sidebar.html"
+                    href="category"
                     className="btn btn-primary btn-link btn-underline"
                   >
                     Shop Now
@@ -85,7 +85,7 @@ const TopCategoriesOfMonth = () => {
                 </div>
               </div>
               <div className="swiper-slide category category-classNameic category-absolute overlay-zoom br-xs">
-                <a href="shop-banner-sidebar.html" className="category-media">
+                <a href="category" className="category-media">
                   <img
                     src="/images/demos/demo1/categories/2-4.jpg"
                     alt="Category"
@@ -96,7 +96,7 @@ const TopCategoriesOfMonth = () => {
                 <div className="category-content">
                   <h4 className="category-name">Sports</h4>
                   <a
-                    href="shop-banner-sidebar.html"
+                    href="category"
                     className="btn btn-primary btn-link btn-underline"
                   >
                     Shop Now
@@ -104,7 +104,7 @@ const TopCategoriesOfMonth = () => {
                 </div>
               </div>
               <div className="swiper-slide category category-classNameic category-absolute overlay-zoom br-xs">
-                <a href="shop-banner-sidebar.html" className="category-media">
+                <a href="category" className="category-media">
                   <img
                     src="/images/demos/demo1/categories/2-5.jpg"
                     alt="Category"
@@ -115,7 +115,7 @@ const TopCategoriesOfMonth = () => {
                 <div className="category-content">
                   <h4 className="category-name">Games</h4>
                   <a
-                    href="shop-banner-sidebar.html"
+                    href="category"
                     className="btn btn-primary btn-link btn-underline"
                   >
                     Shop Now
@@ -123,7 +123,7 @@ const TopCategoriesOfMonth = () => {
                 </div>
               </div>
               <div className="swiper-slide category category-classNameic category-absolute overlay-zoom br-xs">
-                <a href="shop-banner-sidebar.html" className="category-media">
+                <a href="category" className="category-media">
                   <img
                     src="/images/demos/demo1/categories/2-6.jpg"
                     alt="Category"
@@ -134,7 +134,7 @@ const TopCategoriesOfMonth = () => {
                 <div className="category-content">
                   <h4 className="category-name">Computers</h4>
                   <a
-                    href="shop-banner-sidebar.html"
+                    href="category"
                     className="btn btn-primary btn-link btn-underline"
                   >
                     Shop Now

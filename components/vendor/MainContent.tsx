@@ -48,11 +48,11 @@ const MainContent = () => {
                                 </select>
                             </div>
                             <div className="toolbox-item toolbox-layout">
-                                <a href="vendor-wcfm-store-product-grid.html"
+                                <a href="#"
                                     className="icon-mode-grid btn-layout active">
                                     <i className="w-icon-grid"></i>
                                 </a>
-                                <a href="vendor-wcfm-store-product-list.html"
+                                <a href="#"
                                     className="icon-mode-list btn-layout">
                                     <i className="w-icon-list"></i>
                                 </a>
@@ -63,7 +63,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/1.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -82,14 +82,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">3D
+                                    <h4 className="product-name"><a href="#">3D
                                             Television</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"100%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(3
+                                        <a href="#" className="rating-reviews">(3
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -106,7 +106,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/2-1.jpg" alt="Product"
                                             width={300} height={338} />
                                         <Image src="/images/shop/2-2.jpg" alt="Product"
@@ -127,14 +127,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Alarm
+                                    <h4 className="product-name"><a href="#">Alarm
                                             Clock With Lamp</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"100%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(10
+                                        <a href="#" className="rating-reviews">(10
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -154,7 +154,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/3.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -173,14 +173,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Apple
+                                    <h4 className="product-name"><a href="#">Apple
                                             Laptop</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"80%"}}></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(5
+                                        <a href="#" className="rating-reviews">(5
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -197,7 +197,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/4.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -217,14 +217,14 @@ const MainContent = () => {
                                 </figure>
                                 <div className="product-details">
                                     <h4 className="product-name"><a
-                                            href="product-default.html">Attachable Charge Alarm</a>
+                                            href="#">Attachable Charge Alarm</a>
                                     </h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"60%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(7
+                                        <a href="#" className="rating-reviews">(7
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -241,7 +241,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/5.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -260,14 +260,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Best
+                                    <h4 className="product-name"><a href="#">Best
                                             Travel Bag</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"80%"}}></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(4
+                                        <a href="#" className="rating-reviews">(4
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -284,7 +284,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/6.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -303,14 +303,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Black
+                                    <h4 className="product-name"><a href="#">Black
                                             Stunt Motor</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"100%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(12
+                                        <a href="#" className="rating-reviews">(12
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -327,7 +327,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/7-1.jpg" alt="Product"
                                             width={300} height={338} />
                                         <Image src="/images/shop/7-2.jpg" alt="Product"
@@ -348,14 +348,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Blue Sky
+                                    <h4 className="product-name"><a href="#">Blue Sky
                                             Trunk</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"100%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(9
+                                        <a href="#" className="rating-reviews">(9
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -372,7 +372,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/8.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -391,14 +391,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Bodycare
+                                    <h4 className="product-name"><a href="#">Bodycare
                                             Smooth Powder</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"60%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(4
+                                        <a href="#" className="rating-reviews">(4
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -415,7 +415,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/9.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -434,14 +434,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Bright
+                                    <h4 className="product-name"><a href="#">Bright
                                             Green IPhone</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"80%"}}></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(4
+                                        <a href="#" className="rating-reviews">(4
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -458,7 +458,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/10.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -477,14 +477,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Cavin
+                                    <h4 className="product-name"><a href="#">Cavin
                                             Fashion Suede Handbag</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"80%"}}></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(4
+                                        <a href="#" className="rating-reviews">(4
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -501,7 +501,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/11-1.jpg" alt="Product"
                                             width={300} height={338} />
                                         <Image src="/images/shop/11-2.jpg" alt="Product"
@@ -522,14 +522,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">Charming
+                                    <h4 className="product-name"><a href="#">Charming
                                             Design Watch</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"100%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(10
+                                        <a href="#" className="rating-reviews">(10
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">
@@ -546,7 +546,7 @@ const MainContent = () => {
                         <div className="product-wrap">
                             <div className="product product-simple text-center">
                                 <figure className="product-media">
-                                    <a href="product-default.html">
+                                    <a href="#">
                                         <Image src="/images/shop/12.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
@@ -565,14 +565,14 @@ const MainContent = () => {
                                     </div>
                                 </figure>
                                 <div className="product-details">
-                                    <h4 className="product-name"><a href="product-default.html">classNameic
+                                    <h4 className="product-name"><a href="#">classNameic
                                             Simple Backpack</a></h4>
                                     <div className="ratings-container">
                                         <div className="ratings-full">
                                             <span className="ratings" style={{ width:"100%" }} ></span>
                                             <span className="tooltiptext tooltip-top"></span>
                                         </div>
-                                        <a href="product-default.html" className="rating-reviews">(9
+                                        <a href="#" className="rating-reviews">(9
                                             reviews)</a>
                                     </div>
                                     <div className="product-pa-wrapper">

@@ -14,7 +14,7 @@ const BestSeller = ({ productItem }: { productItem: SingleProductProps }) => {
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href="product-default.html">{productItem.title}</a>
+            <a href="#">{productItem.title}</a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">

@@ -23,7 +23,7 @@ const PageContent = (props: any) => {
         <tr key={item.id}>
             <td className="product-thumbnail">
                 <div className="p-relative">
-                    <a href="product-default.html">
+                    <a href="#">
                         <figure>
                             <Image src={item.image} alt="product" width={300}
                                 height={338} />
@@ -34,7 +34,7 @@ const PageContent = (props: any) => {
                 </div>
             </td>
             <td className="product-name">
-                <a href="product-default.html">
+                <a href="#">
                     {item.title}
                 </a>
             </td>

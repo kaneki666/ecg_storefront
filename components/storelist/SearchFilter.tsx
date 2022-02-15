@@ -24,13 +24,13 @@ const SearchFilter = () => {
           </div>
           <div className="toolbox-item toolbox-layout mb-0 d-flex">
             <a
-              href="vendor-dokan-store-grid.html"
+              href="#"
               className="icon-mode-grid btn-layout"
             >
               <i className="w-icon-grid"></i>
             </a>
             <a
-              href="vendor-dokan-store-list.html"
+              href="#"
               className="icon-mode-list btn-layout active"
             >
               <i className="w-icon-list"></i>

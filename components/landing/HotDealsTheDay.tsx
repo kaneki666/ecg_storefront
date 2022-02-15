@@ -131,7 +131,7 @@ const HotDealsTheDay = () => {
                 <div className="col-md-6">
                   <div className="product-details scrollable">
                     <h2 className="product-title mb-1">
-                      <a href="product-default.html">
+                      <a href="#">
                         Coat Pool Comfort Jacket
                       </a>
                     </h2>
@@ -365,7 +365,7 @@ const HotDealsTheDay = () => {
                 <div className="col-md-6">
                   <div className="product-details scrollable">
                     <h2 className="product-title mb-1">
-                      <a href="product-default.html">
+                      <a href="#">
                         Coat Pool Comfort Jacket
                       </a>
                     </h2>

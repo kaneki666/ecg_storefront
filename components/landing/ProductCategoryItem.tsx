@@ -56,7 +56,7 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href="product-default.html">{productItem.title}</a>
+            <a href="#">{productItem.title}</a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
@@ -66,7 +66,7 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
               ></span>
               <span className="tooltiptext tooltip-top"></span>
             </div>
-            <a href="product-default.html" className="rating-reviews">
+            <a href="#" className="rating-reviews">
               (3 reviews)
             </a>
           </div>

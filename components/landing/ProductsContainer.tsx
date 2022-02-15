@@ -126,7 +126,7 @@ const ProductsContainer = ({
                 Professional
               </h3>
               <a
-                href="shop-banner-sidebar.html"
+                href="#"
                 className="btn btn-white btn-link btn-underline btn-icon-right"
               >
                 Shop Now<i className="w-icon-long-arrow-right"></i>
@@ -155,7 +155,7 @@ const ProductsContainer = ({
                 Collection
               </h3>
               <a
-                href="shop-banner-sidebar.html"
+                href="#"
                 className="btn btn-dark btn-link btn-underline btn-icon-right"
               >
                 Shop Now<i className="w-icon-long-arrow-right"></i>

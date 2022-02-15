@@ -29,10 +29,10 @@ const PrifileNavList = () => {
         </a>
       </li>
       <li className="link-item">
-        <a href="wishlist.html">Wishlist</a>
+        <a href="wishlist">Wishlist</a>
       </li>
       <li className="link-item">
-        <a href="login.html">Logout</a>
+        <a href="login">Logout</a>
       </li>
     </ul>
   );

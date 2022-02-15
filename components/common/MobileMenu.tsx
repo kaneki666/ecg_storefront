@@ -71,7 +71,7 @@ const MobileMenu = () => {
           <div className="tab-pane" id="categories">
             <ul className="mobile-menu">
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-tshirt2"></i>Fashion
                 </a>
                 <ul>
@@ -79,28 +79,28 @@ const MobileMenu = () => {
                     <a href="#">Women</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">New Arrivals</a>
+                        <a href="category">New Arrivals</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Best Sellers</a>
+                        <a href="category">Best Sellers</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Trending</a>
+                        <a href="category">Trending</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Clothing</a>
+                        <a href="category">Clothing</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Shoes</a>
+                        <a href="category">Shoes</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Bags</a>
+                        <a href="category">Bags</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Accessories</a>
+                        <a href="category">Accessories</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Jewlery & Watches
                         </a>
                       </li>
@@ -110,28 +110,28 @@ const MobileMenu = () => {
                     <a href="#">Men</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">New Arrivals</a>
+                        <a href="category">New Arrivals</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Best Sellers</a>
+                        <a href="category">Best Sellers</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Trending</a>
+                        <a href="category">Trending</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Clothing</a>
+                        <a href="category">Clothing</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Shoes</a>
+                        <a href="category">Shoes</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Bags</a>
+                        <a href="category">Bags</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Accessories</a>
+                        <a href="category">Accessories</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Jewlery & Watches
                         </a>
                       </li>
@@ -140,7 +140,7 @@ const MobileMenu = () => {
                 </ul>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-home"></i>Home & Garden
                 </a>
                 <ul>
@@ -148,23 +148,23 @@ const MobileMenu = () => {
                     <a href="#">Bedroom</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Beds, Frames & Bases
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Dressers</a>
+                        <a href="category">Dressers</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Nightstands</a>
+                        <a href="category">Nightstands</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Kid's Beds & Headboards
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Armoires</a>
+                        <a href="category">Armoires</a>
                       </li>
                     </ul>
                   </li>
@@ -172,21 +172,21 @@ const MobileMenu = () => {
                     <a href="#">Living Room</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Coffee Tables</a>
+                        <a href="category">Coffee Tables</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Chairs</a>
+                        <a href="category">Chairs</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Tables</a>
+                        <a href="category">Tables</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Futons & Sofa Beds
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Cabinets & Chests
                         </a>
                       </li>
@@ -196,19 +196,19 @@ const MobileMenu = () => {
                     <a href="#">Office</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Office Chairs</a>
+                        <a href="category">Office Chairs</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Desks</a>
+                        <a href="category">Desks</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Bookcases</a>
+                        <a href="category">Bookcases</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">File Cabinets</a>
+                        <a href="category">File Cabinets</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Breakroom Tables
                         </a>
                       </li>
@@ -218,33 +218,33 @@ const MobileMenu = () => {
                     <a href="#">Kitchen & Dining</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Dining Sets</a>
+                        <a href="category">Dining Sets</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Kitchen Storage Cabinets
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Bashers Racks</a>
+                        <a href="category">Bashers Racks</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Dining Chairs</a>
+                        <a href="category">Dining Chairs</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Dining Room Tables
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Bar Stools</a>
+                        <a href="category">Bar Stools</a>
                       </li>
                     </ul>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-electronics"></i>Electronics
                 </a>
                 <ul>
@@ -252,23 +252,23 @@ const MobileMenu = () => {
                     <a href="#">Laptops &amp; Computers</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Desktop Computers
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Monitors</a>
+                        <a href="category">Monitors</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Laptops</a>
+                        <a href="category">Laptops</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Hard Drives &amp; Storage
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Computer Accessories
                         </a>
                       </li>
@@ -278,18 +278,18 @@ const MobileMenu = () => {
                     <a href="#">TV &amp; Video</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">TVs</a>
+                        <a href="category">TVs</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Home Audio Speakers
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Projectors</a>
+                        <a href="category">Projectors</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Media Streaming Devices
                         </a>
                       </li>
@@ -299,23 +299,23 @@ const MobileMenu = () => {
                     <a href="#">Digital Cameras</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Digital SLR Cameras
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Sports & Action Cameras
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Camera Lenses</a>
+                        <a href="category">Camera Lenses</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Photo Printer</a>
+                        <a href="category">Photo Printer</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Digital Memory Cards
                         </a>
                       </li>
@@ -325,18 +325,18 @@ const MobileMenu = () => {
                     <a href="#">Cell Phones</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Carrier Phones</a>
+                        <a href="category">Carrier Phones</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Unlocked Phones</a>
+                        <a href="category">Unlocked Phones</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Phone & Cellphone Cases
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Cellphone Chargers
                         </a>
                       </li>
@@ -345,7 +345,7 @@ const MobileMenu = () => {
                 </ul>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-furniture"></i>Furniture
                 </a>
                 <ul>
@@ -353,19 +353,19 @@ const MobileMenu = () => {
                     <a href="#">Furniture</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Sofas & Couches</a>
+                        <a href="category">Sofas & Couches</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Armchairs</a>
+                        <a href="category">Armchairs</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Bed Frames</a>
+                        <a href="category">Bed Frames</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Beside Tables</a>
+                        <a href="category">Beside Tables</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Dressing Tables</a>
+                        <a href="category">Dressing Tables</a>
                       </li>
                     </ul>
                   </li>
@@ -373,19 +373,19 @@ const MobileMenu = () => {
                     <a href="#">Lighting</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Light Bulbs</a>
+                        <a href="category">Light Bulbs</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Lamps</a>
+                        <a href="category">Lamps</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Celling Lights</a>
+                        <a href="category">Celling Lights</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Wall Lights</a>
+                        <a href="category">Wall Lights</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Bathroom Lighting
                         </a>
                       </li>
@@ -395,23 +395,23 @@ const MobileMenu = () => {
                     <a href="#">Home Accessories</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Decorative Accessories
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Candals & Holders
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Home Fragrance</a>
+                        <a href="category">Home Fragrance</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Mirrors</a>
+                        <a href="category">Mirrors</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Clocks</a>
+                        <a href="category">Clocks</a>
                       </li>
                     </ul>
                   </li>
@@ -419,68 +419,68 @@ const MobileMenu = () => {
                     <a href="#">Garden & Outdoors</a>
                     <ul>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Garden Furniture
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Lawn Mowers</a>
+                        <a href="category">Lawn Mowers</a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           Pressure Washers
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">
+                        <a href="category">
                           All Garden Tools
                         </a>
                       </li>
                       <li>
-                        <a href="shop-fullwidth-banner.html">Outdoor Dining</a>
+                        <a href="category">Outdoor Dining</a>
                       </li>
                     </ul>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-heartbeat"></i>Healthy & Beauty
                 </a>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-gift"></i>Gift Ideas
                 </a>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-gamepad"></i>Toy & Games
                 </a>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-ice-cream"></i>Cooking
                 </a>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-ios"></i>Smart Phones
                 </a>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-camera"></i>Cameras & Photo
                 </a>
               </li>
               <li>
-                <a href="shop-fullwidth-banner.html">
+                <a href="category">
                   <i className="w-icon-ruby"></i>Accessories
                 </a>
               </li>
               <li>
                 <a
-                  href="shop-banner-sidebar.html"
+                  href="category"
                   className="font-weight-bold text-primary text-uppercase ls-25"
                 >
                   View All Categories<i className="w-icon-angle-right"></i>

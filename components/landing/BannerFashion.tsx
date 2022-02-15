@@ -33,7 +33,7 @@ const BannerFashion = () => {
           </p>
         </div>
         <a
-          href="shop-banner-sidebar.html"
+          href="category"
           className="btn btn-white btn-outline btn-rounded btn-icon-right mb-3"
         >
           Shop Now<i className="w-icon-long-arrow-right"></i>
