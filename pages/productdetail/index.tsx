@@ -31,7 +31,12 @@ const index: NextPage = ({
   return (
     <div>
       <Head>
-        <link rel="stylesheet" type="text/css" href="/css/style.min.css" />
+        <link
+          rel="preload stylesheet"
+          type="text/css"
+          href="/css/style.min.css"
+          crossOrigin="anonymous"
+        />
       </Head>
       <body>
         <div className="page-wrapper">
