@@ -19,6 +19,8 @@ import BreadcrumbCategory from "../../components/category/BreadcrumbCategory";
 import ShopBanner from "../../components/category/ShopBanner";
 import ShopBrands from "../../components/category/ShopBrands";
 import ShopCategory from "../../components/category/ShopCategory";
+import Filter from "../../components/category/Filter";
+import ShopSideBar from "../../components/category/ShopSideBar";
 // import ShopSideBar from "../../components/category/ShopSideBar";
 // import ShopMainContent from "../../components/category/ShopMainContent";
   
@@ -47,136 +49,11 @@ import ShopCategory from "../../components/category/ShopCategory";
                         <div className="shop-content row gutter-lg mb-10">
                         
                         <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
-                            
-                            <div className="sidebar-overlay"></div>
-                            <a className="sidebar-close" href="#"><i className="close-icon"></i></a>
-
-                        
-                            <div className="sidebar-content scrollable">
-                           
-                                <div className="sticky-sidebar">
-                                    <div className="filter-actions">
-                                        <label>Filter :</label>
-                                        <a href="#" className="btn btn-dark btn-link filter-clean">Clean All</a>
-                                    </div>
-                                 
-                                    <div className="widget widget-collapsible">
-                                        <h3 className="widget-title"><label>All Categories</label></h3>
-                                        <ul className="widget-body filter-items search-ul">
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Babies</a></li>
-                                            <li><a href="#">Beauty</a></li>
-                                            <li><a href="#">Decoration</a></li>
-                                            <li><a href="#">Electronics</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Food</a></li>
-                                            <li><a href="#">Furniture</a></li>
-                                            <li><a href="#">Kitchen</a></li>
-                                            <li><a href="#">Medical</a></li>
-                                            <li><a href="#">Sports</a></li>
-                                            <li><a href="#">Watches</a></li>
-                                        </ul>
-                                    </div>
-                                  
-                                    <div className="widget widget-collapsible">
-                                        <h3 className="widget-title"><label>Price</label></h3>
-                                        <div className="widget-body">
-                                            <ul className="filter-items search-ul">
-                                                <li><a href="#">$0.00 - $100.00</a></li>
-                                                <li><a href="#">$100.00 - $200.00</a></li>
-                                                <li><a href="#">$200.00 - $300.00</a></li>
-                                                <li><a href="#">$300.00 - $500.00</a></li>
-                                                <li><a href="#">$500.00+</a></li>
-                                            </ul>
-                                            {/* <form className="price-range">
-                                                <input type="number" name="min_price" className="min_price text-center"
-                                                    placeholder="$min"><span className="delimiter">-</span><input
-                                                    type="number" name="max_price" className="max_price text-center"
-                                                    placeholder="$max"><a href="#"
-                                                    className="btn btn-primary btn-rounded">Go</a>
-                                            </form> */}
-                                        </div>
-                                    </div>
-                                  
-                                    <div className="widget widget-collapsible">
-                                        <h3 className="widget-title"><label>Size</label></h3>
-                                        <ul className="widget-body filter-items item-check mt-1">
-                                            <li><a href="#">Extra Large</a></li>
-                                            <li><a href="#">Large</a></li>
-                                            <li><a href="#">Medium</a></li>
-                                            <li><a href="#">Small</a></li>
-                                        </ul>
-                                    </div>
-                                  
-                                    <div className="widget widget-collapsible">
-                                        <h3 className="widget-title"><label>Brand</label></h3>
-                                        <ul className="widget-body filter-items item-check mt-1">
-                                            <li><a href="#">Elegant Auto Group</a></li>
-                                            <li><a href="#">Green Grass</a></li>
-                                            <li><a href="#">Node Js</a></li>
-                                            <li><a href="#">NS8</a></li>
-                                            <li><a href="#">Red</a></li>
-                                            <li><a href="#">Skysuite Tech</a></li>
-                                            <li><a href="#">Sterling</a></li>
-                                        </ul>
-                                    </div>
-                                  
-                                    <div className="widget widget-collapsible">
-                                        <h3 className="widget-title"><label>Color</label></h3>
-                                        <ul className="widget-body filter-items item-check mt-1">
-                                            <li><a href="#">Black</a></li>
-                                            <li><a href="#">Blue</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Green</a></li>
-                                            <li><a href="#">Grey</a></li>
-                                            <li><a href="#">Orange</a></li>
-                                            <li><a href="#">Yellow</a></li>
-                                        </ul>
-                                    </div>
-                                   
-                                </div>
-                              
-                            </div>
-                           
+                            <ShopSideBar/>        
                         </aside>
                     
                         <div className="main-content">
-                            <nav className="toolbox sticky-toolbox sticky-content fix-top">
-                                <div className="toolbox-left">
-                                    <a href="#" className="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
-                                        btn-icon-left d-block d-lg-none"><i
-                                            className="w-icon-category"></i><span>Filters</span></a>
-                                    <div className="toolbox-item toolbox-sort select-box text-dark">
-                                        <label>Sort By :</label>
-                                        <select name="orderby" className="form-control">
-                                            <option value="default">Default sorting</option>
-                                            <option value="popularity">Sort by popularity</option>
-                                            <option value="rating">Sort by average rating</option>
-                                            <option value="date">Sort by latest</option>
-                                            <option value="price-low">Sort by pric: low to high</option>
-                                            <option value="price-high">Sort by price: high to low</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="toolbox-right">
-                                    <div className="toolbox-item toolbox-show select-box">
-                                        <select name="count" className="form-control">
-                                            <option value="9">Show 9</option>
-                                            <option value="12">Show 12</option>
-                                            <option value="24">Show 24</option>
-                                            <option value="36">Show 36</option>
-                                        </select>
-                                    </div>
-                                    <div className="toolbox-item toolbox-layout">
-                                        <a href="category" className="icon-mode-grid btn-layout active">
-                                            <i className="w-icon-grid"></i>
-                                        </a>
-                                        <a href="storelist" className="icon-mode-list btn-layout">
-                                            <i className="w-icon-list"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </nav>
+                            <Filter/>
                             <div className="product-wrapper row cols-md-3 cols-sm-2 cols-2">
                                 <div className="product-wrap">
                                     <div className="product text-center">
