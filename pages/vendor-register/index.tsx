@@ -17,13 +17,13 @@ import HeaderBottom from "../../components/common/HeaderBottom";
 import { API_BASE_URL } from "../api/hello";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import PageHeader from "../../components/vendor-register/PageHeader";
-import Breadcrumb from "../../components/vendor-register/breadcrumb";
 import CreateStore from "../../components/vendor-register/CreateStore";
 import Trade from "../../components/vendor-register/Trade";
 import Container from "../../components/vendor-register/Container";
 import Stories from "../../components/vendor-register/Stories";
 import QA from "../../components/vendor-register/QA";
 import Footer from "../../components/vendor-register/Footer";
+import Breadcrumb from "../../components/vendor-register/Breadcrumb";
 
 const index: NextPage = ({
   categoriesData,
