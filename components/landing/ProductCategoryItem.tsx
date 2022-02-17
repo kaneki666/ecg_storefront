@@ -1,18 +1,17 @@
 import Image from "next/image";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartAction,
   addToQuickViewAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
-const ProductCategoryItem = ({
-  productItem,
-}: {
-  productItem: SingleProductProps;
-}) => {
+const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps }) => {
+  const currency = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer.currency
+  );
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () =>
@@ -78,9 +77,13 @@ const ProductCategoryItem = ({
             </a>
           </div>
           <div className="product-price">
-            <ins className="new-price">${productItem.price}</ins>
+          <ins className="new-price">
+              {currency.currency_symbol}{" "}
+              {productItem.price * currency.currency_rate}
+            </ins>
             {productItem.old_price && (
-              <del className="old-price">${productItem.old_price}</del>
+              <del className="old-price">{currency.currency_symbol}{" "}
+              {productItem.price * currency.currency_rate}</del>
             )}
           </div>
         </div>

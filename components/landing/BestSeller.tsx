@@ -1,8 +1,14 @@
 import Image from "next/image";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { SingleProductProps } from "../../utils/types/landingpage";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const BestSeller = ({ productItem }: { productItem: SingleProductProps }) => {
+  const currency = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer.currency
+  );
+
   return (
     <div className="product product-widget bb-no">
       <figure className="product-media">
@@ -24,10 +30,14 @@ const BestSeller = ({ productItem }: { productItem: SingleProductProps }) => {
           </div>
         </div>
         <div className="product-price">
-          <ins className="new-price">${productItem.price}</ins>
-          {productItem.old_price && (
-            <del className="old-price">${productItem.old_price}</del>
-          )}
+          <ins className="new-price">
+              {currency.currency_symbol}{" "}
+              {productItem.price * currency.currency_rate}
+            </ins>
+            {productItem.old_price && (
+              <del className="old-price">{currency.currency_symbol}{" "}
+              {productItem.price * currency.currency_rate}</del>
+            )}
         </div>
       </div>
     </div>
