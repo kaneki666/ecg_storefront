@@ -25,7 +25,7 @@ const HeaderBottomMiddle = () => {
             </li>
 
             <li>
-                <a href="login">Become A Vendor</a>
+                <a href="vendor-register">Become A Vendor</a>
             </li>
             </ul>
         </nav>
