@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCartAction } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductSingle = ({ product }: { product: SingleProductProps }) => {
+  const currency = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer.currency
+  );
   const dispatch = useDispatch();
   let [quantity, setQuantity] = useState(1);
 
@@ -202,7 +205,10 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           <hr className="product-divider" />
 
           <div className="product-price">
-            <ins className="new-price">${product.price}</ins>
+          <ins className="new-price">
+              {currency.currency_symbol}{" "}
+              {product.price * currency.currency_rate}
+            </ins>
           </div>
 
           <div className="ratings-container">
