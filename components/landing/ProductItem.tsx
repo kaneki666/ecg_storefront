@@ -1,14 +1,17 @@
 import Image from "next/image";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartAction,
   addToQuickViewAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
+  const currency = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer.currency
+  );
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () =>
@@ -60,7 +63,9 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href={`productdetail?slug=${productItem.slug}`}>{productItem.title}</a>
+            <a href={`productdetail?slug=${productItem.slug}`}>
+              {productItem.title}
+            </a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
@@ -75,7 +80,10 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
             </a>
           </div>
           <div className="product-price">
-            <ins className="new-price">${productItem.price}</ins>
+            <ins className="new-price">
+              {currency.currency_symbol}{" "}
+              {productItem.price * currency.currency_rate}
+            </ins>
           </div>
         </div>
       </div>

@@ -1,7 +1,12 @@
-import { UserLoginProps, userSignupProps } from "../../utils/types/reduxTypes";
+import {
+  CurrencyProps,
+  UserLoginProps,
+  userSignupProps,
+} from "../../utils/types/reduxTypes";
 import {
   LOGIN_ACTION,
   LOGOUT_ACTION,
+  SAVE_CURRENCY_ACTION,
   SAVE_USERINFO_ACTION,
   SIGNUP_ACTION,
 } from "./type";
@@ -51,6 +56,17 @@ export const saveUserinfo1Action = (userinfo: userSignupProps) => {
     dispatch({
       type: SAVE_USERINFO_ACTION,
       payload: userinfo,
+    });
+  };
+};
+
+export const saveUserCurrencyAction = (currency: CurrencyProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: CurrencyProps }) => void
+  ) => {
+    dispatch({
+      type: SAVE_CURRENCY_ACTION,
+      payload: currency,
     });
   };
 };

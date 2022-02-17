@@ -24,6 +24,7 @@ export interface CartItemProps {
 export interface AuthRootStateType {
   userInfo: UserLoginProps | null;
   isLoggedIn: boolean;
+  currency: CurrencyProps;
 }
 
 export interface QickViewStateProps {
@@ -39,4 +40,12 @@ export interface RootAppStateProps {
 export interface userSignupProps {
   status: boolean;
   data: UserDataProps;
+}
+
+export interface CurrencyProps {
+  id: number;
+  currency_name: String;
+  currency_rate: number;
+  currency_symbol: String;
+  is_default: boolean;
 }

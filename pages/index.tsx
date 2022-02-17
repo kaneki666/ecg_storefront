@@ -21,11 +21,11 @@ import TopCategoriesOfMonth from "../components/landing/TopCategoriesOfMonth";
 import WelcomeNavBar from "../components/common/WelcomeNavBar";
 import HeaderBottom from "../components/common/HeaderBottom";
 import { API_BASE_URL } from "./api/hello";
-import { CategoriesProps } from "../utils/types/landingpage";
 
 const Home: NextPage = ({
   categoriesData,
   productList,
+  currenctList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
@@ -44,7 +44,7 @@ const Home: NextPage = ({
             <div className="container">
               <BoxIcons />
               <CategoryBanner />
-              <DealsOfTheDay productList={productList}/>
+              <DealsOfTheDay productList={productList} />
               <TopCategoriesOfMonth />
               <ProductsContainer productList={productList} />
             </div>
@@ -64,13 +64,15 @@ const Home: NextPage = ({
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const [cateGoriesRes, productListRes] = await Promise.all([
+  const [cateGoriesRes, productListRes, currenctListRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-all-category-list/`),
     fetch(`${API_BASE_URL}/product-list/`),
+    fetch(`${API_BASE_URL}/currency-list/`),
   ]);
-  const [categoriesData, productList] = await Promise.all([
+  const [categoriesData, productList, currenctList] = await Promise.all([
     cateGoriesRes.json(),
     productListRes.json(),
+    currenctListRes.json(),
   ]);
-  return { props: { categoriesData, productList } };
+  return { props: { categoriesData, productList, currenctList } };
 };

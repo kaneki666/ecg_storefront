@@ -1,10 +1,22 @@
 import { AnyAction } from "redux";
 import { AuthRootStateType } from "../../utils/types/reduxTypes";
-import { LOGIN_ACTION, LOGOUT_ACTION, SAVE_USERINFO_ACTION } from "./type";
+import {
+  LOGIN_ACTION,
+  LOGOUT_ACTION,
+  SAVE_CURRENCY_ACTION,
+  SAVE_USERINFO_ACTION,
+} from "./type";
 
 const initialState: AuthRootStateType = {
   isLoggedIn: false,
   userInfo: null,
+  currency: {
+    id: 1,
+    currency_name: "BDT",
+    currency_symbol: "BDT",
+    currency_rate: 1.0,
+    is_default: true,
+  },
 };
 
 export const AuthReducer = (
@@ -19,6 +31,8 @@ export const AuthReducer = (
       return { ...state, userInfo: action.payload };
     case LOGOUT_ACTION:
       return { ...state, isLoggedIn: action.payload };
+    case SAVE_CURRENCY_ACTION:
+      return { ...state, currency: action.payload };
     default:
       return state;
   }

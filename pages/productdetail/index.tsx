@@ -79,13 +79,15 @@ export default index;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.query.slug;
 
-  const [cateGoriesRes, productRes] = await Promise.all([
+  const [cateGoriesRes, productRes, currencyListRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-all-category-list/`),
     fetch(`${API_BASE_URL}/product-details/${slug}/`),
+    fetch(`${API_BASE_URL}/currency-list/`),
   ]);
-  const [categoriesData, product] = await Promise.all([
+  const [categoriesData, product, currencyList] = await Promise.all([
     cateGoriesRes.json(),
     productRes.json(),
+    currencyListRes.json(),
   ]);
-  return { props: { categoriesData, product } };
+  return { props: { categoriesData, product, currencyList } };
 };
