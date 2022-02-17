@@ -5,6 +5,10 @@ import type {
   } from "next";
   import Head from "next/head";
   import React from "react";
+import CheckoutBreadcrumb from "../../components/checkout/CheckoutBreadcrumb";
+import CheckoutContent from "../../components/checkout/CheckoutContent";
+import CouponToggle from "../../components/checkout/CouponToggle";
+import LoginToggle from "../../components/checkout/LoginToggle";
   import Footer from "../../components/common/Footer";
   import HeaderBottom from "../../components/common/HeaderBottom";
   import MobileMenu from "../../components/common/MobileMenu";
@@ -12,17 +16,8 @@ import type {
   import ScrollToTop from "../../components/common/ScrollToTop";
   import StickyFooter from "../../components/common/StickyFooter";
   import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-  import ProductQuickView from "../../components/common/ProductQuickView";
   import { CategoriesProps } from "../../utils/types/landingpage";
   import { API_BASE_URL } from "../api/hello";
-import BreadcrumbCategory from "../../components/category/BreadcrumbCategory";
-import ShopBanner from "../../components/category/ShopBanner";
-import ShopBrands from "../../components/category/ShopBrands";
-import ShopCategory from "../../components/category/ShopCategory";
-import Filter from "../../components/category/Filter";
-import ShopSideBar from "../../components/category/ShopSideBar";
-import MainContent from "../../components/category/MainContent";
-import Pagination from "../../components/category/Pagination";
   
   const index: NextPage = ({
     categoriesData,
@@ -32,40 +27,29 @@ import Pagination from "../../components/category/Pagination";
         <Head>
           <link rel="stylesheet" type="text/css" href="/css/style.min.css" />
         </Head>
-        <body className="my-account">
+  
+        <body>
           <div className="page-wrapper">
-            <header className="header">
+            <header className="header header-border">
               <WelcomeNavBar />
               <NavbarMiddle />
               <HeaderBottom data={categoriesData} />
             </header>
-            <main className="main">
-                <BreadcrumbCategory/>
+            <main className="main checkout">
+              <CheckoutBreadcrumb/>
                 <div className="page-content">
                     <div className="container">
-                        <ShopBanner/>
-                        <ShopBrands/>
-                        <ShopCategory/>
-                        <div className="shop-content row gutter-lg mb-10">
-                        
-                        <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
-                            <ShopSideBar/>        
-                        </aside>
-                    
-                        <div className="main-content">
-                            <Filter/>
-                            <MainContent/>
-                            <Pagination/>
-                        </div>
-                    </div>
+                    <LoginToggle/>
+                    <CouponToggle/>
+                    <CheckoutContent/>
                     </div>
                 </div>
             </main>
             <Footer />
             <StickyFooter />
           </div>
+  
           <ScrollToTop />
-          <ProductQuickView />
           <MobileMenu />
         </body>
       </div>
@@ -73,6 +57,7 @@ import Pagination from "../../components/category/Pagination";
   };
   
   export default index;
+  
   
   export const getServerSideProps: GetServerSideProps = async (context) => {
     const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
@@ -88,4 +73,3 @@ import Pagination from "../../components/category/Pagination";
       props: { categoriesData }, // will be passed to the page component as props
     };
   };
-  

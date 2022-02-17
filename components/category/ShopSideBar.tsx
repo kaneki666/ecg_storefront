@@ -3,7 +3,6 @@ import React from "react";
 const ShopSideBar = () => {
   return (
   <div>
-    <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
         <div className="sidebar-overlay"></div>
         <a className="sidebar-close" href="#"><i className="close-icon"></i></a>
 
@@ -89,7 +88,6 @@ const ShopSideBar = () => {
                 </div>  
             </div>
         </div>
-    </aside>
   </div>  
   );
 };
