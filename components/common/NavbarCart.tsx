@@ -11,6 +11,10 @@ const NavbarCart = () => {
   );
   let [totalPrice, setTotalPrice] = useState(0);
 
+  const { currency } = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer
+  );
+
   useEffect(() => {
     const sum = cart.reduce(
       (previousValue, currentValue) => previousValue + currentValue.totalPrice,
@@ -53,7 +57,7 @@ const NavbarCart = () => {
 
         <div className="cart-total">
           <label>Subtotal:</label>
-          <span className="price">${totalPrice}</span>
+          <span className="price">{currency.currency_symbol} {totalPrice * currency.currency_rate}</span>
         </div>
 
         <div className="cart-action">

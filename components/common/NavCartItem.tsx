@@ -1,10 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteItemFromCartAction } from "../../store/products/actions";
-import { CartItemProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
   const dispatch = useDispatch();
+
+  const { currency } = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer
+  );
 
   const handleDeleteItemFromCart = () =>
     dispatch(deleteItemFromCartAction(cartItem.id));
@@ -18,7 +22,7 @@ const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         </a>
         <div className="price-box">
           <span className="product-quantity">{cartItem.quantity}</span>
-          <span className="product-price">${cartItem.price}</span>
+          <span className="product-price">{currency.currency_symbol} {cartItem.price * currency.currency_rate}</span>
         </div>
       </div>
       <figure className="product-media">

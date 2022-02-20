@@ -35,7 +35,7 @@ const PlaceOrder = () => {
           <tbody>
             {cart.length > 0 &&
               cart.map((product: CartItemProps) => (
-                <tr className="bb-no">
+                <tr className="bb-no" key={product.id}>
                   <td className="product-name">
                     {product.title} <i className="fas fa-times"></i>{" "}
                     <span className="product-quantity">{product.quantity}</span>
