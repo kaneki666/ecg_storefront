@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const SideBarCart = () => {
+  const { ProductReducer, AuthReducer } = useSelector(
+    (state: RootAppStateProps) => state
+  );
+  const { cart } = ProductReducer;
+  const { currency } = AuthReducer;
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      let total = cart.reduce(
+        (prev, item: CartItemProps) => prev + item.totalPrice,
+        0
+      );
+      setTotal(total);
+    }
+  }, [cart.length]);
   return (
     <div className="col-lg-4 sticky-sidebar-wrapper">
       <div className="sticky-sidebar">
@@ -8,7 +26,9 @@ const SideBarCart = () => {
           <h3 className="cart-title text-uppercase">Cart Totals</h3>
           <div className="cart-subtotal d-flex align-items-center justify-content-between">
             <label className="ls-25">Subtotal</label>
-            <span>$100.00</span>
+            <span>
+              {currency.currency_symbol} {total * currency.currency_rate}
+            </span>
           </div>
 
           <hr className="divider" />
@@ -63,7 +83,7 @@ const SideBarCart = () => {
                   htmlFor="flat-rate"
                   className="custom-control-label color-dark"
                 >
-                  Flat rate: $5.00
+                  Flat rate: {currency.currency_symbol}5.00
                 </label>
               </div>
             </li>
@@ -71,7 +91,7 @@ const SideBarCart = () => {
 
           <div className="shipping-calculator">
             <p className="shipping-destination lh-1">
-              Shipping to <strong>CA</strong>.
+              Shipping to <strong>SYLHET</strong>.
             </p>
 
             <form className="shipping-calculator-form">
@@ -87,7 +107,7 @@ const SideBarCart = () => {
                     <option value="us">United States</option>
                     <option value="uk">United Kingdom</option>
                     <option value="fr">France</option>
-                    <option value="aus">Australia</option>
+                    <option value="aus">Bangladesh</option>
                   </select>
                 </div>
               </div>
@@ -129,7 +149,9 @@ const SideBarCart = () => {
           <hr className="divider mb-6" />
           <div className="order-total d-flex justify-content-between align-items-center">
             <label>Total</label>
-            <span className="ls-50">$100.00</span>
+            <span className="ls-50">
+              {currency.currency_symbol} {total * currency.currency_rate}
+            </span>
           </div>
           <a
             href="#"

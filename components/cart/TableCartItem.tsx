@@ -1,19 +1,25 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartAction,
   deleteItemFromCartAction,
   removeFromCartAction,
 } from "../../store/products/actions";
-import { CartItemProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
   const dispatch = useDispatch();
+
+  const { currency } = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer
+  );
+
   const handleAddToCart = () =>
     dispatch(addToCartAction({ ...cartItem, quantity: 1 }));
   const handleRemoveFromCart = () => dispatch(removeFromCartAction(cartItem));
   const handleDeleteItemFromCart = () =>
     dispatch(deleteItemFromCartAction(cartItem.id));
+
   return (
     <tr>
       <td className="product-thumbnail">
@@ -37,7 +43,9 @@ const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         <a href="#">{cartItem.title}</a>
       </td>
       <td className="product-price">
-        <span className="amount">${cartItem.price}</span>
+        <span className="amount">
+          {currency.currency_symbol} {cartItem.price * currency.currency_rate}
+        </span>
       </td>
       <td className="product-quantity">
         <div className="input-group">
@@ -55,7 +63,11 @@ const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         </div>
       </td>
       <td className="product-subtotal">
-        <span className="amount">${cartItem.totalPrice}</span>
+        <span className="amount">
+          {" "}
+          {currency.currency_symbol}
+          {cartItem.totalPrice * currency.currency_rate}
+        </span>
       </td>
     </tr>
   );
