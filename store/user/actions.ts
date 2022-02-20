@@ -2,11 +2,13 @@ import {
   CurrencyProps,
   UserLoginProps,
   userSignupProps,
+  userSubscribeProps,
 } from "../../utils/types/reduxTypes";
 import {
   LOGIN_ACTION,
   LOGOUT_ACTION,
   SAVE_CURRENCY_ACTION,
+  SAVE_SUBSCRIBE_ACTION,
   SAVE_USERINFO_ACTION,
   SIGNUP_ACTION,
 } from "./type";
@@ -49,6 +51,16 @@ export const signupAction = (value: boolean) => {
   };
 };
 
+export const subscribeAction = (value: boolean) => {
+  return (dispatch: (arg0: { type: string; payload: boolean }) => void) => {
+    dispatch({
+      type: SIGNUP_ACTION,
+      payload: value,
+    });
+  };
+};
+
+
 export const saveUserinfo1Action = (userinfo: userSignupProps) => {
   return (
     dispatch: (arg0: { type: string; payload: userSignupProps }) => void
@@ -59,6 +71,19 @@ export const saveUserinfo1Action = (userinfo: userSignupProps) => {
     });
   };
 };
+
+
+export const savesubscribeinfoAction = (userinfo: userSubscribeProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: userSubscribeProps }) => void
+  ) => {
+    dispatch({
+      type: SAVE_SUBSCRIBE_ACTION,
+      payload: userinfo,
+    });
+  };
+};
+
 
 export const saveUserCurrencyAction = (currency: CurrencyProps) => {
   return (

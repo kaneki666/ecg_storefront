@@ -42,6 +42,11 @@ export interface userSignupProps {
   data: UserDataProps;
 }
 
+export interface userSubscribeProps {
+  status: boolean;
+  data: UserDataProps;
+}
+
 export interface CurrencyProps {
   id: number;
   currency_name: String;

@@ -20,3 +20,7 @@ export interface SignupProps {
   // shop_url: string;
   // phone_number: string;
 }
+
+export interface SubscribeProps {
+  email: string;
+}

@@ -1,6 +1,60 @@
 import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import { API_BASE_URL } from "../../pages/api/hello";
+import { savesubscribeinfoAction, subscribeAction } from "../../store/user/actions";
+import { userSubscribeProps } from "../../utils/types/reduxTypes";
+import { SubscribeProps } from "../../utils/types/types";
 
 const Footer = () => {
+
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm<SubscribeProps>();
+
+  const onSubmit: SubmitHandler<SubscribeProps> = async (data) => {
+    const request = await fetch(`${API_BASE_URL}/subscription/`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    
+
+    if (request.status === 200 && request.data !== "undefined") {
+      const response: userSubscribeProps = await request.json();
+      dispatch(subscribeAction(true));
+      dispatch(savesubscribeinfoAction(response));
+      toast("Subscription Successful!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      const response = await request.json();
+
+      toast(`Subscription Failed. ${response.data}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   return (
     <footer
       className="footer appear-animate"
@@ -27,18 +81,15 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
-              <form
-                action="#"
-                method="get"
-                className="input-wrapper input-wrapper-inline input-wrapper-rounded"
-              >
-                <input
-                  type="email"
-                  className="form-control mr-2 bg-white"
-                  name="email"
-                  id="email"
-                  placeholder="Your E-mail Address"
-                />
+            <ToastContainer containerId="an id" draggable={false} />
+            <form onSubmit={handleSubmit(onSubmit)} className="input-wrapper input-wrapper-inline input-wrapper-rounded">
+              <input
+                type="text"
+                className="form-control mr-2 bg-white"
+                id="email"
+                required
+                {...register("email", { required: true })}
+              />
                 <button className="btn btn-dark btn-rounded" type="submit">
                   Subscribe<i className="w-icon-long-arrow-right"></i>
                 </button>
