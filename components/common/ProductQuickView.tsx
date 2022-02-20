@@ -32,50 +32,19 @@ const ProductQuickView = () => {
           <div className="product-gallery product-gallery-sticky">
             <div className="swiper-container product-single-swiper swiper-theme nav-inner">
               <div className="swiper-wrapper row cols-1 gutter-no">
-                <div className="swiper-slide">
+              {product?.product_media.map((item, index) => (
+                <div className="swiper-slide" key={item.id}>
                   <figure className="product-image">
                     <img
-                      src={product?.thumbnail}
-                      data-zoom-image="/images/products/popup/1-800x900.jpg"
-                      alt="Water Boil Black Utensil"
+                      src={item.file}
+                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                      alt="Product Image"
                       width="800"
                       height="900"
                     />
                   </figure>
                 </div>
-                <div className="swiper-slide">
-                  <figure className="product-image">
-                    <img
-                      src={product?.thumbnail}
-                      data-zoom-image="/images/products/popup/2-800x900.jpg"
-                      alt="Water Boil Black Utensil"
-                      width="800"
-                      height="900"
-                    />
-                  </figure>
-                </div>
-                <div className="swiper-slide">
-                  <figure className="product-image">
-                    <img
-                      src={product?.thumbnail}
-                      data-zoom-image="/images/products/popup/3-800x900.jpg"
-                      alt="Water Boil Black Utensil"
-                      width="800"
-                      height="900"
-                    />
-                  </figure>
-                </div>
-                <div className="swiper-slide">
-                  <figure className="product-image">
-                    <img
-                      src={product?.thumbnail}
-                      data-zoom-image="/images/products/popup/4-800x900.jpg"
-                      alt="Water Boil Black Utensil"
-                      width="800"
-                      height="900"
-                    />
-                  </figure>
-                </div>
+              ))}
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -90,33 +59,16 @@ const ProductQuickView = () => {
               }"
             >
               <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                <div className="product-thumb swiper-slide">
+              {product?.product_media.map((item, index) => (
+                <div className="product-thumb swiper-slide" key={item.id}>
                   <img
-                    src={product?.thumbnail}
-                    alt="Product Thumb"
+                    src={item.file}
+                    alt="Product Image"
                     width="103"
                     height="116"
                   />
                 </div>
-                <div className="product-thumb swiper-slide">
-                  <img
-                    src={product?.thumbnail}
-                    alt="Product Thumb"
-                    width="103"
-                    height="116"
-                  />
-                </div>
-                <div className="product-thumb swiper-slide">
-                  <img src={product?.thumbnail} width="103" height="116" />
-                </div>
-                <div className="product-thumb swiper-slide">
-                  <img
-                    src={product?.thumbnail}
-                    alt="Product Thumb"
-                    width="103"
-                    height="116"
-                  />
-                </div>
+              ))}
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
