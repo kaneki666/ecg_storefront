@@ -37,72 +37,19 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="swiper-wrapper row cols-1 gutter-no">
-              <div className="swiper-slide">
+            {product.product_media.map((item, index) => (
+              <div className="swiper-slide" key={item.id}>
                 <figure className="product-image">
                   <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/products/default/1-800x900.jpg"
-                    alt="Electronics Black Wrist Watch"
+                    src={item.file}
+                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                    alt="Product Image"
                     width="800"
                     height="900"
                   />
                 </figure>
               </div>
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/products/default/2-800x900.jpg"
-                    alt="Electronics Black Wrist Watch"
-                    width="488"
-                    height="549"
-                  />
-                </figure>
-              </div>
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/products/default/3-800x900.jpg"
-                    alt="Electronics Black Wrist Watch"
-                    width="800"
-                    height="900"
-                  />
-                </figure>
-              </div>
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/products/default/4-800x900.jpg"
-                    alt="Electronics Black Wrist Watch"
-                    width="800"
-                    height="900"
-                  />
-                </figure>
-              </div>
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/products/default/5-800x900.jpg"
-                    alt="Electronics Black Wrist Watch"
-                    width="800"
-                    height="900"
-                  />
-                </figure>
-              </div>
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/products/default/6-800x900.jpg"
-                    alt="Electronics Black Wrist Watch"
-                    width="800"
-                    height="900"
-                  />
-                </figure>
-              </div>
+            ))}
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -120,54 +67,16 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-              <div className="product-thumb swiper-slide">
+            {product.product_media.map((item, index) => (
+              <div className="product-thumb swiper-slide" key={item.id}>
                 <img
-                  src={product.thumbnail}
-                  alt="Product Thumb"
-                  width="800"
-                  height="900"
+                  src={item.file}
+                  alt="Product Image"
+                  width="60"
+                  height="68"
                 />
               </div>
-              <div className="product-thumb swiper-slide">
-                <img
-                  src={product.thumbnail}
-                  alt="Product Thumb"
-                  width="800"
-                  height="900"
-                />
-              </div>
-              <div className="product-thumb swiper-slide">
-                <img
-                  src={product.thumbnail}
-                  alt="Product Thumb"
-                  width="800"
-                  height="900"
-                />
-              </div>
-              <div className="product-thumb swiper-slide">
-                <img
-                  src={product.thumbnail}
-                  alt="Product Thumb"
-                  width="800"
-                  height="900"
-                />
-              </div>
-              <div className="product-thumb swiper-slide">
-                <img
-                  src={product.thumbnail}
-                  alt="Product Thumb"
-                  width="800"
-                  height="900"
-                />
-              </div>
-              <div className="product-thumb swiper-slide">
-                <img
-                  src={product.thumbnail}
-                  alt="Product Thumb"
-                  width="800"
-                  height="900"
-                />
-              </div>
+            ))}
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
