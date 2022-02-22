@@ -42,7 +42,7 @@ const index: NextPage = ({
                 <div className="row gutter-lg mb-10">
                   <div className="col-lg-8 pr-lg-4 mb-6">
                     <TableCart />
-                    <TableCartFooter/>
+                    <TableCartFooter />
                   </div>
                   <SideBarCart />
                 </div>
@@ -61,7 +61,6 @@ const index: NextPage = ({
 };
 
 export default index;
-
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);

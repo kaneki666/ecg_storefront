@@ -11,44 +11,36 @@ const SideBarCart = () => {
   const { ProductReducer, AuthReducer } = useSelector(
     (state: RootAppStateProps) => state
   );
-  const { cart } = ProductReducer;
+  const { cart, totalPrice } = ProductReducer;
   const { currency } = AuthReducer;
-  const [total, setTotal] = useState(0);
 
-  useEffect(() => {
-    if (cart.length > 0) {
-      let total = cart.reduce(
-        (prev, item: CartItemProps) => prev + item.totalPrice,
-        0
-      );
-      setTotal(total);
-    }
-  }, [cart.length]);
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
 
-  const onSubmit = (data: any) => console.log(data);
-  console.log(watch("division"));
+  // const onSubmit = (data: any) => {
+  //   console.log(watch("country"));
+  //   console.log(data);
+  // };
+
   return (
     <div className="col-lg-4 sticky-sidebar-wrapper">
       <div className="sticky-sidebar">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="cart-summary mb-4">
-            <h3 className="cart-title text-uppercase">Cart Totals</h3>
-            <div className="cart-subtotal d-flex align-items-center justify-content-between">
-              <label className="ls-25">Subtotal</label>
-              <span>
-                {currency.currency_symbol} {total * currency.currency_rate}
-              </span>
-            </div>
+        <div className="cart-summary mb-4">
+          <h3 className="cart-title text-uppercase">Cart Totals</h3>
+          <div className="cart-subtotal d-flex align-items-center justify-content-between">
+            <label className="ls-25">Subtotal</label>
+            <span>
+              {currency.currency_symbol} {totalPrice * currency.currency_rate}
+            </span>
+          </div>
 
-            <hr className="divider" />
+          <hr className="divider" />
 
-            <ul className="shipping-methods mb-2">
+          {/* <ul className="shipping-methods mb-2">
               <li>
                 <label className="shipping-title text-dark font-weight-bold">
                   Shipping
@@ -57,10 +49,11 @@ const SideBarCart = () => {
               <li>
                 <div className="custom-radio">
                   <input
+                    {...register("shippingType")}
                     type="radio"
                     id="free-shipping"
                     className="custom-control-input"
-                    name="shipping"
+                    value={1}
                   />
                   <label
                     htmlFor="free-shipping"
@@ -73,10 +66,11 @@ const SideBarCart = () => {
               <li>
                 <div className="custom-radio">
                   <input
+                    {...register("shippingType")}
                     type="radio"
                     id="local-pickup"
                     className="custom-control-input"
-                    name="shipping"
+                    value={2}
                   />
                   <label
                     htmlFor="local-pickup"
@@ -89,10 +83,11 @@ const SideBarCart = () => {
               <li>
                 <div className="custom-radio">
                   <input
+                    {...register("shippingType")}
                     type="radio"
                     id="flat-rate"
                     className="custom-control-input"
-                    name="shipping"
+                    value={3}
                   />
                   <label
                     htmlFor="flat-rate"
@@ -113,8 +108,9 @@ const SideBarCart = () => {
                 <div className="form-group">
                   <div className="select-box">
                     <select
-                      name="country"
+                      defaultValue="bd"
                       className="form-control form-control-md"
+                      {...register("country")}
                     >
                       <option value="bd">Bangladesh</option>
                       <option value="uk">United Kingdom</option>
@@ -126,7 +122,7 @@ const SideBarCart = () => {
                   <div className="select-box">
                     <select
                       className="form-control form-control-md"
-                      {...register("division")}
+                      {...register("division", { required: true })}
                     >
                       {cities.map((item, index) => (
                         <option key={item} value={index}>
@@ -134,48 +130,55 @@ const SideBarCart = () => {
                         </option>
                       ))}
                     </select>
+                    {errors.division && (
+                      <p className="errorInput">This field is required</p>
+                    )}
                   </div>
                 </div>
+
                 <div className="form-group">
                   <input
                     className="form-control form-control-md"
                     type="text"
-                    name="town-city"
                     placeholder="Town / City"
+                    {...register("city")}
                   />
                 </div>
                 <div className="form-group">
                   <input
                     className="form-control form-control-md"
                     type="text"
-                    name="zipcode"
+                    {...register("zipcode", { required: true })}
                     placeholder="ZIP"
                   />
+                  {/* {errors.zipcode && (
+                    <p className="errorInput">This field is required</p>
+                  )} 
                 </div>
+
                 <button
-                  type="submit"
+                  onClick={handleSubmit(onSubmit)}
                   className="btn btn-dark btn-outline btn-rounded"
                 >
                   Update Totals
                 </button>
               </form>
-            </div>
-
-            <hr className="divider mb-6" />
-            <div className="order-total d-flex justify-content-between align-items-center">
-              <label>Total</label>
-              <span className="ls-50">
-                {currency.currency_symbol} {total * currency.currency_rate}
-              </span>
-            </div>
-            <a
-              href="#"
-              className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
-            >
-              Proceed to checkout<i className="w-icon-long-arrow-right"></i>
-            </a>
+            </div> 
+            </form>*/}
+          <hr className="divider mb-6" />
+          <div className="order-total d-flex justify-content-between align-items-center">
+            <label>Total</label>
+            <span className="ls-50">
+              {currency.currency_symbol} {totalPrice * currency.currency_rate}
+            </span>
           </div>
-        </form>
+          <a
+            href="checkout"
+            className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
+          >
+            Proceed to checkout<i className="w-icon-long-arrow-right"></i>
+          </a>
+        </div>
       </div>
     </div>
   );

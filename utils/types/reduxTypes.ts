@@ -27,14 +27,16 @@ export interface AuthRootStateType {
   currency: CurrencyProps;
 }
 
-export interface QickViewStateProps {
+export interface ProductCartReducerStateProps {
   product: SingleProductProps | null;
   cart: CartItemProps[];
+  totalPrice: number;
+  usedCoupon: boolean;
 }
 
 export interface RootAppStateProps {
   AuthReducer: AuthRootStateType;
-  ProductReducer: QickViewStateProps;
+  ProductReducer: ProductCartReducerStateProps;
 }
 
 export interface userSignupProps {

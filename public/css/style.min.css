@@ -5856,6 +5856,10 @@ blockquote {
   color: #f93;
 }
 
+.errorInput {
+  color: red;
+  margin-top: 10;
+}
 .btn-error {
   color: #fff;
   border-color: #6d1a17;

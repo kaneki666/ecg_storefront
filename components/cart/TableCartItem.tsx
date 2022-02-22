@@ -64,8 +64,7 @@ const TableCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
       </td>
       <td className="product-subtotal">
         <span className="amount">
-          {" "}
-          {currency.currency_symbol}
+          {currency.currency_symbol}{" "}
           {cartItem.totalPrice * currency.currency_rate}
         </span>
       </td>

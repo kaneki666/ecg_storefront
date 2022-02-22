@@ -1,27 +1,30 @@
-import { SingleProductProps } from "./../../utils/types/landingpage";
 import {
   CartItemProps,
-  QickViewStateProps,
+  ProductCartReducerStateProps,
 } from "./../../utils/types/reduxTypes";
 import { AnyAction } from "redux";
 
 import {
   ADD_PRODUCT_QUICKVIEW,
   ADD_TO_CART,
+  APPLY_COUPON,
+  CLEAR_CART,
   REMOVE_FROM_CART,
   REMOVE_ITEM_FROM_CART,
 } from "./types";
 
-const initialState: QickViewStateProps = {
+const initialState: ProductCartReducerStateProps = {
   product: null,
   cart: [],
+  totalPrice: 0,
+  usedCoupon: false,
 };
 
 export const ProductReducer = (
   state = initialState,
 
   action: AnyAction
-): QickViewStateProps => {
+): ProductCartReducerStateProps => {
   switch (action.type) {
     case ADD_PRODUCT_QUICKVIEW:
       return { ...state, product: action.payload };
@@ -40,8 +43,11 @@ export const ProductReducer = (
         cartItems[findIndex].totalPrice =
           cartItems[findIndex].quantity * newItem.price;
       }
-
-      return { ...state, cart: cartItems };
+      let total = cartItems.reduce(
+        (prev, item: CartItemProps) => prev + item.totalPrice,
+        0
+      );
+      return { ...state, cart: cartItems, totalPrice: total };
 
     case REMOVE_FROM_CART:
       const cartItemsRemove = state.cart;
@@ -58,8 +64,11 @@ export const ProductReducer = (
       } else {
         cartItemsRemove.splice(findIndexRemove, 1);
       }
-
-      return { ...state, cart: cartItemsRemove };
+      let totalRemoved = cartItemsRemove.reduce(
+        (prev, item: CartItemProps) => prev + item.totalPrice,
+        0
+      );
+      return { ...state, cart: cartItemsRemove, totalPrice: totalRemoved };
 
     case REMOVE_ITEM_FROM_CART:
       const cartItemsToRemove = state.cart;
@@ -67,7 +76,25 @@ export const ProductReducer = (
         (item: CartItemProps) => item.id === action.payload
       );
       cartItemsToRemove.splice(findIndexToRemove, 1);
-      return { ...state, cart: cartItemsToRemove };
+      let totalcartItemsToRemoved = cartItemsToRemove.reduce(
+        (prev, item: CartItemProps) => prev + item.totalPrice,
+        0
+      );
+      return {
+        ...state,
+        cart: cartItemsToRemove,
+        totalPrice: totalcartItemsToRemoved,
+      };
+
+    case APPLY_COUPON:
+      return {
+        ...state,
+        totalPrice: state.totalPrice - action.payload,
+        usedCoupon: true,
+      };
+
+    case CLEAR_CART:
+      return { ...state, cart: [], totalPrice: 0 };
 
     default:
       return state;

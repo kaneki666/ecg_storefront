@@ -6,19 +6,19 @@ const PlaceOrder = () => {
   const { ProductReducer, AuthReducer } = useSelector(
     (state: RootAppStateProps) => state
   );
-  const { cart } = ProductReducer;
+  const { cart, totalPrice } = ProductReducer;
   const { currency } = AuthReducer;
-  const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState(0);
 
-  useEffect(() => {
-    if (cart.length > 0) {
-      let total = cart.reduce(
-        (prev, item: CartItemProps) => prev + item.totalPrice,
-        0
-      );
-      setTotal(total);
-    }
-  }, [cart.length]);
+  // useEffect(() => {
+  //   if (cart.length > 0) {
+  //     let total = cart.reduce(
+  //       (prev, item: CartItemProps) => prev + item.totalPrice,
+  //       0
+  //     );
+  //     setTotal(total);
+  //   }
+  // }, [cart.length]);
   return (
     <div>
       <h3 className="title text-uppercase ls-10">Your Order</h3>
@@ -54,13 +54,14 @@ const PlaceOrder = () => {
               </td>
               <td>
                 <b>
-                  {currency.currency_symbol} {total * currency.currency_rate}
+                  {currency.currency_symbol}{" "}
+                  {totalPrice * currency.currency_rate}
                 </b>
               </td>
             </tr>
           </tbody>
           <tfoot>
-            <tr className="shipping-methods">
+            {/* <tr className="shipping-methods">
               <td //colspan="2"
                 className="text-left"
               >
@@ -119,15 +120,15 @@ const PlaceOrder = () => {
                   </li>
                 </ul>
               </td>
-            </tr>
+            </tr> */}
             <tr className="order-total">
               <th>
                 <b>Total</b>
               </th>
               <td>
                 <b>
-                  {" "}
-                  {currency.currency_symbol} {total * currency.currency_rate}
+                  {currency.currency_symbol}{" "}
+                  {totalPrice * currency.currency_rate}
                 </b>
               </td>
             </tr>

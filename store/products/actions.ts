@@ -3,6 +3,8 @@ import { CartItemProps } from "../../utils/types/reduxTypes";
 import {
   ADD_PRODUCT_QUICKVIEW,
   ADD_TO_CART,
+  APPLY_COUPON,
+  CLEAR_CART,
   REMOVE_FROM_CART,
   REMOVE_ITEM_FROM_CART,
 } from "./types";
@@ -44,6 +46,24 @@ export const deleteItemFromCartAction = (id: number) => {
   return (dispatch: (arg0: { type: string; payload: number }) => void) => {
     dispatch({
       type: REMOVE_ITEM_FROM_CART,
+      payload: id,
+    });
+  };
+};
+
+export const addCouponAction = (value: number) => {
+  return (dispatch: (arg0: { type: string; payload: number }) => void) => {
+    dispatch({
+      type: APPLY_COUPON,
+      payload: value,
+    });
+  };
+};
+
+export const clearCartAction = (id: boolean) => {
+  return (dispatch: (arg0: { type: string; payload: boolean }) => void) => {
+    dispatch({
+      type: CLEAR_CART,
       payload: id,
     });
   };
