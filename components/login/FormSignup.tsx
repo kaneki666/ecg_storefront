@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 
 import { API_BASE_URL } from "../../pages/api/hello";
-import { signupAction, saveUserinfo1Action } from "../../store/user/actions";
-import { userSignupProps } from "../../utils/types/reduxTypes";
+import { signupAction, saveUserinfo1Action, saveVendorinfoAction } from "../../store/user/actions";
+import { userSignupProps, vendorSignupProps } from "../../utils/types/reduxTypes";
 import { SignupProps } from "../../utils/types/types";
 
 const FormSignup = () => {
@@ -18,46 +18,104 @@ const FormSignup = () => {
   } = useForm<SignupProps>();
 
   const onSubmit: SubmitHandler<SignupProps> = async (data) => {
-    const request = await fetch(`${API_BASE_URL}/register-user/`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+      
+      if(data.organization_name){
+        const request = await fetch(`${API_BASE_URL}/vendor-request/`, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+    
+        if (request.status === 201 ) {
+          const response: vendorSignupProps = await request.json();
+          dispatch(signupAction(true));
+          dispatch(saveVendorinfoAction(response));
+          toast("Signup Successful!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          const response = await request.json();
+          console.log(response)
+    
+         if(response.email){
+          toast(`Signup Failed. ${response.email}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+         }
 
-    if (request.status === 200) {
-      const response: userSignupProps = await request.json();
-      dispatch(signupAction(true));
-      dispatch(saveUserinfo1Action(response));
-      toast("Signup Successful!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } else {
-      const response = await request.json();
+         if(response.organization_name){
+          toast(`Signup Failed. ${response.organization_name}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+         }
 
-      toast(`Signup Failed. ${response.data.message}`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+        }
+      }else{
+        console.log(JSON.stringify(data))
+        const request = await fetch(`${API_BASE_URL}/register-user/`, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+
+        if (request.status === 200) {
+          const response: userSignupProps = await request.json();
+          dispatch(signupAction(true));
+          dispatch(saveUserinfo1Action(response));
+          toast("Signup Successful!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          const response = await request.json();
+    
+          toast(`Signup Failed. ${response.data.message}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      }
+      
+
+    
   };
  
   return (
     <div className="tab-pane" id="sign-up">
     <ToastContainer containerId="an id" draggable={false} />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="form-group">
         <label>Your email address *</label>
         <input
@@ -71,14 +129,14 @@ const FormSignup = () => {
         <div className="form-group mb-5">
         <label>Password *</label>
         <input
-            type="text"
+            type="password"
             className="form-control"
             id="password"
             required
             {...register("password", { required: true })}
         />
         </div>
-        {/* <div className="checkbox-content login-vendor"> */}
+        
         <div className="form-group mb-5">
             <label>First Name *</label>
             <input
@@ -99,47 +157,53 @@ const FormSignup = () => {
             {...register("last_name", { required: true })}
             />
         </div>
-        {/* <div className="form-group mb-5">
-            <label>Shop Name *</label>
+        <div className="checkbox-content login-vendor">
+        <div className="form-group mb-5">
+            <label>Organization Name *</label>
             <input
             type="text"
             className="form-control"
-            id="shop-name"
+            id="organization_name"
             required
-            {...register("shop_name", { required: true })}
+            {...register("organization_name", { required: false })}
             />
         </div>
-        <div className="form-group mb-5">
-            <label>Shop URL *</label>
-            <input
-            type="text"
-            className="form-control"
-            id="shop-url"
-            required
-            {...register("shop_url", { required: true })}
-            />
-            <small>
-            https://d-themes.com/wordpress/wolmart/demo-1/store/
-            </small>
-        </div> */}
         {/* <div className="form-group mb-5">
-            <label>Phone Number *</label>
+            <label>Trade License *</label>
             <input
             type="text"
             className="form-control"
-            id="phone-number"
+            id="trade_license"
             required
-            {...register("phone_number", { required: true })}
+            {...register("trade_license", { required: false })}
             />
         </div> */}
-        {/* </div> */}
+        <div className="form-group mb-5">
+        <label>Vendor Status *</label>
+        <select className="form-control" id="vendor_status" {...register("vendor_status", { required: false })} >
+          <option value="ORGANIZATION">Organization</option>
+          <option value="INDIVIDUAL">Individual</option>
+          
+        </select>
+        </div>
+        
+        <div className="form-group mb-5">
+            <label>Nid *</label>
+            <input
+            type="text"
+            className="form-control"
+            id="nid"
+            required
+            {...register("nid", { required: false })}
+            />
+        </div>
+        </div>
         <div className="form-checkbox user-checkbox mt-0">
         <input
             type="checkbox"
             className="custom-checkbox checkbox-round active"
             id="check-customer"
-            name="check-customer"
-            required
+            name="check-customer"   
         />
         <label className="check-customer mb-1">
             I am a customer
@@ -150,7 +214,7 @@ const FormSignup = () => {
             className="custom-checkbox checkbox-round"
             id="check-seller"
             name="check-seller"
-            required
+            
         />
         <label className="check-seller">I am a vendor</label>
         </div>
@@ -161,7 +225,7 @@ const FormSignup = () => {
         <a href="#" className="text-primary">
             privacy policy
         </a>
-        .
+      
         </p>
         <a href="#" className="d-block mb-5 text-primary">
         Signup as a vendor?

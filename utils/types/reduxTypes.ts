@@ -12,6 +12,18 @@ export interface UserDataProps {
   refresh_token: string;
 }
 
+export interface VendorDataProps {
+  user_id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  organization_name: string;
+  vendor_status: string;
+  nid: string;
+  access_token: string;
+  refresh_token: string;
+}
+
 export interface CartItemProps {
   id: number;
   thumbnail: string;
@@ -44,6 +56,10 @@ export interface userSignupProps {
   data: UserDataProps;
 }
 
+export interface vendorSignupProps {
+  status: boolean;
+  data: VendorDataProps;
+}
 export interface CurrencyProps {
   id: number;
   currency_name: String;
