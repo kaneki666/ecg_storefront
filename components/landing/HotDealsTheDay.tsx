@@ -59,7 +59,7 @@ const HotDealsTheDay = ({ products }: { products: DealProductsProps }) => {
                       <button className="swiper-button-prev"></button>
                       <div className="product-label-group">
                         <label className="product-label label-discount">
-                         {products.discount_price}{products.discount_price_type} Off
+                         {products.discount_price}{products.discount_price_type=="per"? "%" : " Flat"} Off
                         </label>
                       </div>
                     </div>
