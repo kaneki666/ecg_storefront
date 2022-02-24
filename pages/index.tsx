@@ -26,6 +26,7 @@ const Home: NextPage = ({
   categoriesData,
   productList,
   currenctList,
+  homedataList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
@@ -44,7 +45,7 @@ const Home: NextPage = ({
             <div className="container">
               <BoxIcons />
               <CategoryBanner />
-              <DealsOfTheDay productList={productList} />
+              <DealsOfTheDay productsList={homedataList} productList={productList} />
               <TopCategoriesOfMonth />
               <ProductsContainer productList={productList} />
             </div>
@@ -64,15 +65,17 @@ const Home: NextPage = ({
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const [cateGoriesRes, productListRes, currenctListRes] = await Promise.all([
+  const [cateGoriesRes, productListRes, currenctListRes, homedataListRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-all-category-list/`),
     fetch(`${API_BASE_URL}/product-list/`),
     fetch(`${API_BASE_URL}/currency-list/`),
+    fetch(`${API_BASE_URL}/home-data/`),
   ]);
-  const [categoriesData, productList, currenctList] = await Promise.all([
+  const [categoriesData, productList, currenctList, homedataList] = await Promise.all([
     cateGoriesRes.json(),
     productListRes.json(),
     currenctListRes.json(),
+    homedataListRes.json(),
   ]);
-  return { props: { categoriesData, productList, currenctList } };
+  return { props: { categoriesData, productList, currenctList, homedataList } };
 };
