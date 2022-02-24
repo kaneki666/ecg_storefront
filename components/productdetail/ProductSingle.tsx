@@ -37,7 +37,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="swiper-wrapper row cols-1 gutter-no">
-            {product.product_media.map((item, index) => (
+            {product.product_media.map((item) => (
               <div className="swiper-slide" key={item.id}>
                 <figure className="product-image">
                   <img
