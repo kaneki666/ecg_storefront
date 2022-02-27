@@ -33,9 +33,20 @@ export interface SingleProductProps {
   product_media: any[];
 }
 
+export interface DealProductsProps {
+  end_date: string;
+  product: any;
+  id: number;
+  results: SingleProductProps[];
+  discount_price: number;
+  discount_price_type: string;
+}
+
 export interface ProductListProps {
+  deals_of_the_day: any;
   count: number;
   next: null;
   previous: null;
   results: SingleProductProps[];
 }
+

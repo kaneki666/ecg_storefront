@@ -2,6 +2,7 @@ import {
   CurrencyProps,
   UserLoginProps,
   userSignupProps,
+  vendorSignupProps,
 } from "../../utils/types/reduxTypes";
 import {
   LOGIN_ACTION,
@@ -52,6 +53,17 @@ export const signupAction = (value: boolean) => {
 export const saveUserinfo1Action = (userinfo: userSignupProps) => {
   return (
     dispatch: (arg0: { type: string; payload: userSignupProps }) => void
+  ) => {
+    dispatch({
+      type: SAVE_USERINFO_ACTION,
+      payload: userinfo,
+    });
+  };
+};
+
+export const saveVendorinfoAction = (userinfo: vendorSignupProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: vendorSignupProps }) => void
   ) => {
     dispatch({
       type: SAVE_USERINFO_ACTION,

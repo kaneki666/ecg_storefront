@@ -16,7 +16,7 @@ export interface SignupProps {
   password: string;
   first_name: string;
   last_name: string;
-  // shop_name: string;
-  // shop_url: string;
-  // phone_number: string;
+  organization_name: string;
+  vendor_status: string;
+  nid: string;
 }
