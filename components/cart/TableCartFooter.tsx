@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addCouponAction, clearCartAction } from "../../store/products/actions";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
@@ -11,9 +12,21 @@ const TableCartFooter = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const handleClearCart = () => dispatch(clearCartAction(true));
-  const handleAddCoupon = () => dispatch(addCouponAction(5));
+  const handleAddCoupon = () => {
+    dispatch(addCouponAction(5));
+    toast("Coupon Added", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   return (
     <div>
+      <ToastContainer containerId="an id" draggable={false} />
       <div className="cart-action mb-6">
         <a
           onClick={() => router.back()}
@@ -51,7 +64,21 @@ const TableCartFooter = () => {
           required
         />
         <button
-          onClick={!usedCoupon ? handleAddCoupon : () => {}}
+          onClick={
+            !usedCoupon
+              ? handleAddCoupon
+              : () => {
+                  toast("Already used Coupon", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                }
+          }
           className="btn btn-dark btn-outline btn-rounded"
         >
           Apply Coupon
