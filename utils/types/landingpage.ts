@@ -31,15 +31,13 @@ export interface SingleProductProps {
   product_brand: number;
   thumbnail: string;
   product_media: any[];
-}
 
-export interface DealProductsProps {
-  end_date: string;
-  product: any;
-  id: number;
-  results: SingleProductProps[];
-  discount_price: number;
-  discount_price_type: string;
+  full_description: string;
+
+  warranty: string;
+  variation: string;
+
+  vendor: number;
 }
 
 export interface ProductListProps {
@@ -50,3 +48,72 @@ export interface ProductListProps {
   results: SingleProductProps[];
 }
 
+export interface HomePageApiProps {
+  slider_images: any[];
+  deals_of_the_day: DealsOfTheDayProps[];
+  top_20_best_seller: SingleProductProps[];
+  product_cat_serializer: ProductCatSerializerProps[];
+  new_arrivals: SingleProductProps[];
+  featured: SingleProductProps[];
+  most_popular: SingleProductProps[];
+}
+
+export interface DealsOfTheDayProps {
+  id: number;
+  product: SingleProductProps[];
+  discount_price: number;
+  discount_price_type: string;
+  start_date: string;
+  end_date: string;
+}
+
+// export interface ProductMedumProps {
+//   id: number;
+//   type: string;
+//   file: string;
+//   status: string;
+// }
+
+// export interface Top20BestSellerProps {
+//   id: number;
+//   title: string;
+//   slug: string;
+//   price: number;
+//   rating: string;
+//   thumbnail: string;
+// }
+
+export interface ProductCatSerializerProps {
+  id: number;
+  name: string;
+  logo: any;
+  cover: any;
+}
+
+// export interface NewArrivalProps {
+//   id: number;
+//   title: string;
+//   slug: string;
+//   price: number;
+//   rating: string;
+//   thumbnail: string;
+// }
+
+// export interface FeaturedProps {
+//   id: number;
+//   title: string;
+//   slug: string;
+//   price: number;
+//   rating: string;
+//   thumbnail: string;
+// }
+
+// export interface MostPopularProps {
+//   id: number;
+//   title: string;
+//   slug: string;
+//   price: number;
+//   rating: string;
+//   thumbnail: string;
+//   average_rating: any;
+// }

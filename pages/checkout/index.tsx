@@ -5,6 +5,7 @@ import type {
 } from "next";
 import Head from "next/head";
 import React from "react";
+import { useSelector } from "react-redux";
 import CheckoutBreadcrumb from "../../components/checkout/CheckoutBreadcrumb";
 import CheckoutContent from "../../components/checkout/CheckoutContent";
 import CouponToggle from "../../components/checkout/CouponToggle";
@@ -17,11 +18,15 @@ import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import { CategoriesProps } from "../../utils/types/landingpage";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import { API_BASE_URL } from "../api/hello";
 
 const index: NextPage = ({
   categoriesData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const { isLoggedIn } = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer
+  );
   return (
     <div>
       <Head>
@@ -39,7 +44,7 @@ const index: NextPage = ({
             <CheckoutBreadcrumb />
             <div className="page-content">
               <div className="container">
-                <LoginToggle />
+                {!isLoggedIn && <LoginToggle />}
                 <CouponToggle />
                 <CheckoutContent />
               </div>

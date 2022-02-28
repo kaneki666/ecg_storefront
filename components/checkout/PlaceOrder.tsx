@@ -3,6 +3,7 @@ import { UseFormReturn, FieldValues } from "react-hook-form";
 import { useSelector } from "react-redux";
 import useAxios from "../../utils/helperFucntion/useAxios";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import { ToastContainer, toast } from "react-toastify";
 
 const PlaceOrder = ({
   checkoutForm,
@@ -13,21 +14,39 @@ const PlaceOrder = ({
     (state: RootAppStateProps) => state
   );
   const { cart, totalPrice } = ProductReducer;
-  const { currency } = AuthReducer;
+  const { currency, isLoggedIn } = AuthReducer;
   const {
-    register,
     handleSubmit,
     setValue,
-    formState: { errors, isValid },
-    watch,
+    formState: { isValid },
   } = checkoutForm;
   const axiosInstance = useAxios();
 
   const handleCheckoutApi = async (data: any) => {
     const response = await axiosInstance.post("/checkout/", data);
-    console.log(response);
+    if (response.status === 201) {
+      toast("Checkout Successful", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast("Checkout failed", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
-  console.log(watch("payment_type"));
+
   const onSubmit = (data: any) => {
     if (isValid) {
       if (data.billing_different === false) {
@@ -53,6 +72,7 @@ const PlaceOrder = ({
 
   return (
     <div>
+      <ToastContainer containerId="checkoutToast" draggable={false} />
       <h3 className="title text-uppercase ls-10">Your Order</h3>
       <div className="order-summary">
         <table className="order-table">
@@ -166,7 +186,21 @@ const PlaceOrder = ({
 
         <div className="form-group place-order pt-6">
           <button
-            onClick={handleSubmit(onSubmit)}
+            onClick={() => {
+              if (isLoggedIn) {
+                handleSubmit(onSubmit);
+              } else {
+                toast("You have to login to purchase product", {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              }
+            }}
             type="submit"
             className="btn btn-dark btn-block btn-rounded"
           >

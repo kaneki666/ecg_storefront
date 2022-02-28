@@ -1,6 +1,7 @@
 import React from "react";
 import { shuffleArray } from "../../utils/helperFucntion/helper";
 import {
+  HomePageApiProps,
   ProductListProps,
   SingleProductProps,
 } from "../../utils/types/landingpage";
@@ -10,8 +11,10 @@ import RecentViewProduct from "./RecentViewProduct";
 
 const ProductsContainer = ({
   productList,
+  clothingData,
 }: {
-  productList: ProductListProps;
+  productList: HomePageApiProps;
+  clothingData: SingleProductProps[];
 }) => {
   return (
     <div className="container">
@@ -49,20 +52,22 @@ const ProductsContainer = ({
       <div className="tab-content product-wrapper appear-animate">
         <div className="tab-pane active pt-4" id="tab1-1">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList &&
-              productList.results.map((productItem: SingleProductProps) => (
-                <ProductItem
-                  key={productItem.id.toString()}
-                  productItem={productItem}
-                />
-              ))}
+            {productList.new_arrivals &&
+              productList.new_arrivals.map(
+                (productItem: SingleProductProps) => (
+                  <ProductItem
+                    key={productItem.id.toString()}
+                    productItem={productItem}
+                  />
+                )
+              )}
           </div>
         </div>
         {/* <!-- End of Tab Pane1 --> */}
         <div className="tab-pane pt-4" id="tab1-2">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList &&
-              shuffleArray(productList.results).map(
+            {productList.new_arrivals &&
+              shuffleArray(productList.new_arrivals).map(
                 (productItem: SingleProductProps) => (
                   <ProductItem
                     key={productItem.id.toString()}
@@ -75,8 +80,8 @@ const ProductsContainer = ({
         {/* <!-- End of Tab Pane2 --> */}
         <div className="tab-pane pt-4" id="tab1-3">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList &&
-              shuffleArray(productList.results).map(
+            {productList.new_arrivals &&
+              shuffleArray(productList.new_arrivals).map(
                 (productItem: SingleProductProps) => (
                   <ProductItem
                     key={productItem.id.toString()}
@@ -89,8 +94,8 @@ const ProductsContainer = ({
         {/* <!-- End of Tab Pane3 --> */}
         <div className="tab-pane pt-4" id="tab1-4">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList &&
-              shuffleArray(productList.results).map(
+            {productList.new_arrivals &&
+              shuffleArray(productList.new_arrivals).map(
                 (productItem: SingleProductProps) => (
                   <ProductItem
                     key={productItem.id.toString()}
@@ -166,7 +171,7 @@ const ProductsContainer = ({
       </div>
       {/* <!-- End of Category Cosmetic Lifestyle --> */}
 
-      <ProductCategorize productList={productList} />
+      <ProductCategorize clothingData={clothingData} />
 
       <h2 className="title title-underline mb-4 ls-normal appear-animate">
         Your Recent Views
@@ -194,7 +199,7 @@ const ProductsContainer = ({
       >
         <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
           {productList &&
-            shuffleArray(productList.results).map(
+            shuffleArray(productList.new_arrivals).map(
               (productItem: SingleProductProps) => (
                 <RecentViewProduct
                   key={productItem.id.toString()}

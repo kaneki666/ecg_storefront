@@ -8,7 +8,6 @@ import BoxIcons from "../components/landing/BoxIcons";
 import CategoryBanner from "../components/landing/CategoryBanner";
 import DealsOfTheDay from "../components/landing/DealsOfTheDay";
 import FooterLanding from "../components/common/Footer";
-
 import MobileMenu from "../components/common/MobileMenu";
 import NavbarMiddle from "../components/common/NavbarMiddle";
 import PopUpLanding from "../components/landing/PopUpLanding";
@@ -24,14 +23,24 @@ import { API_BASE_URL } from "./api/hello";
 
 const Home: NextPage = ({
   categoriesData,
-  productList,
-  currenctList,
-  homedataList,
+  data,
+  clothingData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Head>
         <link rel="stylesheet" type="text/css" href="/css/demo1.min.css" />
+        <title>Miaki Shop</title>
+
+        <meta
+          name="keywords"
+          content="Miaki Shop ecommerce multi vendor platform"
+        />
+        <meta
+          name="description"
+          content="Miaki Shop is a powerful marketplace &amp; ecommerce responsive Html5 Template."
+        />
+        <meta name="author" content="D-THEMES"></meta>
       </Head>
       <body className="home">
         <div className="page-wrapper">
@@ -45,9 +54,12 @@ const Home: NextPage = ({
             <div className="container">
               <BoxIcons />
               <CategoryBanner />
-              <DealsOfTheDay productsList={homedataList} productList={productList} />
+              <DealsOfTheDay data={data} />
               <TopCategoriesOfMonth />
-              <ProductsContainer productList={productList} />
+              <ProductsContainer
+                productList={data}
+                clothingData={clothingData.results}
+              />
             </div>
             <PopUpLanding />
           </main>
@@ -65,17 +77,15 @@ const Home: NextPage = ({
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const [cateGoriesRes, productListRes, currenctListRes, homedataListRes] = await Promise.all([
+  const [cateGoriesRes, dataRes, clothingRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-all-category-list/`),
-    fetch(`${API_BASE_URL}/product-list/`),
-    fetch(`${API_BASE_URL}/currency-list/`),
     fetch(`${API_BASE_URL}/home-data/`),
+    fetch(`${API_BASE_URL}/product-list-by-category/2/`),
   ]);
-  const [categoriesData, productList, currenctList, homedataList] = await Promise.all([
+  const [categoriesData, data, clothingData] = await Promise.all([
     cateGoriesRes.json(),
-    productListRes.json(),
-    currenctListRes.json(),
-    homedataListRes.json(),
+    dataRes.json(),
+    clothingRes.json(),
   ]);
-  return { props: { categoriesData, productList, currenctList, homedataList } };
+  return { props: { categoriesData, data, clothingData } };
 };

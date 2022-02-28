@@ -1,27 +1,16 @@
-import { stat } from "fs";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 import NavCartItem from "./NavCartItem";
 
 const NavbarCart = () => {
-  const { cart } = useSelector(
+  const { cart, totalPrice } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
-  let [totalPrice, setTotalPrice] = useState(0);
 
   const { currency } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
   );
-
-  useEffect(() => {
-    const sum = cart.reduce(
-      (previousValue, currentValue) => previousValue + currentValue.totalPrice,
-      0
-    );
-    setTotalPrice(sum);
-  }, [cart.length]);
 
   return (
     <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
@@ -57,14 +46,16 @@ const NavbarCart = () => {
 
         <div className="cart-total">
           <label>Subtotal:</label>
-          <span className="price">{currency.currency_symbol} {totalPrice * currency.currency_rate}</span>
+          <span className="price">
+            {currency.currency_symbol} {totalPrice * currency.currency_rate}
+          </span>
         </div>
 
         <div className="cart-action">
           <a href="cart" className="btn btn-dark btn-outline btn-rounded">
             View Cart
           </a>
-          <a href="#" className="btn btn-primary  btn-rounded">
+          <a href="checkout" className="btn btn-primary  btn-rounded">
             Checkout
           </a>
         </div>

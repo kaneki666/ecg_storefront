@@ -1,16 +1,13 @@
 import React from "react";
 import BannerFashion from "./BannerFashion";
-import {
-  ProductListProps,
-  SingleProductProps,
-} from "../../utils/types/landingpage";
+import { SingleProductProps } from "../../utils/types/landingpage";
 import ProductCategoryItem from "./ProductCategoryItem";
 import { shuffleArray } from "../../utils/helperFucntion/helper";
 
 const ProductCategorize = ({
-  productList,
+  clothingData,
 }: {
-  productList: ProductListProps;
+  clothingData: SingleProductProps[];
 }) => {
   return (
     <div>
@@ -75,8 +72,8 @@ const ProductCategorize = ({
                 <div className="swiper-slide product-col"> */}
               <div className="tab-pane active pt-4">
                 <div className="row cols-xl-4 cols-lg-3 cols-2">
-                  {productList &&
-                    productList.results
+                  {clothingData &&
+                    clothingData
                       .slice(0, 8)
                       .map((productItem: SingleProductProps) => (
                         <ProductCategoryItem
@@ -151,8 +148,8 @@ const ProductCategorize = ({
             >
               <div className="tab-pane active pt-4">
                 <div className="row cols-xl-4 cols-lg-3 cols-2">
-                  {productList &&
-                    shuffleArray(productList.results)
+                  {clothingData &&
+                    shuffleArray(clothingData)
                       .slice(0, 8)
                       .map((productItem: SingleProductProps) => (
                         <ProductCategoryItem
@@ -231,8 +228,8 @@ const ProductCategorize = ({
             >
               <div className="tab-pane active pt-4">
                 <div className="row cols-xl-4 cols-lg-3 cols-2">
-                  {productList &&
-                    shuffleArray(productList.results)
+                  {clothingData &&
+                    shuffleArray(clothingData)
                       .slice(0, 8)
                       .map((productItem: SingleProductProps) => (
                         <ProductCategoryItem

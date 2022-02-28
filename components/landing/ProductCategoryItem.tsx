@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,7 +7,11 @@ import {
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
-const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps }) => {
+const ProductCategoryItem = ({
+  productItem,
+}: {
+  productItem: SingleProductProps;
+}) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
@@ -62,7 +65,9 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
         </figure>
         <div className="product-details">
           <h4 className="product-name">
-            <a href={`productdetail?slug=${productItem.slug}`}>{productItem.title}</a>
+            <a href={`productdetail?slug=${productItem.slug}`}>
+              {productItem.title}
+            </a>
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
@@ -77,13 +82,15 @@ const ProductCategoryItem = ({ productItem }: { productItem: SingleProductProps 
             </a>
           </div>
           <div className="product-price">
-          <ins className="new-price">
+            <ins className="new-price">
               {currency.currency_symbol}{" "}
               {productItem.price * currency.currency_rate}
             </ins>
             {productItem.old_price && (
-              <del className="old-price">{currency.currency_symbol}{" "}
-              {productItem.price * currency.currency_rate}</del>
+              <del className="old-price">
+                {currency.currency_symbol}{" "}
+                {productItem.price * currency.currency_rate}
+              </del>
             )}
           </div>
         </div>

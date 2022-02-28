@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import HeaderBottomMiddle from "./HeaderBottomMiddle";
 import HeaderBottomRight from "./HeaderBottomRight";
 import {
@@ -36,8 +35,8 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                   {data.length > 0 &&
                     data.map((item: CategoriesProps) =>
                       item.sub_category.length > 0 ? (
-                        <li>
-                          <a key={item.id.toString()} href="#">
+                        <li key={item.id.toString()}>
+                          <a href="#">
                             <i
                               className={
                                 item.name === "ELECTRONICS"
@@ -64,7 +63,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           </ul>
                         </li>
                       ) : (
-                        <li>
+                        <li key={item.id.toString()}>
                           <a href="#">
                             <i
                               className={

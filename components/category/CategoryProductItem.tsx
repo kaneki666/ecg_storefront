@@ -7,36 +7,39 @@ import {
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
-const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
+const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
 
   const dispatch = useDispatch();
 
-  const handleAddToQuickView = () =>
-    dispatch(addToQuickViewAction(productItem));
+  const handleAddToQuickView = () => dispatch(addToQuickViewAction(product));
 
   const handleAddToCart = () => {
     const cartItem: CartItemProps = {
-      id: productItem.id,
-      thumbnail: productItem.thumbnail,
-      title: productItem.title,
-      price: productItem.price,
+      id: product.id,
+      thumbnail: product.thumbnail,
+      title: product.title,
+      price: product.price,
       quantity: 1,
-      totalPrice: productItem.price,
+      totalPrice: product.price,
     };
     dispatch(addToCartAction(cartItem));
   };
-
   return (
     <div className="product-wrap">
       <div className="product text-center">
         <figure className="product-media">
-          <a href={`productdetail?slug=${productItem.slug}`}>
-            <img src={productItem.thumbnail} width="300" height="338" />
+          <a href="#">
+            <img
+              src={product.thumbnail}
+              alt="Product"
+              width="300"
+              height="338"
+            />
           </a>
-          <div className="product-action-vertical">
+          <div className="product-action-horizontal">
             <a
               onClick={handleAddToCart}
               href="#"
@@ -46,32 +49,33 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
             <a
               href="#"
               className="btn-product-icon btn-wishlist w-icon-heart"
-              title="Add to wishlist"
+              title="Wishlist"
+            ></a>
+            <a
+              href="#"
+              className="btn-product-icon btn-compare w-icon-compare"
+              title="Compare"
             ></a>
             <a
               onClick={handleAddToQuickView}
               href="#"
               className="btn-product-icon btn-quickview w-icon-search"
-              title="Quickview"
-            ></a>
-            <a
-              href="#"
-              className="btn-product-icon btn-compare w-icon-compare"
-              title="Add to Compare"
+              title="Quick View"
             ></a>
           </div>
         </figure>
         <div className="product-details">
-          <h4 className="product-name">
-            <a href={`productdetail?slug=${productItem.slug}`}>
-              {productItem.title}
-            </a>
-          </h4>
+          <div className="product-cat">
+            <a href="category">{product.product_category_name}</a>
+          </div>
+          <h3 className="product-name">
+            <a href="#">{product.title}</a>
+          </h3>
           <div className="ratings-container">
             <div className="ratings-full">
               <span
                 className="ratings"
-                style={{ width: `${parseInt(productItem.rating) * 20}%` }}
+                style={{ width: `${parseInt(product.rating) * 20}%` }}
               ></span>
               <span className="tooltiptext tooltip-top"></span>
             </div>
@@ -79,11 +83,12 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
               (3 reviews)
             </a>
           </div>
-          <div className="product-price">
-            <ins className="new-price">
+          <div className="product-pa-wrapper">
+            <div className="product-price">
+              {" "}
               {currency.currency_symbol}{" "}
-              {productItem.price * currency.currency_rate}
-            </ins>
+              {product.price * currency.currency_rate}
+            </div>
           </div>
         </div>
       </div>
@@ -91,4 +96,4 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   );
 };
 
-export default ProductItem;
+export default CategoryProductItem;

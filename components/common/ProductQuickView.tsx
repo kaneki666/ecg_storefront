@@ -21,7 +21,7 @@ const ProductQuickView = () => {
         price: product.price,
         totalPrice: product.price,
       };
-      console.log(cartItem);
+
       dispatch(addToCartAction(cartItem));
     }
   };
@@ -32,19 +32,19 @@ const ProductQuickView = () => {
           <div className="product-gallery product-gallery-sticky">
             <div className="swiper-container product-single-swiper swiper-theme nav-inner">
               <div className="swiper-wrapper row cols-1 gutter-no">
-              {product?.product_media.map((item, index) => (
-                <div className="swiper-slide" key={item.id}>
-                  <figure className="product-image">
-                    <img
-                      src={item.file}
-                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                      alt="Product Image"
-                      width="800"
-                      height="900"
-                    />
-                  </figure>
-                </div>
-              ))}
+                {product?.product_media.map((item, index) => (
+                  <div className="swiper-slide" key={item.id}>
+                    <figure className="product-image">
+                      <img
+                        src={item.file}
+                        data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                        alt="Product Image"
+                        width="800"
+                        height="900"
+                      />
+                    </figure>
+                  </div>
+                ))}
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -59,16 +59,16 @@ const ProductQuickView = () => {
               }"
             >
               <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-              {product?.product_media.map((item, index) => (
-                <div className="product-thumb swiper-slide" key={item.id}>
-                  <img
-                    src={item.file}
-                    alt="Product Image"
-                    width="103"
-                    height="116"
-                  />
-                </div>
-              ))}
+                {product?.product_media.map((item, index) => (
+                  <div className="product-thumb swiper-slide" key={item.id}>
+                    <img
+                      src={item.file}
+                      alt="Product Image"
+                      width="103"
+                      height="116"
+                    />
+                  </div>
+                ))}
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -208,7 +208,10 @@ const ProductQuickView = () => {
                 </div>
               </div>
 
-              <button className="btn btn-primary btn-cart">
+              <button
+                onClick={handleAddToCart}
+                className="btn btn-primary btn-cart"
+              >
                 <i className="w-icon-cart"></i>
                 <span>Add to Cart</span>
               </button>

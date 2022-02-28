@@ -5,8 +5,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;700&family=Poppins:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
@@ -62,7 +60,7 @@ class MyDocument extends Document {
             href="/vendor/fontawesome-free/css/all.min.css"
           />
           {/* <!-- Plugins CSS --> */}
-          <link rel="stylesheet" href="/vendor/swiper/swiper-bundle.min.css" />
+
           <link
             rel="stylesheet"
             type="text/css"
@@ -85,23 +83,22 @@ class MyDocument extends Document {
             type="text/css"
             href="/vendor/photoswipe/default-skin/default-skin.min.css"
           />
-
-          <script src="/vendor/jquery/jquery.min.js"></script>
-          <script src="/vendor/sticky/sticky.js"></script>
-          <script src="/vendor/jquery.plugin/jquery.plugin.min.js"></script>
-          <script src="/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-          <script src="/vendor/zoom/jquery.zoom.js"></script>
-          <script src="/vendor/jquery.countdown/jquery.countdown.min.js"></script>
-          <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-          <script src="/vendor/skrollr/skrollr.min.js"></script>
-          <script src="/vendor/swiper/swiper-bundle.min.js"></script>
-          <script src="/vendor/photoswipe/photoswipe.js"></script>
-          <script src="/vendor/photoswipe/photoswipe-ui-default.js"></script>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/vendor/sticky/sticky.js"></script>
+        <script src="/vendor/jquery.plugin/jquery.plugin.min.js"></script>
+        <script src="/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+        <script src="/vendor/zoom/jquery.zoom.js"></script>
+        <script src="/vendor/jquery.countdown/jquery.countdown.min.js"></script>
+        <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="/vendor/skrollr/skrollr.min.js"></script>
+        <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/vendor/photoswipe/photoswipe.js"></script>
+        <script src="/vendor/photoswipe/photoswipe-ui-default.js"></script>
         <script src="/js/main.min.js"></script>
       </Html>
     );
