@@ -68,7 +68,7 @@ const Home: NextPage = ({
         <StickyFooterLanding />
         <ScrollToTop />
         <MobileMenu />
-        <ProductQuickView />
+        {/* <ProductQuickView /> */}
       </body>
     </div>
   );
@@ -78,7 +78,7 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const [cateGoriesRes, dataRes, clothingRes] = await Promise.all([
-    fetch(`${API_BASE_URL}/product-all-category-list/`),
+    fetch(`${API_BASE_URL}/mega-menu-data/`),
     fetch(`${API_BASE_URL}/home-data/`),
     fetch(`${API_BASE_URL}/product-list-by-category/2/`),
   ]);

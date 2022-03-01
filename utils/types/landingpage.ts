@@ -1,7 +1,9 @@
 export interface CategoriesProps {
   id: number;
   name: string;
-  sub_category: SubCategoryProps[];
+  product_sub_category: SubCategoryProps[];
+  logo?: string;
+  cover?: string;
 }
 
 export interface SubCategoryProps {

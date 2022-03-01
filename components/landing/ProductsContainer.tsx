@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { shuffleArray } from "../../utils/helperFucntion/helper";
 import {
   HomePageApiProps,
   ProductListProps,
   SingleProductProps,
 } from "../../utils/types/landingpage";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import ProductCategorize from "./ProductCategorize";
 import ProductItem from "./ProductItem";
 import RecentViewProduct from "./RecentViewProduct";
@@ -16,6 +18,10 @@ const ProductsContainer = ({
   productList: HomePageApiProps;
   clothingData: SingleProductProps[];
 }) => {
+  const { recentProducts } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
+
   return (
     <div className="container">
       <h2 className="title justify-content-center ls-normal mb-4 mt-10 pt-1 appear-animate">
@@ -174,7 +180,11 @@ const ProductsContainer = ({
       <ProductCategorize clothingData={clothingData} />
 
       <h2 className="title title-underline mb-4 ls-normal appear-animate">
-        Your Recent Views
+        {recentProducts === undefined
+          ? "You have not viewd any products"
+          : recentProducts.length > 0
+          ? "Your Recent Views"
+          : "You have not viewd any products"}
       </h2>
       <div
         className="swiper-container swiper-theme shadow-swiper appear-animate pb-4 mb-8"
@@ -198,15 +208,13 @@ const ProductsContainer = ({
   }"
       >
         <div className="swiper-wrapper row cols-xl-8 cols-lg-6 cols-md-4 cols-2">
-          {productList &&
-            shuffleArray(productList.new_arrivals).map(
-              (productItem: SingleProductProps) => (
-                <RecentViewProduct
-                  key={productItem.id.toString()}
-                  productItem={productItem}
-                />
-              )
-            )}
+          {recentProducts &&
+            recentProducts.map((productItem: SingleProductProps) => (
+              <RecentViewProduct
+                key={productItem.id.toString()}
+                productItem={productItem}
+              />
+            ))}
         </div>
         <div className="swiper-pagination"></div>
       </div>

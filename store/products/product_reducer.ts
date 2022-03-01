@@ -6,18 +6,21 @@ import { AnyAction } from "redux";
 
 import {
   ADD_PRODUCT_QUICKVIEW,
+  ADD_PRODUCT_RECENTVIEW,
   ADD_TO_CART,
   APPLY_COUPON,
   CLEAR_CART,
   REMOVE_FROM_CART,
   REMOVE_ITEM_FROM_CART,
 } from "./types";
+import { SingleProductProps } from "../../utils/types/landingpage";
 
 const initialState: ProductCartReducerStateProps = {
   product: null,
   cart: [],
   totalPrice: 0,
   usedCoupon: false,
+  recentProducts: [],
 };
 
 export const ProductReducer = (
@@ -95,6 +98,24 @@ export const ProductReducer = (
 
     case CLEAR_CART:
       return { ...state, cart: [], totalPrice: 0 };
+
+    case ADD_PRODUCT_RECENTVIEW:
+      var recentItems = state.recentProducts;
+      const newRecentItem: SingleProductProps = action.payload;
+
+      if (recentItems) {
+        const findIndexRecent = recentItems.findIndex(
+          (item: SingleProductProps) => item.id === newRecentItem.id
+        );
+        if (findIndexRecent === -1) {
+          recentItems.push(newRecentItem);
+        } else {
+        }
+      } else {
+        recentItems = [];
+        recentItems.push(newRecentItem);
+      }
+      return { ...state, recentProducts: recentItems };
 
     default:
       return state;

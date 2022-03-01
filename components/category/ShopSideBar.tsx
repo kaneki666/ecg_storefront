@@ -28,7 +28,7 @@ const ShopSideBar = ({
             </h3>
             <ul className="widget-body filter-items search-ul">
               {categoriesData.map((item) => (
-                <li>
+                <li key={item.id.toString()}>
                   <a href="#">{item.name}</a>
                 </li>
               ))}

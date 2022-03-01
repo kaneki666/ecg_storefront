@@ -2,6 +2,7 @@ import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps } from "../../utils/types/reduxTypes";
 import {
   ADD_PRODUCT_QUICKVIEW,
+  ADD_PRODUCT_RECENTVIEW,
   ADD_TO_CART,
   APPLY_COUPON,
   CLEAR_CART,
@@ -65,6 +66,17 @@ export const clearCartAction = (id: boolean) => {
     dispatch({
       type: CLEAR_CART,
       payload: id,
+    });
+  };
+};
+
+export const addToRecentViewAction = (product: SingleProductProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: SingleProductProps }) => void
+  ) => {
+    dispatch({
+      type: ADD_PRODUCT_RECENTVIEW,
+      payload: product,
     });
   };
 };

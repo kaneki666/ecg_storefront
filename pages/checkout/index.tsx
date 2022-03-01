@@ -21,7 +21,7 @@ import { CategoriesProps } from "../../utils/types/landingpage";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import { API_BASE_URL } from "../api/hello";
 
-const index: NextPage = ({
+const CheckoutPage: NextPage = ({
   categoriesData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { isLoggedIn } = useSelector(
@@ -61,7 +61,7 @@ const index: NextPage = ({
   );
 };
 
-export default index;
+export default CheckoutPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);

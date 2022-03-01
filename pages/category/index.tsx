@@ -12,7 +12,7 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-import ProductQuickView from "../../components/common/ProductQuickView";
+// import ProductQuickView from "../../components/common/ProductQuickView";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { API_BASE_URL } from "../api/hello";
 import BreadcrumbCategory from "../../components/category/BreadcrumbCategory";
@@ -24,7 +24,7 @@ import ShopSideBar from "../../components/category/ShopSideBar";
 import MainContent from "../../components/category/MainContent";
 import Pagination from "../../components/category/Pagination";
 
-const index: NextPage = ({
+const CategoryPage: NextPage = ({
   categoriesData,
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -68,14 +68,14 @@ const index: NextPage = ({
           <StickyFooter />
         </div>
         <ScrollToTop />
-        <ProductQuickView />
+        {/* <ProductQuickView /> */}
         <MobileMenu />
       </body>
     </div>
   );
 };
 
-export default index;
+export default CategoryPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const [cateGoriesRes, dataRes] = await Promise.all([

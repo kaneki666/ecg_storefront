@@ -13,3 +13,4 @@ export default function handler(
 }
 
 export const API_BASE_URL = "https://ecomapi.mwebservices.co/api";
+export const APP_URL = "https://ecg-storefront.vercel.app";
