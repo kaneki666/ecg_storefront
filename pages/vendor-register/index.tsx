@@ -41,25 +41,25 @@ const index: NextPage = ({
             <HeaderBottom data={categoriesData} />
           </header>
           <main className="main">
-            <PageHeader/>
-            <Breadcrumb/>
+            <PageHeader />
+            <Breadcrumb />
             <div className="page-content become-a-vendor">
-                <div className="container create-store pb-1 pb-lg-10 mb-10">
-                <CreateStore/>
+              <div className="container create-store pb-1 pb-lg-10 mb-10">
+                <CreateStore />
+              </div>
+              <div className="bg-grey how-trade pt-10 pb-5 pb-lg-10">
+                <div className="container mt-2 mt-lg-10 mb-0 mb-lg-10">
+                  <Trade />
                 </div>
-                <div className="bg-grey how-trade pt-10 pb-5 pb-lg-10">
-                    <div className="container mt-2 mt-lg-10 mb-0 mb-lg-10">
-                        <Trade/>
-                    </div>
+              </div>
+              <Container />
+              <div className="bg-grey pt-2 pt-lg-10 wolmart-sellers pb-10">
+                <div className="container mt-0 mt-lg-10 mb-2 mb-lg-9">
+                  <Stories />
                 </div>
-                <Container/>
-                <div className="bg-grey pt-2 pt-lg-10 wolmart-sellers pb-10">
-                    <div className="container mt-0 mt-lg-10 mb-2 mb-lg-9">
-                        <Stories/>
-                    </div>
-                </div>
-                <QA/>
-                <Footer/>
+              </div>
+              <QA />
+              <Footer />
             </div>
           </main>
           <FooterLanding />
@@ -67,7 +67,7 @@ const index: NextPage = ({
         </div>
         <ScrollToTop />
         <ProductQuickView />
-        <MobileMenu />
+        <MobileMenu data={categoriesData} />
       </body>
     </div>
   );

@@ -29,7 +29,7 @@ const ShopSideBar = ({
             <ul className="widget-body filter-items search-ul">
               {categoriesData.map((item) => (
                 <li key={item.id.toString()}>
-                  <a href="#">{item.name}</a>
+                  <a href={`/category?id=${item.id}&type=cate`}>{item.name}</a>
                 </li>
               ))}
             </ul>

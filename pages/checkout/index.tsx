@@ -55,7 +55,7 @@ const CheckoutPage: NextPage = ({
         </div>
 
         <ScrollToTop />
-        <MobileMenu />
+        <MobileMenu data={categoriesData} />
       </body>
     </div>
   );

@@ -37,7 +37,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                       item.product_sub_category &&
                       item.product_sub_category.length > 0 ? (
                         <li key={item.id.toString()}>
-                          <a href="#">
+                          <a href={`/category?id=${item.id}&type=cate`}>
                             <i className="w-icon-tshirt2"></i>
                             {item.name}
                           </a>
@@ -45,14 +45,24 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                             {item.product_sub_category &&
                               item.product_sub_category.map((subItem) => (
                                 <li key={subItem.id.toString()}>
-                                  <h4 className="menu-title">{subItem.name}</h4>
+                                  <a
+                                    href={`/category?id=${subItem.id}&type=sub`}
+                                  >
+                                    <h4 className="menu-title">
+                                      {subItem.name}
+                                    </h4>
+                                  </a>
                                   <hr className="divider" />
                                   <ul>
                                     {subItem.child_category &&
                                       subItem.child_category.map(
                                         (childItem) => (
                                           <li key={childItem.id.toString()}>
-                                            <a href="#">{childItem.name}</a>
+                                            <a
+                                              href={`/category?id=${childItem.id}&type=child`}
+                                            >
+                                              {childItem.name}
+                                            </a>
                                           </li>
                                         )
                                       )}
@@ -93,35 +103,8 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           </ul>
                         </li>
                       ) : (
-                        // <li key={item.id.toString()}>
-                        //   <a href="#">
-                        //     <i
-                        //       className={
-                        //         item.name === "ELECTRONICS"
-                        //           ? "w-icon-electronics"
-                        //           : "w-icon-tshirt2"
-                        //       }
-                        //     ></i>
-                        //     {item.name}
-                        //   </a>
-                        //   <ul className="megamenu">
-                        //     <li>
-                        //       {/* <h4 className="menu-title">Men</h4>
-                        //     <hr className="divider" />*/}
-                        //       {item.sub_category.map(
-                        //         (subItem: SubCategoryProps) => (
-                        //           <ul key={`${subItem.id}`}>
-                        //             <li>
-                        //               <a href="#">{subItem.name}</a>
-                        //             </li>
-                        //           </ul>
-                        //         )
-                        //       )}
-                        //     </li>
-                        //   </ul>
-                        // </li>
                         <li key={item.id.toString()}>
-                          <a href="#">
+                          <a href={`/category?id=${item.id}&type=cate`}>
                             <i
                               className={
                                 item.name === "TOYS & GAMES"

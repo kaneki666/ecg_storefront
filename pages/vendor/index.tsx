@@ -79,7 +79,7 @@ const index = ({
           <StickyFooter />
         </div>
         <ScrollToTop />
-        <MobileMenu />
+        <MobileMenu data={categoriesData} />
         <ProductQuickView />
       </body>
     </div>

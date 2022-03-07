@@ -1,6 +1,7 @@
 import React from "react";
+import { CategoriesProps } from "../../utils/types/landingpage";
 
-const MobileMenu = () => {
+const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
   return (
     <div className="mobile-menu-wrapper">
       <div className="mobile-menu-overlay"></div>
@@ -38,6 +39,7 @@ const MobileMenu = () => {
             </li>
           </ul>
         </div>
+
         <div className="tab-content">
           <div className="tab-pane active" id="main-menu">
             <ul className="mobile-menu">
@@ -64,6 +66,68 @@ const MobileMenu = () => {
           </div>
           <div className="tab-pane" id="categories">
             <ul className="mobile-menu">
+              {data &&
+                data.map((item) =>
+                  item.product_sub_category &&
+                  item.product_sub_category.length > 0 ? (
+                    <li>
+                      <a
+                        key={`${item.id}`}
+                        href={`/category?id=${item.id}&type=cate`}
+                      >
+                        <i className="w-icon-tshirt2"></i>
+                        {item.name}
+                      </a>
+                      <ul>
+                        {item.product_sub_category &&
+                          item.product_sub_category.map((subItem) =>
+                            subItem.child_category.length > 0 ? (
+                              <li>
+                                <a
+                                  key={`${subItem.id}`}
+                                  href={`/category?id=${subItem.id}&type=sub`}
+                                >
+                                  {subItem.name}
+                                </a>
+                                <ul>
+                                  {subItem.child_category &&
+                                    subItem.child_category.map((childItem) => (
+                                      <li key={`${childItem.id}`}>
+                                        <a
+                                          href={`/category?id=${childItem.id}&type=child`}
+                                        >
+                                          {childItem.name}
+                                        </a>
+                                      </li>
+                                    ))}
+                                </ul>
+                              </li>
+                            ) : (
+                              <li>
+                                <a
+                                  key={`${subItem.id}`}
+                                  href={`/category?id=${subItem.id}&type=sub`}
+                                >
+                                  {subItem.name}
+                                </a>
+                              </li>
+                            )
+                          )}
+                      </ul>
+                    </li>
+                  ) : (
+                    <li>
+                      <a
+                        href={`/category?id=${item.id}&type=cate`}
+                        key={`${item.id}`}
+                      >
+                        <i className="w-icon-gift"></i> {item.name}
+                      </a>
+                    </li>
+                  )
+                )}
+            </ul>
+            {/* <ul className="mobile-menu">
               <li>
                 <a href="category">
                   <i className="w-icon-tshirt2"></i>Fashion
@@ -94,9 +158,7 @@ const MobileMenu = () => {
                         <a href="category">Accessories</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Jewlery & Watches
-                        </a>
+                        <a href="category">Jewlery & Watches</a>
                       </li>
                     </ul>
                   </li>
@@ -125,9 +187,7 @@ const MobileMenu = () => {
                         <a href="category">Accessories</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Jewlery & Watches
-                        </a>
+                        <a href="category">Jewlery & Watches</a>
                       </li>
                     </ul>
                   </li>
@@ -142,9 +202,7 @@ const MobileMenu = () => {
                     <a href="#">Bedroom</a>
                     <ul>
                       <li>
-                        <a href="category">
-                          Beds, Frames & Bases
-                        </a>
+                        <a href="category">Beds, Frames & Bases</a>
                       </li>
                       <li>
                         <a href="category">Dressers</a>
@@ -153,9 +211,7 @@ const MobileMenu = () => {
                         <a href="category">Nightstands</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Kid's Beds & Headboards
-                        </a>
+                        <a href="category">Kid's Beds & Headboards</a>
                       </li>
                       <li>
                         <a href="category">Armoires</a>
@@ -175,14 +231,10 @@ const MobileMenu = () => {
                         <a href="category">Tables</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Futons & Sofa Beds
-                        </a>
+                        <a href="category">Futons & Sofa Beds</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Cabinets & Chests
-                        </a>
+                        <a href="category">Cabinets & Chests</a>
                       </li>
                     </ul>
                   </li>
@@ -202,9 +254,7 @@ const MobileMenu = () => {
                         <a href="category">File Cabinets</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Breakroom Tables
-                        </a>
+                        <a href="category">Breakroom Tables</a>
                       </li>
                     </ul>
                   </li>
@@ -215,9 +265,7 @@ const MobileMenu = () => {
                         <a href="category">Dining Sets</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Kitchen Storage Cabinets
-                        </a>
+                        <a href="category">Kitchen Storage Cabinets</a>
                       </li>
                       <li>
                         <a href="category">Bashers Racks</a>
@@ -226,9 +274,7 @@ const MobileMenu = () => {
                         <a href="category">Dining Chairs</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Dining Room Tables
-                        </a>
+                        <a href="category">Dining Room Tables</a>
                       </li>
                       <li>
                         <a href="category">Bar Stools</a>
@@ -246,9 +292,7 @@ const MobileMenu = () => {
                     <a href="#">Laptops &amp; Computers</a>
                     <ul>
                       <li>
-                        <a href="category">
-                          Desktop Computers
-                        </a>
+                        <a href="category">Desktop Computers</a>
                       </li>
                       <li>
                         <a href="category">Monitors</a>
@@ -257,14 +301,10 @@ const MobileMenu = () => {
                         <a href="category">Laptops</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Hard Drives &amp; Storage
-                        </a>
+                        <a href="category">Hard Drives &amp; Storage</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Computer Accessories
-                        </a>
+                        <a href="category">Computer Accessories</a>
                       </li>
                     </ul>
                   </li>
@@ -275,17 +315,13 @@ const MobileMenu = () => {
                         <a href="category">TVs</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Home Audio Speakers
-                        </a>
+                        <a href="category">Home Audio Speakers</a>
                       </li>
                       <li>
                         <a href="category">Projectors</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Media Streaming Devices
-                        </a>
+                        <a href="category">Media Streaming Devices</a>
                       </li>
                     </ul>
                   </li>
@@ -293,14 +329,10 @@ const MobileMenu = () => {
                     <a href="#">Digital Cameras</a>
                     <ul>
                       <li>
-                        <a href="category">
-                          Digital SLR Cameras
-                        </a>
+                        <a href="category">Digital SLR Cameras</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Sports & Action Cameras
-                        </a>
+                        <a href="category">Sports & Action Cameras</a>
                       </li>
                       <li>
                         <a href="category">Camera Lenses</a>
@@ -309,9 +341,7 @@ const MobileMenu = () => {
                         <a href="category">Photo Printer</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Digital Memory Cards
-                        </a>
+                        <a href="category">Digital Memory Cards</a>
                       </li>
                     </ul>
                   </li>
@@ -325,14 +355,10 @@ const MobileMenu = () => {
                         <a href="category">Unlocked Phones</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Phone & Cellphone Cases
-                        </a>
+                        <a href="category">Phone & Cellphone Cases</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Cellphone Chargers
-                        </a>
+                        <a href="category">Cellphone Chargers</a>
                       </li>
                     </ul>
                   </li>
@@ -379,9 +405,7 @@ const MobileMenu = () => {
                         <a href="category">Wall Lights</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Bathroom Lighting
-                        </a>
+                        <a href="category">Bathroom Lighting</a>
                       </li>
                     </ul>
                   </li>
@@ -389,14 +413,10 @@ const MobileMenu = () => {
                     <a href="#">Home Accessories</a>
                     <ul>
                       <li>
-                        <a href="category">
-                          Decorative Accessories
-                        </a>
+                        <a href="category">Decorative Accessories</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Candals & Holders
-                        </a>
+                        <a href="category">Candals & Holders</a>
                       </li>
                       <li>
                         <a href="category">Home Fragrance</a>
@@ -413,22 +433,16 @@ const MobileMenu = () => {
                     <a href="#">Garden & Outdoors</a>
                     <ul>
                       <li>
-                        <a href="category">
-                          Garden Furniture
-                        </a>
+                        <a href="category">Garden Furniture</a>
                       </li>
                       <li>
                         <a href="category">Lawn Mowers</a>
                       </li>
                       <li>
-                        <a href="category">
-                          Pressure Washers
-                        </a>
+                        <a href="category">Pressure Washers</a>
                       </li>
                       <li>
-                        <a href="category">
-                          All Garden Tools
-                        </a>
+                        <a href="category">All Garden Tools</a>
                       </li>
                       <li>
                         <a href="category">Outdoor Dining</a>
@@ -480,7 +494,7 @@ const MobileMenu = () => {
                   View All Categories<i className="w-icon-angle-right"></i>
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

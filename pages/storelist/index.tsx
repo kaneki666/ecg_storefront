@@ -88,7 +88,7 @@ const StoreList: NextPage = ({
         </div>
 
         <ScrollToTop />
-        <MobileMenu />
+        <MobileMenu data={categoriesData} />
         <ProductQuickView />
       </body>
     </div>

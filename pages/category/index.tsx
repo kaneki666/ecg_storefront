@@ -29,7 +29,6 @@ const CategoryPage: NextPage = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [products, setProducts] = useState(data.results);
-  console.log(products);
 
   return (
     <div>
@@ -69,7 +68,7 @@ const CategoryPage: NextPage = ({
         </div>
         <ScrollToTop />
         {/* <ProductQuickView /> */}
-        <MobileMenu />
+        <MobileMenu data={categoriesData} />
       </body>
     </div>
   );
@@ -78,9 +77,21 @@ const CategoryPage: NextPage = ({
 export default CategoryPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id, type } = context.query;
+
   const [cateGoriesRes, dataRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-all-category-list/`),
-    fetch(`${API_BASE_URL}/product-list/`),
+    fetch(
+      `${API_BASE_URL}/${
+        type === "cate"
+          ? `product-list-by-category/${id}`
+          : type === "sub"
+          ? `product-list-by-sub-category/${id}`
+          : type === "child"
+          ? `product-list-by-category/${id}`
+          : "product-list/"
+      }`
+    ),
   ]);
   const [categoriesData, data] = await Promise.all([
     cateGoriesRes.json(),

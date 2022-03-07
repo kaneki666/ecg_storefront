@@ -48,7 +48,7 @@ const index: NextPage = ({
         </div>
         <ScrollToTop />
         <ProductQuickView />
-        <MobileMenu />
+        <MobileMenu data={categoriesData} />
       </body>
     </div>
   );

@@ -31,7 +31,7 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
     <div className="product-wrap">
       <div className="product text-center">
         <figure className="product-media">
-          <a href="#">
+          <a href={`productdetail?slug=${product.slug}`}>
             <img
               src={product.thumbnail}
               alt="Product"
