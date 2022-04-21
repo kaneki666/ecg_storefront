@@ -1,6 +1,7 @@
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps } from "../../utils/types/reduxTypes";
 import {
+  ADD_PRODUCT_COMPARE,
   ADD_PRODUCT_QUICKVIEW,
   ADD_PRODUCT_RECENTVIEW,
   ADD_TO_CART,
@@ -76,6 +77,17 @@ export const addToRecentViewAction = (product: SingleProductProps) => {
   ) => {
     dispatch({
       type: ADD_PRODUCT_RECENTVIEW,
+      payload: product,
+    });
+  };
+};
+
+export const addToCompareAction = (product: SingleProductProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: SingleProductProps }) => void
+  ) => {
+    dispatch({
+      type: ADD_PRODUCT_COMPARE,
       payload: product,
     });
   };

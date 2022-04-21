@@ -5,6 +5,7 @@ import {
 import { AnyAction } from "redux";
 
 import {
+  ADD_PRODUCT_COMPARE,
   ADD_PRODUCT_QUICKVIEW,
   ADD_PRODUCT_RECENTVIEW,
   ADD_TO_CART,
@@ -21,6 +22,7 @@ const initialState: ProductCartReducerStateProps = {
   totalPrice: 0,
   usedCoupon: false,
   recentProducts: [],
+  compareProducts: [],
 };
 
 export const ProductReducer = (
@@ -116,6 +118,32 @@ export const ProductReducer = (
         recentItems.push(newRecentItem);
       }
       return { ...state, recentProducts: recentItems };
+
+    case ADD_PRODUCT_COMPARE:
+      var compareItems = state.compareProducts;
+      const newCompareItem: SingleProductProps = action.payload;
+
+      if (compareItems) {
+        const findIndexRecent = compareItems.findIndex(
+          (item: SingleProductProps) => item.id === newCompareItem.id
+        );
+        if (compareItems.length == 3) {
+          compareItems.slice(1);
+          if (findIndexRecent === -1) {
+            compareItems.push(newCompareItem);
+          } else {
+          }
+        } else {
+          if (findIndexRecent === -1) {
+            compareItems.push(newCompareItem);
+          } else {
+          }
+        }
+      } else {
+        compareItems = [];
+        compareItems.push(newCompareItem);
+      }
+      return { ...state, compareProducts: compareItems };
 
     default:
       return state;

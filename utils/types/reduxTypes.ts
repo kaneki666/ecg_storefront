@@ -43,6 +43,7 @@ export interface ProductCartReducerStateProps {
   product: SingleProductProps | null;
   cart: CartItemProps[];
   recentProducts: SingleProductProps[];
+  compareProducts: SingleProductProps[];
   totalPrice: number;
   usedCoupon: boolean;
 }
