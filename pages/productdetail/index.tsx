@@ -28,8 +28,9 @@ import { addToRecentViewAction } from "../../store/products/actions";
 import { useRouter } from "next/router";
 
 const ProductDetailPage: NextPage = ({
-  categoriesData,
   product,
+  categoriesData,
+ 
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -96,15 +97,17 @@ export default ProductDetailPage;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.query.slug;
 
-  const [cateGoriesRes, productRes, currencyListRes] = await Promise.all([
-    fetch(`${API_BASE_URL}/product-all-category-list/`),
+  const [productRes,cateGoriesRes, currencyListRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-details/${slug}/`),
+    fetch(`${API_BASE_URL}/product-all-category-list/`),
+   
     fetch(`${API_BASE_URL}/currency-list/`),
   ]);
-  const [categoriesData, product, currencyList] = await Promise.all([
-    cateGoriesRes.json(),
+  const [product,categoriesData, currencyList] = await Promise.all([
     productRes.json(),
+    cateGoriesRes.json(),
+    
     currencyListRes.json(),
   ]);
-  return { props: { categoriesData, product, currencyList } };
+  return { props: {product categoriesData,  currencyList } };
 };
