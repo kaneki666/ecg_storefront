@@ -3,7 +3,7 @@ import { wrapper } from "../store/store";
 import { Provider, useStore } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import "react-toastify/dist/ReactToastify.min.css";
+
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   ) : (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+        <PersistGate loading={null} persistor={store.__persistor}>
           <Component {...pageProps} />
         </PersistGate>
       </Provider>
