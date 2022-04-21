@@ -1,9 +1,9 @@
 import "../styles/globals.css";
 import { wrapper } from "../store/store";
-import { Provider, useStore } from "react-redux";
+import { useStore } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { QueryClient, QueryClientProvider } from "react-query";
-
+import "react-toastify/dist/ReactToastify.min.css";
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
@@ -11,17 +11,15 @@ function MyApp({ Component, pageProps }) {
 
   return process.browser ? (
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
+      <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
         <Component {...pageProps} />
-      </Provider>
+      </PersistGate>
     </QueryClientProvider>
   ) : (
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={store.__persistor}>
-          <Component {...pageProps} />
-        </PersistGate>
-      </Provider>
+      <PersistGate persistor={store}>
+        <Component {...pageProps} />
+      </PersistGate>
     </QueryClientProvider>
   );
 }
