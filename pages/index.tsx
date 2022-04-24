@@ -40,7 +40,7 @@ const Home: NextPage = ({
           name="description"
           content="Miaki Shop is a powerful marketplace &amp; ecommerce responsive Html5 Template."
         />
-        <meta name="author" content="D-THEMES"></meta>
+        <meta name="author" content="Miaki"></meta>
       </Head>
       <body className="home">
         <div className="page-wrapper">

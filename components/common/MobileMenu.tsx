@@ -70,7 +70,7 @@ const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
                 data.map((item) =>
                   item.product_sub_category &&
                   item.product_sub_category.length > 0 ? (
-                    <li>
+                    <li key={item.id}>
                       <a
                         key={`${item.id}`}
                         href={`/category?id=${item.id}&type=cate`}
