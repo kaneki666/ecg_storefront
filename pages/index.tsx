@@ -68,7 +68,7 @@ const Home: NextPage = ({
         <StickyFooterLanding />
         <ScrollToTop />
         <MobileMenu data={categoriesData} />
-        {/* <ProductQuickView /> */}
+        <ProductQuickView />
       </body>
     </div>
   );

@@ -12,7 +12,7 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-// import ProductQuickView from "../../components/common/ProductQuickView";
+import ProductQuickView from "../../components/common/ProductQuickView";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { API_BASE_URL } from "../api/hello";
 import BreadcrumbCategory from "../../components/category/BreadcrumbCategory";
@@ -67,7 +67,7 @@ const CategoryPage: NextPage = ({
           <StickyFooter />
         </div>
         <ScrollToTop />
-        {/* <ProductQuickView /> */}
+        <ProductQuickView />
         <MobileMenu data={categoriesData} />
       </body>
     </div>

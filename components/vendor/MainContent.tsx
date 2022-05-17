@@ -109,8 +109,6 @@ const MainContent = () => {
                                     <a href="#">
                                         <Image src="/images/shop/2-1.jpg" alt="Product"
                                             width={300} height={338} />
-                                        <Image src="/images/shop/2-2.jpg" alt="Product"
-                                            width={300} height={338} />
                                     </a>
                                     <div className="product-action-vertical">
                                         <a href="#"
@@ -329,8 +327,6 @@ const MainContent = () => {
                                 <figure className="product-media">
                                     <a href="#">
                                         <Image src="/images/shop/7-1.jpg" alt="Product"
-                                            width={300} height={338} />
-                                        <Image src="/images/shop/7-2.jpg" alt="Product"
                                             width={300} height={338} />
                                     </a>
                                     <div className="product-action-vertical">
