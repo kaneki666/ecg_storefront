@@ -21,6 +21,7 @@ import HeaderBottom from "../../components/common/HeaderBottom";
 
 const index = ({
   categoriesData,
+  data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
@@ -69,7 +70,9 @@ const index = ({
                     <Sidebar />
                   </aside>
                   <div className="main-content">
-                    <MainContent />
+                    <MainContent 
+                    productList={data}
+                    />
                   </div>
                 </div>
               </div>
@@ -89,16 +92,19 @@ const index = ({
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
-  const categoriesData: CategoriesProps[] = await res.json();
+  const cateGoriesRes = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const dataRes = await fetch(`${API_BASE_URL}/home-data/`);
+  const [categoriesData, data] = await Promise.all([
+    cateGoriesRes.json(),
+    dataRes.json(),
+  ]);
+  
 
-  if (res.status !== 200) {
+  if (cateGoriesRes.status !== 200) {
     return {
       notFound: true,
     };
   }
 
-  return {
-    props: { categoriesData }, // will be passed to the page component as props
-  };
+  return { props: { categoriesData, data } };
 };
