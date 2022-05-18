@@ -3229,13 +3229,13 @@ blockquote {
   color: #ccc;
 }
 
-.swiper-button-next::before {
+/* .swiper-button-next::before {
   content: "";
 }
 
 .swiper-button-prev::before {
   content: "";
-}
+} */
 
 .swiper-wrapper {
   -webkit-box-sizing: border-box;
@@ -3532,7 +3532,7 @@ blockquote {
 
 .swiper-nav-md > .swiper-button-next,
 .swiper-nav-md > .swiper-button-prev {
-  font-size: 3.3rem;
+  font-size: 30.3rem;
 }
 
 @media (max-width: 575px) {

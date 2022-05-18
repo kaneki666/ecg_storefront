@@ -6,7 +6,7 @@ import { DealsOfTheDayProps } from "../../utils/types/landingpage";
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   const dispatch = useDispatch();
   let [quantity, setQuantity] = useState(1);
-
+  
   const handleAddToCart = () =>
     dispatch(
       addToCartAction({
@@ -18,6 +18,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
         totalPrice: products.product[0].price,
       })
     );
+    
   return (
     <div className="col-lg-9 mb-4">
       <div className="single-product h-100 br-sm">
@@ -102,7 +103,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                       <div className="product-details scrollable">
                         <h2 className="product-title mb-1">
                           <a href="#">{productitem.title}</a>
@@ -244,7 +245,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                 </div>
               ))}
             </div>
-            <button className="swiper-button-prev"></button>
+            <button className="swiper-button-prev" style={{ fontSize: "100px" }}></button>
             <button className="swiper-button-next"></button>
           </div>
         </div>
@@ -254,3 +255,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
 };
 
 export default HotDealsTheDay;
+
+
+
+ 
