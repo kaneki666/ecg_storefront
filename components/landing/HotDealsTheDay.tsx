@@ -245,7 +245,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                 </div>
               ))}
             </div>
-            <button className="swiper-button-prev" style={{ fontSize: "100px" }}></button>
+            <button className="swiper-button-prev"></button>
             <button className="swiper-button-next"></button>
           </div>
         </div>
