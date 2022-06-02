@@ -71,7 +71,7 @@ const FormLogin = () => {
         <div className="form-group mb-0">
           <label>Password *</label>
           <input
-            type="text"
+            type="password"
             className="form-control"
             id="password"
             required
