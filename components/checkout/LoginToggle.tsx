@@ -15,7 +15,7 @@ const LoginToggle = () => {
     getValues,
     formState: { errors },
   } = useForm<LoginProps>();
-  console.log(getValues("email"));
+ 
 
   const onSubmit: SubmitHandler<LoginProps> = async (data) => {
     const request = await fetch(`${API_BASE_URL}/login/`, {
@@ -25,6 +25,7 @@ const LoginToggle = () => {
         "Content-Type": "application/json",
       },
     });
+    console.log(request)
 
     if (request.status === 200) {
       const response: UserLoginProps = await request.json();

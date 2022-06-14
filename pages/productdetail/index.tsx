@@ -38,7 +38,7 @@ const ProductDetailPage: NextPage = ({
   }, [product]);
 
   return (
-    <div>
+    <div> 
       <Head>
         <link
           rel="preload stylesheet"

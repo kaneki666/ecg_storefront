@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -10,12 +11,14 @@ import { LoginProps } from "../../utils/types/types";
 
 const FormLogin = () => {
   const dispatch = useDispatch();
+  const router = useRouter()
   const {
     register,
     handleSubmit,
 
     formState: { errors },
   } = useForm<LoginProps>();
+  
 
   const onSubmit: SubmitHandler<LoginProps> = async (data) => {
     const request = await fetch(`${API_BASE_URL}/login/`, {
@@ -25,6 +28,7 @@ const FormLogin = () => {
         "Content-Type": "application/json",
       },
     });
+    console.log(request)
 
     if (request.status === 200) {
       const response: UserLoginProps = await request.json();
@@ -39,6 +43,8 @@ const FormLogin = () => {
         draggable: true,
         progress: undefined,
       });
+
+      setTimeout(() => router.push('/'), 4000)
     } else {
       const response = await request.json();
 
@@ -87,7 +93,7 @@ const FormLogin = () => {
             required
           />
           <label>Remember me</label>
-          <a href="#">Last your password?</a>
+          <a href="#">Lost your password?</a>
         </div>
         <div className="d-flex justify-content-center">
           <input type="submit" className="btn btn-primary" />

@@ -30,7 +30,7 @@ export const AuthReducer = (
     case SAVE_USERINFO_ACTION:
       return { ...state, userInfo: action.payload };
     case LOGOUT_ACTION:
-      return { ...state, isLoggedIn: action.payload };
+      return { ...state, isLoggedIn: action.payload, userInfo: null };
     case SAVE_CURRENCY_ACTION:
       return { ...state, currency: action.payload };
     default:

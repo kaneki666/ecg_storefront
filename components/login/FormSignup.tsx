@@ -19,59 +19,59 @@ const FormSignup = () => {
 
   const onSubmit: SubmitHandler<SignupProps> = async (data) => {
       
-      if(data.organization_name){
-        const request = await fetch(`${API_BASE_URL}/vendor-request/`, {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+      // if(data.organization_name){
+      //   const request = await fetch(`${API_BASE_URL}/vendor-request/`, {
+      //     method: "POST",
+      //     body: JSON.stringify(data),
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   })
     
-        if (request.status === 201 ) {
-          const response: vendorSignupProps = await request.json();
-          dispatch(signupAction(true));
-          dispatch(saveVendorinfoAction(response));
-          toast("Signup Successful!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        } else {
-          const response = await request.json();
-          console.log(response)
+      //   if (request.status === 201 ) {
+      //     const response: vendorSignupProps = await request.json();
+      //     dispatch(signupAction(true));
+      //     dispatch(saveVendorinfoAction(response));
+      //     toast("Signup Successful!", {
+      //       position: "top-right",
+      //       autoClose: 5000,
+      //       hideProgressBar: false,
+      //       closeOnClick: true,
+      //       pauseOnHover: true,
+      //       draggable: true,
+      //       progress: undefined,
+      //     });
+      //   } else {
+      //     const response = await request.json();
+      //     console.log(response)
     
-         if(response.email){
-          toast(`Signup Failed. ${response.email}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-         }
+      //    if(response.email){
+      //     toast(`Signup Failed. ${response.email}`, {
+      //       position: "top-right",
+      //       autoClose: 5000,
+      //       hideProgressBar: false,
+      //       closeOnClick: true,
+      //       pauseOnHover: true,
+      //       draggable: true,
+      //       progress: undefined,
+      //     });
+      //    }
 
-         if(response.organization_name){
-          toast(`Signup Failed. ${response.organization_name}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-         }
+      //    if(response.organization_name){
+      //     toast(`Signup Failed. ${response.organization_name}`, {
+      //       position: "top-right",
+      //       autoClose: 5000,
+      //       hideProgressBar: false,
+      //       closeOnClick: true,
+      //       pauseOnHover: true,
+      //       draggable: true,
+      //       progress: undefined,
+      //     });
+      //    }
 
-        }
-      }else{
-        console.log(JSON.stringify(data))
+      //   }
+      // }
+        
         const request = await fetch(`${API_BASE_URL}/register-user/`, {
           method: "POST",
           body: JSON.stringify(data),
@@ -95,18 +95,29 @@ const FormSignup = () => {
           });
         } else {
           const response = await request.json();
-    
-          toast(`Signup Failed. ${response.data.message}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          try{
+            toast(`Signup Failed. ${response.data.errors.email}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
+          catch(error){
+            toast(`Signup Failed. ${response.data.message}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
         }
-      }
       
 
     
@@ -157,7 +168,7 @@ const FormSignup = () => {
             {...register("last_name", { required: true })}
             />
         </div>
-        <div className="checkbox-content login-vendor">
+        {/* <div className="checkbox-content login-vendor">
         <div className="form-group mb-5">
             <label>Organization Name *</label>
             <input
@@ -167,7 +178,7 @@ const FormSignup = () => {
             required
             {...register("organization_name", { required: false })}
             />
-        </div>
+        </div> */}
         {/* <div className="form-group mb-5">
             <label>Trade License *</label>
             <input
@@ -178,16 +189,16 @@ const FormSignup = () => {
             {...register("trade_license", { required: false })}
             />
         </div> */}
-        <div className="form-group mb-5">
+        {/* <div className="form-group mb-5">
         <label>Vendor Status *</label>
         <select className="form-control" id="vendor_status" {...register("vendor_status", { required: false })} >
           <option value="ORGANIZATION">Organization</option>
           <option value="INDIVIDUAL">Individual</option>
           
         </select>
-        </div>
+        </div> */}
         
-        <div className="form-group mb-5">
+        {/* <div className="form-group mb-5">
             <label>Nid *</label>
             <input
             type="text"
@@ -196,9 +207,9 @@ const FormSignup = () => {
             required
             {...register("nid", { required: false })}
             />
-        </div>
-        </div>
-        <div className="form-checkbox user-checkbox mt-0">
+        </div> */}
+        {/* </div> */}
+        {/* <div className="form-checkbox user-checkbox mt-0">
         <input
             type="checkbox"
             className="custom-checkbox checkbox-round active"
@@ -217,7 +228,7 @@ const FormSignup = () => {
             
         />
         <label className="check-seller">I am a vendor</label>
-        </div>
+        </div> */}
         <p>
         Your personal data will be used to support your experience
         throughout this website, to manage access to your account,
