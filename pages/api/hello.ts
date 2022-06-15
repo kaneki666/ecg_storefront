@@ -12,5 +12,6 @@ export default function handler(
   res.status(200).json({ name: "John Doe" });
 }
 
+
 export const API_BASE_URL = "https://ecomapi.mwebservices.co/api";
 export const APP_URL = "https://ecg-storefront.vercel.app";

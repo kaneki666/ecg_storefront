@@ -1,9 +1,13 @@
 import React from "react";
 import { UseFormReturn, FieldValues } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useAxios from "../../utils/helperFucntion/useAxios";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import { API_BASE_URL } from "../../pages/api/hello";
+import { useRouter } from "next/router";
+import { clearCartAction } from "../../store/products/actions";
 
 const PlaceOrder = ({
   checkoutForm,
@@ -13,8 +17,11 @@ const PlaceOrder = ({
   const { ProductReducer, AuthReducer } = useSelector(
     (state: RootAppStateProps) => state
   );
+  
+  const dispatch = useDispatch();
+  const router =useRouter()
   const { cart, totalPrice } = ProductReducer;
-  const { currency, isLoggedIn } = AuthReducer;
+  const { currency, isLoggedIn, userInfo } = AuthReducer;
   const {
     handleSubmit,
     setValue,
@@ -22,32 +29,48 @@ const PlaceOrder = ({
   } = checkoutForm;
   const axiosInstance = useAxios();
 
+
   const handleCheckoutApi = async (data: any) => {
-    const response = await axiosInstance.post("/checkout/", data);
-    if (response.status === 201) {
-      toast("Checkout Successful", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } else {
-      toast("Checkout failed", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+    if(userInfo){
+      // console.log(userInfo.data.access_token)
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${userInfo.data.access_token}`,
+        },
+      };
+      const response = await axios.post(`${API_BASE_URL}/checkout/`, data, config);
+      if (response.status === 201) {
+        toast("Checkout Successful", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        dispatch(clearCartAction(true))
+        setTimeout(() => router.push('/'), 3000)
+      } else {
+        toast("Checkout failed", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }else{
+      router.push('/login?=checkout')
     }
+   
   };
 
   const onSubmit = (data: any) => {
+
     if (isValid) {
       if (data.billing_different === false) {
         data.product = cart.map((item) => item.id);
@@ -58,7 +81,7 @@ const PlaceOrder = ({
         data.shipping_street_address = data.billing_street_address;
         data.shipping_city = data.billing_city;
         data.shipping_zip_code = data.billing_zip_code;
-        data.payment_type = 0;
+        data.payment_type = data.payment_type;
 
         handleCheckoutApi(data);
       } else {
@@ -186,21 +209,10 @@ const PlaceOrder = ({
 
         <div className="form-group place-order pt-6">
           <button
-            onClick={() => {
-              if (isLoggedIn) {
-                handleSubmit(onSubmit);
-              } else {
-                toast("You have to login to purchase product", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                });
+            onClick={
+
+                handleSubmit(onSubmit)
               }
-            }}
             type="submit"
             className="btn btn-dark btn-block btn-rounded"
           >
@@ -211,5 +223,5 @@ const PlaceOrder = ({
     </div>
   );
 };
-
 export default PlaceOrder;
+

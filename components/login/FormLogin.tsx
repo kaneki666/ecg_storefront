@@ -18,7 +18,7 @@ const FormLogin = () => {
 
     formState: { errors },
   } = useForm<LoginProps>();
-  
+  const redirect=location.search? location.search.split('=')[1]:'/'
 
   const onSubmit: SubmitHandler<LoginProps> = async (data) => {
     const request = await fetch(`${API_BASE_URL}/login/`, {
@@ -28,7 +28,7 @@ const FormLogin = () => {
         "Content-Type": "application/json",
       },
     });
-    console.log(request)
+
 
     if (request.status === 200) {
       const response: UserLoginProps = await request.json();
@@ -44,7 +44,7 @@ const FormLogin = () => {
         progress: undefined,
       });
 
-      setTimeout(() => router.push('/'), 4000)
+      setTimeout(() => router.push(redirect), 4000)
     } else {
       const response = await request.json();
 
