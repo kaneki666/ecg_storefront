@@ -5,9 +5,12 @@ import {
   ADD_PRODUCT_QUICKVIEW,
   ADD_PRODUCT_RECENTVIEW,
   ADD_TO_CART,
+  ADD_TO_WISHLIST,
   APPLY_COUPON,
   CLEAR_CART,
+  INITILIZE_WISHLIST,
   REMOVE_FROM_CART,
+  REMOVE_FROM_WISHLIST,
   REMOVE_ITEM_FROM_CART,
 } from "./types";
 
@@ -89,6 +92,35 @@ export const addToCompareAction = (product: SingleProductProps) => {
     dispatch({
       type: ADD_PRODUCT_COMPARE,
       payload: product,
+    });
+  };
+};
+
+export const initiliazeWishlistAction = (product: []) => {
+  return (dispatch: (arg0: { type: string; payload: [] }) => void) => {
+    dispatch({
+      type: INITILIZE_WISHLIST,
+      payload: product,
+    });
+  };
+};
+
+export const addToWishlistAction = (product: SingleProductProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: SingleProductProps }) => void
+  ) => {
+    dispatch({
+      type: ADD_TO_WISHLIST,
+      payload: product,
+    });
+  };
+};
+
+export const removeFromWishlistAction = (id: number) => {
+  return (dispatch: (arg0: { type: string; payload: number }) => void) => {
+    dispatch({
+      type: REMOVE_FROM_WISHLIST,
+      payload: id,
     });
   };
 };

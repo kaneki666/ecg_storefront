@@ -1,3 +1,4 @@
+import { SingleProductProps } from "./../../utils/types/landingpage";
 import {
   CartItemProps,
   ProductCartReducerStateProps,
@@ -9,16 +10,19 @@ import {
   ADD_PRODUCT_QUICKVIEW,
   ADD_PRODUCT_RECENTVIEW,
   ADD_TO_CART,
+  ADD_TO_WISHLIST,
   APPLY_COUPON,
   CLEAR_CART,
+  INITILIZE_WISHLIST,
   REMOVE_FROM_CART,
+  REMOVE_FROM_WISHLIST,
   REMOVE_ITEM_FROM_CART,
 } from "./types";
-import { SingleProductProps } from "../../utils/types/landingpage";
 
 const initialState: ProductCartReducerStateProps = {
   product: null,
   cart: [],
+
   totalPrice: 0,
   usedCoupon: false,
   recentProducts: [],
@@ -144,7 +148,31 @@ export const ProductReducer = (
         compareItems.push(newCompareItem);
       }
       return { ...state, compareProducts: compareItems };
+    case INITILIZE_WISHLIST:
+      return { ...state, wishlist: [] };
+    case ADD_TO_WISHLIST:
+      const wishListItem = action.payload;
+      const findIndexWishlist = state.wishlist?.findIndex(
+        (item: SingleProductProps) => item.id === wishListItem.id
+      );
+      if (findIndexWishlist === -1) {
+        state.wishlist?.push(wishListItem);
+      } else {
+        state.wishlist?.slice(findIndexWishlist, 1);
+      }
 
+      return { ...state, wishlist: state.wishlist };
+    case REMOVE_FROM_WISHLIST:
+      const wishListItemRemove = action.payload;
+      const findIndexWishlistRemove = state.wishlist?.findIndex(
+        (item: SingleProductProps) => item.id === wishListItemRemove.id
+      );
+      if (findIndexWishlist === -1) {
+      } else {
+        state.wishlist?.slice(findIndexWishlistRemove, 1);
+      }
+
+      return { ...state, wishlist: state.wishlist };
     default:
       return state;
   }

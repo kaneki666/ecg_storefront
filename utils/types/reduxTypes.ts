@@ -42,6 +42,7 @@ export interface AuthRootStateType {
 export interface ProductCartReducerStateProps {
   product: SingleProductProps | null;
   cart: CartItemProps[];
+  wishlist?: SingleProductProps[] | null;
   recentProducts: SingleProductProps[];
   compareProducts: SingleProductProps[];
   totalPrice: number;
