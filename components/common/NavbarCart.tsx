@@ -42,6 +42,8 @@ const NavbarCart = () => {
             : cart.map((cartItem: CartItemProps) => (
                 <NavCartItem key={cartItem.id.toString()} cartItem={cartItem} />
               ))}
+
+              
         </div>
 
         <div className="cart-total">
