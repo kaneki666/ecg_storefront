@@ -12,6 +12,8 @@ const NavbarCart = () => {
     (state: RootAppStateProps) => state.AuthReducer
   );
 
+  console.log("hello")
+
   return (
     <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
       <div className="cart-overlay"></div>
@@ -42,8 +44,6 @@ const NavbarCart = () => {
             : cart.map((cartItem: CartItemProps) => (
                 <NavCartItem key={cartItem.id.toString()} cartItem={cartItem} />
               ))}
-
-              
         </div>
 
         <div className="cart-total">
