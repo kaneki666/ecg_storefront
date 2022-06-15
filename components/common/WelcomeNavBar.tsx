@@ -5,11 +5,11 @@ import { logoutAction } from "../../store/user/actions";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const WelcomeNavBar = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { userInfo } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
   );
-  const logoutHandler =()=>{ 
+  const logoutHandler = () => {
     dispatch(logoutAction(false));
 
     toast(`Logout successful!`, {
@@ -21,7 +21,7 @@ const WelcomeNavBar = () => {
       draggable: true,
       progress: undefined,
     });
-  }
+  };
 
   return (
     <div className="header-top">
@@ -35,24 +35,24 @@ const WelcomeNavBar = () => {
           </a>
           {!userInfo && (
             <>
-            <a href="/login" className="d-lg-show">
-            <i className="w-icon-account"></i>Sign In
-          </a>
-          <span className="delimiter d-lg-show">/</span>
-          <a href="/login" className="d-lg-show">
-            Register
-          </a>
+              <a href="/login" className="d-lg-show">
+                <i className="w-icon-account"></i>Sign In
+              </a>
+              <span className="delimiter d-lg-show">/</span>
+              <a href="/login" className="d-lg-show">
+                Register
+              </a>
             </>
           )}
 
           {userInfo && (
             <>
-            <a href="/profile" className="d-lg-show">
-            My Account
-          </a>
-          <a onClick={logoutHandler} className="d-lg-show">
-            Logout
-          </a>
+              <a href="/profile" className="d-lg-show">
+                My Account
+              </a>
+              <a onClick={logoutHandler} className="d-lg-show">
+                Logout
+              </a>
             </>
           )}
         </div>

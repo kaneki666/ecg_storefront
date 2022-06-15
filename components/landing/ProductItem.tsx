@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartAction,
   addToQuickViewAction,
+  addToWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
@@ -28,7 +29,9 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
     };
     dispatch(addToCartAction(cartItem));
   };
-
+  const handleWishlist = () => {
+    dispatch(addToWishlistAction(productItem));
+  };
   return (
     <div className="product-wrap">
       <div className="product text-center">
@@ -44,6 +47,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
               title="Add to cart"
             ></a>
             <a
+              onClick={handleWishlist}
               href="#"
               className="btn-product-icon btn-wishlist w-icon-heart"
               title="Add to wishlist"

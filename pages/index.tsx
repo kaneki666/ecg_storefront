@@ -20,12 +20,27 @@ import TopCategoriesOfMonth from "../components/landing/TopCategoriesOfMonth";
 import WelcomeNavBar from "../components/common/WelcomeNavBar";
 import HeaderBottom from "../components/common/HeaderBottom";
 import { API_BASE_URL } from "./api/hello";
+import { useDispatch, useSelector } from "react-redux";
+import { RootAppStateProps } from "../utils/types/reduxTypes";
+import { useEffect } from "react";
+import { initiliazeWishlistAction } from "../store/products/actions";
 
 const Home: NextPage = ({
   categoriesData,
   data,
   clothingData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const dispatch = useDispatch();
+  const { wishlist } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
+  console.log(wishlist);
+
+  useEffect(() => {
+    if (wishlist == undefined) {
+      dispatch(initiliazeWishlistAction([]));
+    }
+  }, []);
   return (
     <div>
       <Head>
