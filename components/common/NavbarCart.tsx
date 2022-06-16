@@ -28,20 +28,13 @@ const NavbarCart = () => {
             Close<i className="w-icon-long-arrow-right"></i>
           </a>
         </div>
-
-        <div className="products">
-          {cart && cart.length > 2
-            ? cart
-                .slice(0, 2)
-                .map((cartItem: CartItemProps) => (
-                  <NavCartItem
-                    key={cartItem.id.toString()}
-                    cartItem={cartItem}
-                  />
-                ))
-            : cart.map((cartItem: CartItemProps) => (
+        <div>
+          <div style={{ maxHeight: "70vh", overflow: "auto" }}>
+            {cart &&
+              cart.map((cartItem: CartItemProps) => (
                 <NavCartItem key={cartItem.id.toString()} cartItem={cartItem} />
               ))}
+          </div>
         </div>
 
         <div className="cart-total">

@@ -22,7 +22,9 @@ const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         </a>
         <div className="price-box">
           <span className="product-quantity">{cartItem.quantity}</span>
-          <span className="product-price">{currency.currency_symbol} {cartItem.price * currency.currency_rate}</span>
+          <span className="product-price">
+            {currency.currency_symbol} {cartItem.price * currency.currency_rate}
+          </span>
         </div>
       </div>
       <figure className="product-media">
@@ -31,6 +33,7 @@ const NavCartItem = ({ cartItem }: { cartItem: CartItemProps }) => {
         </a>
       </figure>
       <button
+        style={{ position: "absolute", right: 68 }}
         onClick={handleDeleteItemFromCart}
         className="btn btn-link btn-close"
         aria-label="button"

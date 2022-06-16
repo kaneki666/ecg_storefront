@@ -21,27 +21,6 @@ import PageFooter from "../../components/wishlist/PageFooter";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { API_BASE_URL } from "../api/hello";
 
-const wishlist_props = [
-  {
-    image: "/images/vendor/dokan/2.jpg",
-    title: "Vendor 2",
-    price: "5",
-    stock_status: "London, United Kingdom (UK)",
-  },
-  {
-    image: "/images/vendor/dokan/2.jpg",
-    title: "Vendor 2",
-    price: "5",
-    stock_status: "London, United Kingdom (UK)",
-  },
-  {
-    image: "/images/vendor/dokan/2.jpg",
-    title: "Vendor 2",
-    price: "5",
-    stock_status: "London, United Kingdom (UK)",
-  },
-];
-
 const index: NextPage = ({
   categoriesData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -62,7 +41,7 @@ const index: NextPage = ({
             <BreadcrumbWishlist />
             <div className="page-content">
               <div className="container">
-                <PageContent wishlist_props={wishlist_props} />
+                <PageContent />
                 <PageFooter />
               </div>
             </div>

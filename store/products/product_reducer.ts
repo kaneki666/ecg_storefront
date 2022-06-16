@@ -151,26 +151,27 @@ export const ProductReducer = (
     case INITILIZE_WISHLIST:
       return { ...state, wishlist: [] };
     case ADD_TO_WISHLIST:
+      const addWishList = state.wishlist;
       const wishListItem = action.payload;
-      const findIndexWishlist = state.wishlist?.findIndex(
+
+      const findIndexWishlist = addWishList?.findIndex(
         (item: SingleProductProps) => item.id === wishListItem.id
       );
+
       if (findIndexWishlist === -1) {
-        state.wishlist?.push(wishListItem);
+        addWishList?.push(wishListItem);
       } else {
-        state.wishlist?.slice(findIndexWishlist, 1);
+        addWishList?.splice(findIndexWishlist!, 1);
       }
 
-      return { ...state, wishlist: state.wishlist };
+      return { ...state, wishlist: addWishList };
     case REMOVE_FROM_WISHLIST:
       const wishListItemRemove = action.payload;
       const findIndexWishlistRemove = state.wishlist?.findIndex(
-        (item: SingleProductProps) => item.id === wishListItemRemove.id
+        (item: SingleProductProps) => item.id === wishListItemRemove
       );
-      if (findIndexWishlist === -1) {
-      } else {
-        state.wishlist?.slice(findIndexWishlistRemove, 1);
-      }
+
+      state.wishlist?.splice(findIndexWishlistRemove!, 1);
 
       return { ...state, wishlist: state.wishlist };
     default:

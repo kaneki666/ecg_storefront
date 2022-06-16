@@ -34,7 +34,6 @@ const Home: NextPage = ({
   const { wishlist } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
-  console.log(wishlist);
 
   useEffect(() => {
     if (wishlist == undefined) {
