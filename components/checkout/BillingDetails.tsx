@@ -178,7 +178,7 @@ const BillingDetails = ({
                 className="form-control form-control-md"
                 {...register("shipping_first_name", {
                   required: {
-                    value: !watch("billing_different") ? true : false,
+                    value: !watch("billing_different") ? false : true,
                     message: "Shipping first name is Required",
                   },
                 })}
@@ -198,7 +198,7 @@ const BillingDetails = ({
                 className="form-control form-control-md"
                 {...register("shipping_last_name", {
                   required: {
-                    value: !watch("billing_different") ? true : false,
+                    value: !watch("billing_different") ? false : true,
                     message: "Shipping last name is Required",
                   },
                 })}
@@ -236,7 +236,7 @@ const BillingDetails = ({
               className="form-control form-control-md mb-2"
               {...register("shipping_street_address", {
                 required: {
-                  value: !watch("billing_different") ? true : false,
+                  value: !watch("billing_different") ? false : true,
                   message: "Shipping address is Required",
                 },
               })}
@@ -257,7 +257,7 @@ const BillingDetails = ({
                   className="form-control form-control-md"
                   {...register("shipping_city", {
                     required: {
-                      value: !watch("billing_different") ? true : false,
+                      value: !watch("billing_different") ? false : true,
                       message: "Shipping address is Required",
                     },
                   })}
@@ -274,7 +274,7 @@ const BillingDetails = ({
                   className="form-control form-control-md"
                   {...register("shipping_zip_code", {
                     required: {
-                      value: !watch("billing_different") ? true : false,
+                      value: !watch("billing_different") ? false : true,
                       message: "Shipping zip code is Required",
                     },
                   })}
