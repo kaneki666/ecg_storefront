@@ -17,6 +17,13 @@ export interface ChildCategoryProps {
   name: string;
 }
 
+export interface CouponProps {
+  id: number;
+  code: string;
+  amount: number;
+  is_active: boolean;
+}
+
 export interface SingleProductProps {
   id: number;
   title: string;

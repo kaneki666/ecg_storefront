@@ -4,26 +4,84 @@ import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addCouponAction, clearCartAction } from "../../store/products/actions";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CouponProps } from "../../utils/types/landingpage";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-const TableCartFooter = () => {
+const TableCartFooter = ({ couponData }: { couponData: CouponProps[] }) => {
+  const dispatch = useDispatch();
   const { usedCoupon } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
-  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm<CouponProps>();
+
   const router = useRouter();
   const handleClearCart = () => dispatch(clearCartAction(true));
-  const handleAddCoupon = () => {
-    dispatch(addCouponAction(5));
-    toast("Coupon Added", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+
+  const onSubmit: SubmitHandler<CouponProps> = async (data) => {
+    var checkCoupon= false
+   
+    for(let i=0; i<=couponData.length; i++){  
+      console.log(usedCoupon)
+        try{
+          if (data.code===couponData[i].code && usedCoupon===false){
+            dispatch(addCouponAction(couponData[i].amount))
+            checkCoupon= true
+           
+          }
+        }catch(e){console.log(e)
+
+        } 
+    }
+    if(checkCoupon===true){
+      toast("Coupon Added", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    else if(usedCoupon==true){
+      toast("This Coupon is already used!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }else if(data.code && checkCoupon===false){
+      toast("Coupon is incorrect!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    else{
+      toast("Coupon field is empty! please enter coupon code", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
+  
   return (
     <div>
       <ToastContainer containerId="an id" draggable={false} />
@@ -58,31 +116,15 @@ const TableCartFooter = () => {
           Coupon Discount
         </h5>
         <input
-          type="text"
-          className="form-control mb-4"
-          placeholder="Enter coupon code here..."
-          required
+            type="text"
+            className="form-control mb-4"
+            placeholder="Enter coupon code here..."
+            id="coupon_code"
+            {...register("code", { required: false })}
         />
-        <button
-          onClick={
-            !usedCoupon
-              ? handleAddCoupon
-              : () => {
-                  toast("Already used Coupon", {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                  });
-                }
-          }
-          className="btn btn-dark btn-outline btn-rounded"
-        >
+        <button onClick={handleSubmit(onSubmit)} type="submit" className="btn button btn-rounded btn-coupon mb-2" name="apply_coupon" value="Apply coupon">
           Apply Coupon
-        </button>
+          </button>
       </form>
     </div>
   );
