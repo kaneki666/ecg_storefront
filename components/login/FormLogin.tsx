@@ -18,7 +18,13 @@ const FormLogin = () => {
 
     formState: { errors },
   } = useForm<LoginProps>();
-  const redirect=location.search? location.search.split('=')[1]:'/'
+  var redirect='/'
+  try{
+    redirect=location.search? location.search.split('=')[1]:'/'
+  }catch(e){
+    console.log(e)
+  }
+  
 
   const onSubmit: SubmitHandler<LoginProps> = async (data) => {
     const request = await fetch(`${API_BASE_URL}/login/`, {
