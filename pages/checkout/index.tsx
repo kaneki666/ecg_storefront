@@ -17,16 +17,18 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-import { CategoriesProps } from "../../utils/types/landingpage";
+import { CategoriesProps, CouponProps } from "../../utils/types/landingpage";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import { API_BASE_URL } from "../api/hello";
 
 const CheckoutPage: NextPage = ({
   categoriesData,
+  couponData
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { isLoggedIn } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
   );
+  
   return (
     <div>
       <Head>
@@ -45,7 +47,7 @@ const CheckoutPage: NextPage = ({
             <div className="page-content">
               <div className="container">
                 {!isLoggedIn && <LoginToggle />}
-                <CouponToggle />
+                <CouponToggle couponData={couponData}/>
                 <CheckoutContent />
               </div>
             </div>
@@ -66,14 +68,21 @@ export default CheckoutPage;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
   const categoriesData: CategoriesProps[] = await res.json();
+  const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
+  const couponData: CouponProps[] = await resCoupon.json();
 
   if (res.status !== 200) {
     return {
       notFound: true,
     };
   }
+  if (resCoupon.status !== 200) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: { categoriesData }, // will be passed to the page component as props
+    props: { categoriesData , couponData }, // will be passed to the page component as props
   };
 };
