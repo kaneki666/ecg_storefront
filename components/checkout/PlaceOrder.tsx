@@ -31,8 +31,10 @@ const PlaceOrder = ({
 
 
   const handleCheckoutApi = async (data: any) => {
+    console.log(data)
+
+  
     if(userInfo){
-      // console.log(userInfo.data.access_token)
       const config = {
         headers: {
           "Content-type": "application/json",
@@ -70,9 +72,9 @@ const PlaceOrder = ({
   };
 
   const onSubmit = (data: any) => {
-
+    console.log(data)
     if (isValid) {
-      if (data.billing_different === false) {
+      if (!data.shipping_first_name && !data.shipping_last_name && !data.shipping_street_address && !data.shipping_city && !data.shipping_zip_code) {
         data.product = cart.map((item) => item.id);
         data.quantity = cart.map((item) => item.quantity);
         data.billing_default = true;
