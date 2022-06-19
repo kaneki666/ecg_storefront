@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   addToCartAction,
   addToQuickViewAction,
+  addToWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
@@ -31,6 +33,19 @@ const ProductCategoryItem = ({
     };
     dispatch(addToCartAction(cartItem));
   };
+  const handleWishlist = () => {
+    dispatch(addToWishlistAction(productItem));
+    toast("Added in wishlist", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
     <div className="product-wrap">
       <div className="product text-center">
@@ -46,6 +61,7 @@ const ProductCategoryItem = ({
               title="Add to cart"
             ></a>
             <a
+              onClick={handleWishlist}
               href="#"
               className="btn-product-icon btn-wishlist w-icon-heart"
               title="Add to wishlist"
