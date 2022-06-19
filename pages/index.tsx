@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootAppStateProps } from "../utils/types/reduxTypes";
 import { useEffect } from "react";
 import { initiliazeWishlistAction } from "../store/products/actions";
+import { initilizeCopunAction } from "../store/user/actions";
 
 const Home: NextPage = ({
   categoriesData,
@@ -31,13 +32,16 @@ const Home: NextPage = ({
   clothingData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const dispatch = useDispatch();
-  const { wishlist } = useSelector(
+  const { wishlist, coupons } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
 
   useEffect(() => {
     if (wishlist == undefined) {
       dispatch(initiliazeWishlistAction([]));
+    }
+    if (coupons == undefined) {
+      dispatch(initilizeCopunAction([]));
     }
   }, []);
   return (

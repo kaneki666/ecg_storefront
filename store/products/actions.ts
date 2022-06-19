@@ -1,5 +1,6 @@
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, UserLoginProps } from "../../utils/types/reduxTypes";
+import { LOGIN_ACTION, SAVE_USERINFO_ACTION } from "../user/type";
 import {
   ADD_PRODUCT_COMPARE,
   ADD_PRODUCT_QUICKVIEW,
@@ -121,6 +122,26 @@ export const removeFromWishlistAction = (id: number) => {
     dispatch({
       type: REMOVE_FROM_WISHLIST,
       payload: id,
+    });
+  };
+};
+
+export const loginAction = (value: boolean) => {
+  return (dispatch: (arg0: { type: string; payload: boolean }) => void) => {
+    dispatch({
+      type: LOGIN_ACTION,
+      payload: value,
+    });
+  };
+};
+
+export const saveUserinfoAction = (userinfo: UserLoginProps) => {
+  return (
+    dispatch: (arg0: { type: string; payload: UserLoginProps }) => void
+  ) => {
+    dispatch({
+      type: SAVE_USERINFO_ACTION,
+      payload: userinfo,
     });
   };
 };

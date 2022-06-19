@@ -1,3 +1,4 @@
+import { CouponItem } from "./../../utils/types/reduxTypes";
 import {
   CurrencyProps,
   UserLoginProps,
@@ -11,26 +12,7 @@ import {
   SAVE_USERINFO_ACTION,
   SIGNUP_ACTION,
 } from "./type";
-
-export const loginAction = (value: boolean) => {
-  return (dispatch: (arg0: { type: string; payload: boolean }) => void) => {
-    dispatch({
-      type: LOGIN_ACTION,
-      payload: value,
-    });
-  };
-};
-
-export const saveUserinfoAction = (userinfo: UserLoginProps) => {
-  return (
-    dispatch: (arg0: { type: string; payload: UserLoginProps }) => void
-  ) => {
-    dispatch({
-      type: SAVE_USERINFO_ACTION,
-      payload: userinfo,
-    });
-  };
-};
+import { ADD_COUPON_LIST, INITILIZE_COPUON } from "../products/types";
 
 export const logoutAction = (value: boolean) => {
   return (dispatch: (arg0: { type: string; payload: boolean }) => void) => {
@@ -79,6 +61,24 @@ export const saveUserCurrencyAction = (currency: CurrencyProps) => {
     dispatch({
       type: SAVE_CURRENCY_ACTION,
       payload: currency,
+    });
+  };
+};
+
+export const initilizeCopunAction = (prop: []) => {
+  return (dispatch: (arg0: { type: string; payload: [] }) => void) => {
+    dispatch({
+      type: INITILIZE_COPUON,
+      payload: [],
+    });
+  };
+};
+
+export const addCouponToList = (item: CouponItem) => {
+  return (dispatch: (arg0: { type: string; payload: CouponItem }) => void) => {
+    dispatch({
+      type: ADD_COUPON_LIST,
+      payload: item,
     });
   };
 };

@@ -3,85 +3,123 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addCouponAction, clearCartAction } from "../../store/products/actions";
-import { RootAppStateProps } from "../../utils/types/reduxTypes";
-import { CouponProps } from "../../utils/types/landingpage";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { CouponItem, RootAppStateProps } from "../../utils/types/reduxTypes";
 
-const TableCartFooter = ({ couponData }: { couponData: CouponProps[] }) => {
+import { SubmitHandler, useForm } from "react-hook-form";
+import {
+  addCouponToList,
+  initilizeCopunAction,
+} from "../../store/user/actions";
+
+const TableCartFooter = ({ couponData }: { couponData: CouponItem[] }) => {
   const dispatch = useDispatch();
-  const { usedCoupon } = useSelector(
-    (state: RootAppStateProps) => state.ProductReducer
-  );
+
   const {
     register,
     handleSubmit,
 
     formState: { errors },
-  } = useForm<CouponProps>();
-
+  } = useForm<CouponItem>();
+  const { coupons } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
   const router = useRouter();
+
   const handleClearCart = () => dispatch(clearCartAction(true));
-
-  const onSubmit: SubmitHandler<CouponProps> = async (data) => {
-    var checkCoupon= false
-   
-    for(let i=0; i<=couponData.length; i++){  
-      console.log(usedCoupon)
-        try{
-          if (data.code===couponData[i].code && usedCoupon===false){
-            dispatch(addCouponAction(couponData[i].amount))
-            checkCoupon= true
-           
+  const onSubmit: SubmitHandler<CouponItem> = async (data) => {
+    if (data.code !== "") {
+      if (coupons !== undefined) {
+        const findIndexOfcoupon = couponData?.findIndex(
+          (item: CouponItem) => item.code === data.code
+        );
+        if (findIndexOfcoupon !== -1) {
+          const findIndexOfcouponExist = coupons?.findIndex(
+            (item: CouponItem) => item.code === data.code
+          );
+          if (
+            findIndexOfcouponExist !== -1 &&
+            findIndexOfcouponExist != undefined
+          ) {
+            toast("This Coupon is already used!", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else {
+            dispatch(addCouponToList(couponData[findIndexOfcoupon]));
+            toast("Coupon Added", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
           }
-        }catch(e){console.log(e)
+        } else {
+          toast("Coupon is incorrect!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      } else {
+        dispatch(initilizeCopunAction([]));
+      }
+    }
 
-        } 
-    }
-    if(checkCoupon===true){
-      toast("Coupon Added", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    else if(usedCoupon==true){
-      toast("This Coupon is already used!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }else if(data.code && checkCoupon===false){
-      toast("Coupon is incorrect!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    else{
-      toast("Coupon field is empty! please enter coupon code", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  }
-  
+    // if (checkCoupon === true) {
+    //   toast("Coupon Added", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // } else if (usedCoupon == true) {
+    //   toast("This Coupon is already used!", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // } else if (data.code && checkCoupon === false) {
+    //   toast("Coupon is incorrect!", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // } else {
+    //   toast("Coupon field is empty! please enter coupon code", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
+  };
+
   return (
     <div>
       <ToastContainer containerId="an id" draggable={false} />
@@ -116,15 +154,21 @@ const TableCartFooter = ({ couponData }: { couponData: CouponProps[] }) => {
           Coupon Discount
         </h5>
         <input
-            type="text"
-            className="form-control mb-4"
-            placeholder="Enter coupon code here..."
-            id="coupon_code"
-            {...register("code", { required: false })}
+          type="text"
+          className="form-control mb-4"
+          placeholder="Enter coupon code here..."
+          id="coupon_code"
+          {...register("code", { required: false })}
         />
-        <button onClick={handleSubmit(onSubmit)} type="submit" className="btn button btn-rounded btn-coupon mb-2" name="apply_coupon" value="Apply coupon">
+        <button
+          onClick={handleSubmit(onSubmit)}
+          type="submit"
+          className="btn button btn-rounded btn-coupon mb-2"
+          name="apply_coupon"
+          value="Apply coupon"
+        >
           Apply Coupon
-          </button>
+        </button>
       </form>
     </div>
   );

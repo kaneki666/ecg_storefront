@@ -1,6 +1,8 @@
 import { AnyAction } from "redux";
-import { AuthRootStateType } from "../../utils/types/reduxTypes";
+import { AuthRootStateType, CouponItem } from "../../utils/types/reduxTypes";
 import {
+  ADD_COUPON_LIST,
+  INITILIZE_COPUON,
   LOGIN_ACTION,
   LOGOUT_ACTION,
   SAVE_CURRENCY_ACTION,
@@ -33,6 +35,7 @@ export const AuthReducer = (
       return { ...state, isLoggedIn: action.payload, userInfo: null };
     case SAVE_CURRENCY_ACTION:
       return { ...state, currency: action.payload };
+
     default:
       return state;
   }
