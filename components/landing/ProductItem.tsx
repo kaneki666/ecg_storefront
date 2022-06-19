@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   addToCartAction,
   addToQuickViewAction,
@@ -31,6 +32,15 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   };
   const handleWishlist = () => {
     dispatch(addToWishlistAction(productItem));
+    toast("Added in wishlist", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
   return (
     <div className="product-wrap">

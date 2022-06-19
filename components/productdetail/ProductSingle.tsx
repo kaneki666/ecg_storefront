@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import { addToCartAction, addToWishlistAction } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
@@ -24,10 +25,20 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
   };
   const handleWishlist = () => {
     dispatch(addToWishlistAction(product));
+    toast("Added in wishlist", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
     <div className="product product-single row">
+      <ToastContainer containerId="an id" draggable={false} />
       <div className="col-md-6 mb-6">
         <div className="product-gallery product-gallery-sticky">
           <div
@@ -248,13 +259,13 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
             <span className="divider d-xs-show"></span>
             <div className="product-link-wrapper d-flex">
               <a
+                onClick={handleWishlist}
                 href="#"
                 className="btn-product-icon btn-wishlist w-icon-heart"
               >
                 <span></span>
               </a>
               <a
-                onClick={handleWishlist}
                 href="#"
                 className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
               >
