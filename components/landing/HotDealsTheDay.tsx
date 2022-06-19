@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToCartAction } from "../../store/products/actions";
+import { toast } from "react-toastify";
+import { addToCartAction, addToWishlistAction } from "../../store/products/actions";
 import { DealsOfTheDayProps } from "../../utils/types/landingpage";
 
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
@@ -18,6 +19,18 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
         totalPrice: products.product[0].price,
       })
     );
+    const handleWishlist = () => {
+      dispatch(addToWishlistAction(products.product["0"]));
+      toast("Added in wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    };
     
   return (
     <div className="col-lg-9 mb-4">
@@ -230,6 +243,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                           <span className="divider d-xs-show"></span>
                           <div className="product-link-wrapper d-flex">
                             <a
+                              onClick={handleWishlist}
                               href="#"
                               className="btn-product-icon btn-wishlist w-icon-heart"
                             ></a>
