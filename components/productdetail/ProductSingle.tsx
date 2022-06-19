@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCartAction } from "../../store/products/actions";
+import { addToCartAction, addToWishlistAction } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
@@ -21,6 +21,9 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       totalPrice: product.price,
     };
     dispatch(addToCartAction(cartItem));
+  };
+  const handleWishlist = () => {
+    dispatch(addToWishlistAction(product));
   };
 
   return (
@@ -47,7 +50,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                     width="800"
                     height="900"
                   />
-                </figure>
+                </figure>0
               </div>
             ))}
             </div>
@@ -251,6 +254,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                 <span></span>
               </a>
               <a
+                onClick={handleWishlist}
                 href="#"
                 className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
               >
