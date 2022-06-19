@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   addToCartAction,
   addToQuickViewAction,
@@ -23,6 +24,15 @@ const PageContent = () => {
       totalPrice: productItem.price,
     };
     dispatch(addToCartAction(cartItem));
+    toast("Added to cart", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
   const handleAddToQuickView = (productItem: SingleProductProps) =>
     dispatch(addToQuickViewAction(productItem));
