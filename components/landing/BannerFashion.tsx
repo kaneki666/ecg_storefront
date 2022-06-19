@@ -3,7 +3,7 @@ import React from "react";
 const BannerFashion = () => {
   return (
     <div
-      className="banner banner-fashion appear-animate br-sm mb-9"
+      className="banner banner-fashion  br-sm mb-9"
       style={{
         backgroundImage: "url(/images/demos/demo1/banners/4.jpg)",
         backgroundColor: "#383839",

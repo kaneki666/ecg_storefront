@@ -2,7 +2,7 @@ import React from "react";
 
 const CategoryBanner = () => {
   return (
-    <div className="row category-banner-wrapper appear-animate pt-6 pb-8">
+    <div className="row category-banner-wrapper  pt-6 pb-8">
       <div className="col-md-6 mb-4">
         <div className="banner banner-fixed br-xs">
           <figure>

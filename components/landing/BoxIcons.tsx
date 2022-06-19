@@ -3,7 +3,7 @@ import React from "react";
 const BoxIcons = () => {
   return (
     <div
-      className="swiper-container appear-animate icon-box-wrapper br-sm mt-6 mb-6"
+      className="swiper-container  icon-box-wrapper br-sm mt-6 mb-6"
       data-swiper-options="{
     'slidesPerView': 1,
     'loop': false,

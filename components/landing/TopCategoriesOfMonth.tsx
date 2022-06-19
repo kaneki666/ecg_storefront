@@ -2,7 +2,7 @@ import React from "react";
 
 const TopCategoriesOfMonth = () => {
   return (
-    <section className="category-section top-category bg-grey pt-10 pb-10 appear-animate">
+    <section className="category-section top-category bg-grey pt-10 pb-10 ">
       <div className="container pb-2">
         <h2 className="title justify-content-center pt-1 ls-normal mb-5">
           Top Categories Of The Month

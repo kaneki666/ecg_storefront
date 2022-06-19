@@ -11,7 +11,7 @@ const ProductCategorize = ({
 }) => {
   return (
     <div>
-      <div className="product-wrapper-1 appear-animate mb-5">
+      <div className="product-wrapper-1  mb-5">
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Clothing & Apparel</h2>
           <a
@@ -90,7 +90,7 @@ const ProductCategorize = ({
       </div>
       {/* <!-- End of Product Wrapper 1 --> */}
 
-      <div className="product-wrapper-1 appear-animate mb-8">
+      <div className="product-wrapper-1  mb-8">
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Consumer Electric</h2>
           <a
@@ -170,7 +170,7 @@ const ProductCategorize = ({
       <BannerFashion />
       {/* <!-- End of Banner Fashion --> */}
 
-      <div className="product-wrapper-1 appear-animate mb-7">
+      <div className="product-wrapper-1  mb-7">
         <div className="title-link-wrapper pb-1 mb-4">
           <h2 className="title ls-normal mb-0">Home Garden & Kitchen</h2>
           <a

@@ -4,7 +4,7 @@ const Sliderlanidng = () => {
   return (
     <section className="intro-section">
       <div
-        className="swiper-container swiper-theme nav-inner pg-inner swiper-nav-lg animation-slider pg-xxl-hide nav-xxl-show nav-hide"
+        className="swiper-theme nav-inner pg-inner swiper-nav-lg animation-slider pg-xxl-hide nav-xxl-show nav-hide"
         data-swiper-options="{
       'slidesPerView': 1,
       'autoplay': {

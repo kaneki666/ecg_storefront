@@ -24,10 +24,10 @@ const ProductsContainer = ({
 
   return (
     <div className="container">
-      <h2 className="title justify-content-center ls-normal mb-4 mt-10 pt-1 appear-animate">
+      <h2 className="title justify-content-center ls-normal mb-4 mt-10 pt-1 ">
         Popular Departments
       </h2>
-      <div className="tab tab-nav-boxed tab-nav-outline appear-animate">
+      <div className="tab tab-nav-boxed tab-nav-outline ">
         <ul className="nav nav-tabs justify-content-center" role="tablist">
           <li className="nav-item mr-2 mb-2">
             <a
@@ -55,7 +55,7 @@ const ProductsContainer = ({
         </ul>
       </div>
       {/* <!-- End of Tab --> */}
-      <div className="tab-content product-wrapper appear-animate">
+      <div className="tab-content product-wrapper ">
         <div className="tab-pane active pt-4" id="tab1-1">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {productList.new_arrivals &&
@@ -115,7 +115,7 @@ const ProductsContainer = ({
       </div>
       {/* <!-- End of Tab Content --> */}
 
-      <div className="row category-cosmetic-lifestyle appear-animate mb-5">
+      <div className="row category-cosmetic-lifestyle  mb-5">
         <div className="col-md-6 mb-4">
           <div className="banner banner-fixed category-banner-1 br-xs">
             <figure>
@@ -179,7 +179,7 @@ const ProductsContainer = ({
 
       <ProductCategorize clothingData={clothingData} />
 
-      <h2 className="title title-underline mb-4 ls-normal appear-animate">
+      <h2 className="title title-underline mb-4 ls-normal ">
         {recentProducts === undefined
           ? "You have not viewd any products"
           : recentProducts.length > 0
@@ -187,7 +187,7 @@ const ProductsContainer = ({
           : "You have not viewd any products"}
       </h2>
       <div
-        className="swiper-container swiper-theme shadow-swiper appear-animate pb-4 mb-8"
+        className="swiper-container swiper-theme shadow-swiper  pb-4 mb-8"
         data-swiper-options="{
       'spaceBetween': 20,
       'slidesPerView': 2,

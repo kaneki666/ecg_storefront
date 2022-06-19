@@ -7,7 +7,7 @@ import {
 
 const DealsOfTheDay = ({ data }: { data: HomePageApiProps }) => {
   return (
-    <div className="row deals-wrapper appear-animate mb-8">
+    <div className="row deals-wrapper  mb-8">
       {data.deals_of_the_day[0] && (
         <HotDealsTheDay products={data.deals_of_the_day[0]} />
       )}
