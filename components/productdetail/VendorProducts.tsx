@@ -48,11 +48,11 @@ const VendorProducts = () => {
                 />
               </a>
               <div className="product-action-vertical">
-                <a
+                {/* <a
                   href="#"
                   className="btn-product-icon btn-cart w-icon-cart"
                   title="Add to cart"
-                ></a>
+                ></a> */}
                 <a
                   href="#"
                   className="btn-product-icon btn-wishlist w-icon-heart"
@@ -106,11 +106,11 @@ const VendorProducts = () => {
                 />
               </a>
               <div className="product-action-vertical">
-                <a
+                {/* <a
                   href="#"
                   className="btn-product-icon btn-cart w-icon-cart"
                   title="Add to cart"
-                ></a>
+                ></a> */}
                 <a
                   href="#"
                   className="btn-product-icon btn-wishlist w-icon-heart"
@@ -167,11 +167,11 @@ const VendorProducts = () => {
                 />
               </a>
               <div className="product-action-vertical">
-                <a
+                {/* <a
                   href="#"
                   className="btn-product-icon btn-cart w-icon-cart"
                   title="Add to cart"
-                ></a>
+                ></a> */}
                 <a
                   href="#"
                   className="btn-product-icon btn-wishlist w-icon-heart"
@@ -234,11 +234,11 @@ const VendorProducts = () => {
                 />
               </a>
               <div className="product-action-vertical">
-                <a
+                {/* <a
                   href="#"
                   className="btn-product-icon btn-cart w-icon-cart"
                   title="Add to cart"
-                ></a>
+                ></a> */}
                 <a
                   href="#"
                   className="btn-product-icon btn-wishlist w-icon-heart"

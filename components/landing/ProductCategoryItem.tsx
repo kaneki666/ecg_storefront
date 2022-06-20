@@ -22,17 +22,17 @@ const ProductCategoryItem = ({
   const handleAddToQuickView = () =>
     dispatch(addToQuickViewAction(productItem));
 
-  const handleAddToCart = () => {
-    const cartItem: CartItemProps = {
-      id: productItem.id,
-      thumbnail: productItem.thumbnail,
-      title: productItem.title,
-      price: productItem.price,
-      quantity: 1,
-      totalPrice: productItem.price,
-    };
-    dispatch(addToCartAction(cartItem));
-  };
+  // const handleAddToCart = () => {
+  //   const cartItem: CartItemProps = {
+  //     id: productItem.id,
+  //     thumbnail: productItem.thumbnail,
+  //     title: productItem.title,
+  //     price: productItem.price,
+  //     quantity: 1,
+  //     totalPrice: productItem.price,
+  //   };
+  //   dispatch(addToCartAction(cartItem));
+  // };
   const handleWishlist = () => {
     dispatch(addToWishlistAction(productItem));
     toast("Added in wishlist", {
@@ -54,12 +54,12 @@ const ProductCategoryItem = ({
             <img src={productItem.thumbnail} width="300" height="338" />
           </a>
           <div className="product-action-vertical">
-            <a
+            {/* <a
               onClick={handleAddToCart}
               href="#"
               className="btn-product-icon btn-cart w-icon-cart"
               title="Add to cart"
-            ></a>
+            ></a> */}
             <a
               onClick={handleWishlist}
               href="#"
