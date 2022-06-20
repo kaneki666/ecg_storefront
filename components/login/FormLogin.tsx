@@ -95,7 +95,6 @@ const FormLogin = () => {
             className="custom-checkbox"
             id="remember1"
             name="remember1"
-            required
           />
           <label>Remember me</label>
           <a href="#">Lost your password?</a>
