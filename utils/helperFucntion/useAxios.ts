@@ -1,10 +1,11 @@
-import { saveUserinfoAction, logoutAction } from "./../../store/user/actions";
+import { logoutAction } from "./../../store/user/actions";
 import { RootAppStateProps } from "./../types/reduxTypes";
 import { API_BASE_URL } from "./../../pages/api/hello";
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
+import { saveUserinfoAction } from "../../store/products/actions";
 
 const useAxios = () => {
   const dispatch = useDispatch();

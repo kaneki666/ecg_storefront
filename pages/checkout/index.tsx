@@ -17,8 +17,8 @@ import NavbarMiddle from "../../components/common/NavbarMiddle";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
-import { CategoriesProps, CouponProps } from "../../utils/types/landingpage";
-import { RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CategoriesProps } from "../../utils/types/landingpage";
+import { CouponItem, RootAppStateProps } from "../../utils/types/reduxTypes";
 import { API_BASE_URL } from "../api/hello";
 
 const CheckoutPage: NextPage = ({
@@ -69,7 +69,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
   const categoriesData: CategoriesProps[] = await res.json();
   const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
-  const couponData: CouponProps[] = await resCoupon.json();
+  const couponData: CouponItem[] = await resCoupon.json();
 
   if (res.status !== 200) {
     return {

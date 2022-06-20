@@ -18,11 +18,12 @@ import ProductQuickView from "../../components/common/ProductQuickView";
 import ProfileContent from "../../components/profile/ProfileContent";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { API_BASE_URL } from "../api/hello";
-import { useSelector } from "react-redux";
+
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import { GetUserInfoProps } from "../../utils/types/types";
+import { useSelector } from "react-redux";
 
-const index: NextPage = ({
+const Index: NextPage = ({
   categoriesData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { isLoggedIn, userInfo } = useSelector(
@@ -88,7 +89,7 @@ const index: NextPage = ({
   );
 };
 
-export default index;
+export default Index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);

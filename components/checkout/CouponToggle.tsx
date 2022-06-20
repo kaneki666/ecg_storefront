@@ -3,10 +3,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addCouponAction } from "../../store/products/actions";
-import { CouponProps } from "../../utils/types/landingpage";
-import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
-const CouponToggle = ({ couponData }: { couponData: CouponProps[] }) => {
+import { CouponItem, RootAppStateProps } from "../../utils/types/reduxTypes";
+
+const CouponToggle = ({ couponData }: { couponData: CouponItem[] }) => {
   const dispatch = useDispatch();
   const { usedCoupon } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
@@ -16,9 +16,9 @@ const CouponToggle = ({ couponData }: { couponData: CouponProps[] }) => {
     handleSubmit,
 
     formState: { errors },
-  } = useForm<CouponProps>();
+  } = useForm<CouponItem>();
 
-  const onSubmit: SubmitHandler<CouponProps> = async (data) => {
+  const onSubmit: SubmitHandler<CouponItem> = async (data) => {
     var checkCoupon= false
    
     for(let i=0; i<=couponData.length; i++){  

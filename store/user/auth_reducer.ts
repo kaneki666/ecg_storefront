@@ -1,8 +1,6 @@
 import { AnyAction } from "redux";
 import { AuthRootStateType, CouponItem } from "../../utils/types/reduxTypes";
 import {
-  ADD_COUPON_LIST,
-  INITILIZE_COPUON,
   LOGIN_ACTION,
   LOGOUT_ACTION,
   SAVE_CURRENCY_ACTION,
