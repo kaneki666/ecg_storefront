@@ -55,22 +55,19 @@ const NavbarMiddle = () => {
         </div>
         <div className="header-right ml-4">
           <NavbarLiveChat/>
-          <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
-      <div className="cart-overlay"></div>
-      <a href="#" className="cart-toggle label-down link">
-        <i className="w-icon-heart">
-          <span className="cart-count">{wishlist? wishlist.length : 0}</span>
-        </i>
-        <span className="cart-label">Wishlist</span>
-      </a>
-      </div>
-          {/* <div className="wishlist2"><a
-            className="wishlist label-down link d-xs-show"
-            href="wishlist"
-          >
-            <i className="w-icon-heart wishlist1"><span className="wishlist-count">{wishlist? wishlist.length : 0}</span></i>
-            <span className="wishlist-label d-lg-show">Wishlist({wishlist? wishlist.length : 0})</span>
-          </a></div> */}
+    
+          <div className="wishlist2 dropdown1">
+
+<a
+  className="wishlist label-down link d-xs-show"
+  href="wishlist"
+>
+  <i className="w-icon-heart"> 
+  <span className="wishlist-count">{wishlist ? wishlist.length : 0 }</span>
+  </i>
+  <span className="wishlist-label d-lg-show">Wishlist</span>
+</a>
+</div>
           <a className="compare label-down link d-xs-show" href="compare">
             <i className="w-icon-compare"></i>
             <span className="compare-label d-lg-show">Compare</span>
