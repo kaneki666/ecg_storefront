@@ -20,3 +20,19 @@ export interface SignupProps {
   vendor_status: string;
   nid: string;
 }
+
+export interface GetUserInfoProps {
+  id: number;
+  user: User;
+  phone: string;
+  address: string;
+  birth_date: Date;
+  gender: string;
+  gender_display_value: string;
+}
+
+export interface User {
+  first_name: string;
+  last_name: string;
+  email: string;
+}

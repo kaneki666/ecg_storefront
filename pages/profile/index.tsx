@@ -4,7 +4,7 @@ import type {
   NextPage,
 } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BreadCrumb from "../../components/common/BreadCrumb";
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
@@ -18,10 +18,44 @@ import ProductQuickView from "../../components/common/ProductQuickView";
 import ProfileContent from "../../components/profile/ProfileContent";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { API_BASE_URL } from "../api/hello";
+import { useSelector } from "react-redux";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
+import { GetUserInfoProps } from "../../utils/types/types";
 
 const index: NextPage = ({
   categoriesData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const { isLoggedIn, userInfo } = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer
+  );
+  const [userInfos, setUserInfos] = useState<GetUserInfoProps | null>(null);
+
+  const getuserInfo = async () => {
+    if (isLoggedIn === true) {
+      var myHeaders = new Headers();
+      myHeaders.append(
+        "Authorization",
+        `Bearer ${userInfo?.data.access_token}`
+      );
+
+      fetch("https://ecomapi.mwebservices.co/api/customer-profile/", {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+      })
+        .then(async (response) => {
+          const r: GetUserInfoProps = await response.json();
+          setUserInfos(r);
+        })
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+    }
+  };
+  useEffect(() => {
+    getuserInfo();
+  }, []);
+  console.log(userInfos);
+
   return (
     <div>
       <Head>
@@ -39,7 +73,7 @@ const index: NextPage = ({
             <BreadCrumb title="My Account" hrefTitle="Home" toPage="/" />
             <div className="page-content pt-2">
               <div className="container">
-                <ProfileContent />
+                {userInfos && <ProfileContent userInfos={userInfos} />}
               </div>
             </div>
           </main>
@@ -58,6 +92,7 @@ export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+
   const categoriesData: CategoriesProps[] = await res.json();
 
   if (res.status !== 200) {

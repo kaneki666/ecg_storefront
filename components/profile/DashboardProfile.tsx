@@ -1,13 +1,21 @@
 import React from "react";
+import { GetUserInfoProps } from "../../utils/types/types";
 
-const DashboardProfile = () => {
+const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
   return (
     <div className="tab-pane active in" id="account-dashboard">
       <p className="greeting">
         Hello
-        <span className="text-dark font-weight-bold">John Doe</span>
+        <span className="text-dark font-weight-bold">
+          {" "}
+          {userInfos.user.first_name} {userInfos.user.last_name}
+        </span>
         (not
-        <span className="text-dark font-weight-bold">John Doe</span>?
+        <span className="text-dark font-weight-bold">
+          {" "}
+          {userInfos.user.first_name} {userInfos.user.last_name}
+        </span>
+        ?
         <a href="#" className="text-primary">
           Log out
         </a>

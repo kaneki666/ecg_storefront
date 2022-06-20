@@ -5,26 +5,26 @@ import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 
 import { API_BASE_URL } from "../../pages/api/hello";
-import { loginAction, saveUserinfoAction } from "../../store/user/actions";
+import { loginAction, saveUserinfoAction } from "../../store/products/actions";
+
 import { UserLoginProps } from "../../utils/types/reduxTypes";
 import { LoginProps } from "../../utils/types/types";
 
 const FormLogin = () => {
   const dispatch = useDispatch();
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
 
     formState: { errors },
   } = useForm<LoginProps>();
-  var redirect='/'
-  try{
-    redirect=location.search? location.search.split('=')[1]:'/'
-  }catch(e){
-    console.log(e)
+  var redirect = "/";
+  try {
+    redirect = location.search ? location.search.split("=")[1] : "/";
+  } catch (e) {
+    console.log(e);
   }
-  
 
   const onSubmit: SubmitHandler<LoginProps> = async (data) => {
     const request = await fetch(`${API_BASE_URL}/login/`, {
@@ -34,7 +34,6 @@ const FormLogin = () => {
         "Content-Type": "application/json",
       },
     });
-
 
     if (request.status === 200) {
       const response: UserLoginProps = await request.json();
@@ -50,7 +49,7 @@ const FormLogin = () => {
         progress: undefined,
       });
 
-      setTimeout(() => router.push(redirect), 4000)
+      setTimeout(() => router.push(redirect), 4000);
     } else {
       const response = await request.json();
 

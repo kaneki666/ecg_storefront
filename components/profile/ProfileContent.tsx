@@ -1,16 +1,17 @@
 import React from "react";
+import { GetUserInfoProps } from "../../utils/types/types";
 import DashboardProfile from "./DashboardProfile";
 import PrifileNavList from "./PrifileNavList";
 import ProfilDetails from "./ProfilDetails";
 import ProfileOrders from "./ProfileOrders";
 
-const ProfileContent = () => {
+const ProfileContent = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
   return (
     <div className="tab tab-vertical row gutter-lg">
       <PrifileNavList />
 
       <div className="tab-content mb-6">
-        <DashboardProfile />
+        <DashboardProfile userInfos={userInfos} />
 
         <ProfileOrders />
 
@@ -56,31 +57,22 @@ const ProfileContent = () => {
                     <tbody>
                       <tr>
                         <th>Name:</th>
-                        <td>John Doe</td>
+                        <td>
+                          {userInfos.user.first_name} {userInfos.user.last_name}
+                        </td>
                       </tr>
                       <tr>
-                        <th>Company:</th>
-                        <td>Conia</td>
+                        <th>Email:</th>
+                        <td>{userInfos.user.email}</td>
                       </tr>
                       <tr>
                         <th>Address:</th>
-                        <td>Wall Street</td>
+                        <td>{userInfos.address}</td>
                       </tr>
-                      <tr>
-                        <th>City:</th>
-                        <td>California</td>
-                      </tr>
-                      <tr>
-                        <th>Country:</th>
-                        <td>United States (US)</td>
-                      </tr>
-                      <tr>
-                        <th>Postcode:</th>
-                        <td>92020</td>
-                      </tr>
+
                       <tr>
                         <th>Phone:</th>
-                        <td>1112223334</td>
+                        <td>{userInfos.phone}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -104,27 +96,22 @@ const ProfileContent = () => {
                     <tbody>
                       <tr>
                         <th>Name:</th>
-                        <td>John Doe</td>
+                        <td>
+                          {userInfos.user.first_name} {userInfos.user.last_name}
+                        </td>
                       </tr>
                       <tr>
-                        <th>Company:</th>
-                        <td>Conia</td>
+                        <th>Email:</th>
+                        <td>{userInfos.user.email}</td>
                       </tr>
                       <tr>
                         <th>Address:</th>
-                        <td>Wall Street</td>
+                        <td>{userInfos.address}</td>
                       </tr>
+
                       <tr>
-                        <th>City:</th>
-                        <td>California</td>
-                      </tr>
-                      <tr>
-                        <th>Country:</th>
-                        <td>United States (US)</td>
-                      </tr>
-                      <tr>
-                        <th>Postcode:</th>
-                        <td>92020</td>
+                        <th>Phone:</th>
+                        <td>{userInfos.phone}</td>
                       </tr>
                     </tbody>
                   </table>
