@@ -42,6 +42,8 @@ export interface SingleProductProps {
   vendor: number;
 }
 
+
+
 export interface ProductListProps {
   deals_of_the_day: any;
   count: number;

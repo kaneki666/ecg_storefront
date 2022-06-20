@@ -5,6 +5,7 @@ import {
   addToCartAction,
   addToQuickViewAction,
   addToWishlistAction,
+  removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
@@ -13,7 +14,10 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
-
+  const { wishlist } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
+  
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () =>
@@ -31,7 +35,39 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
     dispatch(addToCartAction(cartItem));
   };
   const handleWishlist = () => {
-    dispatch(addToWishlistAction(productItem));
+    var checkWishlist= false
+    if(wishlist?.length!==0){  
+      if (wishlist){
+        for(let i=0; i<wishlist.length; i++){  
+          try{ 
+            if(productItem.id===wishlist[i].id){
+              checkWishlist= true
+              dispatch(removeFromWishlistAction(wishlist[i].id));
+            }
+          }catch(e){console.log(e)
+          } 
+      }
+      }
+      if(checkWishlist=== false){
+      dispatch(addToWishlistAction(productItem));
+      checkWishlist= false
+    }
+    }else{
+      dispatch(addToWishlistAction(productItem));
+      checkWishlist= false
+    }
+    if(checkWishlist=== true){
+      toast("removed from wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+  }else if(checkWishlist=== false){
+    
     toast("Added in wishlist", {
       position: "top-right",
       autoClose: 5000,
@@ -41,7 +77,10 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
       draggable: true,
       progress: undefined,
     });
+  }
+    
   };
+
   return (
     <div className="product-wrap">
       <div className="product text-center">

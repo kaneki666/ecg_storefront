@@ -13657,6 +13657,26 @@ aside .sp-sidebar-banner span {
   display: -ms-flexbox;
   display: flex;
 }
+
+
+.wishlist1 .wishlist-count {
+  position: absolute;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  font-style: normal;
+  z-index: 1;
+  right: -8px;
+  top: -5px;
+  font-family: Poppins, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  background: #336699;
+  color: #fff;
+  text-align: center;
+}
+
 .cart-dropdown .cart-action .btn {
   width: 50%;
   -webkit-box-pack: center;
@@ -13710,6 +13730,8 @@ aside .sp-sidebar-banner span {
   border-bottom: 1px solid #eee;
   padding-bottom: 2.1rem;
 }
+
+
 .cart-dropdown.cart-offcanvas .dropdown-box {
   position: fixed;
   top: 0;
