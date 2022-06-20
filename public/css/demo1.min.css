@@ -13734,6 +13734,33 @@ aside .sp-sidebar-banner span {
 .cart-dropdown.cart-offcanvas .products {
   border-top: 1px solid #eee;
 }
+.dropdown1 {
+  position: relative;
+}
+
+.wishlist2 {
+  display: block;
+  margin: 0.5rem 0 0;
+  font-weight: inherit;
+  letter-spacing: -0.025em;
+}
+.wishlist2 .wishlist-count {
+  position: absolute;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  font-style: normal;
+  z-index: 1;
+  right: 1.5vw;
+  top: -5px;
+  font-family: Poppins, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  background: #336699;
+  color: #fff;
+  text-align: center;
+}
 .cart-dropdown.cart-offcanvas.opened .dropdown-box {
   right: 0;
 }

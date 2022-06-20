@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { addToCartAction, addToWishlistAction } from "../../store/products/actions";
+import {
+  addToCartAction,
+  addToWishlistAction,
+  removeFromWishlistAction,
+} from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductSingle = ({ product }: { product: SingleProductProps }) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
+  );
+  const { wishlist } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
   );
   const dispatch = useDispatch();
   let [quantity, setQuantity] = useState(1);
@@ -23,17 +30,51 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
     };
     dispatch(addToCartAction(cartItem));
   };
+
   const handleWishlist = () => {
-    dispatch(addToWishlistAction(product));
-    toast("Added in wishlist", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    var checkWishlist = false;
+    if (wishlist?.length !== 0) {
+      if (wishlist) {
+        for (let i = 0; i < wishlist.length; i++) {
+          try {
+            if (product.id === wishlist[i].id) {
+              checkWishlist = true;
+              dispatch(removeFromWishlistAction(wishlist[i].id));
+            }
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      }
+      if (checkWishlist === false) {
+        dispatch(addToWishlistAction(product));
+        checkWishlist = false;
+      }
+    } else {
+      dispatch(addToWishlistAction(product));
+      checkWishlist = false;
+    }
+    if (checkWishlist === true) {
+      toast("removed from wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (checkWishlist === false) {
+      toast("Added in wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   return (
@@ -51,19 +92,20 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="swiper-wrapper row cols-1 gutter-no">
-            {product.product_media.map((item) => (
-              <div className="swiper-slide" key={item.id}>
-                <figure className="product-image">
-                  <img
-                    src={item.file}
-                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                    alt="Product Image"
-                    width="800"
-                    height="900"
-                  />
-                </figure>0
-              </div>
-            ))}
+              {product.product_media.map((item) => (
+                <div className="swiper-slide" key={item.id}>
+                  <figure className="product-image">
+                    <img
+                      src={item.file}
+                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                      alt="Product Image"
+                      width="800"
+                      height="900"
+                    />
+                  </figure>
+                  0
+                </div>
+              ))}
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -81,16 +123,16 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-            {product.product_media.map((item, index) => (
-              <div className="product-thumb swiper-slide" key={item.id}>
-                <img
-                  src={item.file}
-                  alt="Product Image"
-                  width="60"
-                  height="68"
-                />
-              </div>
-            ))}
+              {product.product_media.map((item, index) => (
+                <div className="product-thumb swiper-slide" key={item.id}>
+                  <img
+                    src={item.file}
+                    alt="Product Image"
+                    width="60"
+                    height="68"
+                  />
+                </div>
+              ))}
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -128,7 +170,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           <hr className="product-divider" />
 
           <div className="product-price">
-          <ins className="new-price">
+            <ins className="new-price">
               {currency.currency_symbol}{" "}
               {product.price * currency.currency_rate}
             </ins>

@@ -1,9 +1,14 @@
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import NavbarCart from "./NavbarCart";
 import NavbarLiveChat from "./NavbarLiveChat";
 
 const NavbarMiddle = () => {
+  const { wishlist } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
   return (
     <div className="header-middle">
       <div className="container">
@@ -50,10 +55,17 @@ const NavbarMiddle = () => {
         </div>
         <div className="header-right ml-4">
           <NavbarLiveChat />
-          <a className="wishlist label-down link d-xs-show" href="wishlist">
-            <i className="w-icon-heart"></i>
-            <span className="wishlist-label d-lg-show">Wishlist</span>
-          </a>
+
+          <div className="wishlist2 dropdown1">
+            <a className="wishlist label-down link d-xs-show" href="wishlist">
+              <i className="w-icon-heart">
+                <span className="wishlist-count">
+                  {wishlist ? wishlist.length : 0}
+                </span>
+              </i>
+              <span className="wishlist-label d-lg-show">Wishlist</span>
+            </a>
+          </div>
           <a className="compare label-down link d-xs-show" href="compare">
             <i className="w-icon-compare"></i>
             <span className="compare-label d-lg-show">Compare</span>
