@@ -6,7 +6,9 @@ import { addCouponAction } from "../../store/products/actions";
 
 import { CouponItem, RootAppStateProps } from "../../utils/types/reduxTypes";
 
-const CouponToggle = ({ couponData }: { couponData: CouponItem[] }) => {
+const CouponToggle = (
+  // { couponData }: { couponData: CouponItem[] }
+  ) => {
   const dispatch = useDispatch();
   const { usedCoupon } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
@@ -21,61 +23,61 @@ const CouponToggle = ({ couponData }: { couponData: CouponItem[] }) => {
   const onSubmit: SubmitHandler<CouponItem> = async (data) => {
     var checkCoupon= false
    
-    for(let i=0; i<=couponData.length; i++){  
-      console.log(usedCoupon)
-        try{
-          if (data.code===couponData[i].code && usedCoupon===false){
-            dispatch(addCouponAction(couponData[i].amount))
-            checkCoupon= true
+    // for(let i=0; i<=couponData.length; i++){  
+    //   console.log(usedCoupon)
+    //     try{
+    //       if (data.code===couponData[i].code && usedCoupon===false){
+    //         dispatch(addCouponAction(couponData[i].amount))
+    //         checkCoupon= true
            
-          }
-        }catch(e){console.log(e)
+    //       }
+    //     }catch(e){console.log(e)
 
-        } 
-    }
-    if(checkCoupon===true){
-      toast("Coupon Added", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    else if(usedCoupon==true){
-      toast("This Coupon is already used!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }else if(data.code && checkCoupon===false){
-      toast("Coupon is incorrect!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    else{
-      toast("Coupon field is empty! please enter coupon code", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+    //     } 
+    // }
+    // if(checkCoupon===true){
+    //   toast("Coupon Added", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
+    // else if(usedCoupon==true){
+    //   toast("This Coupon is already used!", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }else if(data.code && checkCoupon===false){
+    //   toast("Coupon is incorrect!", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
+    // else{
+    //   toast("Coupon field is empty! please enter coupon code", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
     
 
   }

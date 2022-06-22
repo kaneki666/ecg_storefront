@@ -8,7 +8,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import CheckoutBreadcrumb from "../../components/checkout/CheckoutBreadcrumb";
 import CheckoutContent from "../../components/checkout/CheckoutContent";
-import CouponToggle from "../../components/checkout/CouponToggle";
+// import CouponToggle from "../../components/checkout/CouponToggle";
 import LoginToggle from "../../components/checkout/LoginToggle";
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
@@ -23,7 +23,7 @@ import { API_BASE_URL } from "../api/hello";
 
 const CheckoutPage: NextPage = ({
   categoriesData,
-  couponData
+  // couponData
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { isLoggedIn } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
@@ -47,7 +47,7 @@ const CheckoutPage: NextPage = ({
             <div className="page-content">
               <div className="container">
                 {!isLoggedIn && <LoginToggle />}
-                <CouponToggle couponData={couponData}/>
+                {/* <CouponToggle couponData={couponData}/> */}
                 <CheckoutContent />
               </div>
             </div>
@@ -68,21 +68,21 @@ export default CheckoutPage;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
   const categoriesData: CategoriesProps[] = await res.json();
-  const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
-  const couponData: CouponItem[] = await resCoupon.json();
+  // const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
+  // const couponData: CouponItem[] = await resCoupon.json();
 
   if (res.status !== 200) {
     return {
       notFound: true,
     };
   }
-  if (resCoupon.status !== 200) {
-    return {
-      notFound: true,
-    };
-  }
+  // if (resCoupon.status !== 200) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   return {
-    props: { categoriesData , couponData }, // will be passed to the page component as props
+    props: { categoriesData }, // will be passed to the page component as props
   };
 };

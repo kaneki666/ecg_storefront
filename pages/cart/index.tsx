@@ -8,7 +8,7 @@ import React from "react";
 import BreadCrumbCart from "../../components/cart/BreadCrumbCart";
 import SideBarCart from "../../components/cart/SideBarCart";
 import TableCart from "../../components/cart/TableCart";
-import TableCartFooter from "../../components/cart/TableCartFooter";
+// import TableCartFooter from "../../components/cart/TableCartFooter";
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import MobileMenu from "../../components/common/MobileMenu";
@@ -44,7 +44,7 @@ const index: NextPage = ({
                 <div className="row gutter-lg mb-10">
                   <div className="col-lg-8 pr-lg-4 mb-6">
                     <TableCart />
-                    <TableCartFooter couponData={couponData} />
+                    {/* <TableCartFooter couponData={couponData} /> */}
                   </div>
                   <SideBarCart />
                 </div>
@@ -67,21 +67,23 @@ export default index;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
   const categoriesData: CategoriesProps[] = await res.json();
-  const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
-  const couponData: CouponItem[] = await resCoupon.json();
+  // const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
+  // const couponData: CouponItem[] = await resCoupon.json();
 
   if (res.status !== 200) {
     return {
       notFound: true,
     };
   }
-  if (resCoupon.status !== 200) {
-    return {
-      notFound: true,
-    };
-  }
+  // if (resCoupon.status !== 200) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   return {
-    props: { categoriesData , couponData}, // will be passed to the page component as props
+    props: { categoriesData
+      //  , couponData
+      }, // will be passed to the page component as props
   };
 };
