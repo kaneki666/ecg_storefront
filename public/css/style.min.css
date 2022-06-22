@@ -11313,6 +11313,21 @@ body .product-popup {
   position: relative;
 }
 
+
+.token-css{
+  padding: 50px;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  font-weight: bolder;
+  font-size: x-large;
+}
+.redcolor{
+ color: #e81717;
+}
+
+.greenColor{
+ color: #0c6b01;
+}
 .wishlist2 {
   display: block;
   margin: 0.5rem 0 0;
