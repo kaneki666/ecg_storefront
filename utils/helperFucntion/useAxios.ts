@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { saveUserinfoAction } from "../../store/products/actions";
 
-const useAxios = () => {
+export const useAxios = () => {
   const dispatch = useDispatch();
   const { isLoggedIn, userInfo } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
@@ -51,11 +51,11 @@ const useAxios = () => {
         })
         .catch((err) => {
           if (err.response) {
-            dispatch(logoutAction(true));
+            dispatch(logoutAction(false));
           } else if (err.request) {
-            dispatch(logoutAction(true));
+            dispatch(logoutAction(false));
           } else {
-            dispatch(logoutAction(true));
+            dispatch(logoutAction(false));
           }
         });
     });

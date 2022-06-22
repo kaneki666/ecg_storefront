@@ -1,7 +1,12 @@
 import React from "react";
 import { GetUserInfoProps } from "../../utils/types/types";
-
+import { useDispatch } from "react-redux";
+import { logoutAction } from "../../store/user/actions";
 const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutAction(false));
+  };
   return (
     <div className="tab-pane active in" id="account-dashboard">
       <p className="greeting">
@@ -16,7 +21,7 @@ const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
           {userInfos.user.first_name} {userInfos.user.last_name}
         </span>
         ?
-        <a href="#" className="text-primary">
+        <a onClick={handleLogout} href="#" className="text-primary">
           Log out
         </a>
         )
@@ -99,7 +104,7 @@ const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
           </a>
         </div>
         <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-          <a href="#">
+          <a onClick={handleLogout} href="#">
             <div className="icon-box text-center">
               <span className="icon-box-icon icon-logout">
                 <i className="w-icon-logout"></i>

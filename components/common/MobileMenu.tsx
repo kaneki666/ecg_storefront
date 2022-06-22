@@ -71,10 +71,7 @@ const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
                   item.product_sub_category &&
                   item.product_sub_category.length > 0 ? (
                     <li key={`${item.id}`}>
-                      <a
-                        key={`${item.id}`}
-                        href={`/category?id=${item.id}&type=cate`}
-                      >
+                      <a href={`/category?id=${item.id}&type=cate`}>
                         <i className="w-icon-tshirt2"></i>
                         {item.name}
                       </a>
@@ -82,11 +79,8 @@ const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
                         {item.product_sub_category &&
                           item.product_sub_category.map((subItem) =>
                             subItem.child_category.length > 0 ? (
-                              <li>
-                                <a
-                                  key={`${subItem.id}`}
-                                  href={`/category?id=${subItem.id}&type=sub`}
-                                >
+                              <li key={`${subItem.id}`}>
+                                <a href={`/category?id=${subItem.id}&type=sub`}>
                                   {subItem.name}
                                 </a>
                                 <ul>
@@ -103,11 +97,8 @@ const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
                                 </ul>
                               </li>
                             ) : (
-                              <li>
-                                <a
-                                  key={`${subItem.id}`}
-                                  href={`/category?id=${subItem.id}&type=sub`}
-                                >
+                              <li key={`${subItem.id}`}>
+                                <a href={`/category?id=${subItem.id}&type=sub`}>
                                   {subItem.name}
                                 </a>
                               </li>

@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
-  addToCartAction,
   addToQuickViewAction,
   addToWishlistAction,
   removeFromWishlistAction,
@@ -11,6 +10,7 @@ import { SingleProductProps } from "../../utils/types/landingpage";
 import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
+  const [checkWishlist, setcheckWishlist] = useState(false);
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
@@ -22,6 +22,19 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
 
   const handleAddToQuickView = () =>
     dispatch(addToQuickViewAction(productItem));
+
+  useEffect(() => {
+    if (wishlist) {
+      if (wishlist?.length > 0) {
+        const findIndexWishlistRemove = wishlist?.findIndex(
+          (item: SingleProductProps) => item.id === productItem.id
+        );
+        if (findIndexWishlistRemove !== -1) {
+          setcheckWishlist(true);
+        }
+      }
+    }
+  }, []);
 
   // const handleAddToCart = () => {
   //   const cartItem: CartItemProps = {
@@ -35,48 +48,42 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   //   dispatch(addToCartAction(cartItem));
   // };
   const handleWishlist = () => {
-    var checkWishlist = false;
     if (wishlist?.length !== 0) {
       if (wishlist) {
         for (let i = 0; i < wishlist.length; i++) {
           try {
             if (productItem.id === wishlist[i].id) {
-              checkWishlist = true;
+              setcheckWishlist(true);
+              toast("Added in wishlist", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
               dispatch(removeFromWishlistAction(wishlist[i].id));
             }
-          } catch (e) {
-            console.log(e);
-          }
+          } catch (e) {}
         }
       }
       if (checkWishlist === false) {
         dispatch(addToWishlistAction(productItem));
-        checkWishlist = false;
+        setcheckWishlist(false);
+        toast("removed from wishlist", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }
     } else {
       dispatch(addToWishlistAction(productItem));
-      checkWishlist = false;
-    }
-    if (checkWishlist === true) {
-      toast("removed from wishlist", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } else if (checkWishlist === false) {
-      toast("Added in wishlist", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      setcheckWishlist(false);
     }
   };
   return (
@@ -96,7 +103,11 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
             <a
               onClick={handleWishlist}
               href="#"
-              className="btn-product-icon btn-wishlist w-icon-heart"
+              className={
+                checkWishlist === true
+                  ? "btn-product-icon btn-wishlist w-icon-heart-full"
+                  : "btn-product-icon btn-wishlist w-icon-heart"
+              }
               title="Add to wishlist"
             ></a>
             <a

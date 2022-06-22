@@ -21,41 +21,33 @@ import { API_BASE_URL } from "../api/hello";
 
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import { GetUserInfoProps } from "../../utils/types/types";
+import useAxios from "../../utils/helperFucntion/useAxios";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
-const Index: NextPage = ({
+const ProfilePage: NextPage = ({
   categoriesData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { isLoggedIn, userInfo } = useSelector(
+  const axiosInstance = useAxios();
+  const router = useRouter();
+  const { isLoggedIn } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
   );
   const [userInfos, setUserInfos] = useState<GetUserInfoProps | null>(null);
 
   const getuserInfo = async () => {
-    if (isLoggedIn === true) {
-      var myHeaders = new Headers();
-      myHeaders.append(
-        "Authorization",
-        `Bearer ${userInfo?.data.access_token}`
-      );
-
-      fetch("https://ecomapi.mwebservices.co/api/customer-profile/", {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow",
-      })
-        .then(async (response) => {
-          const r: GetUserInfoProps = await response.json();
-          setUserInfos(r);
-        })
-        .then((result) => console.log(result))
-        .catch((error) => console.log("error", error));
+    const response = await axiosInstance.get(`/customer-profile/`);
+    if (response.status === 200) {
+      setUserInfos(response.data);
     }
   };
   useEffect(() => {
-    getuserInfo();
+    if (isLoggedIn === false) {
+      router.push("../login");
+    } else {
+      getuserInfo();
+    }
   }, []);
-  console.log(userInfos);
 
   return (
     <div>
@@ -74,7 +66,7 @@ const Index: NextPage = ({
             <BreadCrumb title="My Account" hrefTitle="Home" toPage="/" />
             <div className="page-content pt-2">
               <div className="container">
-                {userInfos && <ProfileContent userInfos={userInfos} />}
+                {userInfos !== null && <ProfileContent userInfos={userInfos} />}
               </div>
             </div>
           </main>
@@ -89,7 +81,7 @@ const Index: NextPage = ({
   );
 };
 
-export default Index;
+export default ProfilePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
