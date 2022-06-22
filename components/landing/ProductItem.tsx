@@ -31,6 +31,8 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
         );
         if (findIndexWishlistRemove !== -1) {
           setcheckWishlist(true);
+        } else {
+          setcheckWishlist(false);
         }
       }
     }
@@ -50,40 +52,38 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const handleWishlist = () => {
     if (wishlist?.length !== 0) {
       if (wishlist) {
-        for (let i = 0; i < wishlist.length; i++) {
-          try {
-            if (productItem.id === wishlist[i].id) {
-              setcheckWishlist(true);
-              toast("Added in wishlist", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              });
-              dispatch(removeFromWishlistAction(wishlist[i].id));
-            }
-          } catch (e) {}
+        const findIndexWishlistRemove = wishlist?.findIndex(
+          (item: SingleProductProps) => item.id === productItem.id
+        );
+        console.log(findIndexWishlistRemove);
+
+        if (findIndexWishlistRemove === -1) {
+          setcheckWishlist(true);
+          toast("Added in wishlist", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          dispatch(addToWishlistAction(productItem));
+        } else {
         }
       }
-      if (checkWishlist === false) {
-        dispatch(addToWishlistAction(productItem));
-        setcheckWishlist(false);
-        toast("removed from wishlist", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
     } else {
+      setcheckWishlist(true);
+      toast("Added in wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       dispatch(addToWishlistAction(productItem));
-      setcheckWishlist(false);
     }
   };
   return (

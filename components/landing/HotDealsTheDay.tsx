@@ -6,16 +6,33 @@ import {
   addToWishlistAction,
   removeFromWishlistAction,
 } from "../../store/products/actions";
-import { DealsOfTheDayProps } from "../../utils/types/landingpage";
+import {
+  DealsOfTheDayProps,
+  SingleProductProps,
+} from "../../utils/types/landingpage";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
+  const [checkWishlist, setcheckWishlist] = useState(false);
   const dispatch = useDispatch();
   let [quantity, setQuantity] = useState(1);
 
   const { wishlist } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
+
+  useEffect(() => {
+    if (wishlist) {
+      if (wishlist?.length > 0) {
+        const findIndexWishlistRemove = wishlist?.findIndex(
+          (item: SingleProductProps) => item.id === products.product[0].id
+        );
+        if (findIndexWishlistRemove !== -1) {
+          setcheckWishlist(true);
+        }
+      }
+    }
+  }, []);
 
   const handleAddToCart = () =>
     dispatch(
@@ -29,39 +46,39 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       })
     );
   const handleWishlist = () => {
-    var checkWishlist = false;
     if (wishlist?.length !== 0) {
       if (wishlist) {
-        for (let i = 0; i < wishlist.length; i++) {
-          try {
-            if (products.product["0"].id === wishlist[i].id) {
-              checkWishlist = true;
-              dispatch(removeFromWishlistAction(wishlist[i].id));
-            }
-          } catch (e) {
-            console.log(e);
-          }
+        const findIndexWishlistRemove = wishlist?.findIndex(
+          (item: SingleProductProps) => item.id === products.product["0"].id
+        );
+        if (findIndexWishlistRemove === -1) {
+          dispatch(addToWishlistAction(products.product["0"]));
+          setcheckWishlist(true);
+          toast("Added in wishlist", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          dispatch(addToWishlistAction(products.product["0"]));
+          setcheckWishlist(false);
+          toast("removed from wishlist", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       }
-      if (checkWishlist === false) {
-        dispatch(addToWishlistAction(products.product["0"]));
-        checkWishlist = false;
-      }
     } else {
-      dispatch(addToWishlistAction(products.product["0"]));
-      checkWishlist = false;
-    }
-    if (checkWishlist === true) {
-      toast("removed from wishlist", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } else if (checkWishlist === false) {
+      setcheckWishlist(true);
       toast("Added in wishlist", {
         position: "top-right",
         autoClose: 5000,
@@ -71,6 +88,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
         draggable: true,
         progress: undefined,
       });
+      dispatch(addToWishlistAction(products.product["0"]));
     }
   };
 

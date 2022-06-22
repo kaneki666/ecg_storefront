@@ -2,9 +2,12 @@ import React from "react";
 import { GetUserInfoProps } from "../../utils/types/types";
 import { useDispatch } from "react-redux";
 import { logoutAction } from "../../store/user/actions";
+import { useRouter } from "next/router";
 const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const handleLogout = () => {
+    router.push("../");
     dispatch(logoutAction(false));
   };
   return (
@@ -92,7 +95,11 @@ const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
           </a>
         </div>
         <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-          <a href="wishlist" className="link-to-tab">
+          <a
+            onClick={() => router.push("/wishlist")}
+            href="/wishlist"
+            className="link-to-tab"
+          >
             <div className="icon-box text-center">
               <span className="icon-box-icon icon-wishlist">
                 <i className="w-icon-heart"></i>

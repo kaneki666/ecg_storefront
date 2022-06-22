@@ -1,6 +1,14 @@
 import React from "react";
-
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { logoutAction } from "../../store/user/actions";
 const PrifileNavList = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const handleLogout = () => {
+    router.push("../");
+    dispatch(logoutAction(false));
+  };
   return (
     <ul className="nav nav-tabs mb-6" role="tablist">
       <li className="nav-item">
@@ -31,7 +39,7 @@ const PrifileNavList = () => {
       <li className="link-item">
         <a href="wishlist">Wishlist</a>
       </li>
-      <li className="link-item">
+      <li onClick={handleLogout} className="link-item">
         <a href="login">Logout</a>
       </li>
     </ul>
