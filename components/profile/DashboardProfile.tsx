@@ -1,14 +1,26 @@
 import React from "react";
 import { GetUserInfoProps } from "../../utils/types/types";
 import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import { logoutAction } from "../../store/user/actions";
 import { useRouter } from "next/router";
 const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const handleLogout = () => {
-    router.push("../");
-    dispatch(logoutAction(false));
+    toast(`Logout successful!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    setTimeout(() => {
+      router.push("../");
+      dispatch(logoutAction(false));
+    }, 3000);
   };
   return (
     <div className="tab-pane active in" id="account-dashboard">
