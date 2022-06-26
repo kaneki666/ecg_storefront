@@ -6,10 +6,7 @@ import { addCouponAction, clearCartAction } from "../../store/products/actions";
 import { CouponItem, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 import { SubmitHandler, useForm } from "react-hook-form";
-import {
-  addCouponToList,
-  initilizeCopunAction,
-} from "../../store/user/actions";
+
 import { API_BASE_URL } from "../../pages/api/hello";
 
 const TableCartFooter = () => {
