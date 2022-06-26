@@ -6,7 +6,7 @@ import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const WelcomeNavBar = () => {
   const dispatch = useDispatch();
-  const { userInfo } = useSelector(
+  const { isLoggedIn } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
   );
   const logoutHandler = () => {
@@ -33,7 +33,7 @@ const WelcomeNavBar = () => {
           <a href="/contactus" className="d-lg-show">
             Contact Us
           </a>
-          {!userInfo && (
+          {!isLoggedIn && (
             <>
               <a href="/login" className="d-lg-show">
                 <i className="w-icon-account"></i>Sign In
@@ -45,7 +45,7 @@ const WelcomeNavBar = () => {
             </>
           )}
 
-          {userInfo && (
+          {isLoggedIn && (
             <>
               <a href="/profile" className="d-lg-show">
                 My Account
