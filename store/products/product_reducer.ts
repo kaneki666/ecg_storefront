@@ -7,7 +7,6 @@ import {
 import { AnyAction } from "redux";
 
 import {
-  ADD_COUPON_LIST,
   ADD_PRODUCT_COMPARE,
   ADD_PRODUCT_QUICKVIEW,
   ADD_PRODUCT_RECENTVIEW,
@@ -15,7 +14,6 @@ import {
   ADD_TO_WISHLIST,
   APPLY_COUPON,
   CLEAR_CART,
-  INITILIZE_COPUON,
   INITILIZE_WISHLIST,
   REMOVE_FROM_CART,
   REMOVE_FROM_WISHLIST,
@@ -25,7 +23,7 @@ import {
 const initialState: ProductCartReducerStateProps = {
   product: null,
   cart: [],
-
+  coupon: null,
   totalPrice: 0,
   usedCoupon: false,
   recentProducts: [],
@@ -99,10 +97,11 @@ export const ProductReducer = (
       };
 
     case APPLY_COUPON:
+      const couponItem = action.payload;
+
       return {
         ...state,
-        totalPrice: state.totalPrice - action.payload,
-        usedCoupon: true,
+        coupon: couponItem,
       };
 
     case CLEAR_CART:
@@ -177,23 +176,7 @@ export const ProductReducer = (
       state.wishlist?.splice(findIndexWishlistRemove!, 1);
 
       return { ...state, wishlist: state.wishlist };
-    case INITILIZE_COPUON:
-      return { ...state, coupons: [] };
-    case ADD_COUPON_LIST:
-      const coupns = state.coupons;
-      const newItemCoupon: CouponItem = action.payload;
 
-      const findIndexcoupon = coupns?.findIndex(
-        (item: CouponItem) => item.id === newItemCoupon.id
-      );
-      console.log(newItemCoupon.amount);
-
-      if (findIndexcoupon === -1) {
-        coupns?.push(newItemCoupon);
-        state.totalPrice = state.totalPrice - newItemCoupon.amount;
-      }
-
-      return { ...state, coupons: coupns, totalPrice: state.totalPrice };
     default:
       return state;
   }

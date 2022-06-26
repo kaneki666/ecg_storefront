@@ -10,8 +10,9 @@ import {
   addCouponToList,
   initilizeCopunAction,
 } from "../../store/user/actions";
+import { API_BASE_URL } from "../../pages/api/hello";
 
-const TableCartFooter = ({ couponData }: { couponData: CouponItem[] }) => {
+const TableCartFooter = () => {
   const dispatch = useDispatch();
 
   const {
@@ -19,110 +20,65 @@ const TableCartFooter = ({ couponData }: { couponData: CouponItem[] }) => {
     handleSubmit,
 
     formState: { errors },
-  } = useForm<CouponItem>();
-  const { coupons } = useSelector(
-    (state: RootAppStateProps) => state.ProductReducer
+  } = useForm<{
+    code: string;
+  }>();
+  const { userInfo } = useSelector(
+    (state: RootAppStateProps) => state.AuthReducer
   );
   const router = useRouter();
 
   const handleClearCart = () => dispatch(clearCartAction(true));
-  const onSubmit: SubmitHandler<CouponItem> = async (data) => {
-    if (data.code !== "") {
-      if (coupons !== undefined) {
-        const findIndexOfcoupon = couponData?.findIndex(
-          (item: CouponItem) => item.code === data.code
-        );
-        if (findIndexOfcoupon !== -1) {
-          const findIndexOfcouponExist = coupons?.findIndex(
-            (item: CouponItem) => item.code === data.code
-          );
-          if (
-            findIndexOfcouponExist !== -1 &&
-            findIndexOfcouponExist != undefined
-          ) {
-            toast("This Coupon is already used!", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          } else {
-            dispatch(addCouponToList(couponData[findIndexOfcoupon]));
-            toast("Coupon Added", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          }
-        } else {
-          toast("Coupon is incorrect!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+  const onSubmit: SubmitHandler<{
+    code: string;
+  }> = async (data) => {
+    const response = await fetch(
+      `${API_BASE_URL}/apply-coupon/${data.code}/${userInfo?.data.user_id}/`
+    );
+    const resposnedata: CouponItem = await response.json();
+    if (resposnedata.status === "You already used this coupon!") {
+      toast("You already used this coupon!", {
+        toastId: "cuponmessage",
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (resposnedata.status === "Invalid coupon!") {
+      toast("Invalid coupon!", {
+        toastId: "cuponmessage",
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (resposnedata.status === "Authentic coupon.") {
+      dispatch(addCouponAction(resposnedata));
+      toast(
+        `Coupon added suucesfull. You got ${resposnedata.amount} tk discount.`,
+        {
+          toastId: "cuponmessage",
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         }
-      } else {
-        dispatch(initilizeCopunAction([]));
-      }
+      );
     }
-
-    // if (checkCoupon === true) {
-    //   toast("Coupon Added", {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // } else if (usedCoupon == true) {
-    //   toast("This Coupon is already used!", {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // } else if (data.code && checkCoupon === false) {
-    //   toast("Coupon is incorrect!", {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // } else {
-    //   toast("Coupon field is empty! please enter coupon code", {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // }
   };
 
   return (
     <div>
-      <ToastContainer containerId="an id" draggable={false} />
+      <ToastContainer containerId="cuponmessage" draggable={false} />
       <div className="cart-action mb-6">
         <a
           onClick={() => router.back()}

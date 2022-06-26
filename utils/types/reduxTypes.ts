@@ -34,12 +34,9 @@ export interface CartItemProps {
 }
 
 export interface CouponItem {
-  id: number;
-  created_at: string;
-  updated_at: string;
-  code: string;
+  status: string;
   amount: number;
-  is_active: true;
+  coupon_id: number;
 }
 
 export interface AuthRootStateType {
@@ -56,7 +53,7 @@ export interface ProductCartReducerStateProps {
   compareProducts: SingleProductProps[];
   totalPrice: number;
   usedCoupon: boolean;
-  coupons?: null | CouponItem[];
+  coupon?: null | CouponItem;
 }
 
 export interface RootAppStateProps {

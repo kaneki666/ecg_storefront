@@ -1,5 +1,9 @@
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, UserLoginProps } from "../../utils/types/reduxTypes";
+import {
+  CartItemProps,
+  CouponItem,
+  UserLoginProps,
+} from "../../utils/types/reduxTypes";
 import { LOGIN_ACTION, SAVE_USERINFO_ACTION } from "../user/type";
 import {
   ADD_PRODUCT_COMPARE,
@@ -57,8 +61,8 @@ export const deleteItemFromCartAction = (id: number) => {
   };
 };
 
-export const addCouponAction = (value: number) => {
-  return (dispatch: (arg0: { type: string; payload: number }) => void) => {
+export const addCouponAction = (value: CouponItem) => {
+  return (dispatch: (arg0: { type: string; payload: CouponItem }) => void) => {
     dispatch({
       type: APPLY_COUPON,
       payload: value,

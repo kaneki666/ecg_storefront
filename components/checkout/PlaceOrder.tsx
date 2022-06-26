@@ -17,10 +17,10 @@ const PlaceOrder = ({
   const { ProductReducer, AuthReducer } = useSelector(
     (state: RootAppStateProps) => state
   );
-  
+
   const dispatch = useDispatch();
-  const router =useRouter()
-  const { cart, totalPrice } = ProductReducer;
+  const router = useRouter();
+  const { cart, totalPrice, coupon } = ProductReducer;
   const { currency, isLoggedIn, userInfo } = AuthReducer;
   const {
     handleSubmit,
@@ -29,19 +29,19 @@ const PlaceOrder = ({
   } = checkoutForm;
   const axiosInstance = useAxios();
 
-
   const handleCheckoutApi = async (data: any) => {
-    console.log(data)
-
-  
-    if(userInfo){
+    if (userInfo) {
       const config = {
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${userInfo.data.access_token}`,
         },
       };
-      const response = await axios.post(`${API_BASE_URL}/checkout/`, data, config);
+      const response = await axios.post(
+        `${API_BASE_URL}/checkout/`,
+        data,
+        config
+      );
       if (response.status === 201) {
         toast("Checkout Successful", {
           position: "top-right",
@@ -52,8 +52,8 @@ const PlaceOrder = ({
           draggable: true,
           progress: undefined,
         });
-        dispatch(clearCartAction(true))
-        setTimeout(() => router.push('/'), 3000)
+        dispatch(clearCartAction(true));
+        setTimeout(() => router.push("/"), 3000);
       } else {
         toast("Checkout failed", {
           position: "top-right",
@@ -65,16 +65,20 @@ const PlaceOrder = ({
           progress: undefined,
         });
       }
-    }else{
-      router.push('/login?=checkout')
+    } else {
+      router.push("/login?=checkout");
     }
-   
   };
 
   const onSubmit = (data: any) => {
-    console.log(data)
     if (isValid) {
-      if (!data.shipping_first_name && !data.shipping_last_name && !data.shipping_street_address && !data.shipping_city && !data.shipping_zip_code) {
+      if (
+        !data.shipping_first_name &&
+        !data.shipping_last_name &&
+        !data.shipping_street_address &&
+        !data.shipping_city &&
+        !data.shipping_zip_code
+      ) {
         data.product = cart.map((item) => item.id);
         data.quantity = cart.map((item) => item.quantity);
         data.billing_default = true;
@@ -136,6 +140,19 @@ const PlaceOrder = ({
                 </b>
               </td>
             </tr>
+            {coupon?.amount !== undefined && coupon?.amount !== null && (
+              <tr className="cart-subtotal bb-no">
+                <td>
+                  <b>Coupon Discount</b>
+                </td>
+                <td>
+                  <b>
+                    {currency.currency_symbol}{" "}
+                    {coupon?.amount * currency.currency_rate}
+                  </b>
+                </td>
+              </tr>
+            )}
           </tbody>
           <tfoot>
             <tr className="order-total">
@@ -143,10 +160,17 @@ const PlaceOrder = ({
                 <b>Total</b>
               </th>
               <td>
-                <b>
-                  {currency.currency_symbol}{" "}
-                  {totalPrice * currency.currency_rate}
-                </b>
+                {coupon?.amount !== undefined && coupon?.amount !== null ? (
+                  <b>
+                    {currency.currency_symbol}{" "}
+                    {(totalPrice - coupon.amount) * currency.currency_rate}
+                  </b>
+                ) : (
+                  <b>
+                    {currency.currency_symbol}{" "}
+                    {totalPrice * currency.currency_rate}
+                  </b>
+                )}
               </td>
             </tr>
           </tfoot>
@@ -211,10 +235,7 @@ const PlaceOrder = ({
 
         <div className="form-group place-order pt-6">
           <button
-            onClick={
-
-                handleSubmit(onSubmit)
-              }
+            onClick={handleSubmit(onSubmit)}
             type="submit"
             className="btn btn-dark btn-block btn-rounded"
           >
@@ -226,4 +247,3 @@ const PlaceOrder = ({
   );
 };
 export default PlaceOrder;
-

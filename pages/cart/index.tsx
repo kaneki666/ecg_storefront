@@ -8,7 +8,8 @@ import React from "react";
 import BreadCrumbCart from "../../components/cart/BreadCrumbCart";
 import SideBarCart from "../../components/cart/SideBarCart";
 import TableCart from "../../components/cart/TableCart";
-// import TableCartFooter from "../../components/cart/TableCartFooter";
+import TableCartFooter from "../../components/cart/TableCartFooter";
+
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import MobileMenu from "../../components/common/MobileMenu";
@@ -17,12 +18,11 @@ import ScrollToTop from "../../components/common/ScrollToTop";
 import StickyFooter from "../../components/common/StickyFooter";
 import WelcomeNavBar from "../../components/common/WelcomeNavBar";
 import { CategoriesProps } from "../../utils/types/landingpage";
-import { CouponItem } from "../../utils/types/reduxTypes";
 import { API_BASE_URL } from "../api/hello";
 
 const index: NextPage = ({
   categoriesData,
-  couponData
+  couponData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
@@ -44,7 +44,7 @@ const index: NextPage = ({
                 <div className="row gutter-lg mb-10">
                   <div className="col-lg-8 pr-lg-4 mb-6">
                     <TableCart />
-                    {/* <TableCartFooter couponData={couponData} /> */}
+                    <TableCartFooter />
                   </div>
                   <SideBarCart />
                 </div>
@@ -82,8 +82,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // }
 
   return {
-    props: { categoriesData
+    props: {
+      categoriesData,
       //  , couponData
-      }, // will be passed to the page component as props
+    }, // will be passed to the page component as props
   };
 };
