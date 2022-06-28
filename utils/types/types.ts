@@ -26,7 +26,7 @@ export interface GetUserInfoProps {
   user: User;
   phone: string;
   address: string;
-  birth_date: Date;
+  birth_date: string;
   gender: string;
   gender_display_value: string;
 }

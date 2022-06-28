@@ -16,7 +16,7 @@ const ProfilDetails = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
       first_name: userInfos.user.first_name,
       last_name: userInfos.user.last_name,
       email: userInfos.user.email,
-      birth_date: userInfos.birth_date.toString(),
+      birth_date: userInfos.birth_date,
       address: userInfos.address,
       phone: userInfos.phone,
     },
