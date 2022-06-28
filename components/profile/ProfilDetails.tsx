@@ -21,6 +21,7 @@ const ProfilDetails = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
       phone: userInfos.phone,
     },
   });
+  console.log(errors);
 
   const onSubmit: SubmitHandler<UserUpdateProps> = async (data) => {
     const request = await axiosInstance.put("/customer-profile/update/", data);
@@ -133,9 +134,9 @@ const ProfilDetails = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
               <input
                 type="date"
                 className="form-control form-control-md"
-                {...register("birth_date", { minLength: 10 })}
+                {...register("birth_date", { required: true })}
               />
-              {errors.birth_date?.type === "minLength" && "Invalid Date"}
+              {errors.birth_date?.type === "required" && "Invalid Date"}
             </div>
           </div>
         </div>
