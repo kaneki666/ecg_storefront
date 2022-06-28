@@ -31,6 +31,7 @@ const PlaceOrder = ({
 
   const handleCheckoutApi = async (data: any) => {
     if (userInfo) {
+      
       const config = {
         headers: {
           "Content-type": "application/json",
@@ -53,7 +54,7 @@ const PlaceOrder = ({
           progress: undefined,
         });
         dispatch(clearCartAction(true));
-        setTimeout(() => router.push("/"), 3000);
+        setTimeout(() => router.push("/order"), 3000);
       } else {
         toast("Checkout failed", {
           position: "top-right",
@@ -70,8 +71,11 @@ const PlaceOrder = ({
     }
   };
 
+  
+
   const onSubmit = (data: any) => {
     if (isValid) {
+      var totalP = cart.map((item) => item.totalPrice);
       if (
         !data.shipping_first_name &&
         !data.shipping_last_name &&
@@ -81,6 +85,7 @@ const PlaceOrder = ({
       ) {
         data.product = cart.map((item) => item.id);
         data.quantity = cart.map((item) => item.quantity);
+        data.total_price = totalP[0];
         data.billing_default = true;
         data.shipping_first_name = data.billing_first_name;
         data.shipping_last_name = data.billing_last_name;
@@ -93,6 +98,7 @@ const PlaceOrder = ({
       } else {
         data.product = cart.map((item) => item.id);
         data.quantity = cart.map((item) => item.quantity);
+        data.total_price = totalP[0];
         data.billing_default = true;
         handleCheckoutApi(data);
       }

@@ -34,34 +34,34 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                 <ul className="menu vertical-menu category-menu">
                   {data.length > 0 &&
                     data.map((item: CategoriesProps) =>
-                      item.product_sub_category &&
-                      item.product_sub_category.length > 0 ? (
+                      item.sub_category &&
+                      item.sub_category.length > 0 ? (
                         <li key={item.id.toString()}>
                           <a href={`/category?id=${item.id}&type=cate`}>
                             <i className="w-icon-tshirt2"></i>
-                            {item.name}
+                            {item.title}
                           </a>
                           <ul className="megamenu">
-                            {item.product_sub_category &&
-                              item.product_sub_category.map((subItem) => (
+                            {item.sub_category &&
+                              item.sub_category.map((subItem) => (
                                 <li key={subItem.id.toString()}>
                                   <a
                                     href={`/category?id=${subItem.id}&type=sub`}
                                   >
                                     <h4 className="menu-title">
-                                      {subItem.name}
+                                      {subItem.title}
                                     </h4>
                                   </a>
                                   <hr className="divider" />
                                   <ul>
-                                    {subItem.child_category &&
-                                      subItem.child_category.map(
+                                    {subItem.sub_sub_category &&
+                                      subItem.sub_sub_category.map(
                                         (childItem) => (
                                           <li key={childItem.id.toString()}>
                                             <a
                                               href={`/category?id=${childItem.id}&type=child`}
                                             >
-                                              {childItem.name}
+                                              {childItem.title}
                                             </a>
                                           </li>
                                         )
@@ -107,14 +107,14 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                           <a href={`/category?id=${item.id}&type=cate`}>
                             <i
                               className={
-                                item.name === "TOYS & GAMES"
+                                item.title === "TOYS & GAMES"
                                   ? "w-icon-gamepad"
-                                  : item.name === "HEALTH & BEAUTY"
+                                  : item.title === "HEALTH & BEAUTY"
                                   ? "w-icon-heartbeat"
                                   : "w-icon-furniture"
                               }
                             ></i>{" "}
-                            {item.name}
+                            {item.title}
                           </a>
                         </li>
                       )
