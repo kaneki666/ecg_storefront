@@ -177,7 +177,7 @@ const ProductsContainer = ({
       </div>
       {/* <!-- End of Category Cosmetic Lifestyle --> */}
 
-      <ProductCategorize clothingData={clothingData} />
+      {/* <ProductCategorize clothingData={clothingData} /> */}
 
       <h2 className="title title-underline mb-4 ls-normal ">
         {recentProducts === undefined

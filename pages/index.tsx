@@ -63,10 +63,7 @@ const Home: NextPage = ({
               <CategoryBanner />
               <DealsOfTheDay data={data} />
               <TopCategoriesOfMonth />
-              <ProductsContainer
-                productList={data}
-                clothingData={clothingData.results}
-              />
+              <ProductsContainer productList={data} clothingData={[]} />
             </div>
             <PopUpLanding />
           </main>
@@ -92,7 +89,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const [categoriesData, data, clothingData] = await Promise.all([
     cateGoriesRes.json(),
     dataRes.json(),
-    clothingRes.json(),
+    [],
   ]);
   return { props: { categoriesData, data, clothingData } };
 };
