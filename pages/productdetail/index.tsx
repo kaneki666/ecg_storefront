@@ -98,7 +98,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const [productRes, cateGoriesRes, currencyListRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-details/${slug}/`),
-    fetch(`${API_BASE_URL}/product-all-category-list/`),
+    fetch(`${API_BASE_URL}/mega-menu-data/`),
 
     fetch(`${API_BASE_URL}/currency-list/`),
   ]);

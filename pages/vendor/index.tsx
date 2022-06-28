@@ -92,7 +92,7 @@ const index = ({
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const cateGoriesRes = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const cateGoriesRes = await fetch(`${API_BASE_URL}/mega-menu-data/`);
   const dataRes = await fetch(`${API_BASE_URL}/home-data/`);
   const [categoriesData, data] = await Promise.all([
     cateGoriesRes.json(),

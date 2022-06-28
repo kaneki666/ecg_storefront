@@ -80,7 +80,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id, type } = context.query;
 
   const [cateGoriesRes, dataRes] = await Promise.all([
-    fetch(`${API_BASE_URL}/product-all-category-list/`),
+    fetch(`${API_BASE_URL}/mega-menu-data/`),
     fetch(
       `${API_BASE_URL}/${
         type === "cate"

@@ -65,7 +65,7 @@ const index: NextPage = ({
 export default index;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const res = await fetch(`${API_BASE_URL}/mega-menu-data/`);
   const categoriesData: CategoriesProps[] = await res.json();
   // const resCoupon = await fetch(`${API_BASE_URL}/active-coupon/`);
   // const couponData: CouponItem[] = await resCoupon.json();

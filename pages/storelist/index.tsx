@@ -98,7 +98,7 @@ const StoreList: NextPage = ({
 export default StoreList;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`${API_BASE_URL}/product-all-category-list/`);
+  const res = await fetch(`${API_BASE_URL}/mega-menu-data/`);
   const categoriesData: CategoriesProps[] = await res.json();
 
   if (res.status !== 200) {
