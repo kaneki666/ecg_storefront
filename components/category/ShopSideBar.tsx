@@ -26,13 +26,13 @@ const ShopSideBar = ({
             <h3 className="widget-title">
               <label>All Categories</label>
             </h3>
-            <ul className="widget-body filter-items search-ul">
+            {/* <ul className="widget-body filter-items search-ul">
               {categoriesData.map((item) => (
                 <li key={item.id.toString()}>
                   <a href={`/category?id=${item.id}&type=cate`}>{item.name}</a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           <div className="widget widget-collapsible">

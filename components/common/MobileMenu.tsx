@@ -65,7 +65,7 @@ const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
             </ul>
           </div>
           <div className="tab-pane" id="categories">
-            <ul className="mobile-menu">
+            {/* <ul className="mobile-menu">
               {data &&
                 data.map((item) =>
                   item.product_sub_category &&
@@ -114,7 +114,7 @@ const MobileMenu = ({ data }: { data: CategoriesProps[] }) => {
                     </li>
                   )
                 )}
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>
