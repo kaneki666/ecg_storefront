@@ -36,3 +36,14 @@ export interface User {
   last_name: string;
   email: string;
 }
+
+export interface UserUpdateProps {
+  first_name: string;
+  last_name: string;
+  email: string;
+
+  phone: string;
+  address: string;
+  birth_date: string;
+  gender: string;
+}

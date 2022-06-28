@@ -128,7 +128,7 @@ const ProfileContent = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
           </div>
         </div>
 
-        <ProfilDetails />
+        <ProfilDetails userInfos={userInfos} />
       </div>
     </div>
   );
