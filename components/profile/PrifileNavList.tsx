@@ -23,7 +23,6 @@ const PrifileNavList = () => {
   };
   return (
     <ul className="nav nav-tabs mb-6" role="tablist">
-      <ToastContainer containerId="logout" draggable={false} />
       <li className="nav-item">
         <a href="#account-dashboard" className="nav-link active">
           Dashboard
