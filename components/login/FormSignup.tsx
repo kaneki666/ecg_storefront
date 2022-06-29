@@ -125,7 +125,6 @@ const FormSignup = () => {
  
   return (
     <div className="tab-pane" id="sign-up">
-    <ToastContainer containerId="an id" draggable={false} />
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="form-group">
         <label>Your email address *</label>
