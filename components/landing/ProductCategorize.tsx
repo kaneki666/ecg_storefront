@@ -72,10 +72,16 @@ const ProductCategorize = ({
                 <div className="swiper-slide product-col"> */}
               <div className="tab-pane active pt-4">
                 <div className="row cols-xl-4 cols-lg-3 cols-2">
-                  {clothingData &&
-                    clothingData
-                      .slice(0, 8)
-                      .map((productItem: SingleProductProps) => (
+                  {clothingData && clothingData.length > 8
+                    ? clothingData
+                        .slice(0, 8)
+                        .map((productItem: SingleProductProps) => (
+                          <ProductCategoryItem
+                            key={productItem.id.toString()}
+                            productItem={productItem}
+                          />
+                        ))
+                    : clothingData.map((productItem: SingleProductProps) => (
                         <ProductCategoryItem
                           key={productItem.id.toString()}
                           productItem={productItem}
