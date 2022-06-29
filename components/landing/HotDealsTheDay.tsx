@@ -3,21 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
   addToCartAction,
+  addToCompareAction,
   addToWishlistAction,
+  removeFromCompareAction,
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import {
   DealsOfTheDayProps,
   SingleProductProps,
 } from "../../utils/types/landingpage";
-import { RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   const [checkWishlist, setcheckWishlist] = useState(false);
   const dispatch = useDispatch();
   let [quantity, setQuantity] = useState(1);
 
-  const { wishlist } = useSelector(
+  const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
 
@@ -33,6 +35,33 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       }
     }
   }, []);
+
+  const handleAddToComparelist = () => {
+    const compareItem: CompareProductProps = {
+      id: products.product[0].id,
+      thumbnail: products.product[0].thumbnail,
+      title: products.product[0].title,
+      price: products.product[0].price,
+      quantity: products.product[0].price,
+      old_price: products.product[0].price,
+      short_description: products.product[0].short_description,
+      rating: products.product[0].rating,
+      is_featured: products.product[0].is_featured,
+      product_category_name: products.product[0].product_category_name,
+      product_brand: products.product[0].price,
+      full_description: products.product[0].full_description,
+      warranty: products.product[0].warranty,
+      variation: products.product[0].variation,
+    };
+    if(compareProducts.length <= 1){
+      dispatch(addToCompareAction(compareItem));
+    }else if(compareProducts.length === 2){
+     dispatch(removeFromCompareAction(compareProducts[0].id))
+     dispatch(addToCompareAction(compareItem));
+     console.log(compareProducts)
+    }
+    console.log(compareItem)
+  };
 
   const handleAddToCart = () =>
     dispatch(
@@ -308,6 +337,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                               className="btn-product-icon btn-wishlist w-icon-heart"
                             ></a>
                             <a
+                              onClick={handleAddToComparelist}
                               href="#"
                               className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
                             ></a>

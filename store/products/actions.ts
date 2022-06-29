@@ -1,6 +1,7 @@
 import { SingleProductProps } from "../../utils/types/landingpage";
 import {
   CartItemProps,
+  CompareProductProps,
   CouponItem,
   UserLoginProps,
 } from "../../utils/types/reduxTypes";
@@ -17,6 +18,7 @@ import {
   REMOVE_FROM_CART,
   REMOVE_FROM_WISHLIST,
   REMOVE_ITEM_FROM_CART,
+  REMOVE_PRODUCT_COMPARE,
 } from "./types";
 
 export const addToQuickViewAction = (product: SingleProductProps) => {
@@ -90,13 +92,23 @@ export const addToRecentViewAction = (product: SingleProductProps) => {
   };
 };
 
-export const addToCompareAction = (product: SingleProductProps) => {
+export const addToCompareAction = (product: CompareProductProps) => {
   return (
-    dispatch: (arg0: { type: string; payload: SingleProductProps }) => void
+    dispatch: (arg0: { type: string; payload: CompareProductProps }) => void
   ) => {
     dispatch({
       type: ADD_PRODUCT_COMPARE,
       payload: product,
+    });
+  };
+};
+
+
+export const removeFromCompareAction = (id: number) => {
+  return (dispatch: (arg0: { type: string; payload: number }) => void) => {
+    dispatch({
+      type: REMOVE_PRODUCT_COMPARE,
+      payload: id,
     });
   };
 };
