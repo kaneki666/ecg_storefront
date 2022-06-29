@@ -4,7 +4,7 @@ import type {
   NextPage,
 } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import MobileMenu from "../../components/common/MobileMenu";
@@ -28,7 +28,7 @@ const CategoryPage: NextPage = ({
   categoriesData,
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [products, setProducts] = useState(data.results);
+  const products = data.results;
 
   return (
     <div>
@@ -57,7 +57,7 @@ const CategoryPage: NextPage = ({
                   <div className="main-content">
                     <Filter />
                     <MainContent products={products} />
-                    <Pagination />
+                    {products.lengtg > 0 && <Pagination products={products} />}
                   </div>
                 </div>
               </div>
@@ -88,11 +88,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           : type === "sub"
           ? `product-list-by-sub-category/${id}`
           : type === "child"
-          ? `product-list-by-category/${id}`
+          ? `product-list-by-sub-sub-category/${id}`
           : "product-list/"
       }`
     ),
   ]);
+
   const [categoriesData, data] = await Promise.all([
     cateGoriesRes.json(),
     dataRes.json(),

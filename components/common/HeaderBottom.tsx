@@ -34,8 +34,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                 <ul className="menu vertical-menu category-menu">
                   {data.length > 0 &&
                     data.map((item: CategoriesProps) =>
-                      item.sub_category &&
-                      item.sub_category.length > 0 ? (
+                      item.sub_category && item.sub_category.length > 0 ? (
                         <li key={item.id.toString()}>
                           <a href={`/category?id=${item.id}&type=cate`}>
                             <i className="w-icon-tshirt2"></i>
@@ -80,7 +79,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                                     height="347"
                                   />
                                 </figure>
-                                <div className="banner-content">
+                                {/* <div className="banner-content">
                                   <div className="banner-price-info mb-1 ls-normal">
                                     Get up to
                                     <strong className="text-primary text-uppercase">
@@ -97,7 +96,7 @@ const HeaderBottom = ({ data }: { data: CategoriesProps[] }) => {
                                     Shop Now
                                     <i className="w-icon-long-arrow-right"></i>
                                   </a>
-                                </div>
+                                </div> */}
                               </div>
                             </li>
                           </ul>
