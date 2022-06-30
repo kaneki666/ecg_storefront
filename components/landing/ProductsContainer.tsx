@@ -72,8 +72,8 @@ const ProductsContainer = ({
         {/* <!-- End of Tab Pane1 --> */}
         <div className="tab-pane pt-4" id="tab1-2">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList.new_arrivals &&
-              shuffleArray(productList.new_arrivals).map(
+            {productList.top_20_best_seller &&
+              shuffleArray(productList.top_20_best_seller).map(
                 (productItem: SingleProductProps) => (
                   <ProductItem
                     key={productItem.id.toString()}
@@ -86,8 +86,8 @@ const ProductsContainer = ({
         {/* <!-- End of Tab Pane2 --> */}
         <div className="tab-pane pt-4" id="tab1-3">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList.new_arrivals &&
-              shuffleArray(productList.new_arrivals).map(
+            {productList.most_popular &&
+              shuffleArray(productList.most_popular).map(
                 (productItem: SingleProductProps) => (
                   <ProductItem
                     key={productItem.id.toString()}
@@ -100,8 +100,8 @@ const ProductsContainer = ({
         {/* <!-- End of Tab Pane3 --> */}
         <div className="tab-pane pt-4" id="tab1-4">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-            {productList.new_arrivals &&
-              shuffleArray(productList.new_arrivals).map(
+            {productList.featured &&
+              shuffleArray(productList.featured).map(
                 (productItem: SingleProductProps) => (
                   <ProductItem
                     key={productItem.id.toString()}

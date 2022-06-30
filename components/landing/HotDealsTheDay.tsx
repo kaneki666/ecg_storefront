@@ -58,14 +58,12 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       warranty: products.product[0].warranty,
       // variation: "",
     };
-    if (compareProducts.length <= 1) {
+    if (compareProducts.length < 4) {
       dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 2) {
+    } else if (compareProducts.length === 4) {
       dispatch(removeFromCompareAction(compareProducts[0].id));
       dispatch(addToCompareAction(compareItem));
-      console.log(compareProducts);
     }
-    console.log(compareItem);
   };
 
   const handleAddToCart = () =>
@@ -162,16 +160,16 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                               </div>
                             ))} */}
                             <div className="swiper-slide">
-                                <figure className="product-image">
-                                  <img
-                                    src={productitem.thumbnail}
-                                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                                    alt="Product Image"
-                                    width="800"
-                                    height="900"
-                                  />
-                                </figure>
-                              </div>
+                              <figure className="product-image">
+                                <img
+                                  src={productitem.thumbnail}
+                                  data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                                  alt="Product Image"
+                                  width="800"
+                                  height="900"
+                                />
+                              </figure>
+                            </div>
                           </div>
                           <button className="swiper-button-next"></button>
                           <button className="swiper-button-prev"></button>
@@ -218,17 +216,17 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                               )
                             )} */}
 
-                                <div
-                                  className="product-thumb swiper-slide"
-                                  // key={item.id}
-                                >
-                                  <img
-                                    src={productitem.thumbnail}
-                                    alt="Product Image"
-                                    width="60"
-                                    height="68"
-                                  />
-                                </div>
+                            <div
+                              className="product-thumb swiper-slide"
+                              // key={item.id}
+                            >
+                              <img
+                                src={productitem.thumbnail}
+                                alt="Product Image"
+                                width="60"
+                                height="68"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -377,8 +375,8 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                 </div>
               ))}
             </div>
-            <button className="swiper-button-prev"></button>
-            <button className="swiper-button-next"></button>
+            {/* <button className="swiper-button-prev"></button>
+            <button className="swiper-button-next"></button> */}
           </div>
         </div>
       </div>

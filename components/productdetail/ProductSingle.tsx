@@ -9,7 +9,11 @@ import {
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import {
+  CartItemProps,
+  CompareProductProps,
+  RootAppStateProps,
+} from "../../utils/types/reduxTypes";
 
 const ProductSingle = ({ product }: { product: SingleProductProps }) => {
   const currency = useSelector(
@@ -50,14 +54,12 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       warranty: product.warranty,
       // variation: product.variation,
     };
-    if(compareProducts.length <= 1){
+    if (compareProducts.length < 4) {
       dispatch(addToCompareAction(compareItem));
-    }else if(compareProducts.length === 2){
-     dispatch(removeFromCompareAction(compareProducts[0].id))
-     dispatch(addToCompareAction(compareItem));
-     console.log(compareProducts)
+    } else if (compareProducts.length === 4) {
+      dispatch(removeFromCompareAction(compareProducts[0].id));
+      dispatch(addToCompareAction(compareItem));
     }
-    console.log(compareItem)
   };
 
   const handleWishlist = () => {
@@ -136,17 +138,16 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                 </div>
               ))} */}
               <div className="swiper-slide">
-                  <figure className="product-image">
-                    <img
-                      src={product.thumbnail}
-                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                      alt="Product Image"
-                      width="800"
-                      height="900"
-                    />
-                  </figure>
-                  
-                </div>
+                <figure className="product-image">
+                  <img
+                    src={product.thumbnail}
+                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                    alt="Product Image"
+                    width="800"
+                    height="900"
+                  />
+                </figure>
+              </div>
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -175,16 +176,16 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                 </div>
               ))} */}
               <div className="swiper-slide">
-                  <figure className="product-image">
-                    <img
-                      src={product.thumbnail}
-                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                      alt="Product Image"
-                      width="800"
-                      height="900"
-                    />
-                  </figure>
-                </div>
+                <figure className="product-image">
+                  <img
+                    src={product.thumbnail}
+                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                    alt="Product Image"
+                    width="800"
+                    height="900"
+                  />
+                </figure>
+              </div>
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>

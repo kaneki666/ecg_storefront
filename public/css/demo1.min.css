@@ -72,6 +72,7 @@
   background-color: transparent;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+ 
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -5865,7 +5866,7 @@ blockquote {
 [class^=w-icon-], [class*=" w-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "wolmart" !important;
-  speak: never;
+  /* speak: never; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -11431,8 +11432,8 @@ body .product-popup {
   border: 0;
   color: #747474;
   font-weight: normal;
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
 }
 .widget-products .swiper-button-prev:not(.swiper-button-disabled):hover, .widget-products .swiper-button-prev:not(.swiper-button-disabled):focus, .widget-products .swiper-button-prev:not(.swiper-button-disabled):active,
 .widget-products .swiper-button-next:not(.swiper-button-disabled):hover,
@@ -11589,9 +11590,9 @@ body .product-popup {
     grid-template-columns: repeat(auto-fill, calc( 100% / 3 ));
   }
   .category-masonry-section .grid-item3 {
-    -ms-grid-row: 1;
+    /* -ms-grid-row: 1; */
         grid-row-start: 1;
-    -ms-grid-column: 3;
+    /* -ms-grid-column: 3; */
         grid-column-start: 3;
     -ms-grid-row-span: 3;
     grid-row-end: span 3;
