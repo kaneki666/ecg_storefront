@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
   addToCartAction,
+  addToCompareAction,
   addToQuickViewAction,
   addToWishlistAction,
+  removeFromCompareAction,
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductCategoryItem = ({
   productItem,
@@ -18,13 +20,41 @@ const ProductCategoryItem = ({
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
-  const { wishlist } = useSelector(
+  const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () =>
     dispatch(addToQuickViewAction(productItem));
+
+    const handleAddToComparelist = () => {
+      console.log("hello")
+      const compareItem: CompareProductProps = {
+        id: productItem.id,
+        thumbnail: productItem.thumbnail,
+        title: productItem.title,
+        price: productItem.price,
+        quantity: productItem.price,
+        old_price: productItem.price,
+        short_description: productItem.short_description,
+        rating: productItem.rating,
+        is_featured: productItem.is_featured,
+        product_category_name: productItem.product_category_name,
+        product_brand: productItem.price,
+        full_description: productItem.full_description,
+        warranty: productItem.warranty,
+        variation: productItem.variation,
+      };
+      if(compareProducts.length <= 1){
+        dispatch(addToCompareAction(compareItem));
+      }else if(compareProducts.length === 2){
+       dispatch(removeFromCompareAction(compareProducts[0].id))
+       dispatch(addToCompareAction(compareItem));
+       console.log(compareProducts)
+      }
+      console.log(compareItem)
+    };
 
   // const handleAddToCart = () => {
   //   const cartItem: CartItemProps = {
@@ -110,6 +140,7 @@ const ProductCategoryItem = ({
               title="Quickview"
             ></a>
             <a
+              onClick={handleAddToComparelist}
               href="#"
               className="btn-product-icon btn-compare w-icon-compare"
               title="Add to Compare"
@@ -131,7 +162,7 @@ const ProductCategoryItem = ({
               <span className="tooltiptext tooltip-top"></span>
             </div>
             <a href="#" className="rating-reviews">
-              (3 reviews)
+              (5 reviews)
             </a>
           </div>
           <div className="product-price">

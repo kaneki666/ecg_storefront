@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
+  addToCompareAction,
   addToQuickViewAction,
   addToWishlistAction,
+  removeFromCompareAction,
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const [checkWishlist, setcheckWishlist] = useState(false);
@@ -17,6 +19,11 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const { wishlist } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
+
+  const { compareProducts } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
+
 
   const dispatch = useDispatch();
 
@@ -49,6 +56,32 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   //   };
   //   dispatch(addToCartAction(cartItem));
   // };
+  const handleAddToComparelist = () => {
+    const compareItem: CompareProductProps = {
+      id: productItem.id,
+      thumbnail: productItem.thumbnail,
+      title: productItem.title,
+      price: productItem.price,
+      quantity: productItem.price,
+      old_price: productItem.price,
+      short_description: productItem.short_description,
+      rating: productItem.rating,
+      is_featured: productItem.is_featured,
+      product_category_name: productItem.product_category_name,
+      product_brand: productItem.price,
+      full_description: productItem.full_description,
+      warranty: productItem.warranty,
+      variation: productItem.variation,
+    };
+    if(compareProducts.length <= 1){
+      dispatch(addToCompareAction(compareItem));
+    }else if(compareProducts.length === 2){
+     dispatch(removeFromCompareAction(compareProducts[0].id))
+     dispatch(addToCompareAction(compareItem));
+     console.log(compareProducts)
+    }
+    console.log(compareItem)
+  };
   const handleWishlist = () => {
     if (wishlist?.length !== 0) {
       if (wishlist) {
@@ -128,6 +161,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
               title="Quickview"
             ></a>
             <a
+              onClick={handleAddToComparelist}
               href="#"
               className="btn-product-icon btn-compare w-icon-compare"
               title="Add to Compare"

@@ -40,7 +40,6 @@ const ProfilDetails = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
 
   return (
     <div className="tab-pane" id="account-details">
-      <ToastContainer containerId="updateprofile" draggable={false} />
       <div className="icon-box icon-box-side icon-box-light">
         <span className="icon-box-icon icon-account mr-2">
           <i className="w-icon-user"></i>
@@ -84,7 +83,7 @@ const ProfilDetails = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
           </div>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="text-dark" htmlFor="email_1">
             Email address{" "}
           </label>
@@ -97,7 +96,7 @@ const ProfilDetails = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
             className="form-control form-control-md"
           />
           {errors.email?.type === "pattern" && "Invalid Email address"}
-        </div>
+        </div> */}
 
         {/* <div className="form-group">
           <label className="text-dark" htmlFor="conf-password">

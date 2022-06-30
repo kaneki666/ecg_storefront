@@ -1,6 +1,7 @@
 import { SingleProductProps } from "./../../utils/types/landingpage";
 import {
   CartItemProps,
+  CompareProductProps,
   CouponItem,
   ProductCartReducerStateProps,
 } from "./../../utils/types/reduxTypes";
@@ -18,6 +19,7 @@ import {
   REMOVE_FROM_CART,
   REMOVE_FROM_WISHLIST,
   REMOVE_ITEM_FROM_CART,
+  REMOVE_PRODUCT_COMPARE,
 } from "./types";
 
 const initialState: ProductCartReducerStateProps = {
@@ -127,11 +129,11 @@ export const ProductReducer = (
 
     case ADD_PRODUCT_COMPARE:
       var compareItems = state.compareProducts;
-      const newCompareItem: SingleProductProps = action.payload;
+      const newCompareItem: CompareProductProps = action.payload;
 
       if (compareItems) {
         const findIndexRecent = compareItems.findIndex(
-          (item: SingleProductProps) => item.id === newCompareItem.id
+          (item: CompareProductProps) => item.id === newCompareItem.id
         );
         if (compareItems.length == 3) {
           compareItems.slice(1);
@@ -150,6 +152,17 @@ export const ProductReducer = (
         compareItems.push(newCompareItem);
       }
       return { ...state, compareProducts: compareItems };
+
+      case REMOVE_PRODUCT_COMPARE:
+      const compareItemRemove = action.payload;
+      const findIndexCompareRemove = state.compareProducts?.findIndex(
+        (item: CompareProductProps) => item.id === compareItemRemove
+      );
+
+      state.compareProducts?.splice(findIndexCompareRemove!, 1);
+
+      return { ...state, compareProducts: state.compareProducts };
+
     case INITILIZE_WISHLIST:
       return { ...state, wishlist: [] };
     case ADD_TO_WISHLIST:

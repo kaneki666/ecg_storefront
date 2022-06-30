@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import {
   addToCartAction,
+  addToCompareAction,
   addToWishlistAction,
+  removeFromCompareAction,
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductSingle = ({ product }: { product: SingleProductProps }) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
-  const { wishlist } = useSelector(
+  const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
   const dispatch = useDispatch();
@@ -29,6 +31,33 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       totalPrice: product.price,
     };
     dispatch(addToCartAction(cartItem));
+  };
+
+  const handleAddToComparelist = () => {
+    const compareItem: CompareProductProps = {
+      id: product.id,
+      thumbnail: product.thumbnail,
+      title: product.title,
+      price: product.price,
+      quantity: product.price,
+      old_price: product.price,
+      short_description: product.short_description,
+      rating: product.rating,
+      is_featured: product.is_featured,
+      product_category_name: product.product_category_name,
+      product_brand: product.price,
+      full_description: product.full_description,
+      warranty: product.warranty,
+      variation: product.variation,
+    };
+    if(compareProducts.length <= 1){
+      dispatch(addToCompareAction(compareItem));
+    }else if(compareProducts.length === 2){
+     dispatch(removeFromCompareAction(compareProducts[0].id))
+     dispatch(addToCompareAction(compareItem));
+     console.log(compareProducts)
+    }
+    console.log(compareItem)
   };
 
   const handleWishlist = () => {
@@ -308,6 +337,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                 <span></span>
               </a>
               <a
+                onClick={handleAddToComparelist}
                 href="#"
                 className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
               >
