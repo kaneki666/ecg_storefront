@@ -3,6 +3,7 @@ import BannerFashion from "./BannerFashion";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import ProductCategoryItem from "./ProductCategoryItem";
 import { shuffleArray } from "../../utils/helperFucntion/helper";
+import ProductItem from "./ProductItem";
 
 const ProductCategorize = ({
   clothingData,
@@ -76,13 +77,13 @@ const ProductCategorize = ({
                     ? clothingData
                         .slice(0, 8)
                         .map((productItem: SingleProductProps) => (
-                          <ProductCategoryItem
+                          <ProductItem
                             key={productItem.id.toString()}
                             productItem={productItem}
                           />
                         ))
                     : clothingData.map((productItem: SingleProductProps) => (
-                        <ProductCategoryItem
+                        <ProductItem
                           key={productItem.id.toString()}
                           productItem={productItem}
                         />
@@ -158,7 +159,7 @@ const ProductCategorize = ({
                     shuffleArray(clothingData)
                       .slice(0, 8)
                       .map((productItem: SingleProductProps) => (
-                        <ProductCategoryItem
+                        <ProductItem
                           key={productItem.id.toString()}
                           productItem={productItem}
                         />
@@ -238,7 +239,7 @@ const ProductCategorize = ({
                     shuffleArray(clothingData)
                       .slice(0, 8)
                       .map((productItem: SingleProductProps) => (
-                        <ProductCategoryItem
+                        <ProductItem
                           key={productItem.id.toString()}
                           productItem={productItem}
                         />

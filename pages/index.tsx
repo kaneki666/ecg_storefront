@@ -50,7 +50,7 @@ const Home: NextPage = ({
             <HeaderBottom data={categoriesData} />
           </header>
           <main className="main">
-            <Sliderlanidng />
+            <Sliderlanidng images={data.slider_images} />
             <div className="container">
               <BoxIcons />
               <CategoryBanner />

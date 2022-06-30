@@ -6,10 +6,13 @@ import {
   addToQuickViewAction,
   addToWishlistAction,
   removeFromCompareAction,
-  removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import {
+  CartItemProps,
+  CompareProductProps,
+  RootAppStateProps,
+} from "../../utils/types/reduxTypes";
 
 const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const [checkWishlist, setcheckWishlist] = useState(false);
@@ -23,7 +26,6 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const { compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
-
 
   const dispatch = useDispatch();
 
@@ -61,26 +63,28 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
       id: productItem.id,
       thumbnail: productItem.thumbnail,
       title: productItem.title,
-      price: productItem.price,
-      quantity: productItem.price,
-      old_price: productItem.price,
+      price: productItem.unit_price,
+      quantity: productItem.total_quantity,
+      old_price: productItem.total_quantity,
       short_description: productItem.short_description,
-      rating: productItem.rating,
-      is_featured: productItem.is_featured,
-      product_category_name: productItem.product_category_name,
-      product_brand: productItem.price,
+      rating: "4",
+      is_featured: false,
+      product_category_name: productItem.category_name
+        ? productItem.category_name
+        : "",
+      product_brand: productItem.brand,
       full_description: productItem.full_description,
       warranty: productItem.warranty,
-      variation: productItem.variation,
+      variation: "productItem.variation",
     };
-    if(compareProducts.length <= 1){
+    if (compareProducts.length <= 1) {
       dispatch(addToCompareAction(compareItem));
-    }else if(compareProducts.length === 2){
-     dispatch(removeFromCompareAction(compareProducts[0].id))
-     dispatch(addToCompareAction(compareItem));
-     console.log(compareProducts)
+    } else if (compareProducts.length === 2) {
+      dispatch(removeFromCompareAction(compareProducts[0].id));
+      dispatch(addToCompareAction(compareItem));
+      console.log(compareProducts);
     }
-    console.log(compareItem)
+    console.log(compareItem);
   };
   const handleWishlist = () => {
     if (wishlist?.length !== 0) {
@@ -88,7 +92,6 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
         const findIndexWishlistRemove = wishlist?.findIndex(
           (item: SingleProductProps) => item.id === productItem.id
         );
-        console.log(findIndexWishlistRemove);
 
         if (findIndexWishlistRemove === -1) {
           setcheckWishlist(true);
@@ -176,10 +179,10 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
-              <span
+              {/* <span
                 className="ratings"
                 style={{ width: `${parseInt(productItem.rating) * 20}%` }}
-              ></span>
+              ></span> */}
               <span className="tooltiptext tooltip-top"></span>
             </div>
             <a href="#" className="rating-reviews">
@@ -189,7 +192,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
           <div className="product-price">
             <ins className="new-price">
               {currency.currency_symbol}{" "}
-              {productItem.price * currency.currency_rate}
+              {productItem.unit_price * currency.currency_rate}
             </ins>
           </div>
         </div>

@@ -12,7 +12,10 @@ import {
   DealsOfTheDayProps,
   SingleProductProps,
 } from "../../utils/types/landingpage";
-import { CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import {
+  CompareProductProps,
+  RootAppStateProps,
+} from "../../utils/types/reduxTypes";
 
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   const [checkWishlist, setcheckWishlist] = useState(false);
@@ -41,26 +44,28 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       id: products.product[0].id,
       thumbnail: products.product[0].thumbnail,
       title: products.product[0].title,
-      price: products.product[0].price,
-      quantity: products.product[0].price,
-      old_price: products.product[0].price,
+      price: products.product[0].unit_price,
+      quantity: products.product[0].total_quantity,
+      old_price: products.product[0].unit_price,
       short_description: products.product[0].short_description,
-      rating: products.product[0].rating,
-      is_featured: products.product[0].is_featured,
-      product_category_name: products.product[0].product_category_name,
-      product_brand: products.product[0].price,
+      rating: "1",
+      is_featured: false,
+      product_category_name: products.product[0].category_name
+        ? products.product[0].category_name
+        : "",
+      product_brand: products.product[0].brand,
       full_description: products.product[0].full_description,
       warranty: products.product[0].warranty,
-      variation: products.product[0].variation,
+      variation: "",
     };
-    if(compareProducts.length <= 1){
+    if (compareProducts.length <= 1) {
       dispatch(addToCompareAction(compareItem));
-    }else if(compareProducts.length === 2){
-     dispatch(removeFromCompareAction(compareProducts[0].id))
-     dispatch(addToCompareAction(compareItem));
-     console.log(compareProducts)
+    } else if (compareProducts.length === 2) {
+      dispatch(removeFromCompareAction(compareProducts[0].id));
+      dispatch(addToCompareAction(compareItem));
+      console.log(compareProducts);
     }
-    console.log(compareItem)
+    console.log(compareItem);
   };
 
   const handleAddToCart = () =>
@@ -70,8 +75,8 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
         title: products.product[0].title,
         thumbnail: products.product[0].thumbnail,
         quantity: quantity,
-        price: products.product[0].price,
-        totalPrice: products.product[0].price,
+        price: products.product[0].unit_price,
+        totalPrice: products.product[0].unit_price * quantity,
       })
     );
   const handleWishlist = () => {

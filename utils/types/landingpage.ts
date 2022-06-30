@@ -17,32 +17,46 @@ export interface SubSubCategoryProps {
   title: string;
 }
 
+export interface ProductTag {
+  id: number;
+  title: string;
+}
+
+export interface ProductReview {
+  id: number;
+  user: number;
+  rating_number: number;
+  review_text: string;
+}
+
 export interface SingleProductProps {
   id: number;
   title: string;
   slug: string;
-  price: number;
-  old_price: number;
-  short_description: string;
-  quantity: number;
-  rating: string;
-  status: string;
-  is_featured: boolean;
-  product_category: number;
-  product_category_name: string;
-  product_brand: number;
-  thumbnail: string;
-  product_media: any[];
-
-  full_description: string;
-
   warranty: string;
-  variation: string;
-
+  full_description: string;
+  short_description: string;
+  status: string;
   vendor: number;
+  category?: number;
+  sub_category?: number;
+  sub_sub_category?: number;
+  brand: number;
+  unit: number;
+  unit_price: number;
+  purchase_price: number;
+  tax_in_percent: number;
+  discount_type?: any;
+  discount_amount: number;
+  total_quantity: number;
+  total_shipping_cost: number;
+  shipping_time: number;
+  thumbnail: string;
+  youtube_link: string;
+  product_tags: ProductTag[];
+  product_reviews: ProductReview[];
+  category_name?: string;
 }
-
-
 
 export interface ProductListProps {
   deals_of_the_day: any;
@@ -51,7 +65,6 @@ export interface ProductListProps {
   previous: null;
   results: SingleProductProps[];
 }
-
 
 export interface HomePageApiProps {
   slider_images: any[];

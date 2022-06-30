@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { logoutAction } from "../../store/user/actions";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 const PrifileNavList = () => {
   const dispatch = useDispatch();
   const router = useRouter();

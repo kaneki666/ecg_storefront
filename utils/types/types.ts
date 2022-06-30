@@ -47,3 +47,9 @@ export interface UserUpdateProps {
   birth_date: string;
   gender: string;
 }
+
+export interface LandingBannerProps {
+  id: number;
+  file: string;
+  text: string;
+}

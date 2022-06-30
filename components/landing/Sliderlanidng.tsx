@@ -1,6 +1,7 @@
 import React from "react";
+import { LandingBannerProps } from "../../utils/types/types";
 
-const Sliderlanidng = () => {
+const Sliderlanidng = ({ images }: { images: LandingBannerProps[] }) => {
   return (
     <section className="intro-section">
       <div
