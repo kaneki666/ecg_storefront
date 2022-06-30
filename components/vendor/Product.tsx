@@ -20,9 +20,9 @@ const Product = ({ productItem }: { productItem: SingleProductProps }) => {
       id: productItem.id,
       thumbnail: productItem.thumbnail,
       title: productItem.title,
-      price: productItem.price,
+      price: productItem.unit_price,
       quantity: 1,
-      totalPrice: productItem.price,
+      totalPrice: productItem.unit_price,
     };
     dispatch(addToCartAction(cartItem));
   };
@@ -53,19 +53,19 @@ const Product = ({ productItem }: { productItem: SingleProductProps }) => {
                 <div className="product-details">
                     <h4 className="product-name"><a href={`productdetail?slug=${productItem.slug}`}>
                         {productItem.title}</a></h4>
-                    <div className="ratings-container">
+                    {/* <div className="ratings-container">
                         <div className="ratings-full">
                             <span className="ratings" style={{ width: `${parseInt(productItem.rating) * 20}%` }} ></span>
                             <span className="tooltiptext tooltip-top"></span>
                         </div>
                         <a href="#" className="rating-reviews">(3
                             reviews)</a>
-                    </div>
+                    </div> */}
                     <div className="product-pa-wrapper">
                         <div className="product-price">
                             <ins className="new-price">
                                 {currency.currency_symbol}{" "}
-                                {productItem.price * currency.currency_rate}
+                                {productItem.unit_price * currency.currency_rate}
                             </ins>
                         </div>
                         <div className="product-action">

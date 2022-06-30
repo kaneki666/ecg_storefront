@@ -18,8 +18,8 @@ const ProductQuickView = () => {
         title: product.title,
         thumbnail: product.thumbnail,
         quantity: quantity,
-        price: product.price,
-        totalPrice: product.price,
+        price: product.unit_price,
+        totalPrice: product.unit_price,
       };
 
       dispatch(addToCartAction(cartItem));
@@ -32,7 +32,7 @@ const ProductQuickView = () => {
           <div className="product-gallery product-gallery-sticky">
             <div className="swiper-container product-single-swiper swiper-theme nav-inner">
               <div className="swiper-wrapper row cols-1 gutter-no">
-                {product?.product_media.map((item, index) => (
+                {/* {product?.product_media.map((item, index) => (
                   <div className="swiper-slide" key={item.id}>
                     <figure className="product-image">
                       <img
@@ -44,7 +44,19 @@ const ProductQuickView = () => {
                       />
                     </figure>
                   </div>
-                ))}
+                ))} */}
+
+                  <div className="swiper-slide">
+                    <figure className="product-image">
+                      <img
+                        src={product?.thumbnail}
+                        data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                        alt="Product Image"
+                        width="800"
+                        height="900"
+                      />
+                    </figure>
+                  </div>
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -59,7 +71,7 @@ const ProductQuickView = () => {
               }"
             >
               <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                {product?.product_media.map((item, index) => (
+                {/* {product?.product_media.map((item, index) => (
                   <div className="product-thumb swiper-slide" key={item.id}>
                     <img
                       src={item.file}
@@ -68,7 +80,18 @@ const ProductQuickView = () => {
                       height="116"
                     />
                   </div>
-                ))}
+                ))} */}
+                <div className="swiper-slide">
+                    <figure className="product-image">
+                      <img
+                        src={product?.thumbnail}
+                        data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                        alt="Product Image"
+                        width="800"
+                        height="900"
+                      />
+                    </figure>
+                  </div>
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -91,7 +114,7 @@ const ProductQuickView = () => {
                 <div className="product-categories">
                   Category:
                   <span className="product-category">
-                    <a href="#"> {product?.product_category_name}</a>
+                    <a href="#"> {product?.category_name}</a>
                   </span>
                 </div>
                 <div className="product-sku">
@@ -102,9 +125,9 @@ const ProductQuickView = () => {
 
             <hr className="product-divider" />
 
-            <div className="product-price">${product?.price}</div>
+            <div className="product-price">${product?.unit_price}</div>
 
-            <div className="ratings-container">
+            {/* <div className="ratings-container">
               <div className="ratings-full">
                 {product && (
                   <span
@@ -117,7 +140,7 @@ const ProductQuickView = () => {
               <a href="#" className="rating-reviews">
                 (3 Reviews)
               </a>
-            </div>
+            </div> */}
 
             <div className="product-short-desc">
               <ul className="list-type-check list-style-none">

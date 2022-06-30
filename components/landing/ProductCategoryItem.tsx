@@ -29,22 +29,22 @@ const ProductCategoryItem = ({
     dispatch(addToQuickViewAction(productItem));
 
     const handleAddToComparelist = () => {
-      console.log("hello")
+
       const compareItem: CompareProductProps = {
         id: productItem.id,
         thumbnail: productItem.thumbnail,
         title: productItem.title,
-        price: productItem.price,
-        quantity: productItem.price,
-        old_price: productItem.price,
+        unit_price: productItem.unit_price,
+        total_quantity: productItem.total_quantity,
+        // old_price: productItem.purchase_price,
         short_description: productItem.short_description,
-        rating: productItem.rating,
-        is_featured: productItem.is_featured,
-        product_category_name: productItem.product_category_name,
-        product_brand: productItem.price,
+        // rating: productItem.,
+        // is_featured: productItem.,
+        category_name: productItem.category_name,
+        brand: productItem.brand,
         full_description: productItem.full_description,
         warranty: productItem.warranty,
-        variation: productItem.variation,
+        // variation: productItem.,
       };
       if(compareProducts.length <= 1){
         dispatch(addToCompareAction(compareItem));
@@ -154,13 +154,13 @@ const ProductCategoryItem = ({
             </a>
           </h4>
           <div className="ratings-container">
-            <div className="ratings-full">
+            {/* <div className="ratings-full">
               <span
                 className="ratings"
                 style={{ width: `${parseInt(productItem.rating) * 20}%` }}
               ></span>
               <span className="tooltiptext tooltip-top"></span>
-            </div>
+            </div> */}
             <a href="#" className="rating-reviews">
               (5 reviews)
             </a>
@@ -168,14 +168,14 @@ const ProductCategoryItem = ({
           <div className="product-price">
             <ins className="new-price">
               {currency.currency_symbol}{" "}
-              {productItem.price * currency.currency_rate}
+              {productItem.unit_price * currency.currency_rate}
             </ins>
-            {productItem.old_price && (
+            {/* {productItem.old_price && (
               <del className="old-price">
                 {currency.currency_symbol}{" "}
                 {productItem.price * currency.currency_rate}
               </del>
-            )}
+            )} */}
           </div>
         </div>
       </div>

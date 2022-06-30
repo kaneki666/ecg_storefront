@@ -21,9 +21,9 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      price: product.price,
+      price: product.unit_price,
       quantity: 1,
-      totalPrice: product.price,
+      totalPrice: product.unit_price,
     };
     dispatch(addToCartAction(cartItem));
   };
@@ -66,19 +66,19 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="category">{product.product_category_name}</a>
+            <a href="category">{product.category_name}</a>
           </div>
           <h3 className="product-name">
             <a href="#">{product.title}</a>
           </h3>
           <div className="ratings-container">
-            <div className="ratings-full">
+            {/* <div className="ratings-full">
               <span
                 className="ratings"
-                style={{ width: `${parseInt(product.rating) * 20}%` }}
+                style={{ width: `${parseInt(product.) * 20}%` }}
               ></span>
               <span className="tooltiptext tooltip-top"></span>
-            </div>
+            </div> */}
             <a href="#" className="rating-reviews">
               (3 reviews)
             </a>
@@ -87,7 +87,7 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
             <div className="product-price">
               {" "}
               {currency.currency_symbol}{" "}
-              {product.price * currency.currency_rate}
+              {product.unit_price * currency.currency_rate}
             </div>
           </div>
         </div>

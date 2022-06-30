@@ -64,7 +64,7 @@ const CompareContent = (props: any) => {
                 {compareProducts.map((item) => (
                   <div className="compare-col compare-value" key={item.id}>
                     <div className="product-price">
-                      <span className="new-price">{item.price}</span>
+                      <span className="new-price">{item.unit_price}</span>
                     </div>
                   </div>
                 ))}
@@ -103,7 +103,7 @@ const CompareContent = (props: any) => {
                 <div className="compare-col compare-field">Category</div>
                 {compareProducts.map((item) => (
                   <div className="compare-col compare-value" key={item.id}>
-                    {item.product_category_name}
+                    {item.category_name}
                   </div>
                 ))}
               </div>

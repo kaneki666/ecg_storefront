@@ -27,18 +27,17 @@ export interface VendorDataProps {
 export interface CompareProductProps {
   id: number;
   title: string;
-  price: number;
-  old_price: number;
+  unit_price: number;
+  // old_price: number;
   short_description: string;
-  quantity: number;
-  rating: string;
-  is_featured: boolean;
-  product_category_name: string;
-  product_brand: number;
+  total_quantity: number;
+  // rating: string;
+  // is_featured: boolean;
+  category_name?: string;
+  brand: number;
   thumbnail: string;
   full_description: string;
   warranty: string;
-  variation: string;
   // size:string;
   // color:string;
   // brand:string;

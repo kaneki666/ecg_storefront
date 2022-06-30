@@ -26,9 +26,9 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      price: product.price,
+      price: product.unit_price,
       quantity: quantity,
-      totalPrice: product.price,
+      totalPrice: product.unit_price,
     };
     dispatch(addToCartAction(cartItem));
   };
@@ -38,17 +38,17 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      price: product.price,
-      quantity: product.price,
-      old_price: product.price,
+      unit_price: product.unit_price,
+      total_quantity: product.total_quantity,
+      // old_price: product.price,
       short_description: product.short_description,
-      rating: product.rating,
-      is_featured: product.is_featured,
-      product_category_name: product.product_category_name,
-      product_brand: product.price,
+      // rating: product.rating,
+      // is_featured: product.is_featured,
+      category_name: product.category_name,
+      brand: product.brand,
       full_description: product.full_description,
       warranty: product.warranty,
-      variation: product.variation,
+      // variation: product.variation,
     };
     if(compareProducts.length <= 1){
       dispatch(addToCompareAction(compareItem));
@@ -121,7 +121,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="swiper-wrapper row cols-1 gutter-no">
-              {product.product_media.map((item) => (
+              {/* {product.product_media.map((item) => (
                 <div className="swiper-slide" key={item.id}>
                   <figure className="product-image">
                     <img
@@ -134,7 +134,19 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                   </figure>
                   0
                 </div>
-              ))}
+              ))} */}
+              <div className="swiper-slide">
+                  <figure className="product-image">
+                    <img
+                      src={product.thumbnail}
+                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                      alt="Product Image"
+                      width="800"
+                      height="900"
+                    />
+                  </figure>
+                  
+                </div>
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -152,7 +164,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-              {product.product_media.map((item, index) => (
+              {/* {product.product_media.map((item, index) => (
                 <div className="product-thumb swiper-slide" key={item.id}>
                   <img
                     src={item.file}
@@ -161,7 +173,18 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                     height="68"
                   />
                 </div>
-              ))}
+              ))} */}
+              <div className="swiper-slide">
+                  <figure className="product-image">
+                    <img
+                      src={product.thumbnail}
+                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                      alt="Product Image"
+                      width="800"
+                      height="900"
+                    />
+                  </figure>
+                </div>
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -201,11 +224,11 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           <div className="product-price">
             <ins className="new-price">
               {currency.currency_symbol}{" "}
-              {product.price * currency.currency_rate}
+              {product.unit_price * currency.currency_rate}
             </ins>
           </div>
 
-          <div className="ratings-container">
+          {/* <div className="ratings-container">
             <div className="ratings-full">
               <span
                 className="ratings"
@@ -216,7 +239,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
             <a href="#product-tab-reviews" className="rating-reviews scroll-to">
               (3 Reviews)
             </a>
-          </div>
+          </div> */}
 
           <div className="product-short-desc">
             <ul className="list-type-check list-style-none">

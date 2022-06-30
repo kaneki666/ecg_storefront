@@ -44,19 +44,19 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       id: products.product[0].id,
       thumbnail: products.product[0].thumbnail,
       title: products.product[0].title,
-      price: products.product[0].unit_price,
-      quantity: products.product[0].total_quantity,
-      old_price: products.product[0].unit_price,
+      unit_price: products.product[0].unit_price,
+      total_quantity: products.product[0].total_quantity,
+      // old_price: products.product[0].unit_price,
       short_description: products.product[0].short_description,
-      rating: "1",
-      is_featured: false,
-      product_category_name: products.product[0].category_name
+      // rating: "1",
+      // is_featured: false,
+      category_name: products.product[0].category_name
         ? products.product[0].category_name
         : "",
-      product_brand: products.product[0].brand,
+      brand: products.product[0].brand,
       full_description: products.product[0].full_description,
       warranty: products.product[0].warranty,
-      variation: "",
+      // variation: "",
     };
     if (compareProducts.length <= 1) {
       dispatch(addToCompareAction(compareItem));
@@ -148,7 +148,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                       <div className="product-gallery product-gallery-sticky product-gallery-vertical">
                         <div className="swiper-container product-single-swiper swiper-theme nav-inner">
                           <div className="swiper-wrapper row cols-1 gutter-no">
-                            {productitem.product_media.map((item: any) => (
+                            {/* {productitem.product_media.map((item: any) => (
                               <div className="swiper-slide" key={item.id}>
                                 <figure className="product-image">
                                   <img
@@ -160,7 +160,18 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                   />
                                 </figure>
                               </div>
-                            ))}
+                            ))} */}
+                            <div className="swiper-slide">
+                                <figure className="product-image">
+                                  <img
+                                    src={productitem.thumbnail}
+                                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                                    alt="Product Image"
+                                    width="800"
+                                    height="900"
+                                  />
+                                </figure>
+                              </div>
                           </div>
                           <button className="swiper-button-next"></button>
                           <button className="swiper-button-prev"></button>
@@ -191,7 +202,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                                   }"
                         >
                           <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
-                            {productitem.product_media?.map(
+                            {/* {productitem.product_media?.map(
                               (item: any, index: any) => (
                                 <div
                                   className="product-thumb swiper-slide"
@@ -205,7 +216,19 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                   />
                                 </div>
                               )
-                            )}
+                            )} */}
+
+                                <div
+                                  className="product-thumb swiper-slide"
+                                  // key={item.id}
+                                >
+                                  <img
+                                    src={productitem.thumbnail}
+                                    alt="Product Image"
+                                    width="60"
+                                    height="68"
+                                  />
+                                </div>
                           </div>
                         </div>
                       </div>
