@@ -135,16 +135,14 @@ export const ProductReducer = (
         const findIndexRecent = compareItems.findIndex(
           (item: CompareProductProps) => item.id === newCompareItem.id
         );
-        if (compareItems.length == 3) {
+        if (compareItems.length > 4) {
           compareItems.slice(1);
           if (findIndexRecent === -1) {
             compareItems.push(newCompareItem);
-          } else {
           }
         } else {
           if (findIndexRecent === -1) {
             compareItems.push(newCompareItem);
-          } else {
           }
         }
       } else {
@@ -153,7 +151,7 @@ export const ProductReducer = (
       }
       return { ...state, compareProducts: compareItems };
 
-      case REMOVE_PRODUCT_COMPARE:
+    case REMOVE_PRODUCT_COMPARE:
       const compareItemRemove = action.payload;
       const findIndexCompareRemove = state.compareProducts?.findIndex(
         (item: CompareProductProps) => item.id === compareItemRemove

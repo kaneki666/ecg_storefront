@@ -1,19 +1,22 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCompareAction } from "../../store/products/actions";
-import { CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import {
+  CompareProductProps,
+  RootAppStateProps,
+} from "../../utils/types/reduxTypes";
 
 const CompareContent = (props: any) => {
   const { compare_props } = props;
   const { compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const handleRemoveToComparelist =(e:CompareProductProps)=>{
-    dispatch(removeFromCompareAction(e.id))
-
-   };
+  const handleRemoveToComparelist = (e: CompareProductProps) => {
+    dispatch(removeFromCompareAction(e.id));
+  };
+  console.log(compareProducts);
 
   return (
     <div>
@@ -26,9 +29,13 @@ const CompareContent = (props: any) => {
                 <div className="compare-col compare-field">Product</div>
                 {compareProducts.map((item) => (
                   <div className="compare-col compare-product" key={item.id}>
-                    <a 
-                    onClick={(e)=>{handleRemoveToComparelist(item)}}
-                    href="#" className="btn remove-product">
+                    <a
+                      onClick={(e) => {
+                        handleRemoveToComparelist(item);
+                      }}
+                      href="#"
+                      className="btn remove-product"
+                    >
                       <i className="w-icon-times-solid"></i>
                     </a>
                     <div className="product text-center">
@@ -76,7 +83,7 @@ const CompareContent = (props: any) => {
                 {compareProducts.map((item) => (
                   <div className="compare-col compare-value" key={item.id}>
                     <ul className="list-style-none list-type-check">
-                      {item.full_description}
+                      {item.short_description}
                     </ul>
                   </div>
                 ))}
