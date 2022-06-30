@@ -6,21 +6,24 @@ import { ToastContainer, toast } from "react-toastify";
 const PrifileNavList = () => {
   const dispatch = useDispatch();
   const router = useRouter();
+
   const handleLogout = () => {
+    dispatch(logoutAction(false));
     toast(`Logout successful!`, {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      toastId: "logout",
     });
     setTimeout(() => {
       router.push("../");
-      dispatch(logoutAction(false));
-    }, 3000);
+    }, 2000);
   };
+
   return (
     <ul className="nav nav-tabs mb-6" role="tablist">
       <ToastContainer containerId="logout" draggable={false} />
@@ -52,7 +55,7 @@ const PrifileNavList = () => {
       <li className="link-item">
         <a href="wishlist">Wishlist</a>
       </li>
-      <li onClick={handleLogout} className="link-item">
+      <li onClick={handleLogout} className="nav-link">
         <a href="login">Logout</a>
       </li>
     </ul>

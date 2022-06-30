@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { API_BASE_URL } from "../../pages/api/hello";
 import { loginAction, saveUserinfoAction } from "../../store/products/actions";
@@ -19,12 +19,6 @@ const FormLogin = () => {
 
     formState: { errors },
   } = useForm<LoginProps>();
-  var redirect = "/";
-  try {
-    redirect = location.search ? location.search.split("=")[1] : "/";
-  } catch (e) {
-    console.log(e);
-  }
 
   const onSubmit: SubmitHandler<LoginProps> = async (data) => {
     const request = await fetch(`${API_BASE_URL}/login/`, {
@@ -49,7 +43,7 @@ const FormLogin = () => {
         progress: undefined,
       });
 
-      setTimeout(() => router.push(redirect), 4000);
+      setTimeout(() => router.back(), 4000);
     } else {
       const response = await request.json();
 
@@ -67,7 +61,6 @@ const FormLogin = () => {
 
   return (
     <div className="tab-pane active" id="sign-in">
-      {/* <ToastContainer containerId="an id" draggable={false} /> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label>Username or email address *</label>
