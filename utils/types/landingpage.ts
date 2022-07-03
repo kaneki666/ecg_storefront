@@ -56,6 +56,7 @@ export interface SingleProductProps {
   product_tags: ProductTag[];
   product_reviews: ProductReview[];
   category_name?: string;
+  product_media?: [];
 }
 
 export interface ProductListProps {

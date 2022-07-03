@@ -160,7 +160,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                       <div className="product-gallery product-gallery-sticky product-gallery-vertical">
                         <div className="swiper-container product-single-swiper swiper-theme nav-inner">
                           <div className="swiper-wrapper row cols-1 gutter-no">
-                            {/* {productitem.product_media.map((item: any) => (
+                            {productitem.product_media.map((item: any) => (
                               <div className="swiper-slide" key={item.id}>
                                 <figure className="product-image">
                                   <img
@@ -172,18 +172,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                   />
                                 </figure>
                               </div>
-                            ))} */}
-                            <div className="swiper-slide">
-                              <figure className="product-image">
-                                <img
-                                  src={productitem.thumbnail}
-                                  data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                                  alt="Product Image"
-                                  width="800"
-                                  height="900"
-                                />
-                              </figure>
-                            </div>
+                            ))}
                           </div>
                           <button className="swiper-button-next"></button>
                           <button className="swiper-button-prev"></button>
@@ -214,7 +203,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                                   }"
                         >
                           <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
-                            {/* {productitem.product_media?.map(
+                            {productitem.product_media?.map(
                               (item: any, index: any) => (
                                 <div
                                   className="product-thumb swiper-slide"
@@ -228,19 +217,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                   />
                                 </div>
                               )
-                            )} */}
-
-                            <div
-                              className="product-thumb swiper-slide"
-                              // key={item.id}
-                            >
-                              <img
-                                src={productitem.thumbnail}
-                                alt="Product Image"
-                                width="60"
-                                height="68"
-                              />
-                            </div>
+                            )}
                           </div>
                         </div>
                       </div>
