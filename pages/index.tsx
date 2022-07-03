@@ -55,7 +55,7 @@ const Home: NextPage = ({
               <BoxIcons />
               <CategoryBanner />
               <DealsOfTheDay data={data} />
-              <TopCategoriesOfMonth />
+              <TopCategoriesOfMonth categories={data.categories_of_the_month} />
               <ProductsContainer
                 productList={data}
                 clothingData={clothingData.results}

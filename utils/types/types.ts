@@ -50,6 +50,15 @@ export interface UserUpdateProps {
 
 export interface LandingBannerProps {
   id: number;
-  file: string;
+  background_img: string;
+  static_img: string;
   text: string;
+}
+
+export interface CatehoriesOfMonthProps {
+  id: number;
+  title: string;
+
+  logo: string;
+  cover: string;
 }
