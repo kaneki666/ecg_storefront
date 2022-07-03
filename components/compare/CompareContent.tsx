@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCompareAction } from "../../store/products/actions";
+import { SingleProductProps } from "../../utils/types/landingpage";
 import {
-  CompareProductProps,
   RootAppStateProps,
 } from "../../utils/types/reduxTypes";
 
@@ -13,7 +13,7 @@ const CompareContent = (props: any) => {
   );
   const dispatch = useDispatch();
 
-  const handleRemoveToComparelist = (e: CompareProductProps) => {
+  const handleRemoveToComparelist = (e: SingleProductProps) => {
     dispatch(removeFromCompareAction(e.id));
   };
   console.log(compareProducts);
@@ -22,12 +22,12 @@ const CompareContent = (props: any) => {
     <div>
       <div className="page-content mb-10 pb-2">
         <div className="container">
-          {compareProducts && compareProducts.length > 0 ? (
+          {compareProducts ? (
             // <div> {compareProducts.map((item)=> item.id )}</div>
             <div className="compare-table">
               <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-products">
                 <div className="compare-col compare-field">Product</div>
-                {compareProducts.map((item) => (
+                {compareProducts && compareProducts.length>0 && compareProducts.map((item: SingleProductProps) => (
                   <div className="compare-col compare-product" key={item.id}>
                     <a
                       onClick={(e) => {
@@ -63,7 +63,6 @@ const CompareContent = (props: any) => {
                     </div>
                   </div>
                 ))}
-                ;
               </div>
 
               <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-price">
@@ -75,7 +74,6 @@ const CompareContent = (props: any) => {
                     </div>
                   </div>
                 ))}
-                ;
               </div>
 
               <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-description">

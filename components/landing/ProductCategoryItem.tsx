@@ -10,7 +10,7 @@ import {
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const ProductCategoryItem = ({
   productItem,
@@ -30,30 +30,45 @@ const ProductCategoryItem = ({
 
     const handleAddToComparelist = () => {
 
-      const compareItem: CompareProductProps = {
+      const compareItem: SingleProductProps = {
         id: productItem.id,
         thumbnail: productItem.thumbnail,
         title: productItem.title,
+        slug: productItem.slug,
+        status: productItem.status,
+        vendor: productItem.vendor,
+        category: productItem.category,
+        sub_category: productItem.sub_category,
+        sub_sub_category: productItem.sub_sub_category,
+        unit: productItem.unit,
         unit_price: productItem.unit_price,
+        purchase_price: productItem.purchase_price,
+        tax_in_percent: productItem.tax_in_percent,
+        discount_type: productItem.discount_type,
+        discount_amount: productItem.discount_amount,
+        shipping_time: productItem.shipping_time,
+        youtube_link: productItem.youtube_link,
+        product_tags: productItem.product_tags,
+        product_reviews: productItem.product_reviews,
         total_quantity: productItem.total_quantity,
-        // old_price: productItem.purchase_price,
+        // old_price: product.price,
         short_description: productItem.short_description,
-        // rating: productItem.,
-        // is_featured: productItem.,
+        // rating: product.rating,
+        // is_featured: product.is_featured,
         category_name: productItem.category_name,
         brand: productItem.brand,
         full_description: productItem.full_description,
         warranty: productItem.warranty,
-        // variation: productItem.,
+        total_shipping_cost: productItem.total_shipping_cost,
       };
-      if(compareProducts.length <= 1){
-        dispatch(addToCompareAction(compareItem));
-      }else if(compareProducts.length === 2){
-       dispatch(removeFromCompareAction(compareProducts[0].id))
-       dispatch(addToCompareAction(compareItem));
-       console.log(compareProducts)
+      if(compareProducts){
+        if(compareProducts.length <= 1){
+          dispatch(addToCompareAction(compareItem));
+        }else if(compareProducts.length === 2){
+         dispatch(removeFromCompareAction(compareProducts[0].id))
+         dispatch(addToCompareAction(compareItem));
+        }
       }
-      console.log(compareItem)
     };
 
   // const handleAddToCart = () => {

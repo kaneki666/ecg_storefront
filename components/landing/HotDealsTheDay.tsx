@@ -13,7 +13,6 @@ import {
   SingleProductProps,
 } from "../../utils/types/landingpage";
 import {
-  CompareProductProps,
   RootAppStateProps,
 } from "../../utils/types/reduxTypes";
 
@@ -40,29 +39,44 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   }, []);
 
   const handleAddToComparelist = () => {
-    const compareItem: CompareProductProps = {
+    const compareItem: SingleProductProps = {
       id: products.product[0].id,
       thumbnail: products.product[0].thumbnail,
       title: products.product[0].title,
+      slug: products.product[0].slug,
+      status: products.product[0].status,
+      vendor: products.product[0].vendor,
+      category: products.product[0].category,
+      sub_category: products.product[0].sub_category,
+      sub_sub_category: products.product[0].sub_sub_category,
+      unit: products.product[0].unit,
       unit_price: products.product[0].unit_price,
+      purchase_price: products.product[0].purchase_price,
+      tax_in_percent: products.product[0].tax_in_percent,
+      discount_type: products.product[0].discount_type,
+      discount_amount: products.product[0].discount_amount,
+      shipping_time: products.product[0].shipping_time,
+      youtube_link: products.product[0].youtube_link,
+      product_tags: products.product[0].product_tags,
+      product_reviews: products.product[0].product_reviews,
       total_quantity: products.product[0].total_quantity,
-      // old_price: products.product[0].unit_price,
+      // old_price: product.price,
       short_description: products.product[0].short_description,
-      // rating: "1",
-      // is_featured: false,
-      category_name: products.product[0].category_name
-        ? products.product[0].category_name
-        : "",
+      // rating: product.rating,
+      // is_featured: product.is_featured,
+      category_name: products.product[0].category_name,
       brand: products.product[0].brand,
       full_description: products.product[0].full_description,
       warranty: products.product[0].warranty,
-      // variation: "",
+      total_shipping_cost: products.product[0].total_shipping_cost,
     };
-    if (compareProducts.length < 4) {
-      dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 4) {
-      dispatch(removeFromCompareAction(compareProducts[0].id));
-      dispatch(addToCompareAction(compareItem));
+    if(compareProducts){
+      if (compareProducts.length < 4) {
+        dispatch(addToCompareAction(compareItem));
+      } else if (compareProducts.length === 4) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+      }
     }
   };
 

@@ -11,7 +11,6 @@ import {
 import { SingleProductProps } from "../../utils/types/landingpage";
 import {
   CartItemProps,
-  CompareProductProps,
   RootAppStateProps,
 } from "../../utils/types/reduxTypes";
 
@@ -38,11 +37,26 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
   };
 
   const handleAddToComparelist = () => {
-    const compareItem: CompareProductProps = {
+    const compareItem: SingleProductProps = {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
+      slug: product.slug,
+      status: product.status,
+      vendor: product.vendor,
+      category: product.category,
+      sub_category: product.sub_category,
+      sub_sub_category: product.sub_sub_category,
+      unit: product.unit,
       unit_price: product.unit_price,
+      purchase_price: product.purchase_price,
+      tax_in_percent: product.tax_in_percent,
+      discount_type: product.discount_type,
+      discount_amount: product.discount_amount,
+      shipping_time: product.shipping_time,
+      youtube_link: product.youtube_link,
+      product_tags: product.product_tags,
+      product_reviews: product.product_reviews,
       total_quantity: product.total_quantity,
       // old_price: product.price,
       short_description: product.short_description,
@@ -52,13 +66,15 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       brand: product.brand,
       full_description: product.full_description,
       warranty: product.warranty,
-      // variation: product.variation,
+      total_shipping_cost: product.total_shipping_cost,
     };
-    if (compareProducts.length < 4) {
-      dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 4) {
-      dispatch(removeFromCompareAction(compareProducts[0].id));
-      dispatch(addToCompareAction(compareItem));
+    if (compareProducts){
+      if (compareProducts.length < 4) {
+        dispatch(addToCompareAction(compareItem));
+      } else if (compareProducts.length === 4) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+      }
     }
   };
 

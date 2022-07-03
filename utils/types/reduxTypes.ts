@@ -24,24 +24,6 @@ export interface VendorDataProps {
   refresh_token: string;
 }
 
-export interface CompareProductProps {
-  id: number;
-  title: string;
-  unit_price: number;
-  // old_price: number;
-  short_description: string;
-  total_quantity: number;
-  // rating: string;
-  // is_featured: boolean;
-  category_name?: string;
-  brand: number;
-  thumbnail: string;
-  full_description: string;
-  warranty: string;
-  // size:string;
-  // color:string;
-  // brand:string;
-}
 
 export interface CartItemProps {
   id: number;
@@ -66,11 +48,11 @@ export interface AuthRootStateType {
 
 export interface ProductCartReducerStateProps {
   product: SingleProductProps | null;
-  comparelist?: SingleProductProps | null;
+  // comparelist?: SingleProductProps[] | null;
   cart: CartItemProps[];
   wishlist?: SingleProductProps[] | null;
   recentProducts: SingleProductProps[];
-  compareProducts: CompareProductProps[];
+  compareProducts?: SingleProductProps[] | null;
   totalPrice: number;
   usedCoupon: boolean;
   coupon?: null | CouponItem;
