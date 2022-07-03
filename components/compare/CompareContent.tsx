@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCompareAction } from "../../store/products/actions";
+import { toast } from "react-toastify";
+import { addToWishlistAction, removeFromCompareAction, removeFromWishlistAction } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import {
   RootAppStateProps,
@@ -8,7 +9,7 @@ import {
 
 const CompareContent = (props: any) => {
   const { compare_props } = props;
-  const { compareProducts } = useSelector(
+  const { compareProducts,wishlist } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
   const dispatch = useDispatch();
@@ -16,7 +17,52 @@ const CompareContent = (props: any) => {
   const handleRemoveToComparelist = (e: SingleProductProps) => {
     dispatch(removeFromCompareAction(e.id));
   };
-  console.log(compareProducts);
+ 
+  const handleWishlist = (product: SingleProductProps) => {
+    var checkWishlist = false;
+    if (wishlist?.length !== 0) {
+      if (wishlist) {
+        for (let i = 0; i < wishlist.length; i++) {
+          try {
+            if (product.id === wishlist[i].id) {
+              checkWishlist = true;
+              dispatch(removeFromWishlistAction(wishlist[i].id));
+            }
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      }
+      if (checkWishlist === false) {
+        dispatch(addToWishlistAction(product));
+        checkWishlist = false;
+      }
+    } else {
+      dispatch(addToWishlistAction(product));
+      checkWishlist = false;
+    }
+    if (checkWishlist === true) {
+      toast("removed from wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (checkWishlist === false) {
+      toast("Added in wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
 
   return (
     <div>
@@ -50,6 +96,9 @@ const CompareContent = (props: any) => {
                         </a>
                         <div className="product-action-vertical">
                           <a
+                            onClick={(e) => {
+                              handleWishlist(item);
+                            }}
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
                           ></a>
