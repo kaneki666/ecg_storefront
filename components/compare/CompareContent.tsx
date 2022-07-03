@@ -89,7 +89,7 @@ const CompareContent = (props: any) => {
                 ))}
               </div>
 
-              <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-reviews">
+              {/* <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-reviews">
                 <div className="compare-col compare-field">
                   Ratings &amp; Reviews
                 </div>
@@ -99,12 +99,12 @@ const CompareContent = (props: any) => {
                       <span className="ratings" style={{ width: "80%" }}></span>
                       <span className="tooltiptext tooltip-top"></span>
                     </div>
-                    {/* <a href="#" className="rating-reviews">
+                    <a href="#" className="rating-reviews">
                       {item.reviews}
-                    </a> */}
+                    </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-category">
                 <div className="compare-col compare-field">Category</div>
