@@ -18,8 +18,8 @@ const ProductQuickView = () => {
         title: product.title,
         thumbnail: product.thumbnail,
         quantity: quantity,
-        price: product.unit_price,
-        totalPrice: product.unit_price,
+        price: product.price,
+        totalPrice: product.price,
       };
 
       dispatch(addToCartAction(cartItem));
@@ -46,17 +46,17 @@ const ProductQuickView = () => {
                   </div>
                 ))} */}
 
-                  <div className="swiper-slide">
-                    <figure className="product-image">
-                      <img
-                        src={product?.thumbnail}
-                        data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                        alt="Product Image"
-                        width="800"
-                        height="900"
-                      />
-                    </figure>
-                  </div>
+                <div className="swiper-slide">
+                  <figure className="product-image">
+                    <img
+                      src={product?.thumbnail}
+                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                      alt="Product Image"
+                      width="800"
+                      height="900"
+                    />
+                  </figure>
+                </div>
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -82,16 +82,16 @@ const ProductQuickView = () => {
                   </div>
                 ))} */}
                 <div className="swiper-slide">
-                    <figure className="product-image">
-                      <img
-                        src={product?.thumbnail}
-                        data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                        alt="Product Image"
-                        width="800"
-                        height="900"
-                      />
-                    </figure>
-                  </div>
+                  <figure className="product-image">
+                    <img
+                      src={product?.thumbnail}
+                      data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
+                      alt="Product Image"
+                      width="800"
+                      height="900"
+                    />
+                  </figure>
+                </div>
               </div>
               <button className="swiper-button-next"></button>
               <button className="swiper-button-prev"></button>
@@ -114,7 +114,7 @@ const ProductQuickView = () => {
                 <div className="product-categories">
                   Category:
                   <span className="product-category">
-                    <a href="#"> {product?.category_name}</a>
+                    <a href="#"> {product?.category.title}</a>
                   </span>
                 </div>
                 <div className="product-sku">
@@ -125,7 +125,7 @@ const ProductQuickView = () => {
 
             <hr className="product-divider" />
 
-            <div className="product-price">${product?.unit_price}</div>
+            <div className="product-price">${product?.price}</div>
 
             {/* <div className="ratings-container">
               <div className="ratings-full">

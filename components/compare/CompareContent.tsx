@@ -16,7 +16,6 @@ const CompareContent = (props: any) => {
   const handleRemoveToComparelist = (e: CompareProductProps) => {
     dispatch(removeFromCompareAction(e.id));
   };
-  console.log(compareProducts);
 
   return (
     <div>
@@ -71,7 +70,7 @@ const CompareContent = (props: any) => {
                 {compareProducts.map((item) => (
                   <div className="compare-col compare-value" key={item.id}>
                     <div className="product-price">
-                      <span className="new-price">{item.unit_price}</span>
+                      <span className="new-price">{item.price}</span>
                     </div>
                   </div>
                 ))}
@@ -93,24 +92,31 @@ const CompareContent = (props: any) => {
                 <div className="compare-col compare-field">
                   Ratings &amp; Reviews
                 </div>
-                <div className="compare-col compare-rating">
-                  <div className="ratings-container">
-                    <div className="ratings-full">
-                      <span className="ratings" style={{ width: "80%" }}></span>
-                      <span className="tooltiptext tooltip-top"></span>
-                    </div>
-                    {/* <a href="#" className="rating-reviews">
+                {compareProducts.map((item) => (
+                  <div className="compare-col compare-rating">
+                    <div className="ratings-container">
+                      <div className="ratings-full">
+                        <span
+                          className="ratings"
+                          style={{ width: `${(item.rating * 100) / 5}%` }}
+                        ></span>
+
+                        <span className="tooltiptext tooltip-top"></span>
+                      </div>
+
+                      {/* <a href="#" className="rating-reviews">
                       {item.reviews}
                     </a> */}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
 
               <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-category">
                 <div className="compare-col compare-field">Category</div>
                 {compareProducts.map((item) => (
                   <div className="compare-col compare-value" key={item.id}>
-                    {item.category_name}
+                    {item.category_title}
                   </div>
                 ))}
               </div>

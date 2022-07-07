@@ -19,9 +19,9 @@ const PageContent = () => {
       id: productItem.id,
       thumbnail: productItem.thumbnail,
       title: productItem.title,
-      price: productItem.unit_price,
+      price: productItem.price,
       quantity: 1,
-      totalPrice: productItem.unit_price,
+      totalPrice: productItem.price,
     };
     dispatch(addToCartAction(cartItem));
     toast("Added to cart", {
@@ -87,7 +87,7 @@ const PageContent = () => {
                   <a href="#">{item.title}</a>
                 </td>
                 <td className="product-price">
-                  <ins className="new-price">{item.unit_price}</ins>
+                  <ins className="new-price">{item.price}</ins>
                 </td>
                 <td className="product-stock-status">
                   <span className="wishlist-in-stock">{item.status}</span>

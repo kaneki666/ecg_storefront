@@ -34,14 +34,14 @@ const BestSeller = ({ productItem }: { productItem: SingleProductProps }) => {
         <div className="product-price">
           <ins className="new-price">
             {currency.currency_symbol}{" "}
-            {productItem.unit_price * currency.currency_rate}
+            {productItem.price * currency.currency_rate}
           </ins>
         </div>
         <div className="product-price">
-          {productItem.unit_price && (
+          {productItem.price && (
             <del className="old-price">
               {currency.currency_symbol}{" "}
-              {productItem.unit_price * currency.currency_rate}
+              {productItem.price * currency.currency_rate}
             </del>
           )}
         </div>

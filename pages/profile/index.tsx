@@ -48,7 +48,6 @@ const ProfilePage: NextPage = ({
       getuserInfo();
     }
   }, []);
-  console.log(isLoggedIn);
 
   return (
     <div>

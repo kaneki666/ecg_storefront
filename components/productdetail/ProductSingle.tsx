@@ -30,9 +30,9 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      price: product.unit_price,
+      price: product.price,
       quantity: quantity,
-      totalPrice: product.unit_price,
+      totalPrice: product.price,
     };
     dispatch(addToCartAction(cartItem));
   };
@@ -42,13 +42,13 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      unit_price: product.unit_price,
+      price: product.price,
       total_quantity: product.total_quantity,
       // old_price: product.price,
       short_description: product.short_description,
       // rating: product.rating,
       // is_featured: product.is_featured,
-      category_name: product.category_name,
+      category.title: product.category.title,
       brand: product.brand,
       full_description: product.full_description,
       warranty: product.warranty,
@@ -225,7 +225,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           <div className="product-price">
             <ins className="new-price">
               {currency.currency_symbol}{" "}
-              {product.unit_price * currency.currency_rate}
+              {product.price * currency.currency_rate}
             </ins>
           </div>
 

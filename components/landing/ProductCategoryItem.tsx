@@ -10,7 +10,11 @@ import {
   removeFromWishlistAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, CompareProductProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import {
+  CartItemProps,
+  CompareProductProps,
+  RootAppStateProps,
+} from "../../utils/types/reduxTypes";
 
 const ProductCategoryItem = ({
   productItem,
@@ -28,33 +32,32 @@ const ProductCategoryItem = ({
   const handleAddToQuickView = () =>
     dispatch(addToQuickViewAction(productItem));
 
-    const handleAddToComparelist = () => {
-
-      const compareItem: CompareProductProps = {
-        id: productItem.id,
-        thumbnail: productItem.thumbnail,
-        title: productItem.title,
-        unit_price: productItem.unit_price,
-        total_quantity: productItem.total_quantity,
-        // old_price: productItem.purchase_price,
-        short_description: productItem.short_description,
-        // rating: productItem.,
-        // is_featured: productItem.,
-        category_name: productItem.category_name,
-        brand: productItem.brand,
-        full_description: productItem.full_description,
-        warranty: productItem.warranty,
-        // variation: productItem.,
-      };
-      if(compareProducts.length <= 1){
-        dispatch(addToCompareAction(compareItem));
-      }else if(compareProducts.length === 2){
-       dispatch(removeFromCompareAction(compareProducts[0].id))
-       dispatch(addToCompareAction(compareItem));
-       console.log(compareProducts)
-      }
-      console.log(compareItem)
+  const handleAddToComparelist = () => {
+    const compareItem: CompareProductProps = {
+      id: productItem.id,
+      thumbnail: productItem.thumbnail,
+      title: productItem.title,
+      price: productItem.price,
+      total_quantity: productItem.total_quantity,
+      // old_price: productItem.purchase_price,
+      short_description: productItem.short_description,
+      // rating: productItem.,
+      // is_featured: productItem.,
+      category.title: productItem.category.title,
+      brand: productItem.brand,
+      full_description: productItem.full_description,
+      warranty: productItem.warranty,
+      // variation: productItem.,
     };
+    if (compareProducts.length <= 1) {
+      dispatch(addToCompareAction(compareItem));
+    } else if (compareProducts.length === 2) {
+      dispatch(removeFromCompareAction(compareProducts[0].id));
+      dispatch(addToCompareAction(compareItem));
+      console.log(compareProducts);
+    }
+    console.log(compareItem);
+  };
 
   // const handleAddToCart = () => {
   //   const cartItem: CartItemProps = {
@@ -168,7 +171,7 @@ const ProductCategoryItem = ({
           <div className="product-price">
             <ins className="new-price">
               {currency.currency_symbol}{" "}
-              {productItem.unit_price * currency.currency_rate}
+              {productItem.price * currency.currency_rate}
             </ins>
             {/* {productItem.old_price && (
               <del className="old-price">

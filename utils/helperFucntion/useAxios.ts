@@ -27,11 +27,12 @@ export const useAxios = () => {
   if (isLoggedIn) {
     axiosInstance.interceptors.request.use(async (req) => {
       const user: any = jwt_decode(
-        userInfo?.data.refresh_token ? userInfo?.data.refresh_token : ""
+        userInfo?.data.access_token ? userInfo?.data.access_token : ""
       );
 
       const unixNow = Math.round(new Date().getTime() / 1000);
       const isExpired = unixNow > user.exp;
+      console.log(unixNow, user.exp);
 
       if (!isExpired) return req;
 

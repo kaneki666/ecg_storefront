@@ -63,14 +63,14 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
       id: productItem.id,
       thumbnail: productItem.thumbnail,
       title: productItem.title,
-      unit_price: productItem.unit_price,
+      price: productItem.price,
       total_quantity: productItem.total_quantity,
       // old_price: productItem.total_quantity,
       short_description: productItem.short_description,
-      // rating: "4",
+      rating: productItem.avg_rating,
       // is_featured: false,
-      category_name: productItem.category_name ? productItem.category_name : "",
-      brand: productItem.brand,
+      category_title: productItem.category_name,
+      brand: productItem.brand_name,
       full_description: productItem.full_description,
       warranty: productItem.warranty,
       // variation: "productItem.variation",
@@ -175,20 +175,23 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
           </h4>
           <div className="ratings-container">
             <div className="ratings-full">
-              {/* <span
+              <span
                 className="ratings"
-                style={{ width: `${parseInt(productItem.rating) * 20}%` }}
-              ></span> */}
+                style={{ width: `${(productItem.avg_rating * 100) / 5}%` }}
+              ></span>
               <span className="tooltiptext tooltip-top"></span>
             </div>
             <a href="#" className="rating-reviews">
-              (3 reviews)
+              {productItem.product_reviews !== undefined
+                ? productItem.product_reviews.length
+                : 0}{" "}
+              reviews
             </a>
           </div>
           <div className="product-price">
             <ins className="new-price">
               {currency.currency_symbol}{" "}
-              {productItem.unit_price * currency.currency_rate}
+              {productItem.price * currency.currency_rate}
             </ins>
           </div>
         </div>

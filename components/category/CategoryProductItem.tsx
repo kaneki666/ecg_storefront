@@ -21,9 +21,9 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      price: product.unit_price,
+      price: product.price,
       quantity: 1,
-      totalPrice: product.unit_price,
+      totalPrice: product.price,
     };
     dispatch(addToCartAction(cartItem));
   };
@@ -66,7 +66,7 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="category">{product.category_name}</a>
+            <a href="category">{product.category.title}</a>
           </div>
           <h3 className="product-name">
             <a href="#">{product.title}</a>
@@ -87,7 +87,7 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
             <div className="product-price">
               {" "}
               {currency.currency_symbol}{" "}
-              {product.unit_price * currency.currency_rate}
+              {product.price * currency.currency_rate}
             </div>
           </div>
         </div>
