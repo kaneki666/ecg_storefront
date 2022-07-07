@@ -185,7 +185,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                 {products.discount_price_type == "per"
                                   ? "%"
                                   : " Flat"}{" "}
-                                Off
+                                Offssssss
                               </label>
                             </div>
                           </div>
