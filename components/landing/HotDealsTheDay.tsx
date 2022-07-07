@@ -60,13 +60,14 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       brand: products.product[0].brand.title,
       full_description: products.product[0].full_description,
       warranty: products.product[0].warranty,
-      // variation: "",
     };
-    if (compareProducts.length < 4) {
-      dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 4) {
-      dispatch(removeFromCompareAction(compareProducts[0].id));
-      dispatch(addToCompareAction(compareItem));
+    if (compareProducts) {
+      if (compareProducts.length < 4) {
+        dispatch(addToCompareAction(compareItem));
+      } else if (compareProducts.length === 4) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+      }
     }
   };
 

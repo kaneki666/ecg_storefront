@@ -65,7 +65,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
       title: productItem.title,
       price: productItem.price,
       total_quantity: productItem.total_quantity,
-      // old_price: productItem.total_quantity,
+      // old_price: product.price,
       short_description: productItem.short_description,
       rating: productItem.avg_rating,
       // is_featured: false,
@@ -73,15 +73,17 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
       brand: productItem.brand_name,
       full_description: productItem.full_description,
       warranty: productItem.warranty,
-      // variation: "productItem.variation",
     };
-    if (compareProducts.length < 4) {
-      dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 4) {
-      dispatch(removeFromCompareAction(compareProducts[0].id));
-      dispatch(addToCompareAction(compareItem));
+    if (compareProducts) {
+      if (compareProducts.length < 4) {
+        dispatch(addToCompareAction(compareItem));
+      } else if (compareProducts.length === 4) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+      }
     }
   };
+
   const handleWishlist = () => {
     if (wishlist?.length !== 0) {
       if (wishlist) {

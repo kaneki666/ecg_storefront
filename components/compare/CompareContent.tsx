@@ -30,6 +30,7 @@ const CompareContent = (props: any) => {
                   <div className="compare-col compare-product" key={item.id}>
                     <a
                       onClick={(e) => {
+                        e.preventDefault();
                         handleRemoveToComparelist(item);
                       }}
                       href="#"
@@ -92,24 +93,17 @@ const CompareContent = (props: any) => {
                 <div className="compare-col compare-field">
                   Ratings &amp; Reviews
                 </div>
-                {compareProducts.map((item) => (
-                  <div className="compare-col compare-rating">
-                    <div className="ratings-container">
-                      <div className="ratings-full">
-                        <span
-                          className="ratings"
-                          style={{ width: `${(item.rating * 100) / 5}%` }}
-                        ></span>
-
-                        <span className="tooltiptext tooltip-top"></span>
-                      </div>
-
-                      {/* <a href="#" className="rating-reviews">
+                <div className="compare-col compare-rating">
+                  <div className="ratings-container">
+                    <div className="ratings-full">
+                      <span className="ratings" style={{ width: "80%" }}></span>
+                      <span className="tooltiptext tooltip-top"></span>
+                    </div>
+                    {/* <a href="#" className="rating-reviews">
                       {item.reviews}
                     </a> */}
-                    </div>
                   </div>
-                ))}
+                </div>
               </div>
 
               <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-category">

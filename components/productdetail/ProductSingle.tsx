@@ -46,19 +46,20 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
       total_quantity: product.total_quantity,
       // old_price: product.price,
       short_description: product.short_description,
-      // rating: product.rating,
+      rating: product.avg_rating,
       // is_featured: product.is_featured,
-      category.title: product.category.title,
-      brand: product.brand,
+      category_title: product.category.title,
+      brand: product.brand.title,
       full_description: product.full_description,
       warranty: product.warranty,
-      // variation: product.variation,
     };
-    if (compareProducts.length < 4) {
-      dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 4) {
-      dispatch(removeFromCompareAction(compareProducts[0].id));
-      dispatch(addToCompareAction(compareItem));
+    if (compareProducts) {
+      if (compareProducts.length < 4) {
+        dispatch(addToCompareAction(compareItem));
+      } else if (compareProducts.length === 4) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+      }
     }
   };
 
@@ -123,7 +124,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="swiper-wrapper row cols-1 gutter-no">
-              {/* {product.product_media.map((item) => (
+              {product.product_media?.map((item: any) => (
                 <div className="swiper-slide" key={item.id}>
                   <figure className="product-image">
                     <img
@@ -136,18 +137,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                   </figure>
                   0
                 </div>
-              ))} */}
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                    alt="Product Image"
-                    width="800"
-                    height="900"
-                  />
-                </figure>
-              </div>
+              ))}
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>
@@ -165,7 +155,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           }"
           >
             <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-              {/* {product.product_media.map((item, index) => (
+              {product.product_media?.map((item: any, index) => (
                 <div className="product-thumb swiper-slide" key={item.id}>
                   <img
                     src={item.file}
@@ -174,18 +164,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                     height="68"
                   />
                 </div>
-              ))} */}
-              <div className="swiper-slide">
-                <figure className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                    alt="Product Image"
-                    width="800"
-                    height="900"
-                  />
-                </figure>
-              </div>
+              ))}
             </div>
             <button className="swiper-button-next"></button>
             <button className="swiper-button-prev"></button>

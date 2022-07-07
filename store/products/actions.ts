@@ -103,7 +103,6 @@ export const addToCompareAction = (product: CompareProductProps) => {
   };
 };
 
-
 export const removeFromCompareAction = (id: number) => {
   return (dispatch: (arg0: { type: string; payload: number }) => void) => {
     dispatch({

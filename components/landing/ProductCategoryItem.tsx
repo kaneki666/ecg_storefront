@@ -41,22 +41,23 @@ const ProductCategoryItem = ({
       total_quantity: productItem.total_quantity,
       // old_price: productItem.purchase_price,
       short_description: productItem.short_description,
-      // rating: productItem.,
+      rating: productItem.avg_rating,
       // is_featured: productItem.,
-      category.title: productItem.category.title,
-      brand: productItem.brand,
+      category_title: productItem.category.title,
+      brand: productItem.brand_name,
       full_description: productItem.full_description,
       warranty: productItem.warranty,
       // variation: productItem.,
     };
-    if (compareProducts.length <= 1) {
-      dispatch(addToCompareAction(compareItem));
-    } else if (compareProducts.length === 2) {
-      dispatch(removeFromCompareAction(compareProducts[0].id));
-      dispatch(addToCompareAction(compareItem));
-      console.log(compareProducts);
+    if (compareProducts !== null && compareProducts !== undefined) {
+      if (compareProducts.length <= 1) {
+        dispatch(addToCompareAction(compareItem));
+      } else if (compareProducts.length === 2) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+        console.log(compareProducts);
+      }
     }
-    console.log(compareItem);
   };
 
   // const handleAddToCart = () => {

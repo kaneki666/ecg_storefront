@@ -4,12 +4,13 @@ import type {
   NextPage,
 } from "next";
 import Head from "next/head";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CheckoutBreadcrumb from "../../components/checkout/CheckoutBreadcrumb";
 import CheckoutContent from "../../components/checkout/CheckoutContent";
 // import CouponToggle from "../../components/checkout/CouponToggle";
-import LoginToggle from "../../components/checkout/LoginToggle";
+// import LoginToggle from "../../components/checkout/LoginToggle";
 import Footer from "../../components/common/Footer";
 import HeaderBottom from "../../components/common/HeaderBottom";
 import MobileMenu from "../../components/common/MobileMenu";
@@ -28,6 +29,12 @@ const CheckoutPage: NextPage = ({
   const { isLoggedIn } = useSelector(
     (state: RootAppStateProps) => state.AuthReducer
   );
+  const router = useRouter();
+  useEffect(()=>{
+    if(!isLoggedIn){
+      router.push("/login?=checkout");
+    }
+},[])
   
   return (
     <div>
@@ -46,7 +53,6 @@ const CheckoutPage: NextPage = ({
             <CheckoutBreadcrumb />
             <div className="page-content">
               <div className="container">
-                {!isLoggedIn && <LoginToggle />}
                 {/* <CouponToggle couponData={couponData}/> */}
                 <CheckoutContent />
               </div>

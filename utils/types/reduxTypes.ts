@@ -38,6 +38,7 @@ export interface CompareProductProps {
   thumbnail: string;
   full_description: string;
   warranty: string;
+
   // size:string;
   // color:string;
   // brand:string;
@@ -66,11 +67,11 @@ export interface AuthRootStateType {
 
 export interface ProductCartReducerStateProps {
   product: SingleProductProps | null;
-  comparelist?: SingleProductProps | null;
+  // comparelist?: SingleProductProps[] | null;
   cart: CartItemProps[];
   wishlist?: SingleProductProps[] | null;
   recentProducts: SingleProductProps[];
-  compareProducts: CompareProductProps[];
+  compareProducts?: CompareProductProps[] | null;
   totalPrice: number;
   usedCoupon: boolean;
   coupon?: null | CouponItem;

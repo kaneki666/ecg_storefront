@@ -6,7 +6,7 @@ import NavbarCart from "./NavbarCart";
 import NavbarLiveChat from "./NavbarLiveChat";
 
 const NavbarMiddle = () => {
-  const { wishlist } = useSelector(
+  const { wishlist,compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
   return (
@@ -66,10 +66,21 @@ const NavbarMiddle = () => {
               <span className="wishlist-label d-lg-show">Wishlist</span>
             </a>
           </div>
-          <a className="compare label-down link d-xs-show" href="compare">
-            <i className="w-icon-compare"></i>
+          <div className="wishlist2 dropdown1">
+            <a className="wishlist label-down link d-xs-show" href="compare">
+              <i className="w-icon-compare">
+                <span className="wishlist-count">
+                  {compareProducts ? compareProducts.length : 0}
+                </span>
+              </i>
+              <span className="wishlist-label d-lg-show">Compare</span>
+            </a>
+          </div>
+          {/* <a className="compare label-down link d-xs-show" href="compare">
+            <i className="w-icon-compare">
+            </i>
             <span className="compare-label d-lg-show">Compare</span>
-          </a>
+          </a> */}
           <NavbarCart />
         </div>
       </div>
