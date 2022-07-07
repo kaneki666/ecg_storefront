@@ -258,7 +258,9 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                             </label>
                             <div
                               className="product-countdown countdown-compact"
-                              data-until="2022, 12, 31"
+                              data-until={`${"2022-07-31".split("-")[0]}, ${
+                                "2022-07-31".split("-")[1]
+                              }, ${"2022-07-31".split("-")[2]}`}
                               data-compact="true"
                             >
                               {products.end_date}
@@ -304,7 +306,11 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                           </div>
 
                           <div className="product-variation-price">
-                            <span></span>
+                            <span>
+                              {" "}
+                              {currency.currency_symbol}{" "}
+                              {productitem.price * currency.currency_rate}
+                            </span>
                           </div>
 
                           <div className="product-form pt-4">
