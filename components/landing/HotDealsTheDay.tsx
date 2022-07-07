@@ -306,11 +306,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                           </div>
 
                           <div className="product-variation-price">
-                            <span>
-                              {" "}
-                              {currency.currency_symbol}{" "}
-                              {productitem.price * currency.currency_rate}
-                            </span>
+                            <span> </span>
                           </div>
 
                           <div className="product-form pt-4">
