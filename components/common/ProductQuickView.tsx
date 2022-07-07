@@ -114,7 +114,7 @@ const ProductQuickView = () => {
                 <div className="product-categories">
                   Category:
                   <span className="product-category">
-                    <a href="#"> {product?.category.title}</a>
+                    <a href="#"> {product?.category_name}</a>
                   </span>
                 </div>
                 <div className="product-sku">
