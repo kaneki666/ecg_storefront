@@ -83,13 +83,29 @@ export interface Category {
   title: string;
 }
 
+export interface VarientTypeItem {
+  id: number;
+  sku: string;
+  variant_type: VariantType;
+  variant_value: string;
+  variant_price: number;
+  quantity: number;
+  discount_type: null;
+  discount_amount: number;
+}
+
+export interface VariantType {
+  id: number;
+  title: string;
+}
+
 export interface ProductCombination {
   id: number;
   product_attribute: Category;
   product_attribute_value: string;
   product_attribute_color_code: string;
   combination_media: any[];
-  variant: any[];
+  variant: VarientTypeItem[];
 }
 
 export interface ProductMedia {

@@ -8401,6 +8401,7 @@ body .product-popup {
   color: #666;
   -webkit-transition: border-color 0.35s, color 0.35s;
   transition: border-color 0.35s, color 0.35s;
+  cursor: pointer;
 }
 .product-single .product-size-swatch .size.active, .product-single .product-size-swatch .size:hover {
   border-color: #336699;
@@ -15763,3 +15764,22 @@ aside .sp-sidebar-banner span {
             justify-content: center;
   }
 }
+.product-colors-container{
+  height: 23px;
+  width: 23px;
+  border-radius: 11.5px;
+  margin: 5px;
+}
+.product-colors{
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  
+}
+/* .product-colors:hover {
+ 
+  border: 1px solid black;
+ 
+} */

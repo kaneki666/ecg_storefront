@@ -10,6 +10,7 @@ import {
 } from "../../store/products/actions";
 import {
   DealsOfTheDayProps,
+  ProductCombination,
   SingleProductProps,
 } from "../../utils/types/landingpage";
 import {
@@ -20,8 +21,13 @@ import {
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   const [checkWishlist, setcheckWishlist] = useState(false);
   const dispatch = useDispatch();
-  let [quantity, setQuantity] = useState(1);
+  let [selectedItem, setSelectedItem] = useState({
+    quantity: 1,
+    price: products.product[0].price,
+  });
 
+  const [selectedCombination, setSelectedCombination] =
+    useState<ProductCombination | null>(null);
   const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
@@ -77,9 +83,9 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
         id: products.product[0].id,
         title: products.product[0].title,
         thumbnail: products.product[0].thumbnail,
-        quantity: quantity,
-        price: products.product[0].price,
-        totalPrice: products.product[0].price * quantity,
+        quantity: selectedItem.quantity,
+        price: selectedItem.price,
+        totalPrice: selectedItem.price * selectedItem.quantity,
       })
     );
   const handleWishlist = () => {
@@ -152,20 +158,19 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                         <div className="product-gallery product-gallery-sticky product-gallery-vertical">
                           <div className="swiper-container product-single-swiper swiper-theme nav-inner">
                             <div className="swiper-wrapper row cols-1 gutter-no">
-                              {/* {productitem.product_media.map((item: any) => (
-                              <div className="swiper-slide" key={item.id}>
-                                <figure className="product-image">
-                                  <img
-                                    src={item.file}
-                                    data-zoom-image="/images/demos/demo1/products/1-1-800x900.jpg"
-                                    alt="Product Image"
-                                    width="800"
-                                    height="900"
-                                  />
-                                </figure>
-                              </div>
-                            ))} */}
-                              <div className="swiper-slide">
+                              {productitem.product_media.map((item: any) => (
+                                <div className="swiper-slide" key={item.id}>
+                                  <figure className="product-image">
+                                    <img
+                                      src={item.file}
+                                      alt="Product Image"
+                                      width="800"
+                                      height="900"
+                                    />
+                                  </figure>
+                                </div>
+                              ))}
+                              {/* <div className="swiper-slide">
                                 <figure className="product-image">
                                   <img
                                     src={productitem.thumbnail}
@@ -175,7 +180,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                     height="900"
                                   />
                                 </figure>
-                              </div>
+                              </div> */}
                             </div>
                             <button className="swiper-button-next"></button>
                             <button className="swiper-button-prev"></button>
@@ -185,7 +190,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                 {products.discount_price_type == "per"
                                   ? "%"
                                   : " Flat"}{" "}
-                                Offssssss
+                                Off
                               </label>
                             </div>
                           </div>
@@ -206,8 +211,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                                   }"
                           >
                             <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
-                              {/* {productitem.product_media?.map(
-                              (item: any, index: any) => (
+                              {productitem.product_media?.map((item) => (
                                 <div
                                   className="product-thumb swiper-slide"
                                   key={item.id}
@@ -219,10 +223,9 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                     height="68"
                                   />
                                 </div>
-                              )
-                            )} */}
+                              ))}
 
-                              <div
+                              {/* <div
                                 className="product-thumb swiper-slide"
                                 // key={item.id}
                               >
@@ -232,7 +235,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                   width="60"
                                   height="68"
                                 />
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -284,29 +287,102 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                             </a>
                           </div>
 
-                          <div className="product-form product-variation-form product-size-swatch mb-3">
-                            <label className="mb-1">Size:</label>
-                            <div className="flex-wrap d-flex align-items-center product-variations">
-                              <a href="#" className="size">
-                                Extra Large
-                              </a>
-                              <a href="#" className="size">
-                                Large
-                              </a>
-                              <a href="#" className="size">
-                                Medium
-                              </a>
-                              <a href="#" className="size">
-                                Small
-                              </a>
+                          {productitem.product_combinations[0].product_attribute
+                            .title === "Color" && (
+                            <div className="product-form product-variation-form product-size-swatch mb-3">
+                              <label className="mb-1">Colors:</label>
+                              <div className="flex-wrap d-flex align-items-center product-variations">
+                                {productitem.product_combinations[0]
+                                  .product_attribute.title === "Color" &&
+                                  productitem.product_combinations.map(
+                                    (itemCombination) => (
+                                      <div
+                                        onClick={() =>
+                                          setSelectedCombination(
+                                            itemCombination
+                                          )
+                                        }
+                                        key={itemCombination.id.toString()}
+                                      >
+                                        <div
+                                          className="product-colors"
+                                          style={{
+                                            backgroundColor:
+                                              itemCombination.product_attribute_color_code,
+                                          }}
+                                        />
+                                      </div>
+                                    )
+                                  )}
+                              </div>
                             </div>
-                            <a href="#" className="product-variation-clean">
-                              Clean All
-                            </a>
-                          </div>
+                          )}
 
-                          <div className="product-variation-price">
-                            <span> </span>
+                          {productitem.product_combinations[0].product_attribute
+                            .title === "Flavour" &&
+                            productitem.product_combinations[0].variant.length >
+                              0 && (
+                              <div className="product-form product-variation-form product-size-swatch mb-3">
+                                <label className="mb-1">Flavours:</label>
+                                <div className="flex-wrap d-flex align-items-center product-variations">
+                                  {productitem.product_combinations[0].variant.map(
+                                    (varientItem) => (
+                                      <a
+                                        key={varientItem.id.toString()}
+                                        className="size"
+                                        onClick={() =>
+                                          setSelectedItem({
+                                            ...selectedItem,
+                                            price: varientItem.variant_price,
+                                          })
+                                        }
+                                      >
+                                        {varientItem.variant_value}
+                                      </a>
+                                    )
+                                  )}
+                                </div>
+                                {/* <a href="#" className="product-variation-clean">
+                                  Clean All
+                                </a> */}
+                              </div>
+                            )}
+
+                          {selectedCombination !== null &&
+                            selectedCombination.variant.length > 0 && (
+                              <div className="product-form product-variation-form product-size-swatch mb-3">
+                                <label className="mb-1">Size:</label>
+                                <div className="flex-wrap d-flex align-items-center product-variations">
+                                  {selectedCombination.variant.map(
+                                    (varientItem) => (
+                                      <a
+                                        key={varientItem.id.toString()}
+                                        className="size"
+                                        onClick={() =>
+                                          setSelectedItem({
+                                            ...selectedItem,
+                                            price: varientItem.variant_price,
+                                          })
+                                        }
+                                      >
+                                        {varientItem.variant_value}
+                                      </a>
+                                    )
+                                  )}
+                                </div>
+                                {/* <a href="#" className="product-variation-clean">
+                                  Clean All
+                                </a> */}
+                              </div>
+                            )}
+
+                          <div className="product-price">
+                            <ins className="new-price ls-50">
+                              {currency.currency_symbol}{" "}
+                              {selectedItem.price *
+                                selectedItem.quantity *
+                                currency.currency_rate}{" "}
+                            </ins>
                           </div>
 
                           <div className="product-form pt-4">
@@ -317,17 +393,26 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                                   type="number"
                                   min="1"
                                   max="10000000"
-                                  value={quantity}
+                                  value={selectedItem.quantity}
                                   onChange={(e) => {}}
                                 />
                                 <button
-                                  onClick={() => setQuantity((quantity += 1))}
+                                  onClick={() =>
+                                    setSelectedItem({
+                                      ...selectedItem,
+                                      quantity: (selectedItem.quantity += 1),
+                                    })
+                                  }
                                   className="quantity-plus w-icon-plus"
                                 ></button>
                                 <button
                                   onClick={() =>
-                                    quantity > 1
-                                      ? setQuantity((quantity -= 1))
+                                    selectedItem.quantity > 1
+                                      ? setSelectedItem({
+                                          ...selectedItem,
+                                          quantity:
+                                            (selectedItem.quantity -= 1),
+                                        })
                                       : ""
                                   }
                                   className="quantity-minus w-icon-minus"

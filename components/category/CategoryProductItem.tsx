@@ -66,7 +66,7 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
         </figure>
         <div className="product-details">
           <div className="product-cat">
-            <a href="category">{product.category.title}</a>
+            <a href="category">{product.category_name}</a>
           </div>
           <h3 className="product-name">
             <a href="#">{product.title}</a>
