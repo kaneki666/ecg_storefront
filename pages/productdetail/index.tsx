@@ -71,7 +71,7 @@ const ProductDetailPage: NextPage = ({
                     <PhotoSwiper />
                     <ProductSingle product={product} />
                     <BoughtTogether />
-                    <ProductDetailsTab />
+                    <ProductDetailsTab product={product} />
                     <VendorProducts />
                     <MoreProductsLike />
                   </div>

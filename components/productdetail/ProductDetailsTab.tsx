@@ -1,7 +1,9 @@
 import React from "react";
+import { SingleProductProps } from "../../utils/types/landingpage";
 import CustomerReview from "./CustomerReview";
 
-const ProductDetailsTab = () => {
+const ProductDetailsTab = ({ product }: { product: SingleProductProps }) => {
+
   return (
     <div className="tab tab-nav-boxed tab-nav-underline product-tabs">
       <ul className="nav nav-tabs" role="tablist">
@@ -22,7 +24,7 @@ const ProductDetailsTab = () => {
         </li>
         <li className="nav-item">
           <a href="#product-tab-reviews" className="nav-link">
-            Customer Reviews (3)
+            Customer Reviews ({product.product_reviews.length})
           </a>
         </li>
       </ul>
@@ -384,7 +386,7 @@ const ProductDetailsTab = () => {
             </div>
           </div>
 
-          <CustomerReview />
+          <CustomerReview product={product}/>
         </div>
       </div>
     </div>
