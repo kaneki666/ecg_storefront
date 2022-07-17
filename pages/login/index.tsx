@@ -40,7 +40,7 @@ const index: NextPage = ({
         <div className="page-wrapper">
           <header className="header header-border">
             <WelcomeNavBar />
-            <NavbarMiddle />
+            <NavbarMiddle data={categoriesData}/>
             <HeaderBottom data={categoriesData} />
           </header>
           <main className="main login-page">

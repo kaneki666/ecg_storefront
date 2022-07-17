@@ -21,34 +21,7 @@ import MobileMenu from "../../components/common/MobileMenu";
 const Index: NextPage = ({
     categoriesData,
   }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [data,setData]=useState()
-  const [check1,setCheck1]=useState(false)
-  const router =useRouter()
-  const {token} = router.query
-  const response = async (token: string | string[]) => {
-    try{
-    const res = await fetch(`${API_BASE_URL}/verify-user/${token}`);
-    const data = await res.json();
-    
-    if (res.status !== 200) {
-            setData(data);
-            setCheck1(true)
-            return 0;
-        } else{
-            setData(data);
-            setCheck1(false)
-            return 0;
-        }
-    }catch(e){
-        console.log(e)
-    }
-        
-  } 
-
-
-  if(token && !data){
-    response(token)
-  }
+  
   return (
     <div>
       <Head>
@@ -58,14 +31,12 @@ const Index: NextPage = ({
         <div className="page-wrapper">
           <header className="header header-border">
             <WelcomeNavBar />
-            <NavbarMiddle data={categoriesData}/>
+            <NavbarMiddle data={categoriesData} />
             <HeaderBottom data={categoriesData} />
           </header>
           <main className="main login-page token-main">
            <div>
-           <div className="text-center token-css">{check1 ? 
-           (<div className="redcolor">{data && data["message"]}</div>)
-           :(<div className="greenColor">Account {data && data["message"]}</div>)}</div>
+              <h1>Welcome to the world of e-commerce</h1>
            </div>
           </main>
           <FooterLanding/>
