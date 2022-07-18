@@ -30,6 +30,7 @@ const initialState: ProductCartReducerStateProps = {
   usedCoupon: false,
   recentProducts: [],
   compareProducts: [],
+  wishlist: [],
 };
 
 export const ProductReducer = (

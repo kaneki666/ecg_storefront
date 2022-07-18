@@ -74,17 +74,30 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
       full_description: productItem.full_description,
       warranty: productItem.warranty,
     };
+    const add = toast("Added in compare", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     if (compareProducts) {
       if (compareProducts.length < 4) {
         dispatch(addToCompareAction(compareItem));
+        add;
       } else if (compareProducts.length === 4) {
         dispatch(removeFromCompareAction(compareProducts[0].id));
         dispatch(addToCompareAction(compareItem));
+        add;
       }
     }
   };
 
   const handleWishlist = () => {
+    console.log(wishlist);
+
     if (wishlist?.length !== 0) {
       if (wishlist) {
         const findIndexWishlistRemove = wishlist?.findIndex(
