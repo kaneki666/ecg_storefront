@@ -1,12 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import { useSelector } from "react-redux";
+import { CategoriesProps } from "../../utils/types/landingpage";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import NavbarCart from "./NavbarCart";
 import NavbarLiveChat from "./NavbarLiveChat";
 
-const NavbarMiddle = () => {
-  const { wishlist,compareProducts } = useSelector(
+const NavbarMiddle = ({ data }: { data: CategoriesProps[] }) => {
+  const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
   return (
@@ -27,18 +28,14 @@ const NavbarMiddle = () => {
             className="header-search hs-expanded hs-round d-none d-md-flex input-wrapper"
           >
             <div className="select-box">
-              <select id="category" name="category">
-                <option value="">All Categories</option>
-                <option value="4">Fashion</option>
-                <option value="5">Furniture</option>
-                <option value="6">Shoes</option>
-                <option value="7">Sports</option>
-                <option value="8">Games</option>
-                <option value="9">Computers</option>
-                <option value="10">Electronics</option>
-                <option value="11">Kitchen</option>
-                <option value="12">Clothing</option>
-              </select>
+            <select id="category" name="category">
+            <option value="">All Category</option>
+              {data &&
+                data.length > 0 &&
+                data.map((item: CategoriesProps) => (
+                      <option value={item.id.toString()} key={item.id}>{item.title}</option> 
+                ))}
+            </select>
             </div>
             <input
               type="text"

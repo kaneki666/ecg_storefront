@@ -59,7 +59,7 @@ const ProductDetailPage: NextPage = ({
         <div className="page-wrapper">
           <header className="header header-border">
             <WelcomeNavBar />
-            <NavbarMiddle />
+            <NavbarMiddle data={categoriesData}/>
             <HeaderBottom data={categoriesData} />
           </header>
           <main className="main mb-10 pb-1">
