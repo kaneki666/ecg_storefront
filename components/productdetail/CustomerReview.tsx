@@ -35,7 +35,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
         <div className="tab-pane active" id="show-all">
           <ul className="comments list-style-none">
             <li className="comment">
-              {product.product_reviews?.map((item: any) => (
+              {product.product_reviews && product.product_reviews?.map((item: any) => (
                 <div key={item.id}>
                   <div className="comment-body">
                     <figure className="comment-avatar">
@@ -49,7 +49,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user.first_name} {item.user.last_name}
+                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -100,7 +100,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
         <div className="tab-pane" id="helpful-positive">
           <ul className="comments list-style-none">
             <li className="comment">
-              {product.product_reviews?.map((item: any) => (
+              {product.product_reviews && product.product_reviews?.map((item: any) => (
                 <div key={item.id}>
                   <div className="comment-body">
                     <figure className="comment-avatar">
@@ -114,7 +114,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user.first_name} {item.user.first_name}
+                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -165,7 +165,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
         <div className="tab-pane" id="helpful-negative">
           <ul className="comments list-style-none">
             <li className="comment">
-              {product.product_reviews?.map((item: any) => (
+              {product.product_reviews && product.product_reviews?.map((item: any) => (
                 <div key={item.id}>
                   <div className="comment-body">
                     <figure className="comment-avatar">
@@ -179,7 +179,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user.first_name} {item.user.first_name}
+                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -217,7 +217,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
         <div className="tab-pane" id="highest-rating">
           <ul className="comments list-style-none">
             <li className="comment">
-              {product.product_reviews?.map((item: any) => (
+              {product.product_reviews && product.product_reviews?.map((item: any) => (
                 <div key={item.id}>
                   <div className="comment-body">
                     <figure className="comment-avatar">
@@ -231,7 +231,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user.first_name} {item.user.first_name}
+                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -293,7 +293,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
         <div className="tab-pane" id="lowest-rating">
           <ul className="comments list-style-none">
             <li className="comment">
-              {product.product_reviews?.map((item: any) => (
+              {product.product_reviews && product.product_reviews?.map((item: any) => (
                 <div key={item.id}>
                   <div className="comment-body">
                     <figure className="comment-avatar">
@@ -307,7 +307,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user.first_name} {item.user.first_name}
+                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
