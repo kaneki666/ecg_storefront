@@ -96,8 +96,6 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   };
 
   const handleWishlist = () => {
-    console.log(wishlist);
-
     if (wishlist?.length !== 0) {
       if (wishlist) {
         const findIndexWishlistRemove = wishlist?.findIndex(

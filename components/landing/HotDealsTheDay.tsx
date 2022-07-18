@@ -67,12 +67,23 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       full_description: products.product[0].full_description,
       warranty: products.product[0].warranty,
     };
+    const add = toast("Added in compare", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     if (compareProducts) {
       if (compareProducts.length < 4) {
         dispatch(addToCompareAction(compareItem));
+        add;
       } else if (compareProducts.length === 4) {
         dispatch(removeFromCompareAction(compareProducts[0].id));
         dispatch(addToCompareAction(compareItem));
+        add;
       }
     }
   };

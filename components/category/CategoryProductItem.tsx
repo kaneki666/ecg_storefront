@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   addToCartAction,
+  addToCompareAction,
   addToQuickViewAction,
+  addToWishlistAction,
+  removeFromCompareAction,
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
-import { CartItemProps, RootAppStateProps } from "../../utils/types/reduxTypes";
+import {
+  CartItemProps,
+  CompareProductProps,
+  RootAppStateProps,
+} from "../../utils/types/reduxTypes";
 
-const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
+const Categoryproduct = ({ product }: { product: SingleProductProps }) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
-
+  const [checkWishlist, setcheckWishlist] = useState(false);
+  const { wishlist, compareProducts } = useSelector(
+    (state: RootAppStateProps) => state.ProductReducer
+  );
   const dispatch = useDispatch();
 
   const handleAddToQuickView = () => dispatch(addToQuickViewAction(product));
@@ -26,6 +37,90 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
       totalPrice: product.price,
     };
     dispatch(addToCartAction(cartItem));
+  };
+
+  const handleAddToComparelist = () => {
+    const compareItem: CompareProductProps = {
+      id: product.id,
+      thumbnail: product.thumbnail,
+      title: product.title,
+      price: product.price,
+      total_quantity: product.total_quantity,
+      // old_price: product.price,
+      short_description: product.short_description,
+      rating: product.avg_rating,
+      // is_featured: false,
+      category_title: product.category_name,
+      brand: product.brand_name,
+      full_description: product.full_description,
+      warranty: product.warranty,
+    };
+    const add = toast("Added in compare", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    if (compareProducts) {
+      if (compareProducts.length < 4) {
+        dispatch(addToCompareAction(compareItem));
+        add;
+      } else if (compareProducts.length === 4) {
+        dispatch(removeFromCompareAction(compareProducts[0].id));
+        dispatch(addToCompareAction(compareItem));
+        add;
+      }
+    }
+  };
+  const handleWishlist = () => {
+    if (wishlist?.length !== 0) {
+      if (wishlist) {
+        const findIndexWishlistRemove = wishlist?.findIndex(
+          (item: SingleProductProps) => item.id === product.id
+        );
+
+        if (findIndexWishlistRemove === -1) {
+          setcheckWishlist(true);
+          toast("Added in wishlist", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          dispatch(addToWishlistAction(product));
+        } else {
+          setcheckWishlist(false);
+          toast("Removed from wishlist", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          dispatch(addToWishlistAction(product));
+        }
+      }
+    } else {
+      setcheckWishlist(true);
+      toast("Added in wishlist", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      dispatch(addToWishlistAction(product));
+    }
   };
   return (
     <div className="product-wrap">
@@ -47,11 +142,13 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
               title="Add to cart"
             ></a>
             <a
+              onClick={handleWishlist}
               href="#"
               className="btn-product-icon btn-wishlist w-icon-heart"
               title="Wishlist"
             ></a>
             <a
+              onClick={handleAddToComparelist}
               href="#"
               className="btn-product-icon btn-compare w-icon-compare"
               title="Compare"
@@ -96,4 +193,4 @@ const CategoryProductItem = ({ product }: { product: SingleProductProps }) => {
   );
 };
 
-export default CategoryProductItem;
+export default Categoryproduct;
