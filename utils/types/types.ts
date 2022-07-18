@@ -31,6 +31,12 @@ export interface GetUserInfoProps {
   gender_display_value: string;
 }
 
+export interface GetUserPasswordProps {
+  old_password:	string;
+  password: string;
+  password2: string;
+}
+
 export interface User {
   first_name: string;
   last_name: string;

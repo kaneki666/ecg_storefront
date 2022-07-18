@@ -54,6 +54,11 @@ const PrifileNavList = () => {
       <li className="link-item">
         <a href="wishlist">Wishlist</a>
       </li>
+      <li className="nav-item">
+        <a href="#change-password" className="nav-link">
+          Change password
+        </a>
+      </li>
       <li onClick={handleLogout} className="nav-link">
         <a href="login">Logout</a>
       </li>

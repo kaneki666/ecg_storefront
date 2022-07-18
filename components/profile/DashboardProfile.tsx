@@ -51,9 +51,13 @@ const DashboardProfile = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
         <a href="#account-addresses" className="text-primary link-to-tab">
           shipping and billing addresses
         </a>
-        , and
+        , and{" "}
+        <a href="#change-password" className="text-primary link-to-tab">
+          edit your password
+        </a>
+        {" "}and{" "}
         <a href="#account-details" className="text-primary link-to-tab">
-          edit your password and account details.
+         account details.
         </a>
       </p>
 

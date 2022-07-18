@@ -1,6 +1,7 @@
 import React from "react";
 import { GetUserInfoProps } from "../../utils/types/types";
 import DashboardProfile from "./DashboardProfile";
+import PasswordChange from "./PasswordChange";
 import PrifileNavList from "./PrifileNavList";
 import ProfilDetails from "./ProfilDetails";
 import ProfileOrders from "./ProfileOrders";
@@ -129,6 +130,7 @@ const ProfileContent = ({ userInfos }: { userInfos: GetUserInfoProps }) => {
         </div>
 
         <ProfilDetails userInfos={userInfos} />
+        <PasswordChange />
       </div>
     </div>
   );
