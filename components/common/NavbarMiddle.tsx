@@ -1,8 +1,12 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import useAxios from "../../utils/helperFucntion/useAxios";
 import { CategoriesProps } from "../../utils/types/landingpage";
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
+import { SearchProps } from "../../utils/types/types";
 import NavbarCart from "./NavbarCart";
 import NavbarLiveChat from "./NavbarLiveChat";
 
@@ -10,6 +14,25 @@ const NavbarMiddle = ({ data }: { data: CategoriesProps[] }) => {
   const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
+  const axiosInstance = useAxios();
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm<SearchProps>();
+  const router = useRouter();
+  
+  const onSubmit: SubmitHandler<SearchProps> = async (data) => {
+    if(router.pathname !== '/'){
+    setTimeout(() => {
+      window.location.reload()
+    }, 500);
+  }
+    router.push({pathname:'/search',query:{query:data.query,category_id:data.category_id}}); 
+
+  }; 
+
   return (
     <div className="header-middle">
       <div className="container">
@@ -23,27 +46,27 @@ const NavbarMiddle = ({ data }: { data: CategoriesProps[] }) => {
             <Image src="/images/logo.png" alt="logo" width="144" height="45" />
           </a>
           <form
-            method="get"
-            action="#"
             className="header-search hs-expanded hs-round d-none d-md-flex input-wrapper"
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className="select-box">
-            <select id="category" name="category">
-            <option value="">All Category</option>
-              {data &&
-                data.length > 0 &&
-                data.map((item: CategoriesProps) => (
-                      <option value={item.id.toString()} key={item.id}>{item.title}</option> 
-                ))}
-            </select>
+              <select id="category" {...register("category_id")}>
+                <option value={0}>All Category</option>
+                {data &&
+                  data.length > 0 &&
+                  data.map((item: CategoriesProps) => (
+                    <option value={item.id} key={item.id}>
+                      {item.title}
+                    </option>
+                  ))}
+              </select>
             </div>
             <input
               type="text"
               className="form-control"
-              name="search"
               id="search"
               placeholder="Search in..."
-              required
+              {...register("query")}
             />
             <button className="btn btn-search" type="submit">
               <i className="w-icon-search"></i>

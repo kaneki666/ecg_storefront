@@ -37,6 +37,11 @@ export interface GetUserPasswordProps {
   password2: string;
 }
 
+export interface SearchProps {
+  query?: string |undefined;
+  category_id?: number |undefined;
+}
+
 export interface User {
   first_name: string;
   last_name: string;
