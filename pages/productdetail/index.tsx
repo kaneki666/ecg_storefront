@@ -73,7 +73,7 @@ const ProductDetailPage: NextPage = ({
                     <BoughtTogether />
                     <ProductDetailsTab product={product} />
                     <VendorProducts id={product.vendor.id} />
-                    <MoreProductsLike />
+                    <MoreProductsLike category={product.category.id} />
                   </div>
                   <Sidebar />
                 </div>
