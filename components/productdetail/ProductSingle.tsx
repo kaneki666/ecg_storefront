@@ -257,7 +257,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           </div>
 
           <hr className="product-divider" />
-          {product.product_combinations[0].product_attribute.title ===
+          {product.product_combinations[0]?.product_attribute?.title === undefined && product.product_combinations[0]?.product_attribute?.title ===
             "Color" && (
             <div className="product-form product-variation-form product-color-swatch">
               <label>Colors:</label>
@@ -279,7 +279,7 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
               </div>
             </div>
           )}
-          {product.product_combinations[0].product_attribute.title ===
+          {product.product_combinations[0]?.product_attribute?.title ===
             "Flavour" &&
             product.product_combinations[0].variant.length > 0 && (
               <div className="product-form product-variation-form product-size-swatch mb-3">

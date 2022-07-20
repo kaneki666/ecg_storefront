@@ -49,7 +49,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
+                          {item.user?.first_name?.first_name} {item.user?.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -114,7 +114,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
+                          {item.user?.first_name?.first_name} {item.user?.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -179,7 +179,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
+                          {item.user?.first_name?.first_name} {item.user?.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -231,7 +231,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
+                          {item.user?.first_name?.first_name} {item.user?.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
@@ -307,7 +307,7 @@ const CustomerReview = ({ product }: { product: SingleProductProps }) => {
                     <div className="comment-content">
                       <h4 className="comment-author">
                         <a href="#">
-                          {item.user?.user.first_name?.first_name} {item.user?.user.last_name?.last_name}
+                          {item.user?.first_name?.first_name} {item.user?.last_name?.last_name}
                         </a>
                         <span className="comment-date">{item.created_at}</span>
                       </h4>
