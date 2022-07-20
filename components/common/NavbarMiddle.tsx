@@ -27,7 +27,7 @@ const NavbarMiddle = ({ data }: { data: CategoriesProps[] }) => {
     if(router.pathname !== '/'){
     setTimeout(() => {
       window.location.reload()
-    }, 500);
+    }, 1000);
   }
     router.push({pathname:'/search',query:{query:data.query,category_id:data.category_id}}); 
 
