@@ -282,6 +282,13 @@ table {
   width: 20px;
 }
 
+.notfound{
+  text-align: center;
+  padding: 50px 0;
+  font-size: large;
+  font-weight: bold;
+}
+
 .load-more-overlay {
   position: relative;
 }

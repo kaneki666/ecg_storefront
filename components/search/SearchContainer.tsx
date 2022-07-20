@@ -78,9 +78,12 @@ const SearchContainer = () => {
                     productItem={item}
                   />
                 )
-              )}
+              )}  
           </div>
         </div>
+        {
+                !searchData.length && <div className="text-center mt-4 mb-8 notfound">No Data Found</div>
+              }
         </div>
         
     </div>
