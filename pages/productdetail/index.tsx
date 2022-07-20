@@ -38,7 +38,7 @@ const ProductDetailPage: NextPage = ({
   }, [product]);
 
   return (
-    <div> 
+    <div>
       <Head>
         <link
           rel="preload stylesheet"
@@ -59,7 +59,7 @@ const ProductDetailPage: NextPage = ({
         <div className="page-wrapper">
           <header className="header header-border">
             <WelcomeNavBar />
-            <NavbarMiddle data={categoriesData}/>
+            <NavbarMiddle data={categoriesData} />
             <HeaderBottom data={categoriesData} />
           </header>
           <main className="main mb-10 pb-1">
@@ -72,7 +72,7 @@ const ProductDetailPage: NextPage = ({
                     <ProductSingle product={product} />
                     <BoughtTogether />
                     <ProductDetailsTab product={product} />
-                    <VendorProducts />
+                    <VendorProducts id={product.vendor.id} />
                     <MoreProductsLike />
                   </div>
                   <Sidebar />
@@ -99,13 +99,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const [productRes, cateGoriesRes, currencyListRes] = await Promise.all([
     fetch(`${API_BASE_URL}/product-details/${slug}/`),
     fetch(`${API_BASE_URL}/mega-menu-data/`),
-
     fetch(`${API_BASE_URL}/currency-list/`),
   ]);
   const [product, categoriesData, currencyList] = await Promise.all([
     productRes.json(),
     cateGoriesRes.json(),
-
     currencyListRes.json(),
   ]);
   return { props: { product, categoriesData, currencyList } };

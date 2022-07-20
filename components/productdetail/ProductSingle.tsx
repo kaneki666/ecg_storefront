@@ -8,7 +8,10 @@ import {
   removeFromCompareAction,
   removeFromWishlistAction,
 } from "../../store/products/actions";
-import { SingleProductProps } from "../../utils/types/landingpage";
+import {
+  ProductCombination,
+  SingleProductProps,
+} from "../../utils/types/landingpage";
 import {
   CartItemProps,
   CompareProductProps,
@@ -23,16 +26,23 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
     (state: RootAppStateProps) => state.ProductReducer
   );
   const dispatch = useDispatch();
-  let [quantity, setQuantity] = useState(1);
+
+  let [selectedItem, setSelectedItem] = useState({
+    quantity: 1,
+    price: product.price,
+  });
+
+  const [selectedCombination, setSelectedCombination] =
+    useState<ProductCombination | null>(null);
 
   const handleAddToCart = () => {
     const cartItem: CartItemProps = {
       id: product.id,
       thumbnail: product.thumbnail,
       title: product.title,
-      price: product.price,
-      quantity: quantity,
-      totalPrice: product.price,
+      quantity: selectedItem.quantity,
+      price: selectedItem.price,
+      totalPrice: selectedItem.price * selectedItem.quantity,
     };
     dispatch(addToCartAction(cartItem));
   };
@@ -190,11 +200,11 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
               <div className="product-categories">
                 Category:
                 <span className="product-category">
-                  <a href="#">Electronics</a>
+                  <a href="#">{product.category.title}</a>
                 </span>
               </div>
               <div className="product-sku">
-                SKU: <span>MS46891340</span>
+                SKU: <span>{product.sku}</span>
               </div>
             </div>
           </div>
@@ -224,51 +234,95 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
           <div className="product-short-desc">
             <ul className="list-type-check list-style-none">
               <li>{product.short_description}</li>
-              <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
-              <li>Aliquam id diam maecenas ultricies mi eget mauris.</li>
             </ul>
           </div>
 
           <hr className="product-divider" />
-
-          <div className="product-form product-variation-form product-color-swatch">
-            <label>Color:</label>
-            <div className="d-flex align-items-center product-variations">
-              <a
-                href="#"
-                className="color"
-                style={{ backgroundColor: "#ffcc01" }}
-              ></a>
-              <a
-                href="#"
-                className="color"
-                style={{ backgroundColor: "#ca6d00" }}
-              ></a>
+          {product.product_combinations[0].product_attribute.title ===
+            "Color" && (
+            <div className="product-form product-variation-form product-color-swatch">
+              <label>Colors:</label>
+              <div className="d-flex align-items-center product-variations">
+                {product.product_combinations[0].product_attribute.title ===
+                  "Color" &&
+                  product.product_combinations.map((itemCombination) => (
+                    <a
+                      onClick={() => setSelectedCombination(itemCombination)}
+                      key={itemCombination.id.toString()}
+                      href="#"
+                      className="color"
+                      style={{
+                        backgroundColor:
+                          itemCombination.product_attribute_color_code,
+                      }}
+                    ></a>
+                  ))}
+              </div>
             </div>
-          </div>
-          <div className="product-form product-variation-form product-size-swatch">
-            <label className="mb-1">Size:</label>
-            <div className="flex-wrap d-flex align-items-center product-variations">
-              <a href="#" className="size">
-                Small
-              </a>
-              <a href="#" className="size">
-                Medium
-              </a>
-              <a href="#" className="size">
-                Large
-              </a>
-              <a href="#" className="size">
-                Extra Large
-              </a>
-            </div>
-            <a href="#" className="product-variation-clean">
-              Clean All
-            </a>
-          </div>
+          )}
+          {product.product_combinations[0].product_attribute.title ===
+            "Flavour" &&
+            product.product_combinations[0].variant.length > 0 && (
+              <div className="product-form product-variation-form product-size-swatch mb-3">
+                <label className="mb-1">Flavours:</label>
+                <div className="flex-wrap d-flex align-items-center product-variations">
+                  {product.product_combinations[0].variant.map(
+                    (varientItem) => (
+                      <a
+                        key={varientItem.id.toString()}
+                        className="size"
+                        onClick={() =>
+                          setSelectedItem({
+                            ...selectedItem,
+                            price: varientItem.variant_price,
+                          })
+                        }
+                      >
+                        {varientItem.variant_value}
+                      </a>
+                    )
+                  )}
+                </div>
+                {/* <a href="#" className="product-variation-clean">
+                                  Clean All
+                                </a> */}
+              </div>
+            )}
 
-          <div className="product-variation-price">
-            <span></span>
+          {selectedCombination !== null &&
+            selectedCombination.variant.length > 0 && (
+              <div className="product-form product-variation-form product-size-swatch mb-3">
+                <label className="mb-1">Size:</label>
+                <div className="flex-wrap d-flex align-items-center product-variations">
+                  {selectedCombination.variant.map((varientItem) => (
+                    <a
+                      href="#"
+                      key={varientItem.id.toString()}
+                      className="size"
+                      onClick={() =>
+                        setSelectedItem({
+                          ...selectedItem,
+                          price: varientItem.variant_price,
+                        })
+                      }
+                    >
+                      {varientItem.variant_value}
+                    </a>
+                  ))}
+                </div>
+                {/* <a href="#" className="product-variation-clean">
+                                  Clean All
+                                </a> */}
+              </div>
+            )}
+
+          <div className="product-price">
+            <ins className="new-price ls-50">
+              {currency.currency_symbol}{" "}
+              {selectedItem.price *
+                selectedItem.quantity *
+                currency.currency_rate}{" "}
+            </ins>
           </div>
 
           <div className="fix-bottom product-sticky-content sticky-content">
@@ -280,16 +334,26 @@ const ProductSingle = ({ product }: { product: SingleProductProps }) => {
                     type="number"
                     min="1"
                     max="10000000"
-                    value={quantity}
+                    value={selectedItem.quantity}
                     onChange={() => {}}
                   />
                   <button
-                    onClick={() => setQuantity((quantity += 1))}
+                    onClick={() =>
+                      setSelectedItem({
+                        ...selectedItem,
+                        quantity: (selectedItem.quantity += 1),
+                      })
+                    }
                     className="quantity-plus w-icon-plus"
                   ></button>
                   <button
                     onClick={() =>
-                      quantity > 1 ? setQuantity((quantity -= 1)) : ""
+                      selectedItem.quantity > 1
+                        ? setSelectedItem({
+                            ...selectedItem,
+                            quantity: (selectedItem.quantity -= 1),
+                          })
+                        : ""
                     }
                     className="quantity-minus w-icon-minus"
                   ></button>

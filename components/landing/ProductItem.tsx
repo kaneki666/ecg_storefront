@@ -9,7 +9,6 @@ import {
 } from "../../store/products/actions";
 import { SingleProductProps } from "../../utils/types/landingpage";
 import {
-  CartItemProps,
   CompareProductProps,
   RootAppStateProps,
 } from "../../utils/types/reduxTypes";
@@ -19,11 +18,7 @@ const ProductItem = ({ productItem }: { productItem: SingleProductProps }) => {
   const currency = useSelector(
     (state: RootAppStateProps) => state.AuthReducer.currency
   );
-  const { wishlist } = useSelector(
-    (state: RootAppStateProps) => state.ProductReducer
-  );
-
-  const { compareProducts } = useSelector(
+  const { wishlist, compareProducts } = useSelector(
     (state: RootAppStateProps) => state.ProductReducer
   );
 

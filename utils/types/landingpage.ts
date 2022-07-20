@@ -38,6 +38,7 @@ export interface ProductReviewUser {
 }
 
 export interface SingleProductProps {
+  review_count: number;
   id: number;
   title: string;
   slug: string;
