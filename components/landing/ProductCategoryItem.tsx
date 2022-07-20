@@ -12,7 +12,6 @@ import {
 import { SingleProductProps } from "../../utils/types/landingpage";
 import {
   CartItemProps,
-  CompareProductProps,
   RootAppStateProps,
 } from "../../utils/types/reduxTypes";
 
@@ -33,21 +32,40 @@ const ProductCategoryItem = ({
     dispatch(addToQuickViewAction(productItem));
 
   const handleAddToComparelist = () => {
-    const compareItem: CompareProductProps = {
+    const compareItem: SingleProductProps = {
       id: productItem.id,
+      slug: productItem.slug,
+      sku:  productItem.sku,
       thumbnail: productItem.thumbnail,
       title: productItem.title,
       price: productItem.price,
       total_quantity: productItem.total_quantity,
-      // old_price: productItem.purchase_price,
+      old_price: productItem.old_price,
       short_description: productItem.short_description,
-      rating: productItem.avg_rating,
-      // is_featured: productItem.,
-      category_title: productItem.category.title,
-      brand: productItem.brand_name,
+      avg_rating: productItem.avg_rating,
+      is_featured: productItem.is_featured,
+      category_name: productItem.category_name,
+      brand_name: productItem.brand_name,
       full_description: productItem.full_description,
       warranty: productItem.warranty,
-      // variation: productItem.,
+      review_count: productItem.review_count,
+      status: productItem.status,
+      vendor: productItem.vendor,
+      category: productItem.category,
+      sub_category: productItem.sub_category,
+      brand: productItem.brand,
+      unit: productItem.unit,
+      purchase_price: productItem.purchase_price,
+      tax_in_percent: productItem.tax_in_percent,
+      discount_type:  productItem.discount_type,
+      discount_amount: productItem.discount_amount,
+      total_shipping_cost: productItem.total_shipping_cost,
+      shipping_time: productItem.shipping_time,
+      youtube_link: productItem.youtube_link,
+      product_tags: productItem.product_tags,
+      product_reviews: productItem.product_reviews,
+      product_media: productItem.product_media,
+      product_combinations: productItem.product_combinations,
     };
     if (compareProducts !== null && compareProducts !== undefined) {
       if (compareProducts.length <= 1) {

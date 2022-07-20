@@ -1,7 +1,6 @@
 import { SingleProductProps } from "./../../utils/types/landingpage";
 import {
   CartItemProps,
-  CompareProductProps,
   CouponItem,
   ProductCartReducerStateProps,
 } from "./../../utils/types/reduxTypes";
@@ -130,11 +129,11 @@ export const ProductReducer = (
 
     case ADD_PRODUCT_COMPARE:
       var compareItems = state.compareProducts;
-      const newCompareItem: CompareProductProps = action.payload;
+      const newCompareItem: SingleProductProps = action.payload;
 
       if (compareItems) {
         const findIndexRecent = compareItems.findIndex(
-          (item: CompareProductProps) => item.id === newCompareItem.id
+          (item: SingleProductProps) => item.id === newCompareItem.id
         );
         if (compareItems.length > 4) {
           compareItems.slice(1);
@@ -155,7 +154,7 @@ export const ProductReducer = (
     case REMOVE_PRODUCT_COMPARE:
       const compareItemRemove = action.payload;
       const findIndexCompareRemove = state.compareProducts?.findIndex(
-        (item: CompareProductProps) => item.id === compareItemRemove
+        (item: SingleProductProps) => item.id === compareItemRemove
       );
 
       state.compareProducts?.splice(findIndexCompareRemove!, 1);

@@ -14,7 +14,6 @@ import {
   SingleProductProps,
 } from "../../utils/types/landingpage";
 import {
-  CompareProductProps,
   RootAppStateProps,
 } from "../../utils/types/reduxTypes";
 
@@ -50,22 +49,40 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   }, []);
 
   const handleAddToComparelist = () => {
-    const compareItem: CompareProductProps = {
+    const compareItem: SingleProductProps = {
       id: products.product[0].id,
+      slug: products.product[0].slug,
+      sku:  products.product[0].sku,
       thumbnail: products.product[0].thumbnail,
       title: products.product[0].title,
       price: products.product[0].price,
       total_quantity: products.product[0].total_quantity,
-      // old_price: products.product[0].price,
+      old_price: products.product[0].old_price,
       short_description: products.product[0].short_description,
-      rating: products.product[0].avg_rating,
-      // is_featured: false,
-      category_title: products.product[0].category.title
-        ? products.product[0].category.title
-        : "",
-      brand: products.product[0].brand.title,
+      avg_rating: products.product[0].avg_rating,
+      is_featured: products.product[0].is_featured,
+      category_name: products.product[0].category_name,
+      brand_name: products.product[0].brand_name,
       full_description: products.product[0].full_description,
       warranty: products.product[0].warranty,
+      review_count: products.product[0].review_count,
+      status: products.product[0].status,
+      vendor: products.product[0].vendor,
+      category: products.product[0].category,
+      sub_category: products.product[0].sub_category,
+      brand: products.product[0].brand,
+      unit: products.product[0].unit,
+      purchase_price: products.product[0].purchase_price,
+      tax_in_percent: products.product[0].tax_in_percent,
+      discount_type:  products.product[0].discount_type,
+      discount_amount: products.product[0].discount_amount,
+      total_shipping_cost: products.product[0].total_shipping_cost,
+      shipping_time: products.product[0].shipping_time,
+      youtube_link: products.product[0].youtube_link,
+      product_tags: products.product[0].product_tags,
+      product_reviews: products.product[0].product_reviews,
+      product_media: products.product[0].product_media,
+      product_combinations: products.product[0].product_combinations, 
     };
     const add = toast("Added in compare", {
       position: "top-right",

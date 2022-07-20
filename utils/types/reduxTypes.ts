@@ -24,25 +24,25 @@ export interface VendorDataProps {
   refresh_token: string;
 }
 
-export interface CompareProductProps {
-  id: number;
-  title: string;
-  price: number;
-  // old_price: number;
-  short_description: string;
-  total_quantity: number;
-  rating: number;
-  // is_featured: boolean;
-  category_title?: string;
-  brand: string;
-  thumbnail: string;
-  full_description: string;
-  warranty: string;
+// export interface CompareProductProps {
+//   id: number;
+//   title: string;
+//   price: number;
+//   // old_price: number;
+//   short_description: string;
+//   total_quantity: number;
+//   rating: number;
+//   // is_featured: boolean;
+//   category_title?: string;
+//   brand: string;
+//   thumbnail: string;
+//   full_description: string;
+//   warranty: string;
 
-  // size:string;
-  // color:string;
-  // brand:string;
-}
+//   // size:string;
+//   // color:string;
+//   // brand:string;
+// }
 
 export interface CartItemProps {
   id: number;
@@ -71,7 +71,7 @@ export interface ProductCartReducerStateProps {
   cart: CartItemProps[];
   wishlist?: SingleProductProps[] | null;
   recentProducts: SingleProductProps[];
-  compareProducts?: CompareProductProps[] | null;
+  compareProducts?: SingleProductProps[] | null;
   totalPrice: number;
   usedCoupon: boolean;
   coupon?: null | CouponItem;
