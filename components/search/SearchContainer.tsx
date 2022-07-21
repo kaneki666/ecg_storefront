@@ -11,81 +11,63 @@ import {
 import { RootAppStateProps } from "../../utils/types/reduxTypes";
 import ProductItem from "../landing/ProductItem";
 
- 
-
 const SearchContainer = () => {
   const axiosInstance = useAxios();
   const [searchData, setSearchData] = useState([]);
   const router = useRouter();
   async function getsearchData() {
-    try{
+    try {
       const queryData = router.query.query;
-    const categoryId = router.query.category_id;
-    console.log(categoryId, "categoryId2", queryData, "queryData");
+      const categoryId = router.query.category_id;
+      console.log(categoryId, "categoryId2", queryData, "queryData");
 
+      if (categoryId && categoryId != "0" && queryData !== "") {
+        const response = await axiosInstance.get(
+          `/search-product/?query=${queryData}&category_id=${categoryId}`
+        );
+        setSearchData(response.data.results);
+      } else if (categoryId && categoryId != "0") {
+        const response = await axiosInstance.get(
+          `/search-product/?category_id=${categoryId}`
+        );
+        setSearchData(response.data.results);
+      } else if (queryData) {
+        const response = await axiosInstance.get(
+          `/search-product/?query=${queryData}`
+        );
 
-    if (categoryId && categoryId!='0' && queryData !== "") {
-      const response = await axiosInstance.get(
-        `/search-product/?query=${queryData}&category_id=${categoryId}`,
-      );
-      setSearchData(response.data.results);
-      
-
-    } else if (categoryId && categoryId!='0') {
-      const response = await axiosInstance.get(
-        `/search-product/?category_id=${categoryId}`,
-      );
-      setSearchData(response.data.results);
-      
-
-    } else if (queryData) {
-      const response = await axiosInstance.get(
-        `/search-product/?query=${queryData}`,
-      );
-      
-      setSearchData(response.data.results);
-      console.log(searchData, "searchData");
-
-    } else {
-      const response = await axiosInstance.get(
-        `/search-product/`,
-      );
-      setSearchData(response.data.results);
-      
-    }
-    }catch(error){
+        setSearchData(response.data.results);
+        console.log(searchData, "searchData");
+      } else {
+        const response = await axiosInstance.get(`/search-product/`);
+        setSearchData(response.data.results);
+      }
+    } catch (error) {
       console.log(error);
     }
   }
+  console.log(searchData);
 
   useEffect(() => {
     getsearchData();
   }, []);
 
-
   return (
     <div className="container">
-      
       {/* <!-- End of Tab --> */}
       <div className="tab-content product-wrapper ">
         <div className="tab-pane active pt-4" id="tab1-1">
           <div className="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
             {searchData &&
-              searchData.map(
-                (item: SingleProductProps ) => (
-                  <ProductItem
-                    key={item.id.toString()}
-                    productItem={item}
-                  />
-                )
-              )}  
+              searchData.map((item: SingleProductProps) => (
+                <ProductItem key={item.id.toString()} productItem={item} />
+              ))}
           </div>
         </div>
-        {
-                !searchData.length && <div className="text-center mt-4 mb-8 notfound">No Data Found</div>
-              }
-        </div>
-        
+        {!searchData.length && (
+          <div className="text-center mt-4 mb-8 notfound">No Data Found</div>
+        )}
+      </div>
     </div>
   );
 };

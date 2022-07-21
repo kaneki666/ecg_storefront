@@ -13,9 +13,7 @@ import {
   ProductCombination,
   SingleProductProps,
 } from "../../utils/types/landingpage";
-import {
-  RootAppStateProps,
-} from "../../utils/types/reduxTypes";
+import { RootAppStateProps } from "../../utils/types/reduxTypes";
 
 const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
   const [checkWishlist, setcheckWishlist] = useState(false);
@@ -52,7 +50,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
     const compareItem: SingleProductProps = {
       id: products.product[0].id,
       slug: products.product[0].slug,
-      sku:  products.product[0].sku,
+      sku: products.product[0].sku,
       thumbnail: products.product[0].thumbnail,
       title: products.product[0].title,
       price: products.product[0].price,
@@ -74,7 +72,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       unit: products.product[0].unit,
       purchase_price: products.product[0].purchase_price,
       tax_in_percent: products.product[0].tax_in_percent,
-      discount_type:  products.product[0].discount_type,
+      discount_type: products.product[0].discount_type,
       discount_amount: products.product[0].discount_amount,
       total_shipping_cost: products.product[0].total_shipping_cost,
       shipping_time: products.product[0].shipping_time,
@@ -82,7 +80,7 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
       product_tags: products.product[0].product_tags,
       product_reviews: products.product[0].product_reviews,
       product_media: products.product[0].product_media,
-      product_combinations: products.product[0].product_combinations, 
+      product_combinations: products.product[0].product_combinations,
     };
     const add = toast("Added in compare", {
       position: "top-right",
@@ -271,7 +269,9 @@ const HotDealsTheDay = ({ products }: { products: DealsOfTheDayProps }) => {
                       <div className="col-md-5">
                         <div className="product-details scrollable">
                           <h2 className="product-title mb-1">
-                            <a href="#">{productitem.title}</a>
+                            <a href={`productdetail?slug=${productitem.slug}`}>
+                              {productitem.title}
+                            </a>
                           </h2>
 
                           <hr className="product-divider" />
