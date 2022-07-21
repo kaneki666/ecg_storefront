@@ -24,11 +24,6 @@ const NavbarMiddle = ({ data }: { data: CategoriesProps[] }) => {
   const router = useRouter();
   
   const onSubmit: SubmitHandler<SearchProps> = async (data) => {
-    if(router.pathname !== '/'){
-    setTimeout(() => {
-      window.location.reload()
-    }, 500);
-  }
     router.push({pathname:'/search',query:{query:data.query,category_id:data.category_id}}); 
 
   }; 
