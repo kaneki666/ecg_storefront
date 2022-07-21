@@ -13,14 +13,13 @@ import ProductItem from "../landing/ProductItem";
 
 const SearchContainer = () => {
   const axiosInstance = useAxios();
-  const [searchData, setSearchData] = useState([]);
   const router = useRouter();
+  const queryData = router.query.query;
+  const categoryId = router.query.category_id;
+  const [searchData, setSearchData] = useState([]);
+  
   async function getsearchData() {
     try {
-      const queryData = router.query.query;
-      const categoryId = router.query.category_id;
-      console.log(categoryId, "categoryId2", queryData, "queryData");
-
       if (categoryId && categoryId != "0" && queryData !== "") {
         const response = await axiosInstance.get(
           `/search-product/?query=${queryData}&category_id=${categoryId}`
@@ -50,7 +49,7 @@ const SearchContainer = () => {
 
   useEffect(() => {
     getsearchData();
-  }, []);
+  }, [categoryId,queryData]);
 
   return (
     <div className="container">
